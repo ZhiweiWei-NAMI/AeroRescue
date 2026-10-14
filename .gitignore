@@ -1,0 +1,53 @@
+# Data & run artifacts (reproduce with aerorescue acquire/prepare/run)
+data/raw/
+data/processed/
+data/platform/
+runs/
+artifacts/
+logs/
+
+# Python / packaging
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+
+# Secrets & credentials
+.env*
+*.pem
+*.key
+*.p12
+credentials*
+*secret*
+*API_KEY*
+
+# Model weights & large binaries
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.onnx
+*.npy
+*.npz
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+
+# Journals / WAL / platform dumps
+*.wal
+*.journal
+**/journals/
+**/wal/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
