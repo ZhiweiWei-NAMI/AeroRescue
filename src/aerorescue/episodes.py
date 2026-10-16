@@ -173,7 +173,7 @@ def read_platform_events(directory: Path, platform: Path) -> list[dict]:
             break
         for record in records:
             for item in record["items"]:
-                if "message" not in item:
+                if not isinstance(item.get("message"), dict):  # delivery items carry only the message id
                     continue
                 message = decode_record(item["message"])
                 if message.schema_id.startswith("rescue.") and message.id not in seen:
