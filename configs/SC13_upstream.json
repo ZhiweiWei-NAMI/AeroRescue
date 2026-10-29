@@ -1,0 +1,553 @@
+{
+  "schema": "rescue.scene-config/v1",
+  "background": {
+    "id": "SC13",
+    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC13/01_structure/geometry/SC13_canonical_grid.npz",
+    "build_report": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/out/SC13/SC13_build_report.json",
+    "scene_list": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
+    "geometry_source": "Allocation source geometry and source-faithful Route-A sidecar; dev/step4/stage_background.py",
+    "console_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery/SC13/aas/console-scene.json",
+    "delivery_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
+    "aas_full_glb": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC13/01_structure/geometry/SC13_aas_full_yup.glb",
+    "layout_json": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC13/01_structure/layout/SC13_route_A_layout.json",
+    "plot_region_kinds": [
+      "metadata_only_empty_clifftop_land",
+      "metadata_only_cliff_side_professional_only",
+      "metadata_only_dry_bay_handoff"
+    ],
+    "keepout_region_kinds": [
+      "metadata_only_water_search_only",
+      "metadata_only_unoccupied_nearshore_approach_not_berth"
+    ]
+  },
+  "scenario_id": "SC13",
+  "seed": 1,
+  "tick_s": 0.5,
+  "until_s": 3600,
+  "agents": [
+    {
+      "id": "coordinator-1",
+      "kind": "coordinator",
+      "overrides": {
+        "task_allowlist": [
+          "T001",
+          "T009",
+          "T027",
+          "T029",
+          "T031",
+          "T032",
+          "T033",
+          "T034",
+          "T035"
+        ],
+        "share_route_updates": true
+      },
+      "spawn": {
+        "id": "coordinator-1",
+        "asset_kind": "shelter",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_dry_bay_handoff"
+        ],
+        "allowed_classes": [
+          "RESERVATION_GROUND",
+          "DRY_BAY_SHINGLE",
+          "COASTAL_GRASS"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "near_entity",
+        "near": "medical-1",
+        "distance_m": [
+          9,
+          15
+        ],
+        "allow_unreserved_surface": true
+      }
+    },
+    {
+      "id": "rope-team-1",
+      "kind": "specialist_team",
+      "overrides": {
+        "task_allowlist": [
+          "T027",
+          "T029",
+          "T031",
+          "T032",
+          "T033",
+          "T034",
+          "T035"
+        ],
+        "capabilities": [
+          "C02",
+          "C04",
+          "C05",
+          "C09",
+          "C11",
+          "C12",
+          "C14",
+          "C31",
+          "C35",
+          "C39",
+          "C42",
+          "C43",
+          "C44",
+          "C45",
+          "C46",
+          "C28",
+          "C16",
+          "C18",
+          "C19",
+          "C20",
+          "C21",
+          "C22",
+          "C08",
+          "C10"
+        ],
+        "sensors": [
+          "scripted_rgb",
+          "scripted_range",
+          "scripted_rf",
+          "scripted_environment"
+        ],
+        "equipment_ids": [
+          "rope-rig-1"
+        ],
+        "action_equipment": {
+          "A017": "rope-rig-1"
+        },
+        "payload_kg": 120
+      },
+      "spawn": {
+        "id": "rope-team-1",
+        "asset_kind": "person",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_cliff_side_professional_only"
+        ],
+        "allowed_classes": [
+          "RESERVATION_GROUND"
+        ],
+        "clearance_m": 0.2,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "near_entity",
+        "near": "rope-rig-1",
+        "distance_m": [
+          4,
+          9
+        ],
+        "allow_unreserved_surface": false,
+        "allowed_region_ids": [
+          "RESV_R_FACE_PRO_ONLY"
+        ]
+      }
+    },
+    {
+      "id": "uav-1",
+      "kind": "uav",
+      "overrides": {
+        "task_allowlist": [
+          "T001",
+          "T009",
+          "T027"
+        ]
+      },
+      "spawn": {
+        "id": "uav-1",
+        "asset_kind": "uav",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_dry_bay_handoff"
+        ],
+        "allowed_classes": [
+          "RESERVATION_GROUND",
+          "DRY_BAY_SHINGLE"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "near_entity",
+        "near": "medical-1",
+        "distance_m": [
+          3,
+          7
+        ],
+        "allow_unreserved_surface": false,
+        "allowed_region_ids": [
+          "RESV_R_BAY_HANDOFF"
+        ]
+      }
+    }
+  ],
+  "placement": {
+    "asset_map": "assets/asset_map.json",
+    "sample_spacing_m": 0.75,
+    "max_draws_per_entity": 1600,
+    "incident_draws": 2500,
+    "approach_depth_m": 4,
+    "buildings": [],
+    "debris": [],
+    "stations": [
+      {
+        "id": "medical-1",
+        "asset_kind": "shelter",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_dry_bay_handoff"
+        ],
+        "allowed_classes": [
+          "RESERVATION_GROUND",
+          "DRY_BAY_SHINGLE"
+        ],
+        "clearance_m": 0.7,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "kind": "medical",
+        "allowed_region_ids": [
+          "RESV_R_BAY_HANDOFF"
+        ],
+        "capacity": 2,
+        "power_W": 500,
+        "receiver_confirmation": true
+      }
+    ],
+    "station_stock": {
+      "water": 0,
+      "medical_pack": 2,
+      "relay": 0,
+      "battery": 0
+    },
+    "equipment": [
+      {
+        "id": "rope-rig-1",
+        "asset_kind": "rope_rig",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_cliff_side_professional_only"
+        ],
+        "allowed_classes": [
+          "RESERVATION_GROUND"
+        ],
+        "clearance_m": 0.1,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "source_anchor",
+        "source_anchor": "rope-rig-ledge",
+        "allowed_region_ids": [
+          "RESV_R_FACE_PRO_ONLY"
+        ],
+        "reserve_states": [
+          "STOWED",
+          "RIGGED"
+        ],
+        "support_footprint_only": true,
+        "fields": {
+          "equipment.kind": "lift",
+          "attr.equipment_subtype": "rope_rescue",
+          "equipment.enabled": true,
+          "equipment.health": "ready",
+          "equipment.setup_state": "stowed",
+          "equipment.rated_load_kg": 150,
+          "equipment.operator_authority": [
+            "rope-team-1"
+          ],
+          "attr.operator_id": "rope-team-1",
+          "attr.operator_reach_m": 25
+        }
+      }
+    ],
+    "humans": [
+      {
+        "id": "cliff-casualty-1",
+        "asset_kind": "person",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_cliff_side_professional_only"
+        ],
+        "allowed_classes": [
+          "RESERVATION_GROUND"
+        ],
+        "clearance_m": 0.2,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "allowed_region_ids": [
+          "RESV_R_FACE_PRO_ONLY"
+        ],
+        "near": "rope-rig-1",
+        "distance_m": [
+          10,
+          13
+        ],
+        "allow_unreserved_surface": false,
+        "human": {
+          "mobility": "trapped",
+          "buriedness": 10,
+          "injury": "serious",
+          "needs": [
+            "extrication",
+            "transport"
+          ],
+          "location_context": "outside",
+          "alive": true
+        },
+        "fields": {
+          "attr.mass_kg": 75,
+          "attr.rope_equipment_id": "rope-rig-1",
+          "attr.professional_access_region": "RESV_R_FACE_PRO_ONLY"
+        }
+      }
+    ],
+    "upstream_generated_scene": {
+      "python": "/mnt/data2/weizhiwei/rescue-generator-stage1/envs/cut4/bin/python",
+      "background_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots",
+      "catalog": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4/catalog_allocated.json",
+      "config": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot/generation-input-rules.json",
+      "input_roots": [
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/configs"
+      ],
+      "walkable_ground_surface": null,
+      "building_metadata": {
+        "BLD-001-G01": {
+          "building.use": "residential",
+          "building.structure": "timber",
+          "building.floors": 1,
+          "building.capacity": 6
+        },
+        "BLD-001-G02": {
+          "building.use": "residential",
+          "building.structure": "masonry",
+          "building.floors": 1,
+          "building.capacity": 6
+        },
+        "BLD-003-G03": {
+          "building.use": "storage",
+          "building.structure": "steel",
+          "building.floors": 1,
+          "building.capacity": 10
+        },
+        "BLD-002-G01": {
+          "building.use": "residential",
+          "building.structure": "masonry",
+          "building.floors": 2,
+          "building.capacity": 6
+        },
+        "BLD-002-G02": {
+          "building.use": "residential",
+          "building.structure": "RC",
+          "building.floors": 2,
+          "building.capacity": 6
+        },
+        "BLD-002-G03": {
+          "building.use": "residential",
+          "building.structure": "RC",
+          "building.floors": 2,
+          "building.capacity": 6
+        },
+        "BLD-003-G01": {
+          "building.use": "storage",
+          "building.structure": "steel",
+          "building.floors": 1,
+          "building.capacity": 10
+        }
+      },
+      "metadata_sources": {
+        "building.structure_and_floors": "dev/rules-export/灾后搜救_3D实体资产清单_1/建筑36态.csv: BLD-001-G01-D0, BLD-001-G02-D0, BLD-003-G03-D0; design semantic classes, not certified structural properties; expanded catalog: BLD-002-G01-D0 (承重砌体 -> masonry, 两层 -> 2), BLD-002-G02-D0 and BLD-002-G03-D0 (RC框架+砌体填充 -> RC, 两层 -> 2), BLD-003-G01-D0 (金属围护板/轻钢门式架 -> steel, 单层 -> 1)",
+        "building.use": "catalog snapshot sources[].land_use; warehouse maps to catalog building.use=storage (10_字段385 F026)",
+        "building.capacity": "generation-input-rules.json population residential_people_range[1]=6 / warehouse_people_range[1]=10; authored occupancy bounds, not measured safe capacity",
+        "walkable_ground_surface": "../blockout_geometry_20261023/delivery_route_A_first4_20261024/route_A_first4_20261024/SC01/01_structure/source/authority_inputs/SC01_BRIEF.md:22 explicitly specifies fine compacted pale soil vacant plots; original source_network roads retain their existing asphalt default from the same brief.",
+        "catalog": "dev/step3/upstream_expanded_snapshot: rescue_scene snapshot over configs/upstream_selection_expanded.json (59 entries), formal Excel + 03_批量资产 copied read-only from gdrive: to _inputs_cache/drive_20261021; 19 base GLB sha256 identical to the base snapshot"
+      },
+      "upstream_scene_id": "SC13",
+      "generation_config": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/generation-input-rules.json",
+      "walkable_ground_surfaces": [
+        null
+      ]
+    }
+  },
+  "display": {
+    "uav_agl_m": 12,
+    "agent_ground_offset_m": 0.15,
+    "person_offset_m": 0.15,
+    "status_height_m": 3,
+    "camera_offset_enu": [
+      -16,
+      -24,
+      13
+    ],
+    "agent_models": {
+      "rope-rig-1": "rope_rig",
+      "medical-1": "shelter"
+    },
+    "asset_uses": [
+      {
+        "asset_id": "NEW-ROPE-001-C01",
+        "state": "STOWED",
+        "display_kind": "rope_rig",
+        "entity": "rope-rig-1",
+        "role": "real finite-capacity professional equipment assigned to rope-team-1",
+        "truth": "equipment.setup_state=stowed",
+        "events_tasks": "Authored prepositioned ledge equipment before a real received T032/A059 contract or assigned T032."
+      },
+      {
+        "asset_id": "NEW-ROPE-001-C01",
+        "state": "RIGGED",
+        "display_kind": "rope_rig_rigged",
+        "entity": "rope-rig-1",
+        "role": "same equipment supporting an actual rope-access/extrication action",
+        "truth": "equipment.setup_state in deploying,ready,in_use",
+        "events_tasks": "A017 start with equipment_id=rope-rig-1 performs actual setup and records setup_state; ordinary A017 capacity/proximity/result governs extrication. Failure/cancellation preserves actual setup state. T033/A020 and T034/A021 still require a truthful technical egress before bay transport."
+      }
+    ],
+    "mission_label": "海岸/崖壁失踪搜索",
+    "camera_focus_entities": [
+      "rope-rig-1",
+      "cliff-casualty-1"
+    ],
+    "model_origins": {
+      "rope_rig": [
+        0,
+        0,
+        0
+      ],
+      "rope_rig_rigged": [
+        0,
+        0,
+        0
+      ]
+    },
+    "state_models": {
+      "rope-rig-1": {
+        "field": "equipment.setup_state",
+        "values": {
+          "stowed": "rope_rig",
+          "deploying": "rope_rig_rigged",
+          "ready": "rope_rig_rigged",
+          "in_use": "rope_rig_rigged",
+          "retracting": "rope_rig_rigged"
+        }
+      }
+    },
+    "camera_observation": {
+      "enabled": true,
+      "agents": {
+        "uav-1": {
+          "pitch_deg": -60,
+          "fov_deg": 70
+        }
+      },
+      "perception": "rescue_scenes.perception_magpie:detect",
+      "perception_workers": 8,
+      "analysis_latency_s": 30,
+      "replace_scripted": true,
+      "confidence": 0.6,
+      "width": 1280,
+      "height": 720,
+      "renderer": {
+        "software_gl": false,
+        "node_modules": "/mnt/data2/weizhiwei/aeroagentsim/AeroAgentSim/frontend/node_modules",
+        "async_capture": true,
+        "render_workers": 4,
+        "max_pending": 16,
+        "poll_interval_s": 0.5,
+        "artifact_fsync": false
+      },
+      "capture_interval_s": 0.5,
+      "python_switch_interval_s": 0.0005,
+      "periodic_agents": [
+        "uav-1"
+      ]
+    }
+  },
+  "assumptions": [
+    "Shared camera allocation/contact policy (authored, uncalibrated; not catalog urgency): all scenes use T002=70, T014=70 (80 for locally believed major/destroyed damage), and established-human T027=78. A single-frame camera-candidate T027 stays <=64; person/human detections of the same locally associated candidate in >=2 distinct capture parent /image IDs from the same reporting agent promote its T027 to 81, above those surveys at a safe boundary. Raw/associated copies, duplicate boxes and replays of the same capture count once. An existing waiting proposed T027 is refreshed in-place once on promotion, without a new A050 or revision; timestamps and frame IDs are not proposal-signature changes. Camera-review T011 stays <=63. Failed candidate A009 sensor contacts suppress the same candidate or a locally recorded site within 3 m for 120 s and require camera presence evidence acquired after the failure before retry; failure does not establish human absence. These are shared defaults even without camera_search_policy; explicit existing overrides are honored, and regional search policies are unchanged. Existing commitments use authored policy fields F202/F209/F212 from 10_字段385; 05_任务96 and 14_场景任务映射 do not mandate task ordering. A coordinator-known accepted/executing commitment with a matching delivered current-task id/revision remains an allocator candidate, subject to priority, interruptibility, capability, access, payload and energy checks. Queued A052 and assignments awaiting delivery/acceptance remain reserved; unmatched current-task reports do not release them. A053 acceptance-to-deadline windows are not unconditional uninterruptible leases: replacement acceptance still waits for the real action boundary and A056 checkpoint, with A057 revalidation on resume. Equal-priority 81 contacts cannot interrupt each other. A queued camera T027 is canceled as stale through A054 only when its exact local candidate has a delivered belief.entity_ref and the referenced human needs are known without a contact need. Recheck before allocation/acceptance and before initial approach/A009, not after this task own successful contact; no distance-only identity or suppression of unassociated tracks. A059 services may preempt only a lower-priority executing preemptible ordinary commitment through the existing A053/A056 action-boundary checkpoint and A057 resume; active service scopes and real capability/access/energy/aboard constraints remain binding. Service A053 rechecks local commitments, and refusals retain busy/payload/access/energy/tool causes instead of all becoming capability failures. Fresh unassociated tracks can still starve lower-priority searches under this unchanged policy. No scene switch, truth, count, location, outcome or capability change is introduced. Survey-relative starvation is expected to be removed only when corroboration and real capability, access, energy and delivery permit; contact, rescue and fixed-horizon results are not guaranteed.",
+    "Camera re-sightings of an already contacted person (a local non-camera human with delivered contact needs) associate to that person when strict point-in-box and camera-track matches miss, using the same measured box tests: its contact foot point projected inside the box, else within the measured bottom-edge half-span around the box bottom-centre ground estimate. One-person-per-frame exclusion still applies. This prevents repeat contacts of the same known resident from minting new tracks; it never marks an uncontacted or unknown person absent and changes no truth, needs, urgency or capability.",
+    "A carrier with an unacknowledged person aboard does not accept (A053) or resume (A057) unrelated work such as contact, survey or clearance until that person is handed over; care, load, transport, handover and water-recovery tasks (T029-T036) still proceed. This applies the existing A059 service rule (\"a team with a person aboard finishes that person's handover before serving anyone else\") to ordinary tasks. A deferred commitment stays suspended, not failed; capacity, access, receiver and truth checks are unchanged.",
+    "v0.5 scripted sensing/network/compute and authored, uncalibrated equipment/work models; no vision backend or calibrated rescue physics.",
+    "Background support, roads/tracks, widths, accesses and reservations come from the original build inputs and selected pure geometry functions, exported by dev/export_scene_sources.py; sources/sha256 records their exact provenance. No new road, pad or off-scene continuation is invented.",
+    "Compact authored incident and deployment rules only. Seed controls sampled positions and headings. Task allowlists still require local observations, beliefs, capability checks, allocation and real action results; no rescue outcome is scripted.",
+    "Canonical grid U remains the height source. Unit model scale is retained. Scene-specific professional access limits and source surface names must survive semantic adaptation; a foot tread is not asphalt or vehicle access.",
+    "The rig and professional team are authored prepositioned on the existing RESV_R_FACE_PRO_ONLY U25 ledge; this does not assert a walking deployment path. One 75 kg trapped casualty with ten abstract extrication work units is on that same source ledge. Rig rated load 150 kg is an authored model assumption, not an asset certification.",
+    "The western bay has the only exported descending foot trail. No road, access spur or walking link is invented to the professional-only face ledge. A017 may free the casualty locally, but transfer off this isolated ledge must use a real technical-access implementation; absent that implementation, transport remains honestly blocked.",
+    "The rig uses its authored ground-support origin and -Z forward axis, facing along the source ledge's actual outward normal (about 266.82 degrees). Only the supporting feet must lie on the ledge; the suspended rope/basket extends beyond it. Normalizing the lowest basket vertex to ground would falsely lift the entire rig.",
+    "Source/asset geometry predicts a basket/terrain intersection at this ledge: the source drops 22 m over 10 m south of its U25 edge. P7 build.py places the basket back rim only about 0.20 m beyond the supporting edge while its bottom is 1.433 m below origin; a basket-centre calculation would underestimate the intersection. P7 must lift/shorten only the hanging basket/rope/bridle portion by about 1.05 m (or supply a demonstrated fitting source pose). Keep the tripod grounded and at unit scale.",
+    "The inherited SC13 600 s target_moves event is retained. It is an authored secondary hazard, not a successful rescue. If it moves the casualty off the ledge or interrupts access, actual task/action failures remain visible.",
+    "S9 shared integration uses existing facility semantics for physical equipment/facilities and G02 placed_humans/pinned_humans for people. No new upstream semantic class is introduced.",
+    "The explicit public regional-survey brief contains only map-level search intent. T001/A005 must obtain real local evidence before rescue or hazard tasks are proposed; no casualty or hazard state is seeded into public priors.",
+    "display.model_origins declares each new production family origin [0,0,0] in GLB +Y-up metres; state variants share it at unit scale. This preserves authored support contacts and asymmetric equipment without editing source assets.",
+    "State display entities are predeclared and selected only from actual equipment, human-carrier, facility-leak and spill-volume truth. Inactive variants retract POSITION; no hidden model is parked away from the incident.",
+    "The rig has an authored 25 m local crew work envelope and 150 kg rating for the 75 kg casualty. A017 binds this actual rig, checks capacity/authority/health, and sets in_use only on action start; ready persists after work. No technical egress endpoint is supplied: ordinary ground movement is allowed within the source ledge, while ledge exit/entry is blocked in planning and physical execution. Final bay transport/handover therefore remain unachieved. The profile target_moves event may later move a freed limited-mobility person and remains an actual secondary event, never an egress success.",
+    "Display/footprint assumption: the bay receiving point medical-1 uses the existing 6.6 x 3.3 m settlement unit BLD-028-G02-D0. The 9.96 x 18.35 m modular medical point BLD-028-G01 has no legal footprint in RESV_R_BAY_HANDOFF (36 x 16 m) while its 3 m foot path is kept clear, and the generator rejected it explicitly. Receiving capacity and confirmation semantics are unchanged.",
+    "Generated instance presence is not task completion; existing agent capabilities, beliefs, execution, logs and AAS plugin remain authoritative.",
+    "Compatibility authority: configs/asset_allocation.json scenes.SC13.rules. Mission provenance records explicit delivered-BASE human substitutions; missing assets are not fetched or credited as delivered variants.",
+    "Camera observation settings reuse SC01; task allowlists/capabilities remain scene-specific. Missing generated incident subjects or exact staffed facilities refuse explicitly."
+  ],
+  "public_brief_zh": "对已标注区域开展侦察评估，搜索实际人员或危险源证据；依据本地观测、可达性、装备和接收回执完成救援。",
+  "config_source": "dev/step4/make_scene_configs.py; allocation compatibility; existing mission rules"
+}

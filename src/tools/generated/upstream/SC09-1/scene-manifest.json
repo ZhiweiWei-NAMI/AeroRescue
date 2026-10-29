@@ -1,0 +1,180 @@
+{
+  "assets": {
+    "RSC-002-C02-BASE": {
+      "file": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot/assets/RSC-002-C02-BASE/RSC-002-C02-BASE.glb",
+      "kind": "prop",
+      "label": "upstream",
+      "licence": "user_authorized_formal_delivery; source terms retained",
+      "measurement": {
+        "bounds_enu_m": [
+          [
+            -0.30008000135421753,
+            -0.20000001788139343,
+            -7.999999797903001e-05
+          ],
+          [
+            0.30008000135421753,
+            0.20000001788139343,
+            0.3500799834728241
+          ]
+        ],
+        "dimensions_enu_m": [
+          0.6001600027084351,
+          0.40000003576278687,
+          0.3501599834708031
+        ],
+        "entrance_clearance_m": null,
+        "footprint_enu_m": [
+          [
+            -0.30008000135421753,
+            -0.02250000089406967
+          ],
+          [
+            -0.30000001192092896,
+            -0.20000001788139343
+          ],
+          [
+            0.30000001192092896,
+            -0.20000001788139343
+          ],
+          [
+            0.30008000135421753,
+            -0.02250000089406967
+          ],
+          [
+            0.30008000135421753,
+            0.02250000089406967
+          ],
+          [
+            0.30000001192092896,
+            0.20000001788139343
+          ],
+          [
+            -0.30000001192092896,
+            0.20000001788139343
+          ],
+          [
+            -0.30008000135421753,
+            0.02250000089406967
+          ]
+        ],
+        "footprint_policy": "conservative convex hull of actual current-state vertices",
+        "frame": "[E,U,-N]",
+        "measurement": "decoded POSITION, default morph weights, evaluated default skin joint and ancestor world transforms",
+        "pivot_enu_m": [
+          0,
+          0,
+          0
+        ],
+        "pose_evaluation": "glTF default node pose; animation clips not played or counted",
+        "primitives": 74,
+        "triangles": 85448,
+        "units": "metres",
+        "unknown_metadata": [
+          "entrance_clearance",
+          "work_area",
+          "certified_support",
+          "population"
+        ],
+        "work_area": null
+      },
+      "poses": [],
+      "sha256": "4e7fcaa4bf9fc360cd2161047f682c4b56cd9b0f654024a65ceba6d8db341a7b"
+    }
+  },
+  "digest": "sha256:8e71de934e9e77d5a91476400c644c70824b028afe42e5d2dc641657f44c2ebf",
+  "frame": {
+    "bounds_m": [
+      -500.0,
+      -400.0,
+      500.0,
+      400.0
+    ],
+    "crs": "local_ENU_m",
+    "glb_up": "Y",
+    "three_from_enu": "[E,U,-N]"
+  },
+  "generation": {
+    "provenance": {
+      "asset_allocation": {
+        "file": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/configs/asset_allocation.json",
+        "rules": 36,
+        "scene_id": "SC09",
+        "sha256": "6e8682a107c1828c8d3abb3299c8e213452cedd9c790ea6b094cba6a754ca59c"
+      },
+      "background_files": {
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC09/01_structure/geometry/SC09_aas_full_yup.glb": "02ccc7c0a81ff056f3339bf339686855b978df4ded44616b60d1b9334c1f0381",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC09/01_structure/geometry/SC09_canonical_grid.npz": "203b6629a9e6c0c3ded10add0f3ef3f61f96cdae938a0b245e5658bb70f3ff85",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC09/01_structure/geometry/SC09_physical_for_chisel_yup.glb": "b5f41cdf20eee81350bd46a406dbce0b850b57d3190421872044bbe999482fa9",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC09/01_structure/layout/SC09_route_A_layout.json": "aeb05e157b3ccc1520161a8fec54f45bd2393eff0ea2ac2f35a8a252dfe6bf41",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC09/01_structure/source/common.py": "5fcb6ae5c5a703d074d40d0f0afcb944e8d1d35538256ece8ae07f2ceef27b68"
+      },
+      "catalog": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4/catalog_allocated.json",
+      "catalog_sha256": "c0687aa5fc0b28ccccf96df6eb732839176b3479f93e7ec52b92262558cefc51",
+      "config_sha256": "f4bbe4c53d3ca30db0be01ee4f4697d5a01ea6e45ede388293d66938d419082c",
+      "coverage_checkpoint": null,
+      "coverage_mode": "none",
+      "coverage_target_ids": [],
+      "coverage_target_set_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "geometry_source_sha256": "ca3386d5b4d1f025ef36e704130cc70c226aa1b086bd528be269fc63b888c710",
+      "input_roots": [
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/configs"
+      ],
+      "previous_coverage": [],
+      "rng_stages": [
+        "asset_allocation",
+        "runtime_public"
+      ],
+      "rule_source_sha256": "54ae01bee2d1409ed4e6b7817e557f00488deda19f48a342ef3d9197e2b48e09",
+      "rule_version": "route-a-3",
+      "sampling": "ordinary",
+      "seed": 1
+    },
+    "scene_file": "scene.json",
+    "scene_sha256": "9f196d9e2a0ad1a9bacbac6e92a853c7c33799814427979cd5011e5f61db08f2",
+    "seed": 1,
+    "status": "FAIL"
+  },
+  "id": "SC09-seed-1",
+  "layers": [
+    {
+      "file": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC09/01_structure/geometry/SC09_aas_full_yup.glb",
+      "id": "SC09",
+      "kind": "visual_lod",
+      "label": "upstream",
+      "licence": "user_authorized_background",
+      "note_zh": "完整Route A；metadata reservation不可显示为实体",
+      "sha256": "02ccc7c0a81ff056f3339bf339686855b978df4ded44616b60d1b9334c1f0381"
+    }
+  ],
+  "scenario_ids": [
+    "SC09"
+  ],
+  "schema": "rescue.scene-manifest/v1",
+  "slots": [
+    {
+      "asset_id": "RSC-002-C02-BASE",
+      "kind": "prop",
+      "note_zh": "正式当前态；具体放置见WorldTruth实例",
+      "placeholder": false,
+      "replaceable": true,
+      "slot_id": "SC09-allocated-0010-001"
+    }
+  ],
+  "terrain": {
+    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC09/01_structure/geometry/SC09_canonical_grid.npz",
+    "grid_sha256": "203b6629a9e6c0c3ded10add0f3ef3f61f96cdae938a0b245e5658bb70f3ff85",
+    "lookup": "route_a_nonuniform_sw_ne_v1",
+    "support_mesh": {
+      "file": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC09/01_structure/geometry/SC09_physical_for_chisel_yup.glb",
+      "sha256": "b5f41cdf20eee81350bd46a406dbce0b850b57d3190421872044bbe999482fa9",
+      "triangles": 150552,
+      "vertex_source": "route_A canonical_grid exact"
+    }
+  }
+}

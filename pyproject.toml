@@ -17,3 +17,9 @@ aerorescue = "aerorescue.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[project.entry-points."aeroagentsim.engines"]
+rescue_scenes = "rescue_scenes.engine:build"
+
+[tool.setuptools.package-data]
+rescue_scenes = ["catalog/*", "SOURCES.json"]

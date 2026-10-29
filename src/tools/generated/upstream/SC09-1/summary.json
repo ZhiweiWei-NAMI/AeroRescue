@@ -1,0 +1,46 @@
+{
+  "actual_D0_fraction": null,
+  "actual_facility_fraction": null,
+  "affected_people_candidates": 0,
+  "authored_placed_geometry": 1,
+  "blocked_road_segments": 0,
+  "counts_by_asset_id": {
+    "RSC-002-C02-BASE": 1
+  },
+  "counts_by_role": {
+    "container": 1
+  },
+  "coverage_targets": {
+    "activated_instances": {},
+    "all_targets_activated": null,
+    "covered_claim": false,
+    "meaning": "requested scheduling targets, not prior or rendered coverage",
+    "mode": "none",
+    "reserved_instances": {},
+    "target_ids": [],
+    "target_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "covered_geometry": 0,
+  "damaged_buildings": 0,
+  "density_pass": null,
+  "disaster_events": 0,
+  "environment_roles": {},
+  "facility_count_targets": {},
+  "facility_counts": {},
+  "gap_rows": 500,
+  "geometry_denominator": 464,
+  "gross_plot_area_m2": 0,
+  "instances": 1,
+  "not_placed_geometry": 463,
+  "people": 0,
+  "rejections": 1,
+  "remaining_collisions": 0,
+  "scene_id": "SC09",
+  "seed": 1,
+  "status": "FAIL",
+  "target_building_fraction": null,
+  "task_requirements": 0,
+  "tasks_executable": 0,
+  "uncovered_geometry": 464,
+  "usable_plot_area_m2": 0
+}

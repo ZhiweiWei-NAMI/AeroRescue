@@ -1,0 +1,15 @@
+[
+  {
+    "acceptance_id": "RSC-002-C02-BASE",
+    "decision": "reject",
+    "reason": "full_footprint_outside_allocated_source_classes",
+    "stage": "asset_allocation"
+  },
+  {
+    "acceptance_id": "RSC-002-C02-BASE",
+    "decision": "accept",
+    "instance_id": "SC09-allocated-0010-001",
+    "rule_index": 9,
+    "stage": "asset_allocation"
+  }
+]

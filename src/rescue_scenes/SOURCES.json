@@ -1,0 +1,18 @@
+{
+  "catalog": "catalog/AeroRescue_任务行动能力状态字典_v1.json",
+  "scenario": "SC01",
+  "scope": "Catalog-grounded vocabulary; authored execution models, never measured rescue performance.",
+  "tasks": ["T001","T002","T014","T015","T020","T022","T023","T027","T032","T033","T034","T035","T047","T087"],
+  "sequences": ["Q001","Q002","Q014","Q015","Q020","Q022","Q023","Q027","Q032","Q033","Q034","Q035","Q047","Q087","Q098","Q099","Q100","Q110"],
+  "operations": {"search":"A008/C15","contact":"A009/C11","light_clearance":"A012/C16","heavy_clearance":"A013/C17","extrication":"A017/C18+C20+C46","loading":"A020/C22","transport":"A021/C22","handover":"A022/C22+C46","specialist_request":"A059","local_route_planning":"A066","report":"A036","belief_update":"A041"},
+  "catalog_source_mapping": {"search_clearance_extrication_handover":"S01 as mapped by the catalog; operations stay separate", "robot_capability_limits":"S02 as mapped by the catalog; dog has neither C16 nor C17 and does not gain medical, extrication or person-transport tools"},
+  "survey": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/docs/AeroRescue-literature-survey-2026-10-14.md",
+  "survey_references": [
+    {"title":"Queralta et al., Collaborative Multi-Robot Search and Rescue, IEEE Access 2020", "url":"https://ieeexplore.ieee.org/document/9220149", "mapped_section":"B", "used_for":"General heterogeneous SAR, allocation, coverage and sensing context; not specific clearance rates or equipment certification."},
+    {"title":"Task Allocation with Temporal Task Chains, Drones 2025 9(8):574", "url":"https://www.mdpi.com/2504-446X/9/8/574", "mapped_section":"A.2 and B", "used_for":"Sequential role dependencies and capability matching; not validation of this implementation's rescue chain."}
+  ],
+  "limits": "The supplied survey does not establish detailed extrication/handover procedures or numerical equipment limits. Those operation IDs come from the supplied catalog; all chosen geometry, casualties, work, speeds, sensing probabilities, ranges, durations and receiver policies are explicit uncalibrated assumptions. No additional literature claims were invented.",
+  "upstream_runtime": "core/UPSTREAM_REVISION; env-v0.5 SPEC.md/HANDOFF.md",
+  "integration_reference": "/mnt/data2/weizhiwei/rescue-generator-stage1/scene-v0.6-cut4/rescue_scene/engine.py (AAS lockstep and artifact pattern only)",
+  "frame": "Canonical grid ENU metres; positive core XY offset; AAS ENU positions -> three.js [E,U,-N]. Height is bilinear canonical-grid interpolation."
+}

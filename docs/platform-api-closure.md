@@ -1,0 +1,1 @@
+本轮平台/API闭环验收见 [continuation/platform-api-closure.md](../delivery_20261028/continuation/platform-api-closure.md)，机器矩阵见 [platform-api-matrix.json](../delivery_20261028/continuation/platform-api-matrix.json)。

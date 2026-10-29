@@ -1,0 +1,547 @@
+{
+  "schema": "rescue.scene-config/v1",
+  "background": {
+    "id": "SC01",
+    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC01/exports/SC01_canonical_grid.npz",
+    "build_report": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC01/SC01_build_report.json",
+    "scene_list": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
+    "geometry_source": "Tagged METADATA_RESERVATION polygons in aas_full_glb; roads and accesses in same-source layout_json",
+    "console_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/marble_sc01_v2_8d28a383/console-scene.SC01v2_splat_full.json",
+    "delivery_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
+    "aas_full_glb": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC01/exports/SC01_aas_full_yup.glb",
+    "layout_json": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/route_A_first4/SC01/layout/SC01_route_A_layout.json",
+    "plot_region_kinds": [
+      "dry_placement"
+    ],
+    "keepout_region_kinds": [
+      "metadata_only_internal_clear_strip"
+    ]
+  },
+  "scenario_id": "SC01",
+  "seed": 1,
+  "tick_s": 1,
+  "until_s": 3600,
+  "agents": [
+    {
+      "id": "coordinator-1",
+      "kind": "coordinator",
+      "overrides": {
+        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
+        "share_route_updates": true,
+        "task_allowlist": [
+          "T002",
+          "T014",
+          "T015",
+          "T022",
+          "T023",
+          "T027",
+          "T029",
+          "T032",
+          "T033",
+          "T034",
+          "T035",
+          "T087",
+          "T031"
+        ]
+      },
+      "spawn": {
+        "mode": "near_entity",
+        "asset_kind": "shelter",
+        "count": 1,
+        "near": "ground_vehicle-1",
+        "distance_m": [
+          9.0,
+          27.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "MARGIN_GROUND",
+          "PLOT_SURFACE"
+        ],
+        "clearance_m": 1.0,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "face_nearest_road",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        }
+      }
+    },
+    {
+      "id": "robot_dog-1",
+      "kind": "robot_dog",
+      "overrides": {
+        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
+        "task_allowlist": [
+          "T014",
+          "T015",
+          "T027",
+          "T032",
+          "T033",
+          "T087"
+        ]
+      },
+      "spawn": {
+        "mode": "near_entity",
+        "asset_kind": "robot_dog",
+        "count": 1,
+        "near": "coordinator-1",
+        "distance_m": [
+          5.0,
+          13.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "SIDEWALK",
+          "MARGIN_GROUND",
+          "PLOT_SURFACE",
+          "ACCESS_APRON_LANE"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.25,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        }
+      }
+    },
+    {
+      "id": "uav-1",
+      "kind": "uav",
+      "overrides": {
+        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
+        "task_allowlist": [
+          "T001",
+          "T002",
+          "T047"
+        ]
+      },
+      "spawn": {
+        "mode": "near_entity",
+        "asset_kind": "uav",
+        "count": 1,
+        "near": "coordinator-1",
+        "distance_m": [
+          5.0,
+          13.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "SIDEWALK",
+          "MARGIN_GROUND",
+          "PLOT_SURFACE",
+          "ACCESS_APRON_LANE"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.25,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        }
+      }
+    },
+    {
+      "id": "ground_vehicle-1",
+      "kind": "ground_vehicle",
+      "overrides": {
+        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
+        "navigation_goals": [
+          {
+            "target": "access-nw",
+            "purpose": "access",
+            "arrived": false
+          }
+        ],
+        "capabilities": [
+          "C02",
+          "C04",
+          "C05",
+          "C09",
+          "C14",
+          "C22",
+          "C24",
+          "C26",
+          "C27",
+          "C31",
+          "C32",
+          "C33",
+          "C34",
+          "C35",
+          "C36",
+          "C37",
+          "C39",
+          "C43",
+          "C45",
+          "C28",
+          "C29",
+          "C42",
+          "C44",
+          "C46"
+        ],
+        "task_allowlist": [
+          "T020",
+          "T033",
+          "T034",
+          "T035"
+        ]
+      },
+      "spawn": {
+        "mode": "network_boundary_entry",
+        "asset_kind": "ambulance",
+        "count": 1,
+        "allow_on_carriageway": true,
+        "boundary_distance_m": 0.5,
+        "boundary_setback_m": [
+          5.0,
+          9.0
+        ],
+        "allowed_classes": [
+          "ROAD_CARRIAGEWAY"
+        ],
+        "clearance_m": 0.6,
+        "rotation": {
+          "policy": "into_network"
+        },
+        "navigation_access_of": "building-1"
+      }
+    },
+    {
+      "id": "specialist_team-1",
+      "kind": "specialist_team",
+      "overrides": {
+        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
+        "payload_kg": 20,
+        "capabilities": [
+          "C16",
+          "C17",
+          "C18",
+          "C19",
+          "C20",
+          "C21",
+          "C22",
+          "C30",
+          "C46",
+          "C47",
+          "C48",
+          "C11",
+          "C31",
+          "C43",
+          "C08",
+          "C10",
+          "C02",
+          "C42",
+          "C39",
+          "C44",
+          "C28",
+          "C09",
+          "C14"
+        ],
+        "sensors": [
+          "scripted_rf",
+          "scripted_environment",
+          "scripted_range"
+        ],
+        "task_allowlist": [
+          "T022",
+          "T023",
+          "T033",
+          "T031"
+        ]
+      },
+      "spawn": {
+        "mode": "near_entity",
+        "asset_kind": "person",
+        "count": 1,
+        "near": "coordinator-1",
+        "distance_m": [
+          5.0,
+          13.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "SIDEWALK",
+          "MARGIN_GROUND",
+          "PLOT_SURFACE",
+          "ACCESS_APRON_LANE"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.25,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        }
+      }
+    },
+    {
+      "id": "clearance_loader-1",
+      "kind": "ground_vehicle",
+      "spawn": {
+        "mode": "near_entity",
+        "asset_kind": "clearance_loader",
+        "count": 1,
+        "near": "ground_vehicle-1",
+        "distance_m": [
+          9.0,
+          26.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "MARGIN_GROUND",
+          "PLOT_SURFACE"
+        ],
+        "clearance_m": 1.0,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "face_nearest_road",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        }
+      },
+      "overrides": {
+        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
+        "capabilities": [
+          "C02",
+          "C04",
+          "C05",
+          "C09",
+          "C14",
+          "C17",
+          "C31",
+          "C39",
+          "C42",
+          "C43",
+          "C44",
+          "C45",
+          "C46"
+        ],
+        "task_allowlist": [
+          "T023"
+        ]
+      }
+    }
+  ],
+  "placement": {
+    "asset_map": "assets/asset_map.json",
+    "sample_spacing_m": 0.75,
+    "max_draws_per_entity": 1600,
+    "incident_draws": 2500,
+    "approach_depth_m": 14.0,
+    "buildings": [
+      {
+        "count": 1,
+        "asset_kind": "building",
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allowed_classes": [
+          "PLOT_SURFACE"
+        ],
+        "clearance_m": 1.5,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "face_access",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "reserve_damage_grades": [
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "require_nearest_access": true,
+        "id": "building-1",
+        "kind": "building",
+        "damage_grade": "D2",
+        "occupants": [
+          {
+            "mobility": "trapped",
+            "buriedness": 20,
+            "injury": "serious",
+            "needs": [
+              "extrication",
+              "transport"
+            ],
+            "location_context": "interior"
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "asset_kind": "building",
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allowed_classes": [
+          "PLOT_SURFACE"
+        ],
+        "clearance_m": 1.5,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "reserve_damage_grades": [
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "require_nearest_access": true,
+        "id": "building-2",
+        "kind": "building",
+        "damage_grade": "D1",
+        "occupants": []
+      }
+    ],
+    "debris": [
+      {
+        "id": "debris-1",
+        "kind": "obstacle",
+        "asset_kind": "debris",
+        "count": 1,
+        "intent": "access_route_blockage",
+        "source": "building-1",
+        "staging_agent": "ground_vehicle-1",
+        "collapse_reach_m": 28.0,
+        "segment_end_clearance_m": 4.0,
+        "along_road_window_m": 10.0,
+        "allowed_classes": [
+          "ROAD_CARRIAGEWAY",
+          "CURB_FACE"
+        ],
+        "clearance_m": 0.5,
+        "rotation": {
+          "policy": "along_segment"
+        },
+        "volume_m3": 2,
+        "height_m": 0.2,
+        "work": 120
+      }
+    ],
+    "stations": [
+      {
+        "id": "medical-1",
+        "kind": "medical",
+        "asset_kind": "medical_point",
+        "count": 1,
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allowed_classes": [
+          "PLOT_SURFACE"
+        ],
+        "different_plot_from": "building-1",
+        "clearance_m": 1.5,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "require_nearest_access": true,
+        "rotation": {
+          "policy": "face_access",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "capacity": 4,
+        "power_W": 500,
+        "receiver_confirmation": true
+      }
+    ]
+  },
+  "display": {
+    "uav_agl_m": 12,
+    "agent_ground_offset_m": 0.15,
+    "person_offset_m": 0.15,
+    "status_height_m": 3,
+    "camera_offset_enu": [
+      -60,
+      -75,
+      70
+    ],
+    "agent_models": {
+      "clearance_loader-1": "clearance_loader",
+      "ground_vehicle-1": "ambulance"
+    }
+  },
+  "assumptions": [
+    "SC01/GT04 casualty-work scheduling override (authored, uncalibrated; not catalog urgency): casualty_work_policy sets locally believed major/destroyed-building T014=82 above corroborated camera-candidate T027=81, T033=89 above T029=86, and T034=90 above new loading, below T035=91; T031=94 and all physical guards remain unchanged. A waiting proposed T014 is monotonically promoted once on delivered major/destroyed damage, clearing its old allocation retry delay without A050 or a new revision; later damage estimates remain unchanged and this promotion is not damage certainty. Other first-search priorities, uncertainty, observations and ordinary residents stay intact. At real action boundaries, queued substantive A053/A056/A057/A058 controls run before another old method/approach starts, and an in-flight commitment change holds that lane until its result; this neither instantly stops an active action nor releases occupancy. Assignments include the known person response/evidence for an exact belief.entity_ref alias, so existing stale-contact checks can cancel already resolved contacts through A054; no distance-only identity, mobile/uninjured-to-no-needs inference or truth role filter is introduced. A queued T014 is canceled as stale when a locally received belief.search_status=complete already resolves its building, including recheck before A008 after travel; this adds no search success and partial/inconclusive T015 remains eligible. Missing medical stock stays a real A019 failure: catalog A024 needs C24 and A028 needs C27; neither is granted to the specialist. Existing carrier transport and receiver-side T031 remain available. No payload, pickup range, receiver, road, hidden truth or capability is changed, and a rescue within 3600 s is not asserted without a run.",
+    "v0.5 scripted sensing/network/compute; no vision, ns-3 or calibrated rescue physics.",
+    "Buildings, damage grades D0-D3 (local four-grade display convention), interior casualties and debris are authored initial conditions. Seeded rejection sampling changes plots, positions, headings and deployment entries; no action outcome is scripted.",
+    "Plot and keep-out polygons are read from tagged GLB reservation extras; roads and access lanes come directly from the same-source layout JSON. Every footprint is sampled through its interior at <=0.75 m and checked against touched canonical grid cells. Bilinear canonical elevation is used at every rendered pose; core navigation remains horizontal metric XY with plot approach connectors.",
+    "Access-route blockage is an initial-condition constraint: the source building, boundary road entry and matching blocked junction segment are sampled together so the blockage lies on the public-map shortest route to that building plot access. Authored collapse reach is 28 m measured from the actual initial building model footprint to actual debris; plot edges are approximately 14-16.5 m off the carriageway. Rubble has the asset footprint (its transverse width determines remaining road clearance), abstract 0.2 m step height and 120 work units. Clearance and rescue still require ordinary agent observations, tools, messages and actions.",
+    "All displayed models retain unit scale. Building placement reserves a symmetric envelope around the shared D0 origin covering D0-D3 bounds, including asymmetric collapsed D3 spread. Plot access corridors retain source access width and extend 14 m into each plot, and direct plot-access approaches to each building/station remain clear of other footprints; buildings, the medical point and command post keep them clear. Medical placement uses a different plot from the casualty building. The fixed shelter command post and dog/team/UAV starts use explicitly allowed off-carriageway surfaces near the sampled entry; only the pickup may start on its boundary carriageway segment.",
+    "Specialist team has installed catalog rescue/clearance tools but 20 kg carrying capacity in this configuration, so a person needs the ground vehicle; dog capabilities are unchanged.",
+    "A3 authored equipment assumption: the professional team carries range measurement (C09/scripted_range) and local route planning (C14) for Q022/Q023 access verification. Existing C16/C17 remain its clearance interfaces; no capability implies guaranteed work success.",
+    "A3 authored vehicle assumption: this transport vehicle (displayed as the produced RSC-008-C01 van ambulance, lane P5: closed, or the LOADED state while it truly carries a person) retains catalog C22 personnel loading/transport and the inherited 800 kg total payload rating, but has no C16 manipulation or C17 engineering tools. Q033/Q034 permit its own C22 loading; they do not require a second loading actor. The specialist's 20 kg capacity is not enlarged.",
+    "A3 mission scope: specialist autonomous proposals cover T022/T023/T033; extrication remains the existing received A059/A017 service. Vehicle blockage observations must reach the coordinator before coordinator clearance proposals can exist. Allowlists restrict proposals, while executor capability, embodiment and payload checks govern assignments and self-acceptance.",
+    "Task allowlists define this compact mission scope; all selected tasks still require local belief rules, messages, capability checks and allocation. Coordinator forwards measured route updates through the scripted network.",
+    "Search misses, action failures, unassigned tasks and unfinished objectives remain visible. A receiving point is an abstract staffed station with explicit confirmation and finite capacity.",
+    "Speeds, radio ranges, sensing probabilities, durations and work rates inherited from v0.5 are uncalibrated model assumptions. Models/glyphs are display assets only.",
+    "Produced asset NEW-ENG-001-C01 (compact wheel loader, lane P1, not yet in the formal Excel) is the display model of clearance_loader-1, a catalog ground_vehicle embodiment configured with heavy-clearance capability C17 (A013) plus sensing/route/comms capabilities; it parks off the carriageway near the deployment entry and is only one clearance candidate - allocation still chooses between it and the specialist team."
+  ]
+}

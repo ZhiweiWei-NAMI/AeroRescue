@@ -1,0 +1,45 @@
+{
+  "schema_id": "rescue.camera.request",
+  "payload": {
+    "request_id": "rescue-camera/uav-1/periodic/7141",
+    "run_id": "SC07-rescue-20261029T021638299293Z",
+    "actor": {
+      "run_id": "SC07-rescue-20261029T021638299293Z",
+      "epoch": "0",
+      "id": "uav-1",
+      "generation": 0,
+      "type_id": "rescue:UAV"
+    },
+    "source_cut": {
+      "index": 81534,
+      "instant": [
+        3570500000000,
+        0
+      ]
+    },
+    "camera": {
+      "revision": "rescue-agent-camera/v1",
+      "frame": "enu",
+      "pose_enu": [
+        -276.0,
+        -160.0,
+        14.968
+      ],
+      "yaw_deg": -89.99999999779618,
+      "pitch_deg": -60,
+      "fov_deg": 70,
+      "calibration": true
+    },
+    "asset_digest": "sha256:66858c89671d7f3dd30a5f3b59be9f6997e0a13e339f4cfa3356bd58bfdcf891",
+    "acquired": {
+      "clock_id": "canonical",
+      "numerator": 3570500000000,
+      "denominator": 1,
+      "mapping_id": "canonical"
+    },
+    "width": 1280,
+    "height": 720,
+    "timeout_s": 120
+  },
+  "source_run": "SC07_rescue.scenario-4a9520bc202e"
+}

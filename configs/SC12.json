@@ -1,0 +1,387 @@
+{
+  "schema": "rescue.scene-config/v1",
+  "background": {
+    "id": "SC12",
+    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/out/SC12/exports/SC12_canonical_grid.npz",
+    "build_report": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/out/SC12/SC12_build_report.json",
+    "scene_list": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
+    "geometry_source": "Tagged GLB METADATA_RESERVATION polygons; exported same-source road/track/access layout and source features (sources.sha256)",
+    "console_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery/SC12/aas/console-scene.json",
+    "delivery_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
+    "aas_full_glb": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/out/SC12/exports/SC12_aas_full_yup.glb",
+    "layout_json": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/sources/SC12/SC12_layout.json",
+    "plot_region_kinds": [
+      "empty_volume_reservation"
+    ],
+    "keepout_region_kinds": []
+  },
+  "scenario_id": "SC12",
+  "seed": 1,
+  "tick_s": 1,
+  "until_s": 3600,
+  "agents": [
+    {
+      "id": "coordinator-1",
+      "kind": "coordinator",
+      "overrides": {
+        "task_allowlist": [
+          "T001",
+          "T009",
+          "T027",
+          "T029",
+          "T033",
+          "T034",
+          "T035",
+          "T031"
+        ],
+        "share_route_updates": true
+      },
+      "spawn": {
+        "id": "coordinator-1",
+        "asset_kind": "shelter",
+        "count": 1,
+        "allowed_region_kinds": [
+          "empty_volume_reservation"
+        ],
+        "allowed_classes": [
+          "RESERVATION_GROUND"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "near_entity",
+        "near": "medical-1",
+        "distance_m": [
+          9,
+          17
+        ],
+        "allow_unreserved_surface": false,
+        "allowed_region_ids": [
+          "RESV_R_ENTRY_CAMP"
+        ]
+      }
+    },
+    {
+      "id": "sled-team-1",
+      "kind": "specialist_team",
+      "overrides": {
+        "task_allowlist": [
+          "T027",
+          "T029",
+          "T033",
+          "T034",
+          "T035",
+          "T031"
+        ],
+        "capabilities": [
+          "C02",
+          "C04",
+          "C05",
+          "C09",
+          "C11",
+          "C12",
+          "C14",
+          "C31",
+          "C35",
+          "C39",
+          "C42",
+          "C43",
+          "C44",
+          "C45",
+          "C46",
+          "C28",
+          "C16",
+          "C18",
+          "C19",
+          "C20",
+          "C21",
+          "C22",
+          "C08",
+          "C10"
+        ],
+        "sensors": [
+          "scripted_rgb",
+          "scripted_range",
+          "scripted_rf",
+          "scripted_environment"
+        ],
+        "payload_kg": 120,
+        "width_m": 0.73,
+        "speed_mps": 0.8
+      },
+      "spawn": {
+        "id": "sled-team-1",
+        "asset_kind": "sled",
+        "count": 1,
+        "allowed_region_kinds": [
+          "empty_volume_reservation"
+        ],
+        "allowed_classes": [
+          "RESERVATION_GROUND"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "near_entity",
+        "near": "medical-1",
+        "distance_m": [
+          4,
+          9
+        ],
+        "allow_unreserved_surface": false,
+        "allowed_region_ids": [
+          "RESV_R_ENTRY_CAMP"
+        ],
+        "reserve_states": [
+          "SLED_EMPTY",
+          "SLED_LOADED"
+        ]
+      }
+    },
+    {
+      "id": "uav-1",
+      "kind": "uav",
+      "overrides": {
+        "task_allowlist": [
+          "T001",
+          "T009",
+          "T027"
+        ]
+      },
+      "spawn": {
+        "id": "uav-1",
+        "asset_kind": "uav",
+        "count": 1,
+        "allowed_region_kinds": [
+          "empty_volume_reservation"
+        ],
+        "allowed_classes": [
+          "RESERVATION_GROUND"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "near_entity",
+        "near": "medical-1",
+        "distance_m": [
+          3,
+          8
+        ],
+        "allow_unreserved_surface": false,
+        "allowed_region_ids": [
+          "RESV_R_ENTRY_CAMP"
+        ]
+      }
+    }
+  ],
+  "placement": {
+    "asset_map": "assets/asset_map.json",
+    "sample_spacing_m": 0.75,
+    "max_draws_per_entity": 1600,
+    "incident_draws": 2500,
+    "approach_depth_m": 4,
+    "buildings": [],
+    "debris": [],
+    "stations": [
+      {
+        "id": "medical-1",
+        "asset_kind": "medical_point",
+        "count": 1,
+        "allowed_region_kinds": [
+          "empty_volume_reservation"
+        ],
+        "allowed_classes": [
+          "RESERVATION_GROUND"
+        ],
+        "clearance_m": 1,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "kind": "medical",
+        "allowed_region_ids": [
+          "RESV_R_ENTRY_CAMP"
+        ],
+        "capacity": 2,
+        "power_W": 500,
+        "receiver_confirmation": true
+      }
+    ],
+    "station_stock": {
+      "water": 0,
+      "medical_pack": 2,
+      "relay": 0,
+      "battery": 0
+    },
+    "humans": [
+      {
+        "id": "snow-casualty-1",
+        "asset_kind": "human_snow_casualty",
+        "count": 1,
+        "allowed_region_kinds": [
+          "empty_volume_reservation"
+        ],
+        "allowed_classes": [
+          "RESERVATION_GROUND"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "allowed_region_ids": [
+          "RESV_R_HIGH_APPROACH"
+        ],
+        "human": {
+          "mobility": "immobile",
+          "buriedness": 0,
+          "injury": "serious",
+          "needs": [
+            "transport"
+          ],
+          "location_context": "outside",
+          "alive": true
+        },
+        "fields": {
+          "attr.mass_kg": 75
+        }
+      }
+    ]
+  },
+  "display": {
+    "uav_agl_m": 12,
+    "agent_ground_offset_m": 0,
+    "person_offset_m": 0,
+    "status_height_m": 3,
+    "camera_offset_enu": [
+      -24,
+      -30,
+      24
+    ],
+    "agent_models": {
+      "sled-team-1": "sled"
+    },
+    "asset_uses": [
+      {
+        "asset_id": "NEW-HUM-S01",
+        "state": "CASUALTY",
+        "display_kind": "human_snow_casualty",
+        "entity": "snow-casualty-1",
+        "role": "actual immobile outdoor human needing transport",
+        "truth": "human.carrier_id absent; after handover draw at actual receiving pose",
+        "events_tasks": "T027/A009 establishes contact; T029/A018 assessment; T033/A020 sets carrier; T035/A022 clears carrier only on confirmed handover."
+      },
+      {
+        "asset_id": "NEW-SLED-001",
+        "state": "SLED_EMPTY",
+        "state_alias": "EMPTY",
+        "display_kind": "sled",
+        "entity": "sled-team-1",
+        "role": "foot-mobile specialist carrier team and actual sled",
+        "truth": "No human has human.carrier_id=sled-team-1",
+        "events_tasks": "Initial state and confirmed A022 handover; carrying capacity remains 120 kg and actual payload is accounted."
+      },
+      {
+        "asset_id": "NEW-SLED-001",
+        "state": "SLED_LOADED",
+        "state_alias": "LOADED",
+        "display_kind": "sled_loaded",
+        "entity": "sled-team-1",
+        "role": "same carrier carrying snow-casualty-1",
+        "truth": "snow-casualty-1.human.carrier_id=sled-team-1",
+        "events_tasks": "Successful A020 switches to LOADED; A021 moves carrier and casualty; only A022 with real receiver confirmation switches to EMPTY. Hide the separate human mesh while LOADED because the produced GLB includes her."
+      }
+    ],
+    "mission_label": "alpine casualty sled transport",
+    "camera_focus_entities": [
+      "snow-casualty-1"
+    ],
+    "model_origins": {
+      "human_snow_casualty": [
+        0,
+        0,
+        0
+      ],
+      "sled": [
+        0,
+        0,
+        0
+      ],
+      "sled_loaded": [
+        0,
+        0,
+        0
+      ]
+    },
+    "human_models": {
+      "outside": "human_snow_casualty",
+      "safe_point": "human_snow_casualty"
+    },
+    "source_snow_contact": true
+  },
+  "assumptions": [
+    "v0.5 scripted sensing/network/compute and authored, uncalibrated equipment/work models; no vision backend or calibrated rescue physics.",
+    "Background support, roads/tracks, widths, accesses and reservations come from the original build inputs and selected pure geometry functions, exported by dev/export_scene_sources.py; sources/sha256 records their exact provenance. No new road, pad or off-scene continuation is invented.",
+    "Compact authored incident and deployment rules only. Seed controls sampled positions and headings. Task allowlists still require local observations, beliefs, capability checks, allocation and real action results; no rescue outcome is scripted.",
+    "Canonical grid U remains the height source. Unit model scale is retained. Scene-specific professional access limits and source surface names must survive semantic adaptation; a foot tread is not asphalt or vehicle access.",
+    "There are no authored buildings, wheeled vehicles or invented snow roads. The 1.0–1.5 m source foot tread is the transport corridor; its width and professional-only continuation remain explicit source metadata.",
+    "Ordinary static allocated props resample within their source reservation when their physical footprint overlaps a real road corridor, including the entry-camp junction. Explicit blocks_or_borders_real_route allocations retain their intended road relationship. No existing supply-pack footprint, road permission or obstacle state is erased; changed placement requires upstream regeneration.",
+    "The entry camp contains one finite receiving station and the small deployment group; the high-approach reservation contains one 75 kg immobile casualty. allowed_region_ids distinguishes these two GLB reservations, which share the same kind.",
+    "sled-team-1 is the existing foot-mobile specialist_team embodiment displayed by a sled, with one casualty within its unchanged 120 kg carrying rating; 0.8 m/s and 0.73 m effective width are authored transport assumptions, not certified sled performance. T033/T034/T035 use existing C22/A020/A021/A022.",
+    "The source grid is rock support: snow above it is 0.25 m in the entry camp and 0.15 m in the high approach. Source top formulas and route snow-depth controls are exported; height lookup must add their actual local snow cover to ground-contact models instead of burying them at rock U. No constant global snow-depth guess is authorized.",
+    "Loaded sled GLB already contains the same casualty. AAS must render one visible body during carriage and restore her ground mesh at the actual receiver position after successful handover; no display-only rescue flags.",
+    "S9 shared integration uses existing facility semantics for physical equipment/facilities and G02 placed_humans/pinned_humans for people. No new upstream semantic class is introduced.",
+    "The explicit public regional-survey brief contains only map-level search intent. T001/A005 must obtain real local evidence before rescue or hazard tasks are proposed; no casualty or hazard state is seeded into public priors.",
+    "display.model_origins declares each new production family origin [0,0,0] in GLB +Y-up metres; state variants share it at unit scale. This preserves authored support contacts and asymmetric equipment without editing source assets.",
+    "State display entities are predeclared and selected only from actual equipment, human-carrier, facility-leak and spill-volume truth. Inactive variants retract POSITION; no hidden model is parked away from the incident.",
+    "The registered sled states are SLED_EMPTY/SLED_LOADED; reserve those actual keys. Source reservation snow depths and exact visible-tread height controls determine display contact; canonical grid remains the rock support. LOADED follows only actual human.carrier_id; the separate snow casualty mesh is hidden while carried and restored at confirmed receiving custody.",
+    "T031 is enabled for the same casualty because T029 only assesses injury and does not satisfy the aid objective. Treatment still requires C21 and an actual accessible medical_pack; the two existing receiver stock units permit post-arrival care, not remote treatment."
+  ],
+  "public_brief_zh": "对已标注区域开展侦察评估，搜索实际人员或危险源证据；依据本地观测、可达性、装备和接收回执完成救援。"
+}

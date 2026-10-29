@@ -1,0 +1,597 @@
+{
+  "schema": "rescue.scene-config/v1",
+  "background": {
+    "id": "SC03",
+    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC03/exports/SC03_canonical_grid.npz",
+    "build_report": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC03/SC03_build_report.json",
+    "scene_list": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
+    "geometry_source": "Tagged GLB METADATA_RESERVATION polygons; same-source layout roads, spurs and stage-1.50 waterline banks",
+    "console_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/marble_sc03_02f6dfe0/console-scene.SC03_splat_full.json",
+    "delivery_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
+    "aas_full_glb": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC03/exports/SC03_aas_full_yup.glb",
+    "layout_json": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/route_A_first4/SC03/layout/SC03_route_A_layout.json",
+    "plot_region_kinds": [
+      "dry_placement"
+    ],
+    "keepout_region_kinds": []
+  },
+  "scenario_id": "SC03",
+  "seed": 1,
+  "tick_s": 1,
+  "until_s": 2400,
+  "public_brief_zh": "对已标注区域和水域开展侦察评估，搜索受困与落水人员；按实际观测、水深、平台能力和接收回执完成救援，机器狗不默认可涉水。",
+  "agents": [
+    {
+      "id": "coordinator-1",
+      "kind": "coordinator",
+      "overrides": {
+        "task_allowlist": [
+          "T001",
+          "T002",
+          "T009",
+          "T027",
+          "T012",
+          "T034",
+          "T035",
+          "T036"
+        ],
+        "share_route_updates": true
+      },
+      "spawn": {
+        "mode": "near_entity",
+        "count": 1,
+        "near": "shore-landing-1",
+        "distance_m": [
+          18.0,
+          32.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "WEST_TERRACE_DRY",
+          "ROAD_SHOULDER",
+          "SPUR_PAVEMENT",
+          "PLOT_SURFACE",
+          "EMBANKMENT_FILL"
+        ],
+        "clearance_m": 0.8,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "face_nearest_road",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "asset_kind": "shelter",
+        "dry_freeboard_m": 0.15
+      }
+    },
+    {
+      "id": "uav-1",
+      "kind": "uav",
+      "overrides": {
+        "search_lane_spacing_m": 18,
+        "task_allowlist": [
+          "T001",
+          "T002",
+          "T009",
+          "T027",
+          "T012",
+          "T047"
+        ]
+      },
+      "spawn": {
+        "mode": "near_entity",
+        "count": 1,
+        "near": "coordinator-1",
+        "distance_m": [
+          5.0,
+          13.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "WEST_TERRACE_DRY",
+          "ROAD_SHOULDER",
+          "SPUR_PAVEMENT",
+          "PLOT_SURFACE",
+          "EMBANKMENT_FILL"
+        ],
+        "clearance_m": 0.8,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "face_nearest_road",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "asset_kind": "uav",
+        "dry_freeboard_m": 0.15
+      }
+    },
+    {
+      "id": "ground_vehicle-1",
+      "kind": "ground_vehicle",
+      "overrides": {
+        "task_allowlist": [
+          "T020",
+          "T033",
+          "T034",
+          "T035"
+        ],
+        "capabilities": [
+          "C02",
+          "C04",
+          "C05",
+          "C09",
+          "C14",
+          "C22",
+          "C24",
+          "C26",
+          "C27",
+          "C31",
+          "C32",
+          "C33",
+          "C34",
+          "C35",
+          "C36",
+          "C37",
+          "C39",
+          "C43",
+          "C45",
+          "C28",
+          "C29",
+          "C42",
+          "C44",
+          "C46"
+        ]
+      },
+      "spawn": {
+        "mode": "near_entity",
+        "count": 1,
+        "near": "shore-landing-1",
+        "distance_m": [
+          20.0,
+          36.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "WEST_TERRACE_DRY",
+          "ROAD_SHOULDER",
+          "SPUR_PAVEMENT",
+          "PLOT_SURFACE",
+          "EMBANKMENT_FILL"
+        ],
+        "clearance_m": 0.8,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "face_nearest_road",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "asset_kind": "ambulance",
+        "dry_freeboard_m": 0.15
+      }
+    },
+    {
+      "id": "specialist_team-1",
+      "kind": "specialist_team",
+      "overrides": {
+        "task_allowlist": [
+          "T031",
+          "T033",
+          "T034",
+          "T035"
+        ]
+      },
+      "spawn": {
+        "mode": "near_entity",
+        "count": 1,
+        "near": "coordinator-1",
+        "distance_m": [
+          5.0,
+          13.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "WEST_TERRACE_DRY",
+          "ROAD_SHOULDER",
+          "SPUR_PAVEMENT",
+          "PLOT_SURFACE",
+          "EMBANKMENT_FILL"
+        ],
+        "clearance_m": 0.8,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "face_nearest_road",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "asset_kind": "person",
+        "dry_freeboard_m": 0.15
+      }
+    },
+    {
+      "id": "boat-1",
+      "kind": "boat",
+      "overrides": {
+        "task_allowlist": [
+          "T036",
+          "T034",
+          "T035"
+        ],
+        "width_m": 2.034
+      },
+      "spawn": {
+        "mode": "on_water_near_shore",
+        "asset_kind": "boat",
+        "count": 1,
+        "near": "shore-landing-1",
+        "along_shore_m": [
+          -16.0,
+          16.0
+        ],
+        "water_setback_m": [
+          0.0,
+          2.0
+        ],
+        "water_depth_m": [
+          0.5,
+          1.0
+        ],
+        "allowed_classes": [
+          "EMBANKMENT_FILL",
+          "FLOODPLAIN_LOW"
+        ],
+        "clearance_m": 1.0,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            90,
+            270
+          ]
+        }
+      }
+    },
+    {
+      "id": "boat-2",
+      "kind": "boat",
+      "overrides": {
+        "task_allowlist": [
+          "T036",
+          "T034",
+          "T035"
+        ],
+        "width_m": 2.034
+      },
+      "spawn": {
+        "mode": "on_water_near_shore",
+        "asset_kind": "boat",
+        "count": 1,
+        "near": "shore-landing-1",
+        "along_shore_m": [
+          -16.0,
+          16.0
+        ],
+        "water_setback_m": [
+          0.0,
+          2.0
+        ],
+        "water_depth_m": [
+          0.5,
+          1.0
+        ],
+        "allowed_classes": [
+          "EMBANKMENT_FILL",
+          "FLOODPLAIN_LOW"
+        ],
+        "clearance_m": 1.0,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            90,
+            270
+          ]
+        }
+      }
+    }
+  ],
+  "placement": {
+    "asset_map": "assets/asset_map.json",
+    "sample_spacing_m": 0.75,
+    "max_draws_per_entity": 1600,
+    "incident_draws": 2500,
+    "approach_depth_m": 14.0,
+    "vehicle_approach_classes": [
+      "PLOT_SURFACE",
+      "SPUR_PAVEMENT"
+    ],
+    "water": {
+      "stage_id": "SC03_WATER_STAGE_1p50",
+      "bank_indices": [
+        0,
+        1
+      ]
+    },
+    "buildings": [
+      {
+        "count": 1,
+        "asset_kind": "building",
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allowed_classes": [
+          "PLOT_SURFACE"
+        ],
+        "clearance_m": 1.5,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "face_access",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "reserve_damage_grades": [
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "require_nearest_access": true,
+        "id": "building-1",
+        "kind": "building",
+        "damage_grade": "D0",
+        "occupants": []
+      },
+      {
+        "count": 1,
+        "asset_kind": "building",
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allowed_classes": [
+          "PLOT_SURFACE"
+        ],
+        "clearance_m": 1.5,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "reserve_damage_grades": [
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "require_nearest_access": true,
+        "id": "building-2",
+        "kind": "building",
+        "damage_grade": "D0",
+        "occupants": []
+      }
+    ],
+    "debris": [],
+    "stations": [
+      {
+        "id": "medical-1",
+        "kind": "medical",
+        "asset_kind": "medical_point",
+        "count": 1,
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allowed_classes": [
+          "PLOT_SURFACE"
+        ],
+        "different_plot_from": "building-1",
+        "clearance_m": 1.5,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "require_nearest_access": true,
+        "rotation": {
+          "policy": "face_access",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "capacity": 4,
+        "power_W": 500,
+        "receiver_confirmation": true
+      },
+      {
+        "id": "shore-landing-1",
+        "kind": "medical",
+        "asset_kind": "medical_point",
+        "count": 1,
+        "mode": "shore_landing",
+        "bank_index": 0,
+        "water_normal_en": [
+          1.0,
+          0.0
+        ],
+        "search_region_kinds": [
+          "metadata_only_submerged"
+        ],
+        "dry_setback_m": [
+          8.0,
+          9.0
+        ],
+        "water_setback_m": [
+          7.0,
+          8.0
+        ],
+        "dry_freeboard_m": 0.15,
+        "landing_asset_kind": "boat",
+        "water_depth_m": [
+          0.5,
+          1.0
+        ],
+        "water_classes": [
+          "EMBANKMENT_FILL",
+          "FLOODPLAIN_LOW"
+        ],
+        "access_width_m": 3.0,
+        "access_classes": [
+          "ROAD_PAVEMENT",
+          "ROAD_SHOULDER",
+          "EMBANKMENT_FILL"
+        ],
+        "handover_distance_m": 20.0,
+        "allowed_classes": [
+          "EMBANKMENT_FILL"
+        ],
+        "clearance_m": 1.0,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            180
+          ]
+        },
+        "capacity": 2,
+        "power_W": 0,
+        "receiver_confirmation": true
+      }
+    ],
+    "humans": [
+      {
+        "id": "human-water-1",
+        "kind": "human",
+        "asset_kind": "human_in_water",
+        "count": 1,
+        "mode": "in_water",
+        "region_from": "shore-landing-1",
+        "allowed_region_kinds": [
+          "metadata_only_submerged"
+        ],
+        "allowed_classes": [
+          "FLOODPLAIN_LOW"
+        ],
+        "water_depth_m": [
+          0.35,
+          0.75
+        ],
+        "clearance_m": 0.5,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "human": {
+          "mobility": "limited",
+          "buriedness": 0,
+          "injury": "none",
+          "needs": [
+            "transport"
+          ],
+          "location_context": "water"
+        }
+      }
+    ]
+  },
+  "display": {
+    "uav_agl_m": 12,
+    "agent_ground_offset_m": 0.15,
+    "person_offset_m": 0.15,
+    "status_height_m": 3,
+    "camera_offset_enu": [
+      -95.0,
+      -95.0,
+      100.0
+    ],
+    "agent_models": {
+      "ground_vehicle-1": "ambulance",
+      "boat-1": "boat",
+      "boat-2": "boat"
+    },
+    "mission_label": "flood water rescue",
+    "camera_focus_entities": [
+      "shore-landing-1",
+      "human-water-1"
+    ],
+    "human_models": {
+      "water": "human_in_water"
+    },
+    "water_surface_stage_id": "SC03_WATER_STAGE_1p50"
+  },
+  "assumptions": [
+    "Real-camera association and self-routing policy (authored, uncalibrated; applies only when camera observations are enabled): strict projected point-in-box matches take precedence; when those miss, unused pre-delivery camera-only local tracks may associate if their ground estimate lies within the measured bottom-edge half-span (maximum distance from its bottom-centre ground estimate to either calibrated bottom-corner ground intersection) around the current box bottom-centre ground estimate, derived from current pixels, calibration and ground prior rather than a fixed metric radius. Newly created tracks in this delivery are ineligible for this fallback. One-person-per-frame used_people exclusion and existing projected-centre distance ranking remain binding; association is not confirmed identity or needs. A corroborated priority-81 camera T027 proposed by its own capable agent may self-route over a lower-priority local commitment through the same acceptance checks and normal A053/A056/A053 action-boundary checkpoint, with A057 revalidation on resume; an in-flight physical action is not instantly interrupted. Non-interruptibility, queued/in-flight ordinary A052/A053/A056/A057/A058 controls, pending assignments and assigned/received local tasks remain reserved. No truth, urgency threshold, installed capability, scene geometry, capacity or receiver check is changed; contact, rescue and fixed-horizon results are not guaranteed.",
+    "T001/T009 fly clipped parallel lanes over public mapped polygons instead of visiting only their centroids. Lane spacing is an authored search policy, not detection or coverage evidence; captures, inference, hazards, energy, contacts and action results remain authoritative. No casualty truth enters the route.",
+    "v0.5 scripted sensing/network/compute; no vision, ns-3, calibrated rescue physics or buoyancy model. Existing SC03 flood profile and its 480 s water_rise event are retained.",
+    "Two intact D0 buildings with no authored interior casualties occupy GLB dry_placement plots; building.flood_exposure and road.water_depth_m are derived by the existing core hazard. No flooded building or road blockage is invented on the high west terrace.",
+    "The stage-1.50 water polygon follows both layout waterline polylines in their supplied order and closes only along the north/south background boundary. Water is a core water entity, not a dry plot. The full canonical class names and the vehicle approach classes are configured for SC03.",
+    "One authored outdoor person starts in the selected RESV_LOW_S_SUBMERGED or RESV_LOW_N_SUBMERGED metadata reservation, inside the water polygon on FLOODPLAIN_LOW, with whole-footprint depth 0.35-0.75 m. The deep RIVER_CHANNEL is excluded. Mobility limited, no buriedness or injury, and transport need are initial conditions; no detection or action outcome is pinned.",
+    "NEW-HUM-W01 FLOATING includes its NEW-FLT-001 flotation ring and fitted life jacket. It is one person display, not a second casualty or a new delivered-supply receipt. The display follows human.location_context=water until actual recovery; carried geometry is represented by NEW-BOAT-001-C01 LOADED.",
+    "Two core boat embodiments use the produced 4.95 x 2.034 m rescue boat at unit scale, with inherited 500 kg payload. They launch afloat on the west bank near the shared road-accessible landing, within source water and configured 0.50-1.0 m footprint depth. These are authored abstract navigation thresholds, not a draught certification: the asset has a permanently lowered motor with nominal 0.72 m clearance, which this existing core does not model; no physical propeller clearance is claimed for shallow floodplain travel.",
+    "The shoreline receiving point is an abstract staffed medical station on dry EMBANKMENT_FILL, with its real medical_point footprint, finite capacity 2 and explicit receiver confirmation. Its authored 3 m dry approach connects to MAIN_ROAD_NS and stays at least 0.15 m above the stage datum. Public catalog station.access_region (F150) is the water-side boat berth, at most 20 m from the dry receiver. A021 approaches this berth and A022 still checks actual distance, capacity and confirmation; boat navigation never targets the dry tent. On confirmed A022, the staffed receiver transfers the person to its dry station pose within the existing 20 m handover envelope; this is an authored abstract shore transfer, not a simulated gangway or walking animation.",
+    "A separate medical-1 with capacity 4 occupies a dry source plot, reachable through its SPUR access and distinct from building-1. The command post, ambulance, team and UAV starts are sampled off the carriageway on allowed dry classes near the shoreline operation. The existing foot team has its inherited catalog carrying capacity and equipment; no water capability is added to it or to the ambulance.",
+    "Task allowlists limit the compact search/locate/water recovery/transport/handover mission. Q036 uses A003 to approach the observed person, A023 to recover aboard, A021 to the shore berth, A022 to confirm reception and A036 to report. Tasks and assignments still require local beliefs, messages, installed capabilities and resources.",
+    "The core SC03 hazard models an authored 0.25 m water-depth rise at 480 s on its fixed hazard footprint. It does not recompute a new shoreline, stage mesh or buoyant elevation; displayed afloat assets use source datum U=1.50 m. This distinguishes the existing abstract event from a simulated moving free surface.",
+    "Search misses, wrong/uncertain observations, action failures, unassigned tasks and unfinished objectives remain visible. Speeds, sensing probabilities, durations, work rates and staffed receiver behaviour are inherited or authored uncalibrated assumptions."
+  ]
+}

@@ -1,0 +1,627 @@
+{
+  "schema": "rescue.scene-config/v1",
+  "background": {
+    "id": "SC08",
+    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC08/01_structure/geometry/SC08_canonical_grid.npz",
+    "scene_list": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
+    "geometry_source": "Allocation source geometry and source-faithful Route-A sidecar; dev/step4/stage_background.py",
+    "console_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery/SC08/aas/console-scene.json",
+    "delivery_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
+    "aas_full_glb": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC08/01_structure/geometry/SC08_aas_full_yup.glb",
+    "layout_json": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC08/01_structure/layout/SC08_route_A_layout.json",
+    "plot_region_kinds": [
+      "bank",
+      "carriageway",
+      "channel",
+      "corridor_reserve",
+      "drainage_swale",
+      "embankment",
+      "green_public",
+      "natural_ground",
+      "paved_public",
+      "placement_plot",
+      "retaining_structure_zone",
+      "stair_ramp_reserve"
+    ],
+    "keepout_region_kinds": []
+  },
+  "scenario_id": "SC08",
+  "seed": 1,
+  "tick_s": 0.5,
+  "until_s": 3600,
+  "agents": [
+    {
+      "id": "coordinator-1",
+      "kind": "coordinator",
+      "overrides": {
+        "camera_search_policy": {"contact_cooldown_s": 120, "contact_radius_m": 3},
+        "ground_route_frontages": {"P01_TOP_W": "TOP_LANE", "P02_TOP_C": "TOP_LANE", "P07_LOW_C": "LOWER_ROAD", "P08_LOW_E": "LOWER_ROAD"},
+        "task_allowlist": [
+          "T001",
+          "T009",
+          "T013",
+          "T027",
+          "T029",
+          "T031",
+          "T033",
+          "T034",
+          "T035"
+        ],
+        "share_route_updates": true
+      },
+      "spawn": {
+        "asset_kind": "shelter",
+        "count": 1,
+        "allowed_region_kinds": [
+          "placement_plot"
+        ],
+        "allowed_region_ids": [
+          "P01_TOP_W"
+        ],
+        "allowed_classes": [
+          "placement_plot"
+        ],
+        "clearance_m": 0.7,
+        "road_clearance_m": 0.25,
+        "exclude_sidewalk": false,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "source_region_id": "P01_TOP_W"
+      }
+    },
+    {
+      "id": "uav-1",
+      "kind": "uav",
+      "overrides": {
+        "camera_search_policy": {"contact_cooldown_s": 120, "contact_radius_m": 3},
+        "ground_route_frontages": {"P01_TOP_W": "TOP_LANE", "P02_TOP_C": "TOP_LANE", "P07_LOW_C": "LOWER_ROAD", "P08_LOW_E": "LOWER_ROAD"},
+        "task_allowlist": [
+          "T001",
+          "T009",
+          "T011",
+          "T012",
+          "T019",
+          "T027",
+          "T045",
+          "T047"
+        ],
+        "capabilities": [
+          "C01",
+          "C04",
+          "C05",
+          "C09",
+          "C11",
+          "C12",
+          "C31",
+          "C32",
+          "C34",
+          "C35",
+          "C39",
+          "C40",
+          "C41",
+          "C42",
+          "C43",
+          "C44",
+          "C45",
+          "C46",
+          "C28"
+        ]
+      },
+      "spawn": {
+        "asset_kind": "uav",
+        "count": 1,
+        "allowed_region_kinds": [
+          "placement_plot"
+        ],
+        "allowed_classes": [
+          "placement_plot"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.25,
+        "exclude_sidewalk": false,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "source_region_id": "P01_TOP_W",
+        "allowed_region_ids": [
+          "P01_TOP_W"
+        ]
+      }
+    },
+    {
+      "id": "robot_dog-1",
+      "kind": "robot_dog",
+      "overrides": {
+        "camera_search_policy": {"contact_cooldown_s": 120, "contact_radius_m": 3},
+        "ground_route_frontages": {"P01_TOP_W": "TOP_LANE", "P02_TOP_C": "TOP_LANE", "P07_LOW_C": "LOWER_ROAD", "P08_LOW_E": "LOWER_ROAD"},
+        "task_allowlist": [
+          "T003",
+          "T011",
+          "T012",
+          "T013",
+          "T020",
+          "T021",
+          "T027",
+          "T045",
+          "T047"
+        ],
+        "capabilities": [
+          "C02",
+          "C04",
+          "C05",
+          "C09",
+          "C11",
+          "C12",
+          "C31",
+          "C34",
+          "C35",
+          "C39",
+          "C41",
+          "C42",
+          "C43",
+          "C44",
+          "C45",
+          "C46",
+          "C28"
+        ],
+        "sensors": [
+          "scripted_rgb",
+          "scripted_range"
+        ]
+      },
+      "spawn": {
+        "asset_kind": "robot_dog",
+        "count": 1,
+        "allowed_region_kinds": [
+          "placement_plot"
+        ],
+        "allowed_classes": [
+          "placement_plot"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.25,
+        "exclude_sidewalk": false,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "source_region_id": "P02_TOP_C",
+        "allowed_region_ids": [
+          "P02_TOP_C"
+        ]
+      }
+    },
+    {
+      "id": "specialist_team-1",
+      "kind": "specialist_team",
+      "overrides": {
+        "camera_search_policy": {"contact_cooldown_s": 120, "contact_radius_m": 3},
+        "ground_route_frontages": {"P01_TOP_W": "TOP_LANE", "P02_TOP_C": "TOP_LANE", "P07_LOW_C": "LOWER_ROAD", "P08_LOW_E": "LOWER_ROAD"},
+        "task_allowlist": [
+          "T020",
+          "T027",
+          "T029",
+          "T031",
+          "T033",
+          "T034",
+          "T035"
+        ],
+        "capabilities": [
+          "C02",
+          "C09",
+          "C11",
+          "C14",
+          "C21",
+          "C22",
+          "C31",
+          "C35",
+          "C39",
+          "C42",
+          "C43",
+          "C44",
+          "C45",
+          "C46",
+          "C28"
+        ],
+        "sensors": [
+          "scripted_rgb",
+          "scripted_range"
+        ]
+      },
+      "spawn": {
+        "asset_kind": "person",
+        "count": 1,
+        "allowed_region_kinds": [
+          "placement_plot"
+        ],
+        "allowed_region_ids": [
+          "P07_LOW_C"
+        ],
+        "allowed_classes": [
+          "placement_plot"
+        ],
+        "clearance_m": 0.4,
+        "road_clearance_m": 0.25,
+        "exclude_sidewalk": false,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "near_entity",
+        "near": "medical-1",
+        "distance_m": [
+          4,
+          10
+        ],
+        "allow_unreserved_surface": false,
+        "source_region_id": "P07_LOW_C"
+      }
+    }
+  ],
+  "placement": {
+    "asset_map": "assets/asset_map.json",
+    "sample_spacing_m": 0.75,
+    "max_draws_per_entity": 1600,
+    "incident_draws": 2500,
+    "approach_depth_m": 14.0,
+    "buildings": [],
+    "debris": [],
+    "stations": [
+      {
+        "asset_kind": "shelter",
+        "count": 1,
+        "allowed_region_kinds": [
+          "placement_plot"
+        ],
+        "allowed_region_ids": [
+          "P07_LOW_C"
+        ],
+        "allowed_classes": [
+          "placement_plot"
+        ],
+        "clearance_m": 0.7,
+        "road_clearance_m": 0.25,
+        "exclude_sidewalk": false,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "id": "medical-1",
+        "kind": "medical",
+        "capacity": 2,
+        "power_W": 0,
+        "receiver_confirmation": true,
+        "source_region_id": "P07_LOW_C"
+      }
+    ],
+    "upstream_generated_scene": {
+      "python": "/mnt/data2/weizhiwei/rescue-generator-stage1/envs/cut4/bin/python",
+      "background_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots",
+      "catalog": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4/catalog_allocated.json",
+      "config": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot/generation-input-rules.json",
+      "input_roots": [
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/configs"
+      ],
+      "walkable_ground_surface": null,
+      "building_metadata": {
+        "BLD-001-G01": {
+          "building.use": "residential",
+          "building.structure": "timber",
+          "building.floors": 1,
+          "building.capacity": 6
+        },
+        "BLD-001-G02": {
+          "building.use": "residential",
+          "building.structure": "masonry",
+          "building.floors": 1,
+          "building.capacity": 6
+        },
+        "BLD-003-G03": {
+          "building.use": "storage",
+          "building.structure": "steel",
+          "building.floors": 1,
+          "building.capacity": 10
+        },
+        "BLD-002-G01": {
+          "building.use": "residential",
+          "building.structure": "masonry",
+          "building.floors": 2,
+          "building.capacity": 6
+        },
+        "BLD-002-G02": {
+          "building.use": "residential",
+          "building.structure": "RC",
+          "building.floors": 2,
+          "building.capacity": 6
+        },
+        "BLD-002-G03": {
+          "building.use": "residential",
+          "building.structure": "RC",
+          "building.floors": 2,
+          "building.capacity": 6
+        },
+        "BLD-003-G01": {
+          "building.use": "storage",
+          "building.structure": "steel",
+          "building.floors": 1,
+          "building.capacity": 10
+        }
+      },
+      "metadata_sources": {
+        "building.structure_and_floors": "dev/rules-export/灾后搜救_3D实体资产清单_1/建筑36态.csv: BLD-001-G01-D0, BLD-001-G02-D0, BLD-003-G03-D0; design semantic classes, not certified structural properties; expanded catalog: BLD-002-G01-D0 (承重砌体 -> masonry, 两层 -> 2), BLD-002-G02-D0 and BLD-002-G03-D0 (RC框架+砌体填充 -> RC, 两层 -> 2), BLD-003-G01-D0 (金属围护板/轻钢门式架 -> steel, 单层 -> 1)",
+        "building.use": "catalog snapshot sources[].land_use; warehouse maps to catalog building.use=storage (10_字段385 F026)",
+        "building.capacity": "generation-input-rules.json population residential_people_range[1]=6 / warehouse_people_range[1]=10; authored occupancy bounds, not measured safe capacity",
+        "walkable_ground_surface": "../blockout_geometry_20261023/delivery_route_A_first4_20261024/route_A_first4_20261024/SC01/01_structure/source/authority_inputs/SC01_BRIEF.md:22 explicitly specifies fine compacted pale soil vacant plots; original source_network roads retain their existing asphalt default from the same brief.",
+        "catalog": "dev/step3/upstream_expanded_snapshot: rescue_scene snapshot over configs/upstream_selection_expanded.json (59 entries), formal Excel + 03_批量资产 copied read-only from gdrive: to _inputs_cache/drive_20261021; 19 base GLB sha256 identical to the base snapshot"
+      },
+      "upstream_scene_id": "SC08",
+      "generation_config": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/generation-input-rules.json",
+      "walkable_ground_surfaces": [
+        null
+      ]
+    },
+    "station_stock": {
+      "water": 0,
+      "medical_pack": 2,
+      "relay": 0,
+      "battery": 0
+    },
+    "humans": [
+      {
+        "asset_kind": "person",
+        "count": 1,
+        "allowed_region_kinds": [
+          "placement_plot"
+        ],
+        "allowed_region_ids": [
+          "P08_LOW_E"
+        ],
+        "allowed_classes": [
+          "placement_plot"
+        ],
+        "clearance_m": 0.4,
+        "road_clearance_m": 0.25,
+        "exclude_sidewalk": false,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "id": "landslide-casualty-1",
+        "human": {
+          "mobility": "limited",
+          "buriedness": 0,
+          "injury": "minor",
+          "needs": [
+            "transport"
+          ],
+          "location_context": "outside",
+          "alive": true
+        },
+        "fields": {
+          "attr.mass_kg": 75
+        },
+        "source_region_id": "P08_LOW_E"
+      }
+    ]
+  },
+  "display": {
+    "uav_agl_m": 12,
+    "agent_ground_offset_m": 0.15,
+    "person_offset_m": 0.15,
+    "status_height_m": 3,
+    "camera_offset_enu": [
+      -60,
+      -75,
+      70
+    ],
+    "agent_models": {
+      "medical-1": "shelter"
+    },
+    "mission_label": "滑坡/泥石流灾后搜索与人员转运",
+    "camera_observation": {
+      "enabled": true,
+      "agents": {
+        "uav-1": {
+          "pitch_deg": -60,
+          "fov_deg": 70
+        }
+      },
+      "perception": "rescue_scenes.perception_magpie:detect",
+      "perception_workers": 8,
+      "analysis_latency_s": 30,
+      "replace_scripted": true,
+      "confidence": 0.6,
+      "width": 1280,
+      "height": 720,
+      "renderer": {
+        "software_gl": false,
+        "node_modules": "/mnt/data2/weizhiwei/aeroagentsim/AeroAgentSim/frontend/node_modules",
+        "async_capture": true,
+        "render_workers": 4,
+        "max_pending": 16,
+        "poll_interval_s": 0.5,
+        "artifact_fsync": false
+      },
+      "capture_interval_s": 0.5,
+      "python_switch_interval_s": 0.0005,
+      "periodic_agents": [
+        "uav-1"
+      ]
+    },
+    "camera_focus_entities": [
+      "medical-1"
+    ],
+    "human_asset_policy": "delivered_base_only"
+  },
+  "assumptions": [
+    "Shared camera allocation/contact policy (authored, uncalibrated; not catalog urgency): all scenes use T002=70, T014=70 (80 for locally believed major/destroyed damage), and established-human T027=78. A single-frame camera-candidate T027 stays <=64; person/human detections of the same locally associated candidate in >=2 distinct capture parent /image IDs from the same reporting agent promote its T027 to 81, above those surveys at a safe boundary. Raw/associated copies, duplicate boxes and replays of the same capture count once. An existing waiting proposed T027 is refreshed in-place once on promotion, without a new A050 or revision; timestamps and frame IDs are not proposal-signature changes. Camera-review T011 stays <=63. Failed candidate A009 sensor contacts suppress the same candidate or a locally recorded site within 3 m for 120 s and require camera presence evidence acquired after the failure before retry; failure does not establish human absence. These are shared defaults even without camera_search_policy; explicit existing overrides are honored, and regional search policies are unchanged. Existing commitments use authored policy fields F202/F209/F212 from 10_字段385; 05_任务96 and 14_场景任务映射 do not mandate task ordering. A coordinator-known accepted/executing commitment with a matching delivered current-task id/revision remains an allocator candidate, subject to priority, interruptibility, capability, access, payload and energy checks. Queued A052 and assignments awaiting delivery/acceptance remain reserved; unmatched current-task reports do not release them. A053 acceptance-to-deadline windows are not unconditional uninterruptible leases: replacement acceptance still waits for the real action boundary and A056 checkpoint, with A057 revalidation on resume. Equal-priority 81 contacts cannot interrupt each other. A queued camera T027 is canceled as stale through A054 only when its exact local candidate has a delivered belief.entity_ref and the referenced human needs are known without a contact need. Recheck before allocation/acceptance and before initial approach/A009, not after this task own successful contact; no distance-only identity or suppression of unassociated tracks. A059 services may preempt only a lower-priority executing preemptible ordinary commitment through the existing A053/A056 action-boundary checkpoint and A057 resume; active service scopes and real capability/access/energy/aboard constraints remain binding. Service A053 rechecks local commitments, and refusals retain busy/payload/access/energy/tool causes instead of all becoming capability failures. Fresh unassociated tracks can still starve lower-priority searches under this unchanged policy. No scene switch, truth, count, location, outcome or capability change is introduced. Survey-relative starvation is expected to be removed only when corroboration and real capability, access, energy and delivery permit; contact, rescue and fixed-horizon results are not guaranteed.",
+    "Camera re-sightings of an already contacted person (a local non-camera human with delivered contact needs) associate to that person when strict point-in-box and camera-track matches miss, using the same measured box tests: its contact foot point projected inside the box, else within the measured bottom-edge half-span around the box bottom-centre ground estimate. One-person-per-frame exclusion still applies. This prevents repeat contacts of the same known resident from minting new tracks; it never marks an uncontacted or unknown person absent and changes no truth, needs, urgency or capability.",
+    "A carrier with an unacknowledged person aboard does not accept (A053) or resume (A057) unrelated work such as contact, survey or clearance until that person is handed over; care, load, transport, handover and water-recovery tasks (T029-T036) still proceed. This applies the existing A059 service rule (\"a team with a person aboard finishes that person's handover before serving anyone else\") to ordinary tasks. A deferred commitment stays suspended, not failed; capacity, access, receiver and truth checks are unchanged.",
+    "Camera-only contact policy (authored, uncalibrated; not additional catalog rules): failed candidate A009 sensor contacts suppress the same candidate or a locally recorded site within 3 m for 120 s and require camera presence evidence acquired after the failure before retry. Delivered failed-task history and the fixed local candidate estimate may establish that site, never hidden truth. Failure is not human absence (Q027/A009). This contact-only policy does not enable regional repeat searches or alter capabilities.",
+    "Mission authoring uses the existing legacy placement interfaces and preserves the entire upstream geometry/catalog source. Original source regions/reservations, class names, damage states, allocated assets and their delivery gaps are unchanged.",
+    "Seed controls sampled authored placements/headings only. Canonical/source physical surfaces remain the support and height authority at unit GLB scale. Whole footprints must satisfy the actual source polygon and classes; region bounding boxes are not replacement geometry.",
+    "Humans are private placed_humans/pinned_humans truth, never public brief, prior, navigation_goals or camera-focus hints. Search, contact and rescue require actual local observations/messages; no person identities, counts, poses, needs or coordinates are exposed through public guidance.",
+    "Only delivered HUM-001-C01-BASE using assets/glb/HUM-001-C01-BASE_static.glb may display any person, including the team stand-in. Injury/mobility are authored task truth, not a geometric pose claim. display.human_asset_policy=delivered_base_only must also prevent automatic production prone/supine substitution.",
+    "UAV uses the existing SC01 camera observation interface/settings inherited from the upstream config; no new perception backend or truth-reading sensor is introduced. Parent propagates shared camera configuration.",
+    "The robot dog has only existing RGB/range, contact, planning, compute/network/evidence and task-management interfaces. No C16/C17 manipulation, C22 human carriage, C24 cargo loading or C26 unloading is granted; T030/T038/T040 cargo tasks are excluded even for the cargo-dog mesh.",
+    "The existing foot-mobile specialist_team supplies C21 professional assessment/aid and C22 human carrying with inherited 120 kg payload, speed and access limits; each target has authored mass 75 kg. No heavy engineering, lifting, rope, water, RF or environmental equipment is invented. A group cannot be loaded together above that rating.",
+    "medical-1 is a real finite-capacity authored staffed receiving station in an existing reservation, displayed by the existing small shelter. It is not an unbound allocated medical shell, a new road or an off-scene hospital. A022 must obtain actual receiver confirmation and release carrying occupancy; arrival alone is not final handover.",
+    "Finite medical_pack stock at the receiver allows actual post-arrival professional treatment if needed, not remote aid or automatic healing. All agents retain actual capability/resource/action gates and unsuccessful or unfinished objectives remain visible.",
+    "The inherited allocated_field_operation incident_binding runtime gate is removed. Its original value is retained only in provenance.original_incident_binding as historical source metadata; authored mission humans are not gated by selection of an allocated platform or prop.",
+    "No simulation or layout generation has been run for this config; placement feasibility, reachability and rescue completion are not claimed.",
+    "SC08 ground_route_frontages copies the source plots.frontage_corridor_id bindings (P01_TOP_W/P02_TOP_C: TOP_LANE; P07_LOW_C/P08_LOW_E: LOWER_ROAD), not casualty locations or a new road connection. The coordinator and mobile agents share this authored public-map policy; allocation applies the same policy to reported candidates without changing their capabilities. Exact source_network source_id#piece children retain their parent corridor identity. For endpoints inside these public polygons, choose nearest collision-clear attachments per reachable, admitted source-road component; an endpoint already on a road stays incident to it. No lower/middle-road bridge or road-state change is introduced. Other scenes retain their existing routing policy. Existing two-dimensional ground approach and physical collision/passability checks remain binding: frontage is not certification of off-road shoulder/slope or retaining-wall access. Source P07/P08 polygons do not literally touch the lower carriageway and GABION_LOWER lies between them; continuous mesh-level access is not established by this attachment fix or by a successful 2D route. No simulation, completion or new terrain capability is claimed.",
+    "SC08 is post-landslide/debris-flow search and casualty transport only, per the catalog boundary; no slope dynamics, soil-flow physics, new collapse, fabricated debris pile or route-clearance success is asserted. Existing allocated terrain/stair states still require their formal GT02 source binding.",
+    "One authored outdoor minor-injury limited-mobility casualty needing transport occupies real P08_LOW_E placement_plot; the shelter receiver/team start use P07_LOW_C and command uses P01_TOP_W. P07_LOW_C replaces P06_LOW_W to stage beside the lower-road component; the source explicitly does not connect LOWER_ROAD's end to MIDDLE_ROAD. Existing whole-reservation bounded sampling and all footprint/class/clearance checks remain; public source frontage now bounds 2D endpoint attachment, while physical terrain access and rescue completion remain unverified. The imported uav-1/dog poses are retained by exact IDs even when different from fallback spawn reservations. No source human allocation exists, so substitutions is empty.",
+    "No extra UAV/dog planning or coordinate-alignment capability is invented: remove C14 from UAV and C14/C40 from dog; UAV C40 is inherited from its native embodiment. Native missing capability checks remain binding even when a task is listed as a candidate; unresolved branches are a capability gap, not a successful search or motion."
+  ],
+  "config_source": "Authored legacy mission config; existing upstream geometry and allocated assets retained; shared make_scene_configs integration owned by parent.",
+  "public_brief_zh": "对已标注区域开展侦察评估，搜索实际人员证据；依据本地观测、可达性、装备、能源和接收回执完成救援。",
+  "provenance": {
+    "mission_config_style": "legacy SC03/SC12/SC13 placement.humans/stations and agent spawn interfaces",
+    "upstream_config": "configs/SC08_upstream.json",
+    "allocation": "configs/asset_allocation.json#scenes.SC08",
+    "authorities": [
+      "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/03_场景18.csv",
+      "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/05_任务96.csv",
+      "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/06_序列112.csv",
+      "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/07_序列步骤.csv",
+      "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/08_操作66.csv",
+      "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/09_能力49.csv",
+      "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/14_场景任务映射.csv"
+    ],
+    "source_geometry_policy": "Full upstream background and upstream_generated_scene geometry/catalog/source settings retained; only inherited incident_binding runtime gate removed and preserved in provenance.original_incident_binding. No region, category, damage state, source asset, reservation, access or terrain geometry is replaced or simplified.",
+    "authored_humans": [
+      {
+        "entity": "landslide-casualty-1",
+        "source_region_id": "P08_LOW_E",
+        "source_region_kind": "placement_plot",
+        "allowed_classes": [
+          "placement_plot"
+        ],
+        "asset_id": "HUM-001-C01-BASE",
+        "file": "assets/glb/HUM-001-C01-BASE_static.glb",
+        "role": "authored mission casualty",
+        "allocation_person_rule_present": false,
+        "pose_claim": false
+      }
+    ],
+    "substitutions": [],
+    "receiver": {
+      "entity": "medical-1",
+      "source_region_id": "P07_LOW_C",
+      "source_acceptance_id": null,
+      "binding": "authored staffed receiver in existing source reservation; no existing allocated medical facility is present to bind",
+      "display_asset_kind": "shelter",
+      "capacity": 2,
+      "receiver_confirmation": true
+    },
+    "agent_binding": "Existing exact uav-1/robot_dog-1 resource IDs reuse generated platform poses where present. Spawn rules are source-region-constrained fallbacks only; no unsupported source_acceptance_id on spawn.",
+    "task_chain": {
+      "search": [
+        "T001",
+        "T009",
+        "T013"
+      ],
+      "contact": [
+        "T027"
+      ],
+      "professional_assessment_aid": [
+        "T029",
+        "T031"
+      ],
+      "load_transport_handover": [
+        "T033",
+        "T034",
+        "T035"
+      ],
+      "actions": [
+        "A005",
+        "A006",
+        "A007",
+        "A041",
+        "A009",
+        "A018",
+        "A019",
+        "A020",
+        "A021",
+        "A022",
+        "A036"
+      ],
+      "policy": "Candidate scope only; actual observations, received requests, installed capabilities, consumables, capacity, navigation and execution results govern. No task or success is preseeded."
+    },
+    "delivery_gaps": "Original allocation missing-source/state/dependency gaps remain unmet; BASE substitution is not missing-pose or other allocated-asset coverage.",
+    "inspection_only": "Source layouts, canonical class data and existing generated instance IDs inspected read-only; no generation, materialization, simulation, test or render run.",
+    "original_incident_binding": {
+      "kind": "allocated_field_operation",
+      "source_acceptance_ids": [
+        "AGT-001-C01-BASE",
+        "AGT-003-C02-BASE"
+      ],
+      "tasks": [
+        "T009",
+        "T013",
+        "T019",
+        "T020",
+        "T040"
+      ]
+    },
+    "capability_restriction": {
+      "authority": "rescue_scenes/core/agents/embodiment.py existing _spec(uav)/_spec(robot_dog) and inherited software/task interfaces",
+      "removed_unbacked_additions": {
+        "uav-1": [
+          "C14"
+        ],
+        "robot_dog-1": [
+          "C14",
+          "C40"
+        ]
+      },
+      "policy": "Explicit UAV/dog capabilities are subsets of existing native embodiment capabilities. UAV retains its inherited C40; dog has neither C14 nor C40. Task allowlists are candidate scope only: any branch requiring an unavailable capability must refuse/remain unresolved, not acquire it from this config."
+    },
+    "source_region_binding": "SC08 source GLB has no reservation nodes. Each spawn/station/human rule explicitly selects its real source layout region through source_region_id, equal to allowed_region_ids[0], so source reservations are imported without inventing simplified polygons."
+  }
+}

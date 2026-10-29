@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rescue.message/v1",
+  "title": "rescue.message/v1",
+  "description": "SPEC §2.2/§4.2 Message with independent receiver statuses. Receivers gain local knowledge only on delivery. Dictionary keys must correspond to receivers, checked by the network at runtime.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "cue",
+        "report",
+        "evidence",
+        "task",
+        "bid",
+        "assignment",
+        "ack",
+        "correction",
+        "result",
+        "control"
+      ]
+    },
+    "sender": {
+      "type": "string",
+      "minLength": 1
+    },
+    "receivers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "payload": {
+      "type": "object"
+    },
+    "size_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "task_ref": {
+      "anyOf": [
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "integer",
+              "minimum": 0
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "[task instance id, revision], not a catalog task type."
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "correlation_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ttl_s": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "sent_s": {
+      "type": "number",
+      "minimum": 0
+    },
+    "delivered_s": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "minLength": 1
+      },
+      "additionalProperties": {
+        "type": "string",
+        "enum": [
+          "created",
+          "queued",
+          "transmitting",
+          "partial",
+          "delivered",
+          "expired",
+          "failed"
+        ]
+      }
+    },
+    "ack_state": {
+      "type": "string",
+      "enum": [
+        "not_required",
+        "pending",
+        "acknowledged",
+        "timeout"
+      ]
+    },
+    "retry_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "hop_trace": {
+      "type": "array",
+      "items": {}
+    }
+  },
+  "required": [
+    "id",
+    "kind",
+    "sender",
+    "receivers",
+    "payload",
+    "size_bytes",
+    "task_ref",
+    "correlation_id",
+    "ttl_s",
+    "sent_s",
+    "delivered_s",
+    "status",
+    "ack_state",
+    "retry_count",
+    "hop_trace"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rescue.agent-spec/v1",
+  "title": "rescue.agent-spec/v1",
+  "description": "SPEC §6.1 heterogeneous extensible embodiment spec. kind is intentionally not a fixed enum; id/start/overrides are optional instance annotations. Numeric resource capacities use finite authored values.",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "minLength": 1
+    },
+    "label_zh": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mobility": {
+      "enum": [
+        "air",
+        "legged",
+        "wheeled",
+        "water",
+        "foot",
+        "none"
+      ]
+    },
+    "width_m": {
+      "type": "number",
+      "minimum": 0
+    },
+    "step_height_m": {
+      "type": "number",
+      "minimum": 0
+    },
+    "water_tolerance_m": {
+      "type": "number",
+      "minimum": 0
+    },
+    "speed_mps": {
+      "type": "number",
+      "minimum": 0
+    },
+    "battery_Wh": {
+      "type": "number",
+      "minimum": 0
+    },
+    "payload_kg": {
+      "type": "number",
+      "minimum": 0
+    },
+    "radio_range_m": {
+      "type": "number",
+      "minimum": 0
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "C01",
+          "C02",
+          "C03",
+          "C04",
+          "C05",
+          "C06",
+          "C07",
+          "C08",
+          "C09",
+          "C10",
+          "C11",
+          "C12",
+          "C13",
+          "C14",
+          "C15",
+          "C16",
+          "C17",
+          "C18",
+          "C19",
+          "C20",
+          "C21",
+          "C22",
+          "C23",
+          "C24",
+          "C25",
+          "C26",
+          "C27",
+          "C28",
+          "C29",
+          "C30",
+          "C31",
+          "C32",
+          "C33",
+          "C34",
+          "C35",
+          "C36",
+          "C37",
+          "C38",
+          "C39",
+          "C40",
+          "C41",
+          "C42",
+          "C43",
+          "C44",
+          "C45",
+          "C46",
+          "C47",
+          "C48",
+          "C49"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "sensors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "external": {
+      "type": "boolean"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "start": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "overrides": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "kind",
+    "label_zh",
+    "mobility",
+    "width_m",
+    "step_height_m",
+    "water_tolerance_m",
+    "speed_mps",
+    "battery_Wh",
+    "payload_kg",
+    "radio_range_m",
+    "capabilities",
+    "sensors",
+    "external"
+  ],
+  "additionalProperties": false
+}

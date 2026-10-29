@@ -1,0 +1,576 @@
+{
+  "accesses": [],
+  "collisions": [],
+  "doorway_checks": "GAP: no certified entrance metadata",
+  "mesh_semantics": [
+    {
+      "bbox_enu_m": [
+        [
+          -500.0,
+          -400.0,
+          -4.849999904632568
+        ],
+        [
+          -163.3333282470703,
+          400.0,
+          13.100000381469727
+        ]
+      ],
+      "extras": {
+        "frame": "ENU_m",
+        "offset_enu_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "role": "DETERMINISTIC_COLLIDER"
+      },
+      "id": "SC09_TERRAIN_COLLIDER",
+      "role": "DETERMINISTIC_COLLIDER",
+      "semantic": "SEM_SOIL_EXPOSED",
+      "triangles": 45502
+    },
+    {
+      "bbox_enu_m": [
+        [
+          -196.6666717529297,
+          -400.0,
+          -1.6166666746139526
+        ],
+        [
+          136.6666717529297,
+          400.0,
+          25.98738670349121
+        ]
+      ],
+      "extras": {
+        "frame": "ENU_m",
+        "offset_enu_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "role": "DETERMINISTIC_COLLIDER"
+      },
+      "id": "SC09_TERRAIN_COLLIDER",
+      "role": "DETERMINISTIC_COLLIDER",
+      "semantic": "SEM_ASH_ON_SOIL",
+      "triangles": 37302
+    },
+    {
+      "bbox_enu_m": [
+        [
+          53.33333206176758,
+          -400.0,
+          11.636090278625488
+        ],
+        [
+          500.0,
+          400.0,
+          79.79166412353516
+        ]
+      ],
+      "extras": {
+        "frame": "ENU_m",
+        "offset_enu_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "role": "DETERMINISTIC_COLLIDER"
+      },
+      "id": "SC09_TERRAIN_COLLIDER",
+      "role": "DETERMINISTIC_COLLIDER",
+      "semantic": "SEM_BASALT_EXPOSED",
+      "triangles": 16342
+    },
+    {
+      "bbox_enu_m": [
+        [
+          43.33333206176758,
+          -170.0,
+          10.5
+        ],
+        [
+          483.3333435058594,
+          400.0,
+          65.00951385498047
+        ]
+      ],
+      "extras": {
+        "frame": "ENU_m",
+        "offset_enu_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "role": "DETERMINISTIC_COLLIDER"
+      },
+      "id": "SC09_TERRAIN_COLLIDER",
+      "role": "DETERMINISTIC_COLLIDER",
+      "semantic": "SEM_ASH_ON_BASALT",
+      "triangles": 714
+    },
+    {
+      "bbox_enu_m": [
+        [
+          40.0,
+          -400.0,
+          11.800555229187012
+        ],
+        [
+          500.0,
+          400.0,
+          80.0
+        ]
+      ],
+      "extras": {
+        "frame": "ENU_m",
+        "offset_enu_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "role": "DETERMINISTIC_COLLIDER"
+      },
+      "id": "SC09_TERRAIN_COLLIDER",
+      "role": "DETERMINISTIC_COLLIDER",
+      "semantic": "SEM_ASH_MANTLE",
+      "triangles": 44824
+    },
+    {
+      "bbox_enu_m": [
+        [
+          -463.3333435058594,
+          -383.3333435058594,
+          -0.5
+        ],
+        [
+          -393.3333435058594,
+          -350.0,
+          0.4166666567325592
+        ]
+      ],
+      "extras": {
+        "frame": "ENU_m",
+        "offset_enu_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "role": "DETERMINISTIC_COLLIDER"
+      },
+      "id": "SC09_TERRAIN_COLLIDER",
+      "role": "DETERMINISTIC_COLLIDER",
+      "semantic": "SEM_GRASS_REMNANT",
+      "triangles": 300
+    },
+    {
+      "bbox_enu_m": [
+        [
+          -500.0,
+          -92.0,
+          -5.0
+        ],
+        [
+          53.33333206176758,
+          -68.0,
+          10.494423866271973
+        ]
+      ],
+      "extras": {
+        "frame": "ENU_m",
+        "offset_enu_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "role": "DETERMINISTIC_COLLIDER"
+      },
+      "id": "SC09_TERRAIN_COLLIDER",
+      "role": "DETERMINISTIC_COLLIDER",
+      "semantic": "SEM_DRY_SWALE_BED",
+      "triangles": 1696
+    },
+    {
+      "bbox_enu_m": [
+        [
+          3.3333330154418945,
+          -90.0,
+          4.859238624572754
+        ],
+        [
+          500.0,
+          -70.0,
+          65.20833587646484
+        ]
+      ],
+      "extras": {
+        "frame": "ENU_m",
+        "offset_enu_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "role": "DETERMINISTIC_COLLIDER"
+      },
+      "id": "SC09_TERRAIN_COLLIDER",
+      "role": "DETERMINISTIC_COLLIDER",
+      "semantic": "SEM_ASH_ON_SWALE_BED",
+      "triangles": 1400
+    },
+    {
+      "bbox_enu_m": [
+        [
+          -500.0,
+          -284.0,
+          -2.0374999046325684
+        ],
+        [
+          -200.0,
+          -200.0,
+          1.037500023841858
+        ]
+      ],
+      "extras": {
+        "frame": "ENU_m",
+        "offset_enu_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "role": "DETERMINISTIC_COLLIDER"
+      },
+      "id": "SC09_TERRAIN_COLLIDER",
+      "role": "DETERMINISTIC_COLLIDER",
+      "semantic": "SEM_GRAVEL_ROAD",
+      "triangles": 540
+    },
+    {
+      "bbox_enu_m": [
+        [
+          -500.0,
+          -283.0,
+          -2.0450000762939453
+        ],
+        [
+          -200.0,
+          -200.0,
+          1.0449999570846558
+        ]
+      ],
+      "extras": {
+        "frame": "ENU_m",
+        "offset_enu_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "role": "DETERMINISTIC_COLLIDER"
+      },
+      "id": "SC09_TERRAIN_COLLIDER",
+      "role": "DETERMINISTIC_COLLIDER",
+      "semantic": "SEM_GRAVEL_SHOULDER",
+      "triangles": 444
+    },
+    {
+      "bbox_enu_m": [
+        [
+          -350.0,
+          -310.0,
+          -2.0
+        ],
+        [
+          -160.0,
+          -180.0,
+          1.850000023841858
+        ]
+      ],
+      "extras": {
+        "frame": "ENU_m",
+        "offset_enu_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "role": "DETERMINISTIC_COLLIDER"
+      },
+      "id": "SC09_TERRAIN_COLLIDER",
+      "role": "DETERMINISTIC_COLLIDER",
+      "semantic": "SEM_RESERVATION_GROUND",
+      "triangles": 1488
+    }
+  ],
+  "plots": [],
+  "reachability": "per-edge geometric screening; not a global reachability or task success certificate",
+  "reservation_is_solid": false,
+  "road_edges": [
+    {
+      "blocked_by": [],
+      "blocked_by_provenance": [],
+      "certified_capacity": null,
+      "evidence_class": "geometric_screen",
+      "from_enu": [
+        -500.0,
+        -280.0,
+        -2.0
+      ],
+      "id": "SC09_SERVICE_ROAD:0000",
+      "kind": "upstream_road",
+      "passable_types": [
+        "pedestrian",
+        "robot_dog",
+        "wheeled_geometry_only"
+      ],
+      "polygon_xy_m": [
+        [
+          -500.0,
+          -277.0
+        ],
+        [
+          -500.0,
+          -283.0
+        ],
+        [
+          -320.0,
+          -283.0
+        ],
+        [
+          -320.0,
+          -277.0
+        ]
+      ],
+      "road_id": "SC09_SERVICE_ROAD",
+      "support_U_m": -1.0999999999999996,
+      "to_enu": [
+        -320.0,
+        -280.0,
+        -0.20000000000000018
+      ],
+      "width_m": 6.0
+    },
+    {
+      "blocked_by": [],
+      "blocked_by_provenance": [],
+      "certified_capacity": null,
+      "evidence_class": "geometric_screen",
+      "from_enu": [
+        -320.0,
+        -280.0,
+        -0.20000000000000018
+      ],
+      "id": "SC09_SERVICE_ROAD:0001",
+      "kind": "upstream_road",
+      "passable_types": [
+        "pedestrian",
+        "robot_dog",
+        "wheeled_geometry_only"
+      ],
+      "polygon_xy_m": [
+        [
+          -320.0,
+          -277.0
+        ],
+        [
+          -320.0,
+          -283.0
+        ],
+        [
+          -240.0,
+          -283.0
+        ],
+        [
+          -240.0,
+          -277.0
+        ]
+      ],
+      "road_id": "SC09_SERVICE_ROAD",
+      "support_U_m": 0.20000000000000018,
+      "to_enu": [
+        -240.0,
+        -280.0,
+        0.6000000000000001
+      ],
+      "width_m": 6.0
+    },
+    {
+      "blocked_by": [],
+      "blocked_by_provenance": [],
+      "certified_capacity": null,
+      "evidence_class": "geometric_screen",
+      "from_enu": [
+        -240.0,
+        -280.0,
+        0.6000000000000001
+      ],
+      "id": "SC09_SERVICE_ROAD:0002",
+      "kind": "upstream_road",
+      "passable_types": [
+        "pedestrian",
+        "robot_dog",
+        "wheeled_geometry_only"
+      ],
+      "polygon_xy_m": [
+        [
+          -240.0,
+          -277.0
+        ],
+        [
+          -240.0,
+          -283.0
+        ],
+        [
+          -200.0,
+          -283.0
+        ],
+        [
+          -200.0,
+          -277.0
+        ]
+      ],
+      "road_id": "SC09_SERVICE_ROAD",
+      "support_U_m": 0.8000000000000003,
+      "to_enu": [
+        -200.0,
+        -280.0,
+        1.0
+      ],
+      "width_m": 6.0
+    },
+    {
+      "blocked_by": [],
+      "blocked_by_provenance": [],
+      "certified_capacity": null,
+      "evidence_class": "geometric_screen",
+      "from_enu": [
+        -320.0,
+        -280.0,
+        -0.20000000000000018
+      ],
+      "id": "SC09_MAINTENANCE_SPUR:0000",
+      "kind": "upstream_road",
+      "passable_types": [
+        "pedestrian",
+        "robot_dog",
+        "wheeled_geometry_only"
+      ],
+      "polygon_xy_m": [
+        [
+          -322.0,
+          -280.0
+        ],
+        [
+          -318.0,
+          -280.0
+        ],
+        [
+          -318.0,
+          -240.0
+        ],
+        [
+          -322.0,
+          -240.0
+        ]
+      ],
+      "road_id": "SC09_MAINTENANCE_SPUR",
+      "support_U_m": -0.5000000000000004,
+      "to_enu": [
+        -320.0,
+        -240.0,
+        -0.8000000000000003
+      ],
+      "width_m": 4.0
+    },
+    {
+      "blocked_by": [],
+      "blocked_by_provenance": [],
+      "certified_capacity": null,
+      "evidence_class": "geometric_screen",
+      "from_enu": [
+        -320.0,
+        -240.0,
+        -0.8000000000000003
+      ],
+      "id": "SC09_MAINTENANCE_SPUR:0001",
+      "kind": "upstream_road",
+      "passable_types": [
+        "pedestrian",
+        "robot_dog",
+        "wheeled_geometry_only"
+      ],
+      "polygon_xy_m": [
+        [
+          -322.0,
+          -240.0
+        ],
+        [
+          -318.0,
+          -240.0
+        ],
+        [
+          -318.0,
+          -220.0
+        ],
+        [
+          -322.0,
+          -220.0
+        ]
+      ],
+      "road_id": "SC09_MAINTENANCE_SPUR",
+      "support_U_m": -0.9500000000000002,
+      "to_enu": [
+        -320.0,
+        -220.0,
+        -1.1
+      ],
+      "width_m": 4.0
+    },
+    {
+      "blocked_by": [],
+      "blocked_by_provenance": [],
+      "certified_capacity": null,
+      "evidence_class": "geometric_screen",
+      "from_enu": [
+        -320.0,
+        -220.0,
+        -1.1
+      ],
+      "id": "SC09_MAINTENANCE_SPUR:0002",
+      "kind": "upstream_road",
+      "passable_types": [
+        "pedestrian",
+        "robot_dog",
+        "wheeled_geometry_only"
+      ],
+      "polygon_xy_m": [
+        [
+          -322.0,
+          -220.0
+        ],
+        [
+          -318.0,
+          -220.0
+        ],
+        [
+          -318.0,
+          -200.0
+        ],
+        [
+          -322.0,
+          -200.0
+        ]
+      ],
+      "road_id": "SC09_MAINTENANCE_SPUR",
+      "support_U_m": -1.2500000000000002,
+      "to_enu": [
+        -320.0,
+        -200.0,
+        -1.4000000000000004
+      ],
+      "width_m": 4.0
+    }
+  ],
+  "shared_internal_paths": [],
+  "support_tolerance_m": 0.025,
+  "water_is_solid": false
+}

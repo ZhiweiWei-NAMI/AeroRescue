@@ -1,0 +1,403 @@
+{
+  "schema": "rescue.scene-config/v1",
+  "background": {
+    "id": "SC05",
+    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC05/01_structure/geometry/SC05_canonical_grid.npz",
+    "build_report": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC05/SC05_build_report.json",
+    "scene_list": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
+    "geometry_source": "Allocation source geometry and source-faithful Route-A sidecar; dev/step4/stage_background.py",
+    "console_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery/SC05/aas/console-scene.json",
+    "delivery_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
+    "aas_full_glb": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC05/01_structure/geometry/SC05_aas_full_yup.glb",
+    "layout_json": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC05/01_structure/layout/SC05_route_A_layout.json",
+    "plot_region_kinds": [
+      "metadata_only_connector",
+      "metadata_only_metadata_only_open_water_search",
+      "metadata_only_metadata_only_waterborne_assembly",
+      "metadata_only_metadata_only_waterborne_boundary_handoff",
+      "metadata_only_portal"
+    ],
+    "keepout_region_kinds": []
+  },
+  "scenario_id": "SC05",
+  "seed": 1,
+  "tick_s": 0.5,
+  "until_s": 3600,
+  "agents": [
+    {
+      "id": "uav-1",
+      "kind": "uav",
+      "overrides": {
+        "search_lane_spacing_m": 36,
+        "search_region_ids": ["RESV_SC05_SEARCH"],
+        "task_allowlist": [
+          "T001",
+          "T005",
+          "T009",
+          "T011",
+          "T012",
+          "T019",
+          "T027",
+          "T033",
+          "T034",
+          "T035",
+          "T036"
+        ],
+        "mission_coordinator": true
+      },
+      "spawn": {
+        "asset_kind": "uav",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_metadata_only_open_water_search"
+        ],
+        "allowed_region_ids": [
+          "RESV_SC05_SEARCH"
+        ],
+        "allowed_classes": [
+          "SEABED_SHELF"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": true,
+        "allow_unreserved_surface": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "in_water",
+        "water_depth_m": [
+          12.0,
+          20.0
+        ]
+      }
+    },
+    {
+      "id": "boat-1",
+      "kind": "boat",
+      "overrides": {
+        "task_allowlist": [
+          "T036",
+          "T033",
+          "T034",
+          "T035"
+        ],
+        "width_m": 2.034
+      },
+      "spawn": {
+        "asset_kind": "boat",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_metadata_only_waterborne_assembly"
+        ],
+        "allowed_region_ids": [
+          "RESV_SC05_VESSEL_ASSEMBLY"
+        ],
+        "allowed_classes": [
+          "SEABED_SHELF"
+        ],
+        "clearance_m": 1.0,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": true,
+        "allow_unreserved_surface": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "in_water",
+        "water_depth_m": [
+          12.0,
+          20.0
+        ]
+      }
+    }
+  ],
+  "placement": {
+    "asset_map": "assets/asset_map.json",
+    "sample_spacing_m": 0.75,
+    "max_draws_per_entity": 1600,
+    "incident_draws": 2500,
+    "approach_depth_m": 14.0,
+    "buildings": [],
+    "debris": [],
+    "stations": [],
+    "humans": [
+      {
+        "id": "water-casualty-1",
+        "kind": "human",
+        "asset_kind": "person",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_metadata_only_open_water_search"
+        ],
+        "allowed_region_ids": [
+          "RESV_SC05_SEARCH"
+        ],
+        "allowed_classes": [
+          "SEABED_SHELF"
+        ],
+        "clearance_m": 0.5,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": true,
+        "allow_unreserved_surface": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "in_water",
+        "water_depth_m": [
+          12.0,
+          20.0
+        ],
+        "human": {
+          "mobility": "limited",
+          "buriedness": 0,
+          "injury": "none",
+          "needs": [
+            "transport"
+          ],
+          "location_context": "water",
+          "alive": true
+        },
+        "fields": {
+          "attr.mass_kg": 75
+        }
+      }
+    ],
+    "upstream_generated_scene": {
+      "python": "/mnt/data2/weizhiwei/rescue-generator-stage1/envs/cut4/bin/python",
+      "background_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots",
+      "catalog": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4/catalog_allocated.json",
+      "config": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot/generation-input-rules.json",
+      "input_roots": [
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/configs"
+      ],
+      "walkable_ground_surface": null,
+      "building_metadata": {
+        "BLD-001-G01": {
+          "building.use": "residential",
+          "building.structure": "timber",
+          "building.floors": 1,
+          "building.capacity": 6
+        },
+        "BLD-001-G02": {
+          "building.use": "residential",
+          "building.structure": "masonry",
+          "building.floors": 1,
+          "building.capacity": 6
+        },
+        "BLD-003-G03": {
+          "building.use": "storage",
+          "building.structure": "steel",
+          "building.floors": 1,
+          "building.capacity": 10
+        },
+        "BLD-002-G01": {
+          "building.use": "residential",
+          "building.structure": "masonry",
+          "building.floors": 2,
+          "building.capacity": 6
+        },
+        "BLD-002-G02": {
+          "building.use": "residential",
+          "building.structure": "RC",
+          "building.floors": 2,
+          "building.capacity": 6
+        },
+        "BLD-002-G03": {
+          "building.use": "residential",
+          "building.structure": "RC",
+          "building.floors": 2,
+          "building.capacity": 6
+        },
+        "BLD-003-G01": {
+          "building.use": "storage",
+          "building.structure": "steel",
+          "building.floors": 1,
+          "building.capacity": 10
+        }
+      },
+      "metadata_sources": {
+        "building.structure_and_floors": "dev/rules-export/灾后搜救_3D实体资产清单_1/建筑36态.csv: BLD-001-G01-D0, BLD-001-G02-D0, BLD-003-G03-D0; design semantic classes, not certified structural properties; expanded catalog: BLD-002-G01-D0 (承重砌体 -> masonry, 两层 -> 2), BLD-002-G02-D0 and BLD-002-G03-D0 (RC框架+砌体填充 -> RC, 两层 -> 2), BLD-003-G01-D0 (金属围护板/轻钢门式架 -> steel, 单层 -> 1)",
+        "building.use": "catalog snapshot sources[].land_use; warehouse maps to catalog building.use=storage (10_字段385 F026)",
+        "building.capacity": "generation-input-rules.json population residential_people_range[1]=6 / warehouse_people_range[1]=10; authored occupancy bounds, not measured safe capacity",
+        "walkable_ground_surface": "../blockout_geometry_20261023/delivery_route_A_first4_20261024/route_A_first4_20261024/SC01/01_structure/source/authority_inputs/SC01_BRIEF.md:22 explicitly specifies fine compacted pale soil vacant plots; original source_network roads retain their existing asphalt default from the same brief.",
+        "catalog": "dev/step3/upstream_expanded_snapshot: rescue_scene snapshot over configs/upstream_selection_expanded.json (59 entries), formal Excel + 03_批量资产 copied read-only from gdrive: to _inputs_cache/drive_20261021; 19 base GLB sha256 identical to the base snapshot"
+      },
+      "upstream_scene_id": "SC05",
+      "generation_config": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/generation-input-rules.json",
+      "walkable_ground_surfaces": [
+        null
+      ]
+    },
+    "water": {
+      "stage_id": "SC05_STATIC_LIGHT_RUFFLE"
+    }
+  },
+  "display": {
+    "uav_agl_m": 24,
+    "agent_ground_offset_m": 0,
+    "person_offset_m": 0,
+    "status_height_m": 3,
+    "camera_offset_enu": [
+      -60,
+      -75,
+      70
+    ],
+    "agent_models": {
+      "boat-1": "boat"
+    },
+    "mission_label": "independent open-water boat recovery",
+    "camera_observation": {
+      "enabled": true,
+      "agents": {
+        "uav-1": {
+          "pitch_deg": -60,
+          "fov_deg": 70
+        }
+      },
+      "perception": "rescue_scenes.perception_magpie:detect",
+      "perception_workers": 8,
+      "analysis_latency_s": 30,
+      "replace_scripted": true,
+      "confidence": 0.6,
+      "width": 1280,
+      "height": 720,
+      "renderer": {
+        "software_gl": false,
+        "node_modules": "/mnt/data2/weizhiwei/aeroagentsim/AeroAgentSim/frontend/node_modules",
+        "async_capture": true,
+        "render_workers": 4,
+        "max_pending": 16,
+        "poll_interval_s": 0.5,
+        "artifact_fsync": false
+      },
+      "capture_interval_s": 0.5,
+      "python_switch_interval_s": 0.0005,
+      "periodic_agents": [
+        "uav-1"
+      ]
+    },
+    "human_asset_policy": "delivered_base_only",
+    "camera_focus_entities": [
+      "boat-1"
+    ],
+    "water_surface_stage_id": "SC05_STATIC_LIGHT_RUFFLE"
+  },
+  "assumptions": [
+    "Shared camera allocation/contact policy (authored, uncalibrated; not catalog urgency): all scenes use T002=70, T014=70 (80 for locally believed major/destroyed damage), and established-human T027=78. A single-frame camera-candidate T027 stays <=64; person/human detections of the same locally associated candidate in >=2 distinct capture parent /image IDs from the same reporting agent promote its T027 to 81, above those surveys at a safe boundary. Raw/associated copies, duplicate boxes and replays of the same capture count once. An existing waiting proposed T027 is refreshed in-place once on promotion, without a new A050 or revision; timestamps and frame IDs are not proposal-signature changes. Camera-review T011 stays <=63. Failed candidate A009 sensor contacts suppress the same candidate or a locally recorded site within 3 m for 120 s and require camera presence evidence acquired after the failure before retry; failure does not establish human absence. These are shared defaults even without camera_search_policy; explicit existing overrides are honored, and regional search policies are unchanged. Existing commitments use authored policy fields F202/F209/F212 from 10_字段385; 05_任务96 and 14_场景任务映射 do not mandate task ordering. A coordinator-known accepted/executing commitment with a matching delivered current-task id/revision remains an allocator candidate, subject to priority, interruptibility, capability, access, payload and energy checks. Queued A052 and assignments awaiting delivery/acceptance remain reserved; unmatched current-task reports do not release them. A053 acceptance-to-deadline windows are not unconditional uninterruptible leases: replacement acceptance still waits for the real action boundary and A056 checkpoint, with A057 revalidation on resume. Equal-priority 81 contacts cannot interrupt each other. A queued camera T027 is canceled as stale through A054 only when its exact local candidate has a delivered belief.entity_ref and the referenced human needs are known without a contact need. Recheck before allocation/acceptance and before initial approach/A009, not after this task own successful contact; no distance-only identity or suppression of unassociated tracks. A059 services may preempt only a lower-priority executing preemptible ordinary commitment through the existing A053/A056 action-boundary checkpoint and A057 resume; active service scopes and real capability/access/energy/aboard constraints remain binding. Service A053 rechecks local commitments, and refusals retain busy/payload/access/energy/tool causes instead of all becoming capability failures. Fresh unassociated tracks can still starve lower-priority searches under this unchanged policy. No scene switch, truth, count, location, outcome or capability change is introduced. Survey-relative starvation is expected to be removed only when corroboration and real capability, access, energy and delivery permit; contact, rescue and fixed-horizon results are not guaranteed.",
+    "Camera re-sightings of an already contacted person (a local non-camera human with delivered contact needs) associate to that person when strict point-in-box and camera-track matches miss, using the same measured box tests: its contact foot point projected inside the box, else within the measured bottom-edge half-span around the box bottom-centre ground estimate. One-person-per-frame exclusion still applies. This prevents repeat contacts of the same known resident from minting new tracks; it never marks an uncontacted or unknown person absent and changes no truth, needs, urgency or capability.",
+    "A carrier with an unacknowledged person aboard does not accept (A053) or resume (A057) unrelated work such as contact, survey or clearance until that person is handed over; care, load, transport, handover and water-recovery tasks (T029-T036) still proceed. This applies the existing A059 service rule (\"a team with a person aboard finishes that person's handover before serving anyone else\") to ordinary tasks. A deferred commitment stays suspended, not failed; capacity, access, receiver and truth checks are unchanged.",
+    "T001/T009 fly clipped parallel lanes over public mapped polygons instead of visiting only their centroids. Lane spacing is an authored search policy, not detection or coverage evidence; captures, inference, hazards, energy, contacts and action results remain authoritative. No casualty truth enters the route. Open-water search uses 24 m above the existing source water datum and 36 m lane spacing over RESV_SC05_SEARCH; the source-wide sea extent is not a new rescue search brief.",
+    "uav-1 explicitly carries the mission-coordination role over the existing public regional-survey brief and fleet reports. It remains a UAV with unchanged physical capabilities; T033-T036 are proposal scope for allocation to the real boat, not UAV recovery authority. No offshore command post, casualty prior, receiver or successful action is introduced.",
+    "Legacy authored mission configuration only; source background, reservations, terrain classes, allocated instances, categories and damage states are retained. No simplified geometry, generated scene, rescue outcome or action success is authored here.",
+    "Public brief, camera focus and navigation goals do not expose a casualty count, identity, position or state. Rescue tasks require actual local observations, beliefs, communication, installed capabilities and resource checks.",
+    "The only human geometry authorized here is delivered HUM-001-C01-BASE from assets/glb/HUM-001-C01-BASE_static.glb at unit scale. Mobility, injury and water context are semantic initial conditions, not claims of delivered sitting, floating, prone or supine geometry.",
+    "Allocation rules are not completion evidence. Undelivered nonhuman allocations remain source gaps, never replaced or credited as coverage; no human pose is allocated to these three scenes, so human allocation substitutions are empty.",
+    "UAV camera observation uses the existing SC01 camera backend and settings. There is no authored scripted detection, public casualty prior or target navigation goal.",
+    "Receiver confirmation and finite capacity govern actual custody. Reaching a station, recovering aboard or loading a model does not count as final handover. No calibrated rescue physics, ash/gas measurement, buoyancy or sea-state certification is claimed.",
+    "This is the source shore-free open-water SC05, independent of coastal inundation SC04. The entire source footprint, submerged shelf, U0 water datum, vessel assembly, search reservation, connectors and west portal remain unchanged. No road, dock, launch ramp, floating hospital or dry receiver is invented.",
+    "boat-1 is the existing SC03 boat embodiment using existing production_map boat NEW-BOAT-001-C01-BASE (approximately 4.95 x 2.034 m), C03 water motion, C23 recovery and C22 transport, unchanged 500 kg payload, and existing water tolerance 10 m. Published source bed depths are 12-20 m; placement depth records bathymetry, not a wading threshold, draught certification or sea-state safety claim. Existing water-mobility navigation uses water membership, not a ground wading limit.",
+    "The boat starts afloat in real RESV_SC05_VESSEL_ASSEMBLY; the 75 kg limited-mobility casualty starts in real RESV_SC05_SEARCH. Both are bound to source U0, not the seabed. The source-bound UAV uav-1 is pre-airborne over source water; uav_agl_m12 is measured above U0, never used to create a seabed launch pad.",
+    "No ground vehicle or dog is configured; neither can perform open-water recovery. Q036 permits A003/A023 recovery by the real boat, but its A021/A022 continuation remains blocked without an actual staffed compatible receiver. Authored T034/T035 allowlists expose this unmet chain, never fabricate its completion.",
+    "No human pose or fitted flotation gear is claimed from the delivered BASE mesh. The same boat geometry remains displayed while loaded under human_asset_policy delivered_base_only; no production loaded-boat embedded person is authorized. Semantic human.carrier_id and mass accounting, not an alternate posed body, record real recovery.",
+    "The inherited 240 s target_moves offset is an abstract secondary drift event, not current/wave simulation or a rescue outcome. Source wave height, period, wind/current and density remain unspecified; no calm-water or vessel suitability certification follows from the static surface."
+  ],
+  "config_source": "authored legacy mission; SC03/SC12/SC13 interfaces; authoritative CSV task/action/capability rules; existing allocated upstream background retained",
+  "public_brief_zh": "对已标注开放水域开展区域侦察评估与水上搜索；依据实际观测、水上平台能力和已证实的接收条件决定行动。",
+  "provenance": {
+    "mission_authority": {
+      "files": [
+        "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/03_场景18.csv",
+        "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/05_任务96.csv",
+        "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/06_序列112.csv",
+        "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/07_序列步骤.csv",
+        "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/08_操作66.csv",
+        "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/09_能力49.csv",
+        "dev/rules-export/AeroRescue_救援场景任务行动能力状态总目录_v1/14_场景任务映射.csv"
+      ],
+      "reference_interfaces": [
+        "configs/SC03.json",
+        "configs/SC12.json",
+        "configs/SC13.json"
+      ],
+      "allocation": "configs/asset_allocation.json",
+      "allocation_pointer": "/scenes/SC05/rules"
+    },
+    "source_config": "configs/SC05_upstream.json",
+    "source_preservation": "background copied verbatim; upstream source generation specification retained except unrelated allocated_field_operation mission gate; all source regions/reservations/categories/damage/assets retained read-only",
+    "source_allocated_operation": {
+      "kind": "allocated_field_operation",
+      "source_acceptance_ids": [
+        "AGT-001-C01-BASE"
+      ],
+      "tasks": [
+        "T009",
+        "T019"
+      ]
+    },
+    "authored_human_asset": {
+      "asset_id": "HUM-001-C01-BASE",
+      "file": "assets/glb/HUM-001-C01-BASE_static.glb",
+      "state": "BASE",
+      "pose_claim": false,
+      "origin": "authored mission casualty, not an allocation coverage claim"
+    },
+    "human_pose_substitutions": [],
+    "human_pose_allocation_note": "No human or human-pose rule is allocated to this scene. Undelivered poses from other scenes are not reassigned or counted here.",
+    "allocation_gaps": {
+      "source": "configs/asset_allocation.json#/scenes/SC05/rules",
+      "counts_by_status": {
+        "awaiting_formal_delivery": 5
+      },
+      "policy": "Retain every missing/non-ready allocation in its source; do not replace, reassign or count as coverage."
+    },
+    "execution_status": "authored only; no generation, materialization, simulation, test or render performed",
+    "receiver_chain": {
+      "target_region_id": "RESV_SC05_SEARCH",
+      "carrier": "boat-1",
+      "receiver": null,
+      "receiver_region_id": null,
+      "sequence": [
+        "T009/A005-A006-A007",
+        "T036/A003-A023",
+        "T034/A021 blocked without real compatible receiver",
+        "T035/A022 blocked without confirmed receiver"
+      ],
+      "gap": "RESV_SC05_WEST_HANDOFF and PORTAL_WEST are only external waterborne staging/transition metadata, not receiving entities. No supported staffed waterborne receiver is delivered; no full recovery-and-handover completion may be claimed."
+    },
+    "display_gaps": [
+      {
+        "kind": "water casualty pose",
+        "reason": "only delivered human BASE authorized; no floating/in-water pose claim"
+      },
+      {
+        "kind": "loaded boat",
+        "reason": "reuse same existing boat geometry under delivered_base_only; no embedded production casualty or on-deck body pose claim"
+      }
+    ]
+  }
+}

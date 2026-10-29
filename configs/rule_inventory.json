@@ -1,0 +1,61 @@
+{
+  "schema": "rescue.rule-inventory/v1",
+  "note": "Concrete rules of the three-layer scene generator mapped to existing code/fields or to a missing input. kind: required = spatial/semantic condition that must hold; parameter = configurable per-scene value (no planning standard is asserted). status: implemented | partial | bypassed | absent.",
+  "layers": {
+    "1_normal_environment": "buildable regions -> ordinary buildings (type mix, density, real footprints, access/circulation), stations, roads; pre-disaster, no damage.",
+    "2_disaster": "core G02-G06 applied to layer-1 world: occupancy, hazard footprint/intensity, damage grade per building, debris from damaged sources onto reachable roads, casualty states.",
+    "3_rescue": "deployment (staging, command post, agent mix), public brief, task generation/allocation/execution/events from resulting state."
+  },
+  "groups": {
+    "A_source_regions_coordinates": [
+      {"id": "A1", "rule": "Plots/buildable regions = METADATA_RESERVATION polygons from <SID>_aas_full_yup.glb extras (kind filter per scene)", "kind": "required", "status": "implemented", "where": "rescue_scenes/layout.py GLB reader; config placement.allowed_region_kinds"},
+      {"id": "A2", "rule": "Roads/accesses = same-source route-A layout JSON centerlines/widths/access polygons; split into junction segments as core road entities", "kind": "required", "status": "implemented", "where": "layout.py roads; core truth._build_graph", "missing_input": "route-A layout JSON exists only for SC01/SC03/SC04/GT04; other 9 scenes need their road centerlines from their scene spec/build (blk_build spec 'centerlines') - to be exported per scene, not hand-copied"},
+      {"id": "A3", "rule": "Surface class per footprint sample from canonical grid (ROAD_CARRIAGEWAY, SIDEWALK, PLOT_SURFACE, ...)", "kind": "required", "status": "implemented", "where": "backgrounds.Grid.classification; layout.footprint_classes"},
+      {"id": "A4", "rule": "ENU<->core XY and render height from canonical grid", "kind": "required", "status": "implemented", "where": "Grid.core/enu/height"}
+    ],
+    "B_asset_semantics_state_eligibility": [
+      {"id": "B1", "rule": "Each placeable asset has entity type, footprint (L,W,H), forward axis, states (D0-D3 / intact/blocking/opening), from measured GLB", "kind": "required", "status": "partial", "where": "assets/asset_map.json (16 assets only)", "missing_input": "full Drive inventory (lane S2: assets/drive_inventory.json)"},
+      {"id": "B2", "rule": "Building prototype attributes for core: building.use, building.structure (core fragility enum timber/masonry/RC/steel/mixed), building.floors, from Excel 建筑36态 (形制, 固定材料体系, H)", "kind": "required", "status": "absent", "where": "currently hardcoded 'residential','masonry',floors 1 in layout.py", "missing_input": "prototype->use/structure mapping table read from Excel rows (not invented)"},
+      {"id": "B3", "rule": "Damage display variant = prototype x core truth building.visual_damage (none/minor/major/destroyed -> D0..D3)", "kind": "required", "status": "absent", "where": "presentation.type_of uses authored attr.damage_grade", "missing_input": "per-prototype D0-D3 GLBs (S2 delivery_class)"},
+      {"id": "B4", "rule": "Scene eligibility of an asset (disaster family, region kind, condition) comes from Excel applicability + scene profile, assigned in configs/asset_allocation.json", "kind": "required", "status": "absent", "where": "lane S2 output", "missing_input": "S2 allocation"}
+    ],
+    "C_normal_environment_density_mix": [
+      {"id": "C1", "rule": "Building count per region derived from density target and real footprints: place until target coverage reached or no legal position remains (report shortfall)", "kind": "required", "status": "absent", "where": "layout.py places a fixed list of 2 configured buildings"},
+      {"id": "C2", "rule": "Density target per region kind (e.g. building footprint coverage ratio range)", "kind": "parameter", "status": "absent", "where": "configs/<SID>.json placement.environment"},
+      {"id": "C3", "rule": "Type mix weights over eligible prototypes per region kind", "kind": "parameter", "status": "absent", "where": "configs/<SID>.json placement.environment.mix"},
+      {"id": "C4", "rule": "building.capacity from prototype floor area x floors x persons-per-area parameter (core G02 then draws occupants with occupancy_prior.by_use)", "kind": "parameter", "status": "absent", "where": "core G02 uses building.capacity; currently max(2,len(occupants))"}
+    ],
+    "D_placement_access_overlap": [
+      {"id": "D1", "rule": "Full rotated footprint (interior sampled) on allowed classes; buildings/stations not on carriageway/sidewalk", "kind": "required", "status": "implemented", "where": "layout.Layout.check"},
+      {"id": "D2", "rule": "Pairwise footprint gap >= clearance; damaged-state envelope reserved", "kind": "required", "status": "implemented", "where": "layout overlap_check, reserve_damage_grades"},
+      {"id": "D3", "rule": "Plot access corridor kept clear; each building entrance faces an access/internal circulation path that connects to the access", "kind": "required", "status": "partial", "where": "approach corridor per placed building; with many buildings an internal circulation strip network per plot is needed", "missing_input": "entrance side per prototype (Excel 固定平面与入口)"},
+      {"id": "D4", "rule": "Agents spawn off carriageway on walkable classes, vehicle may stage on a carriageway lane", "kind": "required", "status": "implemented", "where": "layout spawn rules"},
+      {"id": "D5", "rule": "No legal space -> explicit ValueError naming entity/rule", "kind": "required", "status": "implemented", "where": "layout.place / incident"}
+    ],
+    "E_disaster_cause_effect": [
+      {"id": "E1", "rule": "Hazard footprint/intensity per profile (G03)", "kind": "required", "status": "partial", "where": "core truth G03: footprint = central 60% map box for earthquake", "missing_input": "optional scene epicentre/footprint parameter; otherwise core default stays"},
+      {"id": "E2", "rule": "Damage grade = exposure x fragility(structure) x noise (G04)", "kind": "required", "status": "bypassed", "where": "core G04; overridden by options.pinned_buildings"},
+      {"id": "E3", "rule": "Debris only from damaged source within reach onto nearest road, blocks that road entity (G05, obstacle_rate)", "kind": "required", "status": "bypassed", "where": "core G05; disabled via no_debris_from, replaced by authored obstacles slot"},
+      {"id": "E4", "rule": "Debris display pose/yaw/footprint = G05 point on road + road direction; footprint within carriageway", "kind": "required", "status": "absent", "where": "engine initial_yaw from layout only covers generator-placed debris"},
+      {"id": "E5", "rule": "Secondary events (aftershock reblock at t=420)", "kind": "required", "status": "implemented", "where": "core profile secondary_events"}
+    ],
+    "F_people_agent_deployment": [
+      {"id": "F1", "rule": "Occupants from capacity x occupancy prior (G02), outdoor count prior", "kind": "required", "status": "bypassed", "where": "core G02; overridden by pinned_occupants/outdoor_count=0"},
+      {"id": "F2", "rule": "Casualty mobility/injury/needs from structural grade (G06); interior people stay in their building", "kind": "required", "status": "bypassed", "where": "core G06; overridden by pinned_humans"},
+      {"id": "F3", "rule": "Agent mix per scenario (profile agent_mix: coordinator 1, uav 2, robot_dog 2, ground_vehicle 1, specialist_team 1, compute_node 1)", "kind": "parameter", "status": "partial", "where": "configs/SC01.json lists 5 agents; profile mix not used"},
+      {"id": "F4", "rule": "Staging at a road-network boundary entry; command post + teams near staging off carriageway", "kind": "required", "status": "implemented", "where": "layout spawn rules"},
+      {"id": "F5", "rule": "Vehicle public deployment goal = an access reachable on its public map (no hidden casualty location)", "kind": "required", "status": "partial", "where": "navigation_goals target = access of authored building-1 (uses authored knowledge of the casualty building)"}
+    ],
+    "G_task_event_state_consistency": [
+      {"id": "G1", "rule": "Tasks generated only from agent beliefs/observations (core taskgen), allocation by capability, no hidden truth", "kind": "required", "status": "implemented", "where": "core agents/*"},
+      {"id": "G2", "rule": "Road block/clear/pass, person found/contact/extricate/load/transport/handover as distinct evidenced states", "kind": "required", "status": "implemented", "where": "evidence.ChainTracker, engine business events"},
+      {"id": "G3", "rule": "Treatment T031 via existing A019 with station medical_pack stock", "kind": "required", "status": "partial", "where": "T031 now in coordinator/team allowlist; success depends on co-location at receiving point"},
+      {"id": "G4", "rule": "Displayed state = world truth state (damage variant, debris present/opening/cleared, person carried)", "kind": "required", "status": "partial", "where": "engine._publish; building damage variant still from authored grade (B3)"}
+    ],
+    "H_cross_scene_asset_coverage_gaps": [
+      {"id": "H1", "rule": "Every Excel-listed delivered asset is placed in >=1 generated scene instance and appears in run records", "kind": "required", "status": "absent", "where": "lane S2 inventory/allocation, then per-scene placement rules", "missing_input": "S2 output; per-scene configs"},
+      {"id": "H2", "rule": "Coverage measured from generated layouts/run initial_truth (asset_id per entity), not from allocation lists", "kind": "required", "status": "absent", "where": "audit.layout[*].asset_id exists; needs per-run aggregation"},
+      {"id": "H3", "rule": "Gap report to user (missing/plan-only/corrupt/not integrable; scene/task need; suggested state/size/interaction); formal Excel untouched", "kind": "required", "status": "absent", "where": "lane S2 assets/asset_gaps.json"}
+    ]
+  }
+}

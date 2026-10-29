@@ -1,0 +1,570 @@
+{
+  "schema": "rescue.scene-config/v1",
+  "background": {
+    "id": "SC01",
+    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC01/exports/SC01_canonical_grid.npz",
+    "build_report": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC01/SC01_build_report.json",
+    "scene_list": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
+    "geometry_source": "Tagged METADATA_RESERVATION polygons in aas_full_glb; roads and accesses in same-source layout_json",
+    "console_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/marble_sc01_v2_8d28a383/console-scene.SC01v2_splat_full.json",
+    "delivery_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
+    "aas_full_glb": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC01/exports/SC01_aas_full_yup.glb",
+    "layout_json": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/route_A_first4/SC01/layout/SC01_route_A_layout.json",
+    "plot_region_kinds": [
+      "dry_placement"
+    ],
+    "keepout_region_kinds": [
+      "metadata_only_internal_clear_strip"
+    ]
+  },
+  "scenario_id": "SC01",
+  "seed": 1,
+  "tick_s": 0.5,
+  "until_s": 3600,
+  "agents": [
+    {
+      "id": "coordinator-1",
+      "kind": "coordinator",
+      "overrides": {
+        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
+        "share_route_updates": true,
+        "task_allowlist": [
+          "T002",
+          "T014",
+          "T015",
+          "T022",
+          "T023",
+          "T027",
+          "T029",
+          "T032",
+          "T033",
+          "T034",
+          "T035",
+          "T087",
+          "T031"
+        ]
+      },
+      "spawn": {
+        "mode": "near_entity",
+        "asset_kind": "shelter",
+        "count": 1,
+        "near": "ground_vehicle-1",
+        "distance_m": [
+          9.0,
+          27.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "MARGIN_GROUND",
+          "PLOT_SURFACE"
+        ],
+        "clearance_m": 1.0,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "face_nearest_road",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        }
+      }
+    },
+    {
+      "id": "robot_dog-1",
+      "kind": "robot_dog",
+      "overrides": {
+        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
+        "task_allowlist": [
+          "T014",
+          "T015",
+          "T027",
+          "T032",
+          "T033",
+          "T087"
+        ]
+      },
+      "spawn": {
+        "mode": "near_entity",
+        "asset_kind": "robot_dog",
+        "count": 1,
+        "near": "coordinator-1",
+        "distance_m": [
+          5.0,
+          13.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "SIDEWALK",
+          "MARGIN_GROUND",
+          "PLOT_SURFACE",
+          "ACCESS_APRON_LANE"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.25,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        }
+      }
+    },
+    {
+      "id": "uav-1",
+      "kind": "uav",
+      "overrides": {
+        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
+        "task_allowlist": [
+          "T001",
+          "T002",
+          "T047"
+        ]
+      },
+      "spawn": {
+        "mode": "near_entity",
+        "asset_kind": "uav",
+        "count": 1,
+        "near": "coordinator-1",
+        "distance_m": [
+          5.0,
+          13.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "SIDEWALK",
+          "MARGIN_GROUND",
+          "PLOT_SURFACE",
+          "ACCESS_APRON_LANE"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.25,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        }
+      }
+    },
+    {
+      "id": "ground_vehicle-1",
+      "kind": "ground_vehicle",
+      "overrides": {
+        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
+        "navigation_goals": [
+          {
+            "target": "access-nw",
+            "purpose": "access",
+            "arrived": false
+          }
+        ],
+        "capabilities": [
+          "C02",
+          "C04",
+          "C05",
+          "C09",
+          "C14",
+          "C22",
+          "C24",
+          "C26",
+          "C27",
+          "C31",
+          "C32",
+          "C33",
+          "C34",
+          "C35",
+          "C36",
+          "C37",
+          "C39",
+          "C43",
+          "C45",
+          "C28",
+          "C29",
+          "C42",
+          "C44",
+          "C46"
+        ],
+        "task_allowlist": [
+          "T020",
+          "T033",
+          "T034",
+          "T035"
+        ]
+      },
+      "spawn": {
+        "mode": "network_boundary_entry",
+        "asset_kind": "ambulance",
+        "count": 1,
+        "allow_on_carriageway": true,
+        "boundary_distance_m": 0.5,
+        "boundary_setback_m": [
+          5.0,
+          9.0
+        ],
+        "allowed_classes": [
+          "ROAD_CARRIAGEWAY"
+        ],
+        "clearance_m": 0.6,
+        "rotation": {
+          "policy": "into_network"
+        },
+        "navigation_access_of": "building-1"
+      }
+    },
+    {
+      "id": "specialist_team-1",
+      "kind": "specialist_team",
+      "overrides": {
+        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
+        "payload_kg": 20,
+        "capabilities": [
+          "C16",
+          "C17",
+          "C18",
+          "C19",
+          "C20",
+          "C21",
+          "C22",
+          "C30",
+          "C46",
+          "C47",
+          "C48",
+          "C11",
+          "C31",
+          "C43",
+          "C08",
+          "C10",
+          "C02",
+          "C42",
+          "C39",
+          "C44",
+          "C28",
+          "C09",
+          "C14"
+        ],
+        "sensors": [
+          "scripted_rf",
+          "scripted_environment",
+          "scripted_range"
+        ],
+        "task_allowlist": [
+          "T022",
+          "T023",
+          "T033",
+          "T031"
+        ]
+      },
+      "spawn": {
+        "mode": "near_entity",
+        "asset_kind": "person",
+        "count": 1,
+        "near": "coordinator-1",
+        "distance_m": [
+          5.0,
+          13.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "SIDEWALK",
+          "MARGIN_GROUND",
+          "PLOT_SURFACE",
+          "ACCESS_APRON_LANE"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.25,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        }
+      }
+    },
+    {
+      "id": "clearance_loader-1",
+      "kind": "ground_vehicle",
+      "spawn": {
+        "mode": "near_entity",
+        "asset_kind": "clearance_loader",
+        "count": 1,
+        "near": "ground_vehicle-1",
+        "distance_m": [
+          9.0,
+          26.0
+        ],
+        "allowed_region_kinds": [
+          "dry_placement"
+        ],
+        "allow_unreserved_surface": true,
+        "allowed_classes": [
+          "MARGIN_GROUND",
+          "PLOT_SURFACE"
+        ],
+        "clearance_m": 1.0,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": true,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "face_nearest_road",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        }
+      },
+      "overrides": {
+        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
+        "capabilities": [
+          "C02",
+          "C04",
+          "C05",
+          "C09",
+          "C14",
+          "C17",
+          "C31",
+          "C39",
+          "C42",
+          "C43",
+          "C44",
+          "C45",
+          "C46"
+        ],
+        "task_allowlist": [
+          "T023"
+        ]
+      }
+    }
+  ],
+  "placement": {
+    "asset_map": "assets/asset_map.json",
+    "sample_spacing_m": 0.75,
+    "max_draws_per_entity": 1600,
+    "incident_draws": 2500,
+    "approach_depth_m": 14.0,
+    "buildings": [],
+    "debris": [
+      {
+        "id": "debris-1",
+        "kind": "obstacle",
+        "asset_kind": "debris",
+        "count": 1,
+        "intent": "access_route_blockage",
+        "source": "building-1",
+        "staging_agent": "ground_vehicle-1",
+        "collapse_reach_m": 28.0,
+        "segment_end_clearance_m": 4.0,
+        "along_road_window_m": 10.0,
+        "allowed_classes": [
+          "ROAD_CARRIAGEWAY",
+          "CURB_FACE"
+        ],
+        "clearance_m": 0.5,
+        "rotation": {
+          "policy": "along_segment"
+        },
+        "volume_m3": 2,
+        "height_m": 0.2,
+        "work": 120
+      }
+    ],
+    "stations": [
+      {
+        "id": "medical-1",
+        "kind": "medical",
+        "count": 1,
+        "source_acceptance_id": "BLD-028-G01-D0",
+        "capacity": 4,
+        "power_W": 500,
+        "receiver_confirmation": true
+      }
+    ],
+    "upstream_generated_scene": {
+      "python": "/mnt/data2/weizhiwei/rescue-generator-stage1/envs/cut4/bin/python",
+      "background_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/delivery_route_A_first4_20261024/route_A_first4_20261024",
+      "catalog": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot/catalog.json",
+      "config": "/home/weizhiwei/.local/share/aero-world-gpt-codex/state/outputs/task_38a83a410c744ba59f22ea23868-b7fde105f68f2560/generation-input-rules.json",
+      "input_roots": [
+        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot"
+      ],
+      "walkable_ground_surface": "soil",
+      "building_metadata": {
+        "BLD-001-G01": {
+          "building.use": "residential",
+          "building.structure": "timber",
+          "building.floors": 1,
+          "building.capacity": 6
+        },
+        "BLD-001-G02": {
+          "building.use": "residential",
+          "building.structure": "masonry",
+          "building.floors": 1,
+          "building.capacity": 6
+        },
+        "BLD-003-G03": {
+          "building.use": "storage",
+          "building.structure": "steel",
+          "building.floors": 1,
+          "building.capacity": 10
+        },
+        "BLD-002-G01": {
+          "building.use": "residential",
+          "building.structure": "masonry",
+          "building.floors": 2,
+          "building.capacity": 6
+        },
+        "BLD-002-G02": {
+          "building.use": "residential",
+          "building.structure": "RC",
+          "building.floors": 2,
+          "building.capacity": 6
+        },
+        "BLD-002-G03": {
+          "building.use": "residential",
+          "building.structure": "RC",
+          "building.floors": 2,
+          "building.capacity": 6
+        },
+        "BLD-003-G01": {
+          "building.use": "storage",
+          "building.structure": "steel",
+          "building.floors": 1,
+          "building.capacity": 10
+        }
+      },
+      "metadata_sources": {
+        "building.structure_and_floors": "dev/rules-export/灾后搜救_3D实体资产清单_1/建筑36态.csv: BLD-001-G01-D0, BLD-001-G02-D0, BLD-003-G03-D0; design semantic classes, not certified structural properties; expanded catalog: BLD-002-G01-D0 (承重砌体 -> masonry, 两层 -> 2), BLD-002-G02-D0 and BLD-002-G03-D0 (RC框架+砌体填充 -> RC, 两层 -> 2), BLD-003-G01-D0 (金属围护板/轻钢门式架 -> steel, 单层 -> 1)",
+        "building.use": "catalog snapshot sources[].land_use; warehouse maps to catalog building.use=storage (10_字段385 F026)",
+        "building.capacity": "generation-input-rules.json population residential_people_range[1]=6 / warehouse_people_range[1]=10; authored occupancy bounds, not measured safe capacity",
+        "walkable_ground_surface": "../blockout_geometry_20261023/delivery_route_A_first4_20261024/route_A_first4_20261024/SC01/01_structure/source/authority_inputs/SC01_BRIEF.md:22 explicitly specifies fine compacted pale soil vacant plots; original source_network roads retain their existing asphalt default from the same brief.",
+        "catalog": "dev/step3/upstream_expanded_snapshot: rescue_scene snapshot over configs/upstream_selection_expanded.json (59 entries), formal Excel + 03_批量资产 copied read-only from gdrive: to _inputs_cache/drive_20261021; 19 base GLB sha256 identical to the base snapshot"
+      },
+      "incident": {
+        "source_role": "building-1",
+        "damage_states": [
+          "D2",
+          "D3"
+        ],
+        "candidate_pool": "uninstantiated_population",
+        "person": {
+          "mobility": "trapped",
+          "buriedness": 20,
+          "injury": "serious",
+          "needs": [
+            "extrication",
+            "transport"
+          ],
+          "location_context": "interior"
+        }
+      }
+    }
+  },
+  "display": {
+    "uav_agl_m": 12,
+    "agent_ground_offset_m": 0.15,
+    "person_offset_m": 0.15,
+    "status_height_m": 3,
+    "camera_offset_enu": [
+      -60,
+      -75,
+      70
+    ],
+    "agent_models": {
+      "clearance_loader-1": "clearance_loader",
+      "ground_vehicle-1": "ambulance"
+    },
+    "mission_label": "upstream environment / SC01 rescue",
+    "camera_observation": {
+      "enabled": true,
+      "agents": {
+        "uav-1": {
+          "pitch_deg": -60,
+          "fov_deg": 70
+        }
+      },
+      "perception": "rescue_scenes.perception_magpie:detect",
+      "perception_workers": 8,
+      "analysis_latency_s": 30,
+      "replace_scripted": true,
+      "confidence": 0.6,
+      "width": 1280,
+      "height": 720,
+      "renderer": {
+        "software_gl": false,
+        "node_modules": "/mnt/data2/weizhiwei/aeroagentsim/AeroAgentSim/frontend/node_modules",
+        "async_capture": true,
+        "render_workers": 4,
+        "max_pending": 16,
+        "poll_interval_s": 0.5,
+        "artifact_fsync": false
+      },
+      "capture_interval_s": 0.5,
+      "python_switch_interval_s": 0.0005,
+      "periodic_agents": [
+        "uav-1"
+      ]
+    }
+  },
+  "assumptions": [
+    "SC01/GT04 casualty-work scheduling override (authored, uncalibrated; not catalog urgency): casualty_work_policy sets locally believed major/destroyed-building T014=82 above corroborated camera-candidate T027=81, T033=89 above T029=86, and T034=90 above new loading, below T035=91; T031=94 and all physical guards remain unchanged. A waiting proposed T014 is monotonically promoted once on delivered major/destroyed damage, clearing its old allocation retry delay without A050 or a new revision; later damage estimates remain unchanged and this promotion is not damage certainty. Other first-search priorities, uncertainty, observations and ordinary residents stay intact. At real action boundaries, queued substantive A053/A056/A057/A058 controls run before another old method/approach starts, and an in-flight commitment change holds that lane until its result; this neither instantly stops an active action nor releases occupancy. Assignments include the known person response/evidence for an exact belief.entity_ref alias, so existing stale-contact checks can cancel already resolved contacts through A054; no distance-only identity, mobile/uninjured-to-no-needs inference or truth role filter is introduced. A queued T014 is canceled as stale when a locally received belief.search_status=complete already resolves its building, including recheck before A008 after travel; this adds no search success and partial/inconclusive T015 remains eligible. Missing medical stock stays a real A019 failure: catalog A024 needs C24 and A028 needs C27; neither is granted to the specialist. Existing carrier transport and receiver-side T031 remain available. No payload, pickup range, receiver, road, hidden truth or capability is changed, and a rescue within 3600 s is not asserted without a run.",
+    "Personnel-task reconciliation uses only local action receipts or delivered reports: at an action boundary, a redundant T033 whose person is already acknowledged, or a T031 whose person is already treated, is canceled as stale through A054, preserving costs without a new load, treatment or success credit. A T033 whose on-carrier goal is already locally evidenced may close through its existing goal check. A payload rejection does not permanently blacklist the carrier; current payload and commitment filters still apply, including the real occupied load until confirmed handover. No capability, capacity, receiver or access restriction is relaxed.",
+    "Shared camera allocation/contact policy (authored, uncalibrated; not catalog urgency): all scenes use T002=70, T014=70 (80 for locally believed major/destroyed damage), and established-human T027=78. A single-frame camera-candidate T027 stays <=64; person/human detections of the same locally associated candidate in >=2 distinct capture parent /image IDs from the same reporting agent promote its T027 to 81, above those surveys at a safe boundary. Raw/associated copies, duplicate boxes and replays of the same capture count once. An existing waiting proposed T027 is refreshed in-place once on promotion, without a new A050 or revision; timestamps and frame IDs are not proposal-signature changes. Camera-review T011 stays <=63. Failed candidate A009 sensor contacts suppress the same candidate or a locally recorded site within 3 m for 120 s and require camera presence evidence acquired after the failure before retry; failure does not establish human absence. These are shared defaults even without camera_search_policy; explicit existing overrides are honored, and regional search policies are unchanged. Existing commitments use authored policy fields F202/F209/F212 from 10_字段385; 05_任务96 and 14_场景任务映射 do not mandate task ordering. A coordinator-known accepted/executing commitment with a matching delivered current-task id/revision remains an allocator candidate, subject to priority, interruptibility, capability, access, payload and energy checks. Queued A052 and assignments awaiting delivery/acceptance remain reserved; unmatched current-task reports do not release them. A053 acceptance-to-deadline windows are not unconditional uninterruptible leases: replacement acceptance still waits for the real action boundary and A056 checkpoint, with A057 revalidation on resume. Equal-priority 81 contacts cannot interrupt each other. A queued camera T027 is canceled as stale through A054 only when its exact local candidate has a delivered belief.entity_ref and the referenced human needs are known without a contact need. Recheck before allocation/acceptance and before initial approach/A009, not after this task own successful contact; no distance-only identity or suppression of unassociated tracks. A059 services may preempt only a lower-priority executing preemptible ordinary commitment through the existing A053/A056 action-boundary checkpoint and A057 resume; active service scopes and real capability/access/energy/aboard constraints remain binding. Service A053 rechecks local commitments, and refusals retain busy/payload/access/energy/tool causes instead of all becoming capability failures. Fresh unassociated tracks can still starve lower-priority searches under this unchanged policy. No scene switch, truth, count, location, outcome or capability change is introduced. Survey-relative starvation is expected to be removed only when corroboration and real capability, access, energy and delivery permit; contact, rescue and fixed-horizon results are not guaranteed.",
+    "Camera re-sightings of an already contacted person (a local non-camera human with delivered contact needs) associate to that person when strict point-in-box and camera-track matches miss, using the same measured box tests: its contact foot point projected inside the box, else within the measured bottom-edge half-span around the box bottom-centre ground estimate. One-person-per-frame exclusion still applies. This prevents repeat contacts of the same known resident from minting new tracks; it never marks an uncontacted or unknown person absent and changes no truth, needs, urgency or capability.",
+    "A carrier with an unacknowledged person aboard does not accept (A053) or resume (A057) unrelated work such as contact, survey or clearance until that person is handed over; care, load, transport, handover and water-recovery tasks (T029-T036) still proceed. This applies the existing A059 service rule (\"a team with a person aboard finishes that person's handover before serving anyone else\") to ordinary tasks. A deferred commitment stays suspended, not failed; capacity, access, receiver and truth checks are unchanged.",
+    "uav-1 external RGB sensing uses committed rendered images and DeepSeek V4.1 Flash via local Magpie (route recorded with every inference call; default workbuddy/deepseek-v4.1-flash); its A005 does not report truth-based building damage, outdoor people or obstacles. Other agents, interior search, contact responses, network and compute retain their v0.5 scripted models; no ns-3 or calibrated rescue physics.",
+    "Access-route blockage is an initial-condition constraint: the source building, boundary road entry and matching blocked junction segment are sampled together so the blockage lies on the public-map shortest route to that building plot access. Authored collapse reach is 28 m measured from the actual initial building model footprint to actual debris; plot edges are approximately 14-16.5 m off the carriageway. Rubble has the asset footprint (its transverse width determines remaining road clearance), abstract 0.2 m step height and 120 work units. Clearance and rescue still require ordinary agent observations, tools, messages and actions.",
+    "Specialist team has installed catalog rescue/clearance tools but 20 kg carrying capacity in this configuration, so a person needs the ground vehicle; dog capabilities are unchanged.",
+    "A3 authored equipment assumption: the professional team carries range measurement (C09/scripted_range) and local route planning (C14) for Q022/Q023 access verification. Existing C16/C17 remain its clearance interfaces; no capability implies guaranteed work success.",
+    "A3 authored vehicle assumption: this transport vehicle (displayed as the produced RSC-008-C01 van ambulance, lane P5: closed, or the LOADED state while it truly carries a person) retains catalog C22 personnel loading/transport and the inherited 800 kg total payload rating, but has no C16 manipulation or C17 engineering tools. Q033/Q034 permit its own C22 loading; they do not require a second loading actor. The specialist's 20 kg capacity is not enlarged.",
+    "A3 mission scope: specialist autonomous proposals cover T022/T023/T033; extrication remains the existing received A059/A017 service. Vehicle blockage observations must reach the coordinator before coordinator clearance proposals can exist. Allowlists restrict proposals, while executor capability, embodiment and payload checks govern assignments and self-acceptance.",
+    "Task allowlists define this compact mission scope; all selected tasks still require local belief rules, messages, capability checks and allocation. Coordinator forwards measured route updates through the scripted network.",
+    "Search misses, action failures, unassigned tasks and unfinished objectives remain visible. A receiving point is an abstract staffed station with explicit confirmation and finite capacity.",
+    "Equal-priority T014 proposals are ordered by the existing allocator score from received fleet reports and known-map route distance, not the lexical task serial number. This is a scheduling policy, not knowledge of the incident building or its occupants; damage priority, capability, road blockage, battery, commitments and the 300 s search budget remain unchanged. It does not guarantee detection or rescue within a fixed horizon.",
+    "Speeds, radio ranges, scripted sensing probabilities, durations and work rates inherited from v0.5 are uncalibrated model assumptions. Rendered scene assets supply uav-1 image evidence; image associations use only local belief positions and do not certify structural condition or road passability.",
+    "Produced asset NEW-ENG-001-C01 (compact wheel loader, lane P1, not yet in the formal Excel) is the display model of clearance_loader-1, a catalog ground_vehicle embodiment configured with heavy-clearance capability C17 (A013) plus sensing/route/comms capabilities; it parks off the carriageway near the deployment entry and is only one clearance candidate - allocation still chooses between it and the specialist team.",
+    "Opt-in scene-v0.6 @ 4a9dccb supplies the normal capacity layout, independent RNG stages, same-parent damage reservation and pre-bootstrap authored activation events. Density and search budgets come from the referenced route-a-3 rules; no density is hardcoded in this adapter.",
+    "Imported physical people retain their source truth fields and raw pose metadata; existing human_pose may select the already-produced P2 supine variant for immobile people, whose pose-specific collision remains unvalidated. Upstream population_truth_candidates stay in evaluator-only audit, except the one selected cohort member explicitly materialized as this configured incident; pinned_occupants=0 explicitly suppresses a second G02 population, and does not assert that normal D0 buildings are unoccupied. Indoor support/entrances remain source gaps.",
+    "RouteATerrain supplies exact nonuniform T0/T1 support and physical road tops. Static upstream GLBs retain full matrices through display-frame wrappers, with original bytes/hashes referenced. Existing vehicle/loader/ambulance display models and capabilities are retained.",
+    "Existing core runtime remains planar; upstream layered road screening is retained in the audit and does not certify bridge/underwater separation in this plugin. Main-road incident debris uses the ordinary G05/D01 obstacle association. Source damage/access overlaps retain geometric building blockers; fragment clearance is not inferred from a full damaged-building mesh.",
+    "All assets/coverage obligations remain in the pinned snapshot. This configuration imports generated instances; it does not claim newly rendered, visible or task-verified coverage. No additional P1-P9 placement or task family implementation is included.",
+    "S10b: Buildings and the medical facility are reused directly from upstream; no new building or receiving-station footprint is sampled. The existing access_route_blockage incident rule receives a fixed eligible damaged-building record. A physical person already inside that footprint, or a not-yet-instantiated member of an upstream building cohort with affected candidates, supplies the configured trapped casualty. Existing outdoor source people are not moved or duplicated. Candidate rejection reasons and selected IDs/segment/staging are recorded in adapter-incident-selection.json.",
+    "Candidate materialization uses an existing upstream population slot (population minus physical_people_instantiated) in a building whose affected_candidate_count is positive. The configured trapped/serious state is a separately recorded SC01 authored initial condition; it does not assert that the source affected-candidate count is a new measured or unchanged runtime injury total. No existing outdoor person is relocated.",
+    "Source buildings, people and the medical shell keep their original matrices and physical footprints/reservations. S10d binds medical-1's staffed service point to a body-clear carriageway stop at the same facility plot access; the onward shared-walk/door route stays a foot/carry leg and is not pre-executed. Its model wrapper preserves the original facility matrix. Exterior approach metadata is not a certified doorway. Agent deployment still uses the existing spawn checks against all imported occupied footprints.",
+    "S10c: Source ordinary residents receive evaluator-only attr.population_role=ordinary and no casualty objectives; affected source people and the selected incident retain full rescue objectives. Classification uses source caused_by and truth_fields; inconsistent records are retained in audit without guessing. Agents receive no population_role truth.",
+    "SC01 incident generation requests no coverage target. Incident selection always excludes coverage-forced building states, even when consuming a coverage-conditioned source. Eligible state comes from upstream authored event radius, configured damage_weights, exact loaded variant and legal scatter fit; it is not an exposure/fragility physical prediction. No eligible source means the existing explicit access_route_blockage ValueError.",
+    "Upstream affected_candidate_count draws Bernoulli trials over the source population using disaster.trap_probability_by_state for the generated building state. The selected incident person's trapped mobility, serious injury, buriedness20 and needs are SC01 authored initial conditions, not inferred clinical state or predicted entrapment. Pinned source building grades bypass core G04 grade choice; D1-D3 roof/wall numbers remain inherited synthetic outputs.",
+    "S10d: Every source building/facility uses its own published walk-to-door approach. Explicit opt-in abstract interior entry/exit admits only the target building on that declared terminal route; other structures and physical blockers remain. Vehicle loading uses a separate valid S5c measured-body stand/path from the plot access when one exists, otherwise a checked carriageway stop; the receiver service point is on the carriageway. Invalid S5c candidates stay in audit. Foot-only walks remain foot/legged. Existing15m loading, receiver distance/capacity/confirmation and actor payload limits are unchanged, so a distant interior casualty may still require real carrying."
+  ]
+}

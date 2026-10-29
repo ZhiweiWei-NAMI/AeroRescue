@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rescue.env-config/v1",
+  "title": "rescue.env-config/v1",
+  "description": "SPEC §5.1. Only scenario_id is mandatory; unknown config keys are rejected. Agent kinds are extensible.",
+  "type": "object",
+  "properties": {
+    "truth_options": {
+      "type": "object",
+      "description": "Explicit authored initial disaster conditions, consumed only by world generation."
+    },
+    "scenario_id": {
+      "enum": [
+        "SC01",
+        "SC02",
+        "SC03",
+        "SC04",
+        "SC05",
+        "SC06",
+        "SC07",
+        "SC08",
+        "SC09",
+        "SC10",
+        "SC11",
+        "SC12",
+        "SC13",
+        "SC14",
+        "SC15",
+        "SC16",
+        "SC17",
+        "SC18"
+      ]
+    },
+    "seed": {
+      "type": "integer",
+      "default": 1
+    },
+    "overlays": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "OV01",
+          "OV02",
+          "OV03",
+          "OV04",
+          "OV05",
+          "OV06",
+          "OV07",
+          "OV08"
+        ]
+      },
+      "uniqueItems": true,
+      "default": []
+    },
+    "semantics": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "enum": [
+            "authored",
+            "upstream"
+          ]
+        },
+        "path": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "source": {
+                "const": "upstream"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "path"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "bounds_m": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "const": 0
+        },
+        {
+          "const": 0
+        },
+        {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      ],
+      "items": false,
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "Planar local ENU bounds [0, 0, width, height], metres; elevation ignored."
+    },
+    "agents": {
+      "oneOf": [
+        {
+          "const": "profile"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "type": "string",
+                "minLength": 1
+              },
+              "start": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "overrides": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "start"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ]
+    },
+    "disruptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "t": {
+            "type": "number",
+            "minimum": 0
+          },
+          "kind": {
+            "enum": [
+              "aftershock_reblock",
+              "link_outage",
+              "low_battery",
+              "service_failure",
+              "target_moves",
+              "equipment_fault",
+              "wrong_evidence",
+              "fire_spread",
+              "water_rise",
+              "cancel_task"
+            ]
+          },
+          "target": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "t",
+          "kind"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "allocator": {
+      "enum": [
+        "greedy",
+        "bidding"
+      ],
+      "default": "greedy"
+    },
+    "tick_s": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "default": 5
+    },
+    "until_s": {
+      "type": "number",
+      "minimum": 0,
+      "default": 3600
+    }
+  },
+  "required": [
+    "scenario_id"
+  ],
+  "additionalProperties": false
+}

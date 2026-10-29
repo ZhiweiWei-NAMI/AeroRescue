@@ -1,0 +1,129 @@
+{
+  "schema": "rescue.generation-rules/v1",
+  "rule_version": "route-a-3",
+  "scene_types": [
+    "SC12"
+  ],
+  "sampling": "ordinary",
+  "building_coverage_range": [
+    0.25,
+    0.35
+  ],
+  "plot_setback_m": 2.0,
+  "road_setback_m": 2.0,
+  "separation_m": 2.0,
+  "access_width_m": 1.5,
+  "placement_attempts": 4800,
+  "repair_candidates": 12,
+  "max_instances": 180,
+  "max_support_residual_m": 0.025,
+  "max_foundation_tilt_deg": 3.0,
+  "disaster": {
+    "kind": "authored_structural_damage",
+    "event_count_range": [
+      1,
+      3
+    ],
+    "radius_m_range": [
+      35.0,
+      110.0
+    ],
+    "damage_weights": {
+      "D1": 0.25,
+      "D2": 0.45,
+      "D3": 0.3
+    },
+    "trap_probability_by_state": {
+      "D1": 0.1,
+      "D2": 0.45,
+      "D3": 0.75
+    }
+  },
+  "population": {
+    "source": "authored occupancy assumptions, not measured population",
+    "residential_people_range": [
+      2,
+      6
+    ],
+    "warehouse_people_range": [
+      2,
+      10
+    ],
+    "facility_people_range": [
+      2,
+      8
+    ],
+    "outdoor_representatives_per_building": [
+      0,
+      2
+    ]
+  },
+  "runtime_resources": [],
+  "required_environment_roles": [],
+  "evidence_class": "authored_generation",
+  "ordinary_props": {
+    "boundary_fence": {
+      "count_per_plot": [
+        0,
+        0
+      ],
+      "placement": "boundary",
+      "boundary_offset_m": 0.5
+    },
+    "street_furniture": {
+      "count_per_plot": [
+        0,
+        0
+      ],
+      "placement": "near_building"
+    },
+    "parked_vehicle": {
+      "count_per_plot": [
+        0,
+        0
+      ],
+      "placement": "near_access"
+    },
+    "container": {
+      "count_per_plot": [
+        0,
+        0
+      ],
+      "placement": "facility_staging"
+    },
+    "empty_stretcher": {
+      "count_per_plot": [
+        0,
+        0
+      ],
+      "placement": "facility_staging"
+    }
+  },
+  "expected_geometry_count": 464,
+  "search_view_limit": 3,
+  "shared_internal_access": true,
+  "plot_axis_alignment_probability": 0.8,
+  "config_source": "authored scenario assumptions for v30 smoke; requested density remains 25–35% of net buildable area; no empirical urban-density claim",
+  "facility_policies": {},
+  "building_use_weights": {
+    "residential": 0.85,
+    "warehouse": 0.15
+  },
+  "packing_strategy": "parcel_footprint_pool_then_minkowski_union",
+  "environment_role_members": {
+    "rescue_platform": [
+      "uav",
+      "robot_dog"
+    ],
+    "equipment": [
+      "container",
+      "empty_stretcher"
+    ]
+  },
+  "asset_allocation": {
+    "file": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/configs/asset_allocation.json",
+    "scene_id": "SC12"
+  },
+  "buildable_reservation_ids": [],
+  "buildable_reservation_kinds": []
+}

@@ -83,3 +83,23 @@ python -m aerorescue.peft_train --data runs/cpu-prototype/roles.jsonl \
 默认使用官方 [Qwen/Qwen3.5-0.8B](https://huggingface.co/Qwen/Qwen3.5-0.8B) 的内置 Qwen3_5ForConditionalGeneration，只训练语言 decoder 的 LoRA 参数，不训练视觉塔。监督目标为 keep/drop，只对回答 token 计算损失；未观察标签跳过，evaluation 不参与训练。默认要求 CUDA，CPU 必须显式 `--allow-cpu`；默认只读本地缓存，联网下载须显式 `--allow-download`。禁用远端代码与凭据读取。此入口目前仅完成语法/帮助命令核对，未做权重训练或推理验证。实际训练后，平台 participation_filter 可指向 adapter 目录；默认阈值 0.5 尚未校准，推理机器也须有 CUDA 和本地基础权重，同一进程共享只读模型。
 
 该入口及模型选择参考 [Transformers Qwen3.5](https://github.com/huggingface/transformers/tree/v5.3.0/src/transformers/models/qwen3_5) 和 [PEFT LoRA](https://huggingface.co/docs/peft/en/package_reference/lora)。未把未运行的可选代码算作已验证训练结果。
+
+## AeroAgentSim 引擎插件：rescue_scenes
+
+本仓库同时提供 `rescue_scenes` 引擎插件（entry point `aeroagentsim.engines`），安装后平台按
+`engines.rescue.plugin: rescue_scenes` 直接加载，不复制平台内核。
+
+```bash
+pip install -e .        # 在 AeroAgentSim 的 venv 中
+```
+
+外部数据根（场景输入/素材/缓存）通过环境变量指向，代码与数据分离：
+
+```bash
+export RESCUE_SCENE_ROOT=/path/rescue-data
+export RESCUE_DATA_ROOT=/path/project
+export RESCUE_AAS_ROOT=/path/AeroAgentSim
+export RESCUE_GENERATOR_ROOT=/path/project/upstream/scene-v0.6
+export RESCUE_LOD_CACHE=/path/rescue-data/display_lod_cache
+python tools/make_run.py SC09 --config configs/SC09_upstream_allocated.json --forced-rules --scripted-sensing
+```

@@ -1,0 +1,519 @@
+{
+  "schema": "rescue.scene-config/v1",
+  "background": {
+    "id": "SC07",
+    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/out/SC07/exports/SC07_canonical_grid.npz",
+    "build_report": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/out/SC07/SC07_build_report.json",
+    "scene_list": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
+    "geometry_source": "Tagged GLB METADATA_RESERVATION polygons; exported same-source road/track/access layout and source features (sources.sha256)",
+    "console_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery/SC07/aas/console-scene.json",
+    "delivery_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
+    "aas_full_glb": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/out/SC07/exports/SC07_aas_full_yup.glb",
+    "layout_json": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/sources/SC07/SC07_layout.json",
+    "plot_region_kinds": [
+      "metadata_only_building_interface",
+      "metadata_only_assembly_surface"
+    ],
+    "keepout_region_kinds": [
+      "metadata_only_access_corridor"
+    ]
+  },
+  "scenario_id": "SC07",
+  "seed": 1,
+  "tick_s": 1,
+  "until_s": 3600,
+  "agents": [
+    {
+      "id": "fire-unit-1",
+      "kind": "ground_vehicle",
+      "overrides": {
+        "task_allowlist": [
+          "T006",
+          "T089",
+          "T093",
+          "T094"
+        ],
+        "capabilities": [
+          "C02",
+          "C04",
+          "C05",
+          "C09",
+          "C11",
+          "C12",
+          "C14",
+          "C31",
+          "C35",
+          "C39",
+          "C42",
+          "C43",
+          "C44",
+          "C45",
+          "C46",
+          "C28",
+          "C10",
+          "C24",
+          "C26",
+          "C27",
+          "C47"
+        ],
+        "sensors": [
+          "scripted_rgb",
+          "scripted_range",
+          "scripted_environment"
+        ],
+        "width_m": 2.7,
+        "payload_kg": 800,
+        "speed_mps": 4,
+        "equipment_ids": [
+          "fire-unit-1",
+          "portable-pump-1"
+        ],
+        "initial_fields": {
+          "equipment.kind": "release",
+          "attr.equipment_subtype": "fire_suppression",
+          "equipment.enabled": true,
+          "equipment.health": "ready",
+          "equipment.operator_authority": [
+            "fire-unit-1"
+          ],
+          "equipment.setup_state": "stowed",
+          "equipment.consumable_type": "water",
+          "equipment.consumable_remaining": 6,
+          "equipment.reach_m": 8.23
+        },
+        "suppression_reach_m": 8.23,
+        "sense_hazards": true,
+        "equipment_refill_units": 6
+      },
+      "spawn": {
+        "id": "fire-unit-1",
+        "asset_kind": "fire_unit",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_building_interface"
+        ],
+        "allowed_classes": [
+          "PLOT_GROUND"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "near_entity",
+        "near": "building-1",
+        "distance_m": [
+          16,
+          26
+        ],
+        "allow_unreserved_surface": false,
+        "reserve_states": [
+          "BASE",
+          "DEPLOYED"
+        ]
+      }
+    },
+    {
+      "id": "coordinator-1",
+      "kind": "coordinator",
+      "overrides": {
+        "task_allowlist": [
+          "T001",
+          "T006",
+          "T089",
+          "T093",
+          "T094",
+          "T095",
+          "T002"
+        ],
+        "share_route_updates": true
+      },
+      "spawn": {
+        "id": "coordinator-1",
+        "asset_kind": "shelter",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_assembly_surface"
+        ],
+        "allowed_classes": [
+          "ASSEMBLY_GROUND"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "near_entity",
+        "near": "supply-1",
+        "distance_m": [
+          10,
+          24
+        ],
+        "allow_unreserved_surface": false
+      }
+    },
+    {
+      "id": "specialist-team-1",
+      "kind": "specialist_team",
+      "overrides": {
+        "task_allowlist": [
+          "T006",
+          "T089",
+          "T095"
+        ],
+        "capabilities": [
+          "C02",
+          "C04",
+          "C05",
+          "C09",
+          "C11",
+          "C12",
+          "C14",
+          "C31",
+          "C35",
+          "C39",
+          "C42",
+          "C43",
+          "C44",
+          "C45",
+          "C46",
+          "C28",
+          "C10",
+          "C48"
+        ],
+        "sensors": [
+          "scripted_rgb",
+          "scripted_range",
+          "scripted_environment"
+        ],
+        "isolation_reach_m": 25,
+        "sense_hazards": true
+      },
+      "spawn": {
+        "id": "specialist-team-1",
+        "asset_kind": "person",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_building_interface"
+        ],
+        "allowed_classes": [
+          "PLOT_GROUND"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "near_entity",
+        "near": "fire-unit-1",
+        "distance_m": [
+          7,
+          16
+        ],
+        "allow_unreserved_surface": false
+      }
+    },
+    {
+      "id": "uav-1",
+      "kind": "uav",
+      "overrides": {
+        "task_allowlist": [
+          "T001",
+          "T009",
+          "T089",
+          "T002"
+        ],
+        "sense_hazards": true
+      },
+      "spawn": {
+        "id": "uav-1",
+        "asset_kind": "uav",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_building_interface"
+        ],
+        "allowed_classes": [
+          "PLOT_GROUND"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": false,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "near_entity",
+        "near": "fire-unit-1",
+        "distance_m": [
+          7,
+          16
+        ],
+        "allow_unreserved_surface": false
+      }
+    }
+  ],
+  "placement": {
+    "asset_map": "assets/asset_map.json",
+    "sample_spacing_m": 0.75,
+    "max_draws_per_entity": 1600,
+    "incident_draws": 2500,
+    "approach_depth_m": 4,
+    "buildings": [
+      {
+        "id": "building-1",
+        "asset_kind": "building",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_building_interface"
+        ],
+        "allowed_classes": [
+          "PLOT_GROUND"
+        ],
+        "clearance_m": 1.5,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "face_access",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "kind": "building",
+        "damage_grade": "D0",
+        "reserve_damage_grades": [
+          "D0"
+        ],
+        "occupants": [],
+        "require_nearest_access": true
+      }
+    ],
+    "debris": [],
+    "stations": [
+      {
+        "id": "supply-1",
+        "asset_kind": "medical_point",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_assembly_surface"
+        ],
+        "allowed_classes": [
+          "ASSEMBLY_GROUND"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "face_access",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "kind": "supply",
+        "capacity": 4,
+        "power_W": 500,
+        "receiver_confirmation": false,
+        "require_nearest_access": true
+      }
+    ],
+    "station_stock": {
+      "water": 12,
+      "medical_pack": 0,
+      "relay": 0,
+      "battery": 0
+    },
+    "equipment": [
+      {
+        "id": "portable-pump-1",
+        "asset_kind": "fire_pump",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_building_interface"
+        ],
+        "allowed_classes": [
+          "PLOT_GROUND"
+        ],
+        "clearance_m": 0.6,
+        "road_clearance_m": 0.4,
+        "exclude_sidewalk": false,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "mode": "near_entity",
+        "near": "building-1",
+        "distance_m": [
+          14,
+          24
+        ],
+        "allow_unreserved_surface": false,
+        "fields": {
+          "equipment.kind": "release",
+          "attr.equipment_subtype": "pump",
+          "equipment.enabled": true,
+          "equipment.health": "ready",
+          "equipment.setup_state": "ready",
+          "equipment.operator_authority": [
+            "fire-unit-1"
+          ],
+          "equipment.consumable_type": "water",
+          "equipment.consumable_remaining": 6,
+          "equipment.reach_m": 7.24,
+          "attr.operator_id": "fire-unit-1",
+          "attr.operator_reach_m": 10
+        }
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-1",
+        "geometry_from": "building-1",
+        "geometry_kind": "asset_footprint",
+        "fields": {
+          "hazard.kind": "fire"
+        }
+      }
+    ]
+  },
+  "display": {
+    "uav_agl_m": 12,
+    "agent_ground_offset_m": 0,
+    "person_offset_m": 0.15,
+    "status_height_m": 3,
+    "camera_offset_enu": [
+      -55,
+      -65,
+      48
+    ],
+    "agent_models": {
+      "fire-unit-1": "fire_unit",
+      "portable-pump-1": "fire_pump"
+    },
+    "asset_uses": [
+      {
+        "asset_id": "NEW-FIRE-001-C01",
+        "state": "BASE",
+        "display_kind": "fire_unit",
+        "entity": "fire-unit-1",
+        "role": "ground_vehicle with C47 installed fire equipment",
+        "truth": "equipment.setup_state=stowed",
+        "events_tasks": "Initial deployment / travel; T093 A062 action start deploys installed equipment."
+      },
+      {
+        "asset_id": "NEW-FIRE-001-C01",
+        "state": "DEPLOYED",
+        "display_kind": "fire_unit_deployed",
+        "entity": "fire-unit-1",
+        "role": "actual suppression executor",
+        "truth": "equipment.setup_state in ready,in_use",
+        "events_tasks": "T093 / A062 start and result use actual equipment, reach and finite consumables; failed suppression keeps hazard truth."
+      },
+      {
+        "asset_id": "NEW-FIRE-001-C01",
+        "state": "PORTABLE-PUMP",
+        "display_kind": "fire_pump",
+        "entity": "portable-pump-1",
+        "role": "independent staged portable fire equipment operated by fire-unit-1",
+        "truth": "equipment.setup_state=ready/in_use; finite consumable_remaining",
+        "events_tasks": "Visible staged kit; T093/A062 may select it only from delivered equipment knowledge and real reach. T094/A028 obtains real stock when depleted."
+      }
+    ],
+    "mission_label": "woodland interface fire suppression",
+    "camera_focus_entities": [
+      "building-1",
+      "fire-unit-1",
+      "portable-pump-1"
+    ],
+    "model_origins": {
+      "fire_unit": [
+        0,
+        0,
+        0
+      ],
+      "fire_unit_deployed": [
+        0,
+        0,
+        0
+      ],
+      "fire_pump": [
+        0,
+        0,
+        0
+      ]
+    },
+    "state_models": {
+      "fire-unit-1": {
+        "field": "equipment.setup_state",
+        "values": {
+          "stowed": "fire_unit",
+          "deploying": "fire_unit_deployed",
+          "ready": "fire_unit_deployed",
+          "in_use": "fire_unit_deployed",
+          "retracting": "fire_unit_deployed"
+        }
+      }
+    }
+  },
+  "assumptions": [
+    "v0.5 scripted sensing/network/compute and authored, uncalibrated equipment/work models; no vision backend or calibrated rescue physics.",
+    "Background support, roads/tracks, widths, accesses and reservations come from the original build inputs and selected pure geometry functions, exported by dev/export_scene_sources.py; sources/sha256 records their exact provenance. No new road, pad or off-scene continuation is invented.",
+    "Compact authored incident and deployment rules only. Seed controls sampled positions and headings. Task allowlists still require local observations, beliefs, capability checks, allocation and real action results; no rescue outcome is scripted.",
+    "Canonical grid U remains the height source. Unit model scale is retained. Scene-specific professional access limits and source surface names must survive semantic adaptation; a foot tread is not asphalt or vehicle access.",
+    "SC07 is retained because its original builder is explicitly woodland-urban interface and its core profile has fire/wind with wildland_rescue/fire roles; SC06 is urban fire and SC17 is the industrial incident.",
+    "One intact, empty interface building is the authored fire focus. Only hazard-1 footprint is anchored to that actual sampled building; the SC07 fire intensity, wind, smoke and 300 s fire_spread event remain profile-driven.",
+    "The fire truck starts off-road 16–26 m from the sampled building model origin. This is not distance to the nearest burning footprint point. A062 applies the produced 8.23 m hose reach to the actual hazard footprint and requires a reachable exterior stand whenever the current pose is out of range. The portable pump keeps its independent 7.24 m hose reach; no inherited 50 m reach is used.",
+    "Truck and portable kit each start with six authored abstract consumable units, independently accounted; supply-1 has twelve actual water stock units. These are not litres or a claim that the truck's 2000 L geometric design assumption is usable inventory. T094 must transfer real stock before further suppression.",
+    "Placement reserves the BASE/DEPLOYED shared-origin envelope including the hose, not only the truck supporting footprint. Portable pump/hose is an independent footprint. Failed approaches, depleted medium and later fire_spread remain visible.",
+    "S9 shared integration uses existing facility semantics for physical equipment/facilities and G02 placed_humans/pinned_humans for people. No new upstream semantic class is introduced.",
+    "The explicit public regional-survey brief contains only map-level search intent. T001/A005 must obtain real local evidence before rescue or hazard tasks are proposed; no casualty or hazard state is seeded into public priors.",
+    "display.model_origins declares each new production family origin [0,0,0] in GLB +Y-up metres; state variants share it at unit scale. This preserves authored support contacts and asymmetric equipment without editing source assets.",
+    "State display entities are predeclared and selected only from actual equipment, human-carrier, facility-leak and spill-volume truth. Inactive variants retract POSITION; no hidden model is parked away from the incident.",
+    "A062 measures actual hose reach to the hazard footprint from its physical equipment origin; the truck must reach a real exterior stand. DEPLOYED is shown during the accepted A062 operation, then BASE after completion/cancellation. The independent pump stays at its actual staged pose; it can only operate within its own 7.24 m hose and 10 m crew reach. Refilling a fixed pump remotely from a distant supply station is not supported.",
+    "Hazard sampling is explicitly enabled on this scene’s mobile sensor agents. It uses the existing scripted local A005 range/miss model; SC01/SC03 RGB sensing is unaffected by this extension.",
+    "T094 requests six abstract water units per truck refill. A028 consumes only available matching stock item quantities at the actual supply station, possibly across several existing item IDs, and credits only the transferred amount; twelve stock units remain the finite overall limit."
+  ],
+  "public_brief_zh": "对已标注区域开展侦察评估，搜索实际人员或危险源证据；依据本地观测、可达性、装备和接收回执完成救援。"
+}

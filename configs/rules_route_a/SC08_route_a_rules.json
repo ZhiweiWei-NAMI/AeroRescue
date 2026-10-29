@@ -1,0 +1,213 @@
+{
+  "schema": "rescue.generation-rules/v1",
+  "rule_version": "route-a-3",
+  "scene_types": [
+    "SC08"
+  ],
+  "sampling": "ordinary",
+  "building_coverage_range": [
+    0.25,
+    0.35
+  ],
+  "plot_setback_m": 2.0,
+  "road_setback_m": 2.0,
+  "separation_m": 2.0,
+  "access_width_m": 1.5,
+  "placement_attempts": 4800,
+  "repair_candidates": 12,
+  "max_instances": 180,
+  "max_support_residual_m": 0.025,
+  "max_foundation_tilt_deg": 3.0,
+  "disaster": {
+    "kind": "authored_structural_damage",
+    "event_count_range": [
+      1,
+      3
+    ],
+    "radius_m_range": [
+      35.0,
+      110.0
+    ],
+    "damage_weights": {
+      "D1": 0.25,
+      "D2": 0.45,
+      "D3": 0.3
+    },
+    "trap_probability_by_state": {
+      "D1": 0.1,
+      "D2": 0.45,
+      "D3": 0.75
+    }
+  },
+  "population": {
+    "source": "authored occupancy assumptions, not measured population",
+    "residential_people_range": [
+      2,
+      6
+    ],
+    "warehouse_people_range": [
+      2,
+      10
+    ],
+    "facility_people_range": [
+      2,
+      8
+    ],
+    "outdoor_representatives_per_building": [
+      0,
+      2
+    ]
+  },
+  "runtime_resources": [
+    {
+      "acceptance_id": "AGT-001-C01-BASE",
+      "kind": "uav",
+      "id": "uav-1",
+      "flight_agl_m": 12.0,
+      "overrides": {
+        "mobility": "air",
+        "width_m": 1.2634,
+        "height_m": 0.4325,
+        "speed_mps": 3.0,
+        "battery_Wh": 180.0,
+        "reserve_Wh": 27.0,
+        "payload_kg": 0.0,
+        "water_tolerance_m": 0.0,
+        "step_height_m": 0.0,
+        "max_slope_deg": 0.0,
+        "radio_range_m": 0.0,
+        "ground_clearance_m": 2.0,
+        "move_power_W": 180.0,
+        "capabilities": [
+          "C01",
+          "C14",
+          "C35",
+          "C39",
+          "C42",
+          "C43",
+          "C44",
+          "C45"
+        ],
+        "sensors": [],
+        "external": false,
+        "calibration": "authored kinematic/energy parameters; no transport/relay/sensor capability"
+      }
+    },
+    {
+      "acceptance_id": "AGT-003-C02-BASE",
+      "kind": "robot_dog",
+      "id": "robot_dog-1",
+      "flight_agl_m": 0.0,
+      "overrides": {
+        "mobility": "legged",
+        "width_m": 0.65,
+        "height_m": 0.8,
+        "speed_mps": 1.0,
+        "battery_Wh": 600.0,
+        "reserve_Wh": 90.0,
+        "payload_kg": 5.0,
+        "water_tolerance_m": 0.05,
+        "step_height_m": 0.2,
+        "max_slope_deg": 20.0,
+        "radio_range_m": 0.0,
+        "move_power_W": 80.0,
+        "capabilities": [
+          "C02",
+          "C14",
+          "C35",
+          "C39",
+          "C42",
+          "C43",
+          "C44",
+          "C45"
+        ],
+        "sensors": [],
+        "external": false,
+        "calibration": "authored navigation/energy model; cargo is not manipulation or human carry"
+      }
+    }
+  ],
+  "required_environment_roles": [],
+  "evidence_class": "authored_generation",
+  "ordinary_props": {
+    "boundary_fence": {
+      "count_per_plot": [
+        0,
+        0
+      ],
+      "placement": "boundary",
+      "boundary_offset_m": 0.5
+    },
+    "street_furniture": {
+      "count_per_plot": [
+        0,
+        0
+      ],
+      "placement": "near_building"
+    },
+    "parked_vehicle": {
+      "count_per_plot": [
+        0,
+        0
+      ],
+      "placement": "near_access"
+    },
+    "container": {
+      "count_per_plot": [
+        0,
+        0
+      ],
+      "placement": "facility_staging"
+    },
+    "empty_stretcher": {
+      "count_per_plot": [
+        0,
+        0
+      ],
+      "placement": "facility_staging"
+    }
+  },
+  "expected_geometry_count": 464,
+  "search_view_limit": 3,
+  "shared_internal_access": true,
+  "plot_axis_alignment_probability": 0.8,
+  "config_source": "authored scenario assumptions for v30 smoke; requested density remains 25–35% of net buildable area; no empirical urban-density claim",
+  "facility_policies": {},
+  "building_use_weights": {
+    "residential": 0.85,
+    "warehouse": 0.15
+  },
+  "packing_strategy": "parcel_footprint_pool_then_minkowski_union",
+  "environment_role_members": {
+    "rescue_platform": [
+      "uav",
+      "robot_dog"
+    ],
+    "equipment": [
+      "container",
+      "empty_stretcher"
+    ]
+  },
+  "asset_allocation": {
+    "file": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/configs/asset_allocation.json",
+    "scene_id": "SC08"
+  },
+  "buildable_reservation_ids": [],
+  "buildable_reservation_kinds": [],
+  "runtime_staging": [
+    {
+      "id": "SC08-allocated-staging",
+      "source_region_id": "P01_TOP_W",
+      "resource_kinds": [
+        "uav"
+      ]
+    },
+    {
+      "id": "SC08-dog-staging",
+      "source_region_id": "P02_TOP_C",
+      "resource_kinds": [
+        "robot_dog"
+      ]
+    }
+  ]
+}
