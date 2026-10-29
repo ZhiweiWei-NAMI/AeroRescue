@@ -144,7 +144,7 @@ def main():
     doc=json.loads((directory/'semantics.json').read_text())
     world=generate(doc,bundle['core']['scenario_id'],bundle['core']['seed'],options=bundle['core']['truth_options'])
     build_agents(bundle['core'],world,load())
-    models,asset_audit=stage_models(Path(os.environ.get('RESCUE_ASSET_ROOT',str(ROOT))),directory/'assets',cfg)
+    models,asset_audit=stage_models(Path(os.environ.get('RESCUE_ASSET_ROOT',str(PRIVATE_ROOT))),directory/'assets',cfg)
     snapshot=registry_snapshot(); imported_types={}; imported_presentation=[]
     if 'upstream' in bundle['audit']:
         from rescue_scenes.upstream_scene import bind_assets

@@ -1092,7 +1092,7 @@ def bind_assets(bundle, directory, snapshot, models, asset_audit):
         # Reuse the already staged faithful static BASE human for automatic
         # display states too; mobility truth does not imply a delivered pose.
         for kind in ('human_prone', 'human_supine'):
-            previous = asset_audit['assets'].get(kind, {})
+            previous = asset_audit.get('assets', {}).get(kind, {})
             models[kind] = deepcopy(models['human'])
             asset_audit['assets'][kind] = {
                 **deepcopy(asset_audit['assets']['human']),
