@@ -1,0 +1,91 @@
+[
+  {
+    "seed": 1,
+    "eligible": true,
+    "factor": "obstacle_state_only",
+    "optimal_plus": [
+      "c01"
+    ],
+    "optimal_minus": [
+      "c02"
+    ]
+  },
+  {
+    "seed": 2,
+    "eligible": false,
+    "reason": "['ground: RGB is flat (range 89, std [0.0, 0.0, 0.0])', 'ground: only 1 distinct colours (degenerate render)', 'ground: RGB is a single colour']"
+  },
+  {
+    "seed": 3,
+    "eligible": false,
+    "reason": "['ground: RGB is flat (range 89, std [0.0, 0.0, 0.0])', 'ground: only 1 distinct colours (degenerate render)', 'ground: RGB is a single colour']"
+  },
+  {
+    "seed": 4,
+    "eligible": false,
+    "reason": "['ground: RGB is flat (range 142, std [0.0, 0.0, 0.0])', 'ground: only 1 distinct colours (degenerate render)', 'ground: RGB is a single colour']"
+  },
+  {
+    "seed": 5,
+    "eligible": true,
+    "factor": "obstacle_state_only",
+    "optimal_plus": [
+      "c01"
+    ],
+    "optimal_minus": [
+      "c02"
+    ]
+  },
+  {
+    "seed": 6,
+    "eligible": false,
+    "reason": "['ground: RGB is flat (range 89, std [0.0, 0.0, 0.0])', 'ground: only 1 distinct colours (degenerate render)', 'ground: RGB is a single colour']"
+  },
+  {
+    "seed": 7,
+    "eligible": false,
+    "reason": "['ground: RGB is flat (range 89, std [0.0, 0.0, 0.0])', 'ground: only 1 distinct colours (degenerate render)', 'ground: RGB is a single colour']"
+  },
+  {
+    "seed": 8,
+    "eligible": false,
+    "reason": "['ground: RGB is flat (range 142, std [0.0, 0.0, 0.0])', 'ground: only 1 distinct colours (degenerate render)', 'ground: RGB is a single colour']"
+  },
+  {
+    "seed": 9,
+    "eligible": true,
+    "factor": "obstacle_state_only",
+    "optimal_plus": [
+      "c01"
+    ],
+    "optimal_minus": [
+      "c02"
+    ]
+  },
+  {
+    "seed": 10,
+    "eligible": false,
+    "reason": "['ground: RGB is flat (range 89, std [0.0, 0.0, 0.0])', 'ground: only 1 distinct colours (degenerate render)', 'ground: RGB is a single colour']"
+  },
+  {
+    "seed": 11,
+    "eligible": false,
+    "reason": "['ground: RGB is flat (range 89, std [0.0, 0.0, 0.0])', 'ground: only 1 distinct colours (degenerate render)', 'ground: RGB is a single colour']"
+  },
+  {
+    "seed": 12,
+    "eligible": false,
+    "reason": "['ground: RGB is flat (range 142, std [0.0, 0.0, 0.0])', 'ground: only 1 distinct colours (degenerate render)', 'ground: RGB is a single colour']"
+  },
+  {
+    "seed": 13,
+    "eligible": true,
+    "factor": "obstacle_state_only",
+    "optimal_plus": [
+      "c01"
+    ],
+    "optimal_minus": [
+      "c02"
+    ]
+  }
+]

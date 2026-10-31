@@ -1,0 +1,51 @@
+[
+  {
+    "seed": 1,
+    "eligible": true,
+    "factor": "obstacle_state_only",
+    "optimal_plus": [
+      "c01"
+    ],
+    "optimal_minus": [
+      "c02"
+    ]
+  },
+  {
+    "seed": 2,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 3,
+    "eligible": true,
+    "factor": "obstacle_state_only",
+    "optimal_plus": [
+      "c01"
+    ],
+    "optimal_minus": [
+      "c02"
+    ]
+  },
+  {
+    "seed": 4,
+    "eligible": true,
+    "factor": "obstacle_state_only",
+    "optimal_plus": [
+      "c01"
+    ],
+    "optimal_minus": [
+      "c02"
+    ]
+  },
+  {
+    "seed": 5,
+    "eligible": true,
+    "factor": "obstacle_state_only",
+    "optimal_plus": [
+      "c01"
+    ],
+    "optimal_minus": [
+      "c02"
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "schema": "aerorescue.phase1.v2.summary",
+  "audit_revision": 4,
+  "total_records": 52,
+  "by_split": {
+    "train": 16,
+    "val": 16,
+    "test": 20
+  },
+  "by_sample_kind": {
+    "natural": 28,
+    "challenge_matched": 24
+  },
+  "by_regime": {
+    "A": 27,
+    "B": 8,
+    "C": 13,
+    "water": 4
+  },
+  "challenge_design": "single obstacle-factor swaps; fixed casualty; four eligible pairs per SC01/SC07/GT04",
+  "challenge_prior": [
+    0.5,
+    0.5
+  ],
+  "qa_total_checked": 52,
+  "qa_all_passed": true,
+  "clone_isolation_verified": true
+}

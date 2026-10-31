@@ -1,0 +1,391 @@
+{
+  "schema": "aerorescue.phase1.pilot/v2",
+  "record_schema": "aerorescue.phase1.decision_record/v2",
+  "generated_at": "2026-10-31T13:37:31+00:00",
+  "total_episodes": 24,
+  "total_records": 384,
+  "scenes": [
+    "GT04",
+    "SC01",
+    "SC07",
+    "SC09"
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "splits": {
+    "train": 192,
+    "val": 96,
+    "test": 96
+  },
+  "regimes": {
+    "A": 192,
+    "B": 96,
+    "C": 96
+  },
+  "records_by_scene": {
+    "SC01": 96,
+    "SC07": 96,
+    "SC09": 96,
+    "GT04": 96
+  },
+  "records_by_split": {
+    "train": 192,
+    "val": 96,
+    "test": 96
+  },
+  "records_per_episode": {
+    "min": 16,
+    "max": 16,
+    "mean": 16.0
+  },
+  "candidates_per_record": {
+    "min": 5,
+    "max": 5,
+    "mean": 5.0,
+    "distribution": {
+      "5": 384
+    }
+  },
+  "label_balance": {
+    "positive_candidates": 384,
+    "negative_candidates": 1536,
+    "positive_ratio": 0.2,
+    "reference_is_best": 57,
+    "reference_not_best": 327
+  },
+  "acceptable_set": {
+    "mean_size": 2.0,
+    "max_size": 5,
+    "epsilon": 0.02
+  },
+  "paired_voi": {
+    "mean_vo_memory_vs_local": -0.013516,
+    "positive_vo_records": 10,
+    "nonzero_vo_records": 22
+  },
+  "center_memory": {
+    "budget_bytes": 4096,
+    "mean_serialized_bytes": 3568.5,
+    "max_serialized_bytes": 4011
+  },
+  "iscc_budget": {
+    "budget_bytes": 2048,
+    "solved_records": 0,
+    "proxy_solved_records": 372,
+    "evidence_scope": "pipeline_diagnostic_not_blueprint_theorem_experiment",
+    "mean_b_g_star": 42.68,
+    "mean_b_a_star": 59.7,
+    "mean_b_s_star": 1945.62
+  },
+  "rollout_status": {
+    "completed": 914,
+    "failed": 487,
+    "rejected:busy": 137,
+    "rejected:no_capability": 308,
+    "window_truncated": 74
+  },
+  "reference_sources": {
+    "forced_rule_action": 288,
+    "cadence_action_menu": 96
+  },
+  "best_task_types": {
+    "T003": 35,
+    "T011": 139,
+    "T014": 4,
+    "T019": 75,
+    "T020": 127,
+    "T033": 4
+  },
+  "collection_wall_s": 691.248,
+  "delta_weights": {
+    "milestone": 0.6,
+    "potential": 0.4,
+    "cursor": 0.0,
+    "cost": 1.0,
+    "fail": 1.0
+  },
+  "episodes": [
+    {
+      "scene_id": "SC01",
+      "seed": 1,
+      "split": "train",
+      "end_s": 430.0,
+      "records": 16,
+      "forced_actions": 14,
+      "cadence": 2,
+      "reference_rejected_dropped": 0,
+      "wall_s": 21.3
+    },
+    {
+      "scene_id": "SC01",
+      "seed": 2,
+      "split": "train",
+      "end_s": 430.0,
+      "records": 16,
+      "forced_actions": 14,
+      "cadence": 2,
+      "reference_rejected_dropped": 0,
+      "wall_s": 21.549
+    },
+    {
+      "scene_id": "SC01",
+      "seed": 3,
+      "split": "train",
+      "end_s": 430.0,
+      "records": 16,
+      "forced_actions": 14,
+      "cadence": 2,
+      "reference_rejected_dropped": 0,
+      "wall_s": 20.448
+    },
+    {
+      "scene_id": "SC01",
+      "seed": 4,
+      "split": "train",
+      "end_s": 430.0,
+      "records": 16,
+      "forced_actions": 14,
+      "cadence": 2,
+      "reference_rejected_dropped": 0,
+      "wall_s": 20.743
+    },
+    {
+      "scene_id": "SC01",
+      "seed": 5,
+      "split": "train",
+      "end_s": 430.0,
+      "records": 16,
+      "forced_actions": 14,
+      "cadence": 2,
+      "reference_rejected_dropped": 0,
+      "wall_s": 21.498
+    },
+    {
+      "scene_id": "SC01",
+      "seed": 6,
+      "split": "train",
+      "end_s": 430.0,
+      "records": 16,
+      "forced_actions": 14,
+      "cadence": 2,
+      "reference_rejected_dropped": 0,
+      "wall_s": 20.208
+    },
+    {
+      "scene_id": "SC07",
+      "seed": 1,
+      "split": "val",
+      "end_s": 525.0,
+      "records": 16,
+      "forced_actions": 8,
+      "cadence": 8,
+      "reference_rejected_dropped": 0,
+      "wall_s": 22.574
+    },
+    {
+      "scene_id": "SC07",
+      "seed": 2,
+      "split": "val",
+      "end_s": 525.0,
+      "records": 16,
+      "forced_actions": 8,
+      "cadence": 8,
+      "reference_rejected_dropped": 0,
+      "wall_s": 22.409
+    },
+    {
+      "scene_id": "SC07",
+      "seed": 3,
+      "split": "val",
+      "end_s": 525.0,
+      "records": 16,
+      "forced_actions": 8,
+      "cadence": 8,
+      "reference_rejected_dropped": 0,
+      "wall_s": 20.425
+    },
+    {
+      "scene_id": "SC07",
+      "seed": 4,
+      "split": "val",
+      "end_s": 525.0,
+      "records": 16,
+      "forced_actions": 8,
+      "cadence": 8,
+      "reference_rejected_dropped": 0,
+      "wall_s": 21.711
+    },
+    {
+      "scene_id": "SC07",
+      "seed": 5,
+      "split": "val",
+      "end_s": 433.0,
+      "records": 16,
+      "forced_actions": 8,
+      "cadence": 8,
+      "reference_rejected_dropped": 0,
+      "wall_s": 21.241
+    },
+    {
+      "scene_id": "SC07",
+      "seed": 6,
+      "split": "val",
+      "end_s": 525.0,
+      "records": 16,
+      "forced_actions": 8,
+      "cadence": 8,
+      "reference_rejected_dropped": 0,
+      "wall_s": 23.726
+    },
+    {
+      "scene_id": "SC09",
+      "seed": 1,
+      "split": "train",
+      "end_s": 566.0,
+      "records": 16,
+      "forced_actions": 12,
+      "cadence": 4,
+      "reference_rejected_dropped": 0,
+      "wall_s": 7.815
+    },
+    {
+      "scene_id": "SC09",
+      "seed": 2,
+      "split": "train",
+      "end_s": 566.0,
+      "records": 16,
+      "forced_actions": 12,
+      "cadence": 4,
+      "reference_rejected_dropped": 0,
+      "wall_s": 9.627
+    },
+    {
+      "scene_id": "SC09",
+      "seed": 3,
+      "split": "train",
+      "end_s": 566.0,
+      "records": 16,
+      "forced_actions": 12,
+      "cadence": 4,
+      "reference_rejected_dropped": 0,
+      "wall_s": 8.977
+    },
+    {
+      "scene_id": "SC09",
+      "seed": 4,
+      "split": "train",
+      "end_s": 566.0,
+      "records": 16,
+      "forced_actions": 12,
+      "cadence": 4,
+      "reference_rejected_dropped": 0,
+      "wall_s": 9.529
+    },
+    {
+      "scene_id": "SC09",
+      "seed": 5,
+      "split": "train",
+      "end_s": 566.0,
+      "records": 16,
+      "forced_actions": 12,
+      "cadence": 4,
+      "reference_rejected_dropped": 0,
+      "wall_s": 10.54
+    },
+    {
+      "scene_id": "SC09",
+      "seed": 6,
+      "split": "train",
+      "end_s": 566.0,
+      "records": 16,
+      "forced_actions": 12,
+      "cadence": 4,
+      "reference_rejected_dropped": 0,
+      "wall_s": 9.756
+    },
+    {
+      "scene_id": "GT04",
+      "seed": 1,
+      "split": "test",
+      "end_s": 1420.0,
+      "records": 16,
+      "forced_actions": 14,
+      "cadence": 2,
+      "reference_rejected_dropped": 0,
+      "wall_s": 600.678
+    },
+    {
+      "scene_id": "GT04",
+      "seed": 2,
+      "split": "test",
+      "end_s": 1470.5,
+      "records": 16,
+      "forced_actions": 14,
+      "cadence": 2,
+      "reference_rejected_dropped": 0,
+      "wall_s": 600.42
+    },
+    {
+      "scene_id": "GT04",
+      "seed": 3,
+      "split": "test",
+      "end_s": 1574.0,
+      "records": 16,
+      "forced_actions": 14,
+      "cadence": 2,
+      "reference_rejected_dropped": 0,
+      "wall_s": 627.024
+    },
+    {
+      "scene_id": "GT04",
+      "seed": 4,
+      "split": "test",
+      "end_s": 1524.0,
+      "records": 16,
+      "forced_actions": 14,
+      "cadence": 2,
+      "reference_rejected_dropped": 0,
+      "wall_s": 613.789
+    },
+    {
+      "scene_id": "GT04",
+      "seed": 5,
+      "split": "test",
+      "end_s": 1483.5,
+      "records": 16,
+      "forced_actions": 14,
+      "cadence": 2,
+      "reference_rejected_dropped": 0,
+      "wall_s": 594.345
+    },
+    {
+      "scene_id": "GT04",
+      "seed": 6,
+      "split": "test",
+      "end_s": 1577.5,
+      "records": 16,
+      "forced_actions": 14,
+      "cadence": 2,
+      "reference_rejected_dropped": 0,
+      "wall_s": 630.344
+    }
+  ],
+  "notes": [
+    "delta_total = 0.60*delta_milestone + 0.40*delta_potential - cost_penalty + fail_penalty; delta_cursor weight is exactly 0.0.",
+    "Every candidate is rolled out on deepcopy(sim) through the native MODELS[action_id] guard and physical effect; no stage-alignment formula.",
+    "candidates carry no source/feasible hint; intent_text carries no action id, skill name or target id.",
+    "center_context is built only from coordinator belief/tasks plus public static config; station stock/occupancy is marked not_delivered when unknown.",
+    "camera_views use authored intrinsics and platform/default orientation with render_status=metadata_only; no PNG or paired RGB-D was rendered.",
+    "iscc budget_plan is an explicitly marked geometry-proxy pipeline diagnostic; its extent-based Gamma and handcrafted descriptors are not measured image gradients, VLM features or cross-view homography evidence.",
+    "Menus, camera orientation, mission potential, and center tasks never depend on the expert action; absent references remain null diagnostics.",
+    "Model context contains only public mission scope, local belief/telemetry, and bounded center memory already delivered by the native network.",
+    "Every B-band executes native equal-budget uplink selection, optional downlink delivery, one fixed policy, and a separate action rollout. Bits are uplink then downlink; memory VoI is B01-B00.",
+    "Action progress subtracts a no-new-action continuation at the same horizon; this is a one-decision pilot, not a VLM or multi-episode efficacy result."
+  ]
+}

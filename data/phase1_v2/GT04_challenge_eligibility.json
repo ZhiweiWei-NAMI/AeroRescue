@@ -1,0 +1,371 @@
+[
+  {
+    "seed": 1,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 2,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 3,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 4,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 5,
+    "eligible": false,
+    "reason": "could not place two hidden corridor anchors behind the occluder"
+  },
+  {
+    "seed": 6,
+    "eligible": false,
+    "reason": "could not place two hidden corridor anchors behind the occluder"
+  },
+  {
+    "seed": 7,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 8,
+    "eligible": false,
+    "reason": "could not place two hidden corridor anchors behind the occluder"
+  },
+  {
+    "seed": 9,
+    "eligible": true,
+    "factor": "obstacle_state_only",
+    "optimal_plus": [
+      "c01"
+    ],
+    "optimal_minus": [
+      "c02"
+    ]
+  },
+  {
+    "seed": 10,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 11,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 12,
+    "eligible": false,
+    "reason": "could not place two hidden corridor anchors behind the occluder"
+  },
+  {
+    "seed": 13,
+    "eligible": true,
+    "factor": "obstacle_state_only",
+    "optimal_plus": [
+      "c01"
+    ],
+    "optimal_minus": [
+      "c02"
+    ]
+  },
+  {
+    "seed": 14,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 15,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 16,
+    "eligible": false,
+    "reason": "could not place two hidden corridor anchors behind the occluder"
+  },
+  {
+    "seed": 17,
+    "eligible": true,
+    "factor": "obstacle_state_only",
+    "optimal_plus": [
+      "c01"
+    ],
+    "optimal_minus": [
+      "c02"
+    ]
+  },
+  {
+    "seed": 18,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 19,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 20,
+    "eligible": false,
+    "reason": "could not place two hidden corridor anchors behind the occluder"
+  },
+  {
+    "seed": 21,
+    "eligible": false,
+    "reason": "could not place two hidden corridor anchors behind the occluder"
+  },
+  {
+    "seed": 22,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 23,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 24,
+    "eligible": false,
+    "reason": "could not place two hidden corridor anchors behind the occluder"
+  },
+  {
+    "seed": 25,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 26,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 27,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 28,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 29,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 30,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 31,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 32,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 33,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 34,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 35,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 36,
+    "eligible": false,
+    "reason": "could not place two hidden corridor anchors behind the occluder"
+  },
+  {
+    "seed": 37,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 38,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 39,
+    "eligible": false,
+    "reason": "could not place two hidden corridor anchors behind the occluder"
+  },
+  {
+    "seed": 40,
+    "eligible": false,
+    "reason": "could not place two hidden corridor anchors behind the occluder"
+  },
+  {
+    "seed": 41,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 42,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 43,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 44,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 45,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 46,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 47,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 48,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 49,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 50,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 51,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 52,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 53,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 54,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 55,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 56,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 57,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 58,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 59,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 60,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 61,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 62,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 63,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 64,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 65,
+    "eligible": false,
+    "reason": "could not place two hidden corridor anchors behind the occluder"
+  },
+  {
+    "seed": 66,
+    "eligible": false,
+    "reason": "could not place two hidden corridor anchors behind the occluder"
+  },
+  {
+    "seed": 67,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 68,
+    "eligible": false,
+    "reason": "public corridor intersects an existing building"
+  },
+  {
+    "seed": 69,
+    "eligible": true,
+    "factor": "obstacle_state_only",
+    "optimal_plus": [
+      "c01"
+    ],
+    "optimal_minus": [
+      "c02"
+    ]
+  }
+]

@@ -25,7 +25,7 @@ from rescue_scenes.assets import stage_models
 from rescue_scenes.core.world.truth import generate
 from rescue_scenes.core.agents.runtime import build_agents
 from rescue_scenes.core.catalog import load
-from rescue_scenes.presentation import BASE,AGENT,BELIEF,FIELDS,type_of,display_extras,bindings,registry_snapshot,event_narratives
+from rescue_scenes.presentation import BASE,AGENT,BELIEF,FIELDS,type_of,display_extras,bindings,registry_snapshot,scenario_registry,event_narratives
 
 AAS=AAS_ROOT
 RUNTIME=DATA_ROOT/'blockout_geometry_20261023/marble_aas_visual_20261024/runtime'
@@ -97,6 +97,7 @@ def main():
     parser.add_argument('--config',type=Path); parser.add_argument('--runtime',type=Path,default=RUNTIME)
     parser.add_argument('--aas',type=Path,default=AAS); parser.add_argument('--materialize-only',action='store_true')
     parser.add_argument('--forced-rules',action='store_true')
+    parser.add_argument('--external-commands',action='store_true',help='Enable external command bus on RescueWorld')
     parser.add_argument('--scripted-sensing',action='store_true',help='Disable camera capture explicitly; no image acceptance')
     parser.add_argument('--bundle',type=Path,help='Reuse verified materialized inputs without scene generation')
     parser.add_argument('--timeout',type=float,default=300,help='AAS subprocess timeout in seconds')
@@ -146,6 +147,9 @@ def main():
     build_agents(bundle['core'],world,load())
     models,asset_audit=stage_models(Path(os.environ.get('RESCUE_ASSET_ROOT',str(PRIVATE_ROOT))),directory/'assets',cfg)
     snapshot=registry_snapshot(); imported_types={}; imported_presentation=[]
+    if args.external_commands:
+        from rescue_scenes.engine import command_descriptors
+        snapshot['registry']['messages'].extend(command_descriptors())
     if 'upstream' in bundle['audit']:
         from rescue_scenes.upstream_scene import bind_assets
         imported_types,imported_presentation=bind_assets(bundle,directory,snapshot,models,asset_audit)
@@ -166,6 +170,8 @@ def main():
               'outputs':{'durability':'flush'}}
     if args.forced_rules:
         scenario['engines']['rescue']['config']['execution_mode']='forced_rules'
+    if args.external_commands:
+        scenario['engines']['rescue']['config']['external_commands']=True
     scenario_path=directory/f'{SID}_rescue.scenario.json'
     console=json.loads(Path(cfg['background']['console_source']).read_text())
     mission=cfg['display'].get('mission_label','earthquake rescue')
@@ -198,6 +204,8 @@ def main():
         from rescue_scenes.camera import configure
         configure(scenario,snapshot,camera,directory,console_path,args.runtime.resolve(),args.aas.resolve())
         write(directory/'registry.snapshot.json',snapshot)
+    # Compile the type hierarchy from a real AeroGraph source; fields/messages stay explicit overlays.
+    scenario['registry']=scenario_registry(directory/'aerograph',snapshot)
     write(scenario_path,scenario)
     if args.materialize_only:
         print(json.dumps({'scenario':str(scenario_path),'console':str(console_path),'assets':asset_audit},ensure_ascii=False))
@@ -206,7 +214,7 @@ def main():
     stage_background(cfg,console,runtime)
     asset_dir=runtime/'frontend_dist/data/rescue_assets'; asset_dir.mkdir(parents=True,exist_ok=True)
     for row in models.values(): shutil.copy2(row['file'],asset_dir/Path(row['file']).name)
-    env=os.environ.copy(); env['PYTHONPATH']=os.pathsep.join([str(args.aas.resolve()/'src'),str(args.aas.resolve()/'aerokernel'),str(ROOT/'site'),str(ROOT),str(ROOT.parent/'src'),env.get('PYTHONPATH','')])
+    env=os.environ.copy(); env['PYTHONPATH']=os.pathsep.join([str(args.aas.resolve()/'src'),str(args.aas.resolve()/'aerokernel'),str(ROOT/'src'),str(ROOT/'site'),str(ROOT.parent/'src'),env.get('PYTHONPATH','')])
     command=[os.environ.get('RESCUE_PYTHON',str(args.aas/'.venv/bin/python')),'-m','aeroagentsim.services.cli','run',str(scenario_path),'--out',str(runtime/'out_cli')]
     proc=subprocess.Popen(command,cwd=args.aas,env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,
                           text=True,start_new_session=True)
