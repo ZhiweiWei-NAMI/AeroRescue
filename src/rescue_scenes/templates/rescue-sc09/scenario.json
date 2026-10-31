@@ -1,0 +1,1107 @@
+{
+  "bindings": {
+    "commands": [],
+    "lifecycle": [
+      {
+        "controller": "rescue",
+        "ids": "*",
+        "type": "rescue:Entity"
+      }
+    ],
+    "rules": [
+      {
+        "fields": [
+          "rescue.kind",
+          "rescue.position_enu_m",
+          "rescue.orientation_enu",
+          "rescue.yaw_deg",
+          "rescue.state_json",
+          "rescue.status",
+          "rescue.current_task",
+          "rescue.battery_wh"
+        ],
+        "ids": "*",
+        "type": "rescue:Entity",
+        "writer": "rescue"
+      },
+      {
+        "fields": [
+          "rescue.agent_json"
+        ],
+        "ids": "*",
+        "type": "rescue:Agent",
+        "writer": "rescue"
+      }
+    ]
+  },
+  "clock_mappings": [
+    {
+      "clock_id": "canonical",
+      "mapping_id": "canonical"
+    }
+  ],
+  "engines": {
+    "rescue": {
+      "config": {
+        "bundle_path": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/tools/generated/SC09-1-20261031T115047522847Z/bundle.json",
+        "execution_mode": "forced_rules",
+        "console_scene": {
+          "id": "SC09 火山灰/喷发后影响区 · generated layout · scripted sensing · seed 1",
+          "city": {
+            "kind": "glb",
+            "url": "/data/scenes/SC09_appearance_IMAGEGEN_C01_C02_yup.glb",
+            "offset": [
+              0,
+              0,
+              0
+            ]
+          },
+          "camera": {
+            "position": [
+              -254.463690014223,
+              70.7833245448064,
+              336.864096329909
+            ],
+            "target": [
+              -194.463690014223,
+              0.7833245448064046,
+              261.864096329909
+            ],
+            "fixed": true
+          },
+          "groundY": -5.15,
+          "attribution": "SC09 metric GLB (authority) + ImageGen appearance; Marble Chisel world d1968aa3 key-region Gaussian splats (approximate, display only); disaster entities and v0.5 sensing/action/network models are authored simulation assumptions",
+          "splats": [
+            {
+              "url": "/data/splats/SC09v2_keydisc_full_crop.spz",
+              "position": [
+                -285.0,
+                34.68,
+                238.0
+              ],
+              "quaternion": [
+                0.999999,
+                0.001146,
+                0.0,
+                2.2e-05
+              ],
+              "scale": 61.4064
+            }
+          ]
+        }
+      },
+      "plugin": "rescue_scenes"
+    }
+  },
+  "entities": [
+    {
+      "facts": {},
+      "id": "RESV_ASSEMBLY_A",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLATFORM_B",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "SC09-allocated-0010-001",
+      "type": "rescue:Upstream_5d5194ee106ad85e"
+    },
+    {
+      "facts": {},
+      "id": "SC09_MAINTENANCE_SPUR#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "SC09_MAINTENANCE_SPUR#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "SC09_MAINTENANCE_SPUR#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "SC09_SERVICE_ROAD#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "SC09_SERVICE_ROAD#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "SC09_SERVICE_ROAD#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1",
+      "type": "rescue:Person"
+    },
+    {
+      "facts": {},
+      "id": "coordinator-1",
+      "type": "rescue:Coordinator"
+    },
+    {
+      "facts": {},
+      "id": "cue-1",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "cue-2",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "cue-3",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "hazard-1",
+      "type": "rescue:Hazard"
+    },
+    {
+      "facts": {},
+      "id": "hazard-2",
+      "type": "rescue:Hazard"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-1",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-2",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "medical-1",
+      "type": "rescue:Station"
+    },
+    {
+      "facts": {},
+      "id": "specialist_team-1",
+      "type": "rescue:Team"
+    },
+    {
+      "facts": {},
+      "id": "uav-1",
+      "type": "rescue:UAV"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__model_prone",
+      "type": "rescue:PersonProne"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__model_supine",
+      "type": "rescue:PersonSupine"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__mobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__limited",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__immobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__trapped",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__contacted_mobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__contacted_limited",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__contacted_immobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__contacted_trapped",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__extricated",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__loaded",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__transporting",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__transported_arrived",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "ash-casualty-1__handover_ack",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "medical-1__medical_open",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "medical-1__medical_restricted",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "medical-1__medical_closed",
+      "type": "rescue:Status"
+    }
+  ],
+  "event_narratives": {
+    "scene_rescue.business": {
+      "category": "emergency",
+      "entities": [
+        "subject",
+        "actor"
+      ],
+      "position": "position",
+      "severity": "info",
+      "template": "{text}",
+      "template_zh": "{text}"
+    }
+  },
+  "format": "aeroagentsim.scenario/v1",
+  "id": "SC09-rescue-20261031T115047522847Z",
+  "outputs": {
+    "durability": "flush"
+  },
+  "presentation": [
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Dog",
+      "visual": {
+        "asset": "/data/rescue_assets/robot_dog-AGT-003-C01-BASE-1e23344c.glb",
+        "color": "#ffb84d",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:UAV",
+      "visual": {
+        "asset": "/data/rescue_assets/uav-AGT-001-C01-BASE-904bebe4.glb",
+        "color": "#49c9ff",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Vehicle",
+      "visual": {
+        "asset": "/data/rescue_assets/ground_vehicle-OBS-012-C03-INTACT-4721d01e.glb",
+        "color": "#69c873",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Team",
+      "visual": {
+        "asset": "/data/rescue_assets/specialist_team-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#f2e74c",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Coordinator",
+      "visual": {
+        "asset": "/data/rescue_assets/coordinator-BLD-028-G02-D0-2068ada4.glb",
+        "color": "#e4aaff",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Compute",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Person",
+      "visual": {
+        "asset": "/data/rescue_assets/human-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#f06c72",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Debris",
+      "visual": {
+        "asset": "/data/rescue_assets/obstacle-OBS-003-C02-BLOCKING-ac69a982.glb",
+        "color": "#ad7654",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Building",
+      "visual": {
+        "color": "#93817c",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Station",
+      "visual": {
+        "asset": "/data/rescue_assets/station-BLD-028-G01-D0-bf936e67.glb",
+        "color": "#55e8bc",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD0",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D0-BLD-003-G02-D0-792d6872.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD1",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D1-BLD-003-G02-D1-9aa6fac0.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD2",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D2-BLD-003-G02-D2-275f6c97.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD3",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D3-BLD-003-G02-D3-690cd21c.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:DebrisOpening",
+      "visual": {
+        "asset": "/data/rescue_assets/obstacle_partly_cleared-OBS-003-C02-OPENING-a42db3c4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:DebrisCleared",
+      "visual": {
+        "color": "#999999",
+        "kind": "label",
+        "scale": 0.5
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Loader",
+      "visual": {
+        "color": "#f0c020",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonProne",
+      "visual": {
+        "asset": "/data/rescue_assets/human-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonSupine",
+      "visual": {
+        "asset": "/data/rescue_assets/human-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Ambulance",
+      "visual": {
+        "color": "#ffffff",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:AmbulanceLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Shelter",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Boat",
+      "visual": {
+        "color": "#ff7a3d",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BoatLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonInWater",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Facility",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FireUnit",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FireUnitDeployed",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FirePump",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:RopeRig",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:RopeRigRigged",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:SnowCasualty",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Sled",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:SledLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Tank",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:TankLeaking",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Bund",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BundLeaking",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Status",
+      "visual": {
+        "color": "#ffffff",
+        "kind": "label",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_5d5194ee106ad85e",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-5d5194ee106ad85e-9fb1c7ea.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    }
+  ],
+  "provenance": "full",
+  "registry": {
+    "fields": [
+      {
+        "id": "rescue.kind",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.position_enu_m",
+        "metadata": {
+          "clock": "canonical",
+          "frame": "enu",
+          "role": "observation",
+          "unit": "m"
+        },
+        "schema": {
+          "items": {
+            "type": "number"
+          },
+          "length": 3,
+          "type": "vector"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.orientation_enu",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "items": {
+            "type": "number"
+          },
+          "length": 4,
+          "type": "vector"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.yaw_deg",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "number"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.state_json",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.status",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.current_task",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.battery_wh",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation",
+          "unit": "Wh"
+        },
+        "schema": {
+          "type": "number"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.agent_json",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Agent"
+      }
+    ],
+    "messages": [
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "rescue.run.event",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "data_json": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_json"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "rescue.event",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "data_json": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_json"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "scene_rescue.business",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "actor": {
+              "type": "string"
+            },
+            "position": {
+              "items": {
+                "type": "number"
+              },
+              "length": 3,
+              "type": "vector"
+            },
+            "stage": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "stage",
+            "subject",
+            "actor"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.created",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "kind": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "kind"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.assigned",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "algorithm": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "algorithm"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.completed",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "latency_s": {
+              "type": "number"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "latency_s"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.failed",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "reason": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "reason"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.handoff.transferred",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "handoff": {
+              "type": "string"
+            },
+            "person": {
+              "type": "string"
+            },
+            "receiver": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "handoff",
+            "person",
+            "receiver"
+          ],
+          "type": "record"
+        }
+      }
+    ],
+    "types": [
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_5d5194ee106ad85e",
+        "parents": [
+          "rescue:Entity"
+        ]
+      }
+    ],
+    "snapshot": "registry.snapshot.json"
+  },
+  "run": {
+    "advance_ns": 500000000,
+    "pacing": "fast",
+    "seed": 1,
+    "until_ns": 3600000000000
+  }
+}

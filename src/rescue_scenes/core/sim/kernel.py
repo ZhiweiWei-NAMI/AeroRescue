@@ -82,7 +82,7 @@ class Simulation:
         self.compute = Compute(self)
         self.evaluator = Evaluator(self)
         for disruption in self.config.get("disruptions", []):
-            self.schedule(float(disruption.get("t", 0)), self._due_world.append, ("inject", deepcopy(disruption)))
+            self.schedule(float(disruption.get("t", 0)), self._enqueue_world, "inject", deepcopy(disruption))
         # Profile schedules are authored world events, not task proposals.
         from ..world.profiles import OVERLAYS
         profile = getattr(world, "profile", {})
@@ -93,7 +93,7 @@ class Simulation:
             if isinstance(secondary, dict):
                 when = secondary.get("t", secondary.get("at_s", secondary.get("time_s")))
                 if when is not None:
-                    self.schedule(float(when), self._due_world.append, ("secondary", deepcopy(secondary)))
+                    self.schedule(float(when), self._enqueue_world, "secondary", deepcopy(secondary))
         for oid in config.get("overlays", []):
             effects = OVERLAYS[oid]["effects"].get("agents", {})
             for key, kind in (("equipment_faults", "equipment_fault"), ("wrong_evidence", "wrong_evidence"), ("stale_versions", "stale_version")):
@@ -101,7 +101,8 @@ class Simulation:
                     targets = [a for a in sorted(self.agents.values(), key=lambda a: a.id) if a.kind == spec.get("kind")][:int(spec.get("count", 1))]
                     for agent in targets:
                         item = dict(kind=kind, target=agent.id, params=deepcopy(spec))
-                        self.schedule(float(spec.get("t", 0)), self._due_world.append, ("stale" if kind == "stale_version" else "inject", item))
+                        self.schedule(float(spec.get("t", 0)), self._enqueue_world,
+                                      "stale" if kind == "stale_version" else "inject", item)
 
     def rng(self, stream, key=""):
         seed = self.config.get("seed", getattr(self.world, "seed", 1))
@@ -182,6 +183,16 @@ class Simulation:
                     for alias in aliases:
                         agent.platform[alias] = deepcopy(current)
         return before, after
+
+    def _enqueue_world(self, kind, spec):
+        """Queue one due world change on this simulation's own live list.
+
+        A bound ``list.append`` captured in ``__init__`` keeps pointing at the
+        list object that ``step`` swaps out, and at the *original* simulation
+        after ``deepcopy(sim)``. Reading ``self._due_world`` at call time keeps
+        every scheduled ``t > 0`` disruption bound to its own holder.
+        """
+        self._due_world.append((kind, spec))
 
     def schedule(self, delay_s, fn, *args):
         delay_s = float(delay_s)
@@ -286,10 +297,16 @@ class Simulation:
                     params['camera_candidate_id'] = target
                     params['contact_position'] = deepcopy(estimate['value'])
         ref = tuple(task_ref) if task_ref else None
+        # A PX4-managed vehicle owns its own flight: the kernel must neither
+        # interpolate its pose nor settle the action on a scripted duration.
+        external = bool(action_id in ("A001", "A021")
+                        and getattr(agent, "motion_backend", "native") == "px4")
+        params["_external_motion"] = external
         params.update(_instance_id=iid, _task_ref=ref)
         rec = dict(id=iid, agent_id=agent_id, action_id=action_id, params=params,
                    task_ref=ref, model=model, status=None, started_s=self.t,
-                   progress_s=0.0, rejection_code="none", failure_code="none", cancel_requested=False)
+                   progress_s=0.0, rejection_code="none", failure_code="none", cancel_requested=False,
+                   external_motion=external)
         self.instances[iid] = rec
         self._status(rec, "requested")
         task = agent.tasks.get(ref[0]) if ref else None
@@ -358,8 +375,35 @@ class Simulation:
         if action_id in ("A001", "A002", "A003", "A021"):
             self.write_truth(agent.platform_eid, "platform.motion_state", "moving", action_id,
                              actor=agent_id, task_ref=ref, action_instance=iid, visible_to=[agent_id])
-        self.schedule(rec["plan"]["duration_s"], self._complete, iid)
+        if rec["external_motion"]:
+            # No fixed completion timer: PX4 arrival settles the action through
+            # complete_external_action; this bounded watchdog only stops a
+            # vehicle that never reports.
+            self.schedule(max(rec["plan"]["duration_s"] * 3.0, 180.0), self._external_watchdog, iid)
+        else:
+            self.schedule(rec["plan"]["duration_s"], self._complete, iid)
         return iid
+
+    def complete_external_action(self, iid):
+        """Settle a running externally-driven motion now (PX4 reached its goal).
+
+        The normal completion path still runs: the model's effect, the ledger,
+        the emitted ``action.result`` and ``on_action_result`` all execute, so a
+        task cursor advances exactly as it does for a scripted arrival.
+        """
+        rec = self.instances.get(iid)
+        if not rec or rec.get("status") != "running" or not rec.get("external_motion"):
+            return False
+        if rec.get("cancel_requested"):
+            return False
+        self._complete(iid)
+        return rec.get("status") != "running"
+
+    def _external_watchdog(self, iid):
+        rec = self.instances.get(iid)
+        if not rec or rec.get("status") != "running" or not rec.get("external_motion"):
+            return
+        self.cancel_action(iid, "外部飞控在超时窗口内未到达目标点。")
 
     def _camera_contact_guard(self, agent, params):
         from .actions import _equipment, _fields, _near
@@ -458,10 +502,12 @@ class Simulation:
         self.agents[rec["agent_id"]].on_action_result(self, result)
 
     def _progress(self, rec):
-        elapsed = max(0.0, min(self.t - rec["started_s"], rec["plan"]["duration_s"]))
+        elapsed = max(0.0, self.t - rec["started_s"])
+        if not rec.get("external_motion"):
+            elapsed = min(elapsed, rec["plan"]["duration_s"])
         agent = self.agents[rec["agent_id"]]
         energy = rec["plan"]["energy_Wh"]
-        if energy > 0 and not agent.spec.get("mains_power", agent.spec.get("mobility") == "none"):
+        if not rec.get("external_motion") and energy > 0 and not agent.spec.get("mains_power", agent.spec.get("mobility") == "none"):
             battery = self.world.get(agent.platform_eid, "platform.battery_remaining_Wh")
             if battery is not None and float(battery) < energy:
                 supported = rec["plan"]["duration_s"] * max(0.0, float(battery)) / energy
@@ -533,8 +579,9 @@ class Simulation:
         if stale:
             self._finish_canceled(iid, "任务版本过期，隔离迟到结果。")
             return
+        # PX4 reports battery remaining after the flight, not before it.
         available = self.world.get(agent.platform_eid, "platform.battery_remaining_Wh")
-        if not agent.spec.get("mains_power", agent.spec.get("mobility") == "none") and available is not None and float(available) < rec["plan"]["energy_Wh"]:
+        if not rec.get("external_motion") and not agent.spec.get("mains_power", agent.spec.get("mobility") == "none") and available is not None and float(available) < rec["plan"]["energy_Wh"]:
             outcome = ActionOutcome(status="failed", failure_code="energy", feedback_zh="执行期间电量不足。")
             rec["params"]["_cancel_elapsed_s"] = rec["progress_s"]
             if hasattr(rec["model"], "cancel"):
@@ -557,6 +604,13 @@ class Simulation:
             self.write_truth(agent.platform_eid, "platform.motion_state", state, rec["action_id"], actor=agent.id,
                              task_ref=ref, action_instance=iid, visible_to=[agent.id])
         cost = cost_record(rec["plan"])
+        if rec.get("external_motion") and rec["plan"]["duration_s"] > 0:
+            # Record actual flight time; the other authored costs remain
+            # bounded by the planned reservation.
+            elapsed = max(0.0, self.t - rec["started_s"])
+            ratio = min(1.0, elapsed / rec["plan"]["duration_s"])
+            cost = cost_record({k: v * ratio for k, v in cost.items()})
+            cost["time_s"] = elapsed
         if outcome.failure_code == "energy" and available is not None:
             cost["energy_Wh"] = min(cost["energy_Wh"], max(0.0, float(available)))
             cost["cpu_s"] *= rec["progress_s"] / max(.001, rec["plan"]["duration_s"])
@@ -604,6 +658,8 @@ class Simulation:
         ratio = min(1.0, max(0.0, (self.t - rec["started_s"]) / duration)) if duration else 0.0
         cost = {k: v * ratio for k, v in cost_record(rec["plan"]).items()}
         cost = cost_record(cost)
+        if rec.get("external_motion"):
+            cost["time_s"] = max(0.0, self.t - rec["started_s"])
         agent = self.agents[rec["agent_id"]]
         available = self.world.get(agent.platform_eid, "platform.battery_remaining_Wh")
         if available is not None and not agent.spec.get("mains_power", agent.spec.get("mobility") == "none"):

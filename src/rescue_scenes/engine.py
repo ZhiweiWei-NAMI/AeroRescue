@@ -21,6 +21,58 @@ from .presentation import (LOADED_VARIANT, BASE, AGENT, STATUS, EVENT, KIND, POS
                            STATUS_F, TASK_F, BATTERY, BUSINESS, KPI_EVENT, TASK_EVENTS, HANDOFF)
 
 
+COMMANDS={'submit_action':'rescue.command.submit_action',
+          'propose_task':'rescue.command.propose_task',
+          'assign_task':'rescue.command.assign_task'}
+RECEIPT='rescue.command.receipt'
+RECEIPT_TOPIC='rescue.events'
+TERMINAL_ACTIONS=frozenset({'succeeded','failed','rejected','canceled','partial'})
+
+
+def _schema(members):
+    return {'type':'record','members':members,'required':list(members),'extra':False}
+
+
+_RECEIPT_RECORD=_schema({'command_id':{'type':'string'},'instance_id':{'type':'string'},
+    'action_id':{'type':'string'},'actor':{'type':'string'},'status':{'type':'string'},
+    'result_json':{'type':'string'}})
+# Optional decision binding: a candidate-driven command names the skill, the
+# purpose (approach/method), the method sequence and the step it was built from.
+_DECISION_BINDING={'candidate_id':{'type':'string','nullable':True},
+                   'skill_name':{'type':'string','nullable':True},
+                   'purpose':{'type':'string','nullable':True},
+                   'method_seq':{'type':'string','nullable':True},
+                   'method_scope':{'type':'string','nullable':True},
+                   'step_index':{'type':'integer','nullable':True}}
+COMMAND_RECORDS={
+    'submit_action':{**_schema({'actor':{'type':'string'},'action_id':{'type':'string'},
+        'params_json':{'type':'string'},'task_ref_json':{'type':'string','nullable':True},
+        **_DECISION_BINDING}),
+        'required':['actor','action_id','params_json','task_ref_json']},
+    'propose_task':_schema({'actor':{'type':'string'},'type':{'type':'string'},
+        'target':{'type':'string'},'priority':{'type':'number'},
+        'candidate_id':{'type':'string'},'why_zh':{'type':'string'},
+        'origin_json':{'type':'string','nullable':True}}),
+    'assign_task':_schema({'actor':{'type':'string'},'agent_id':{'type':'string'},
+        'type':{'type':'string'},'target':{'type':'string'},
+        'candidate_id':{'type':'string'},'task_id':{'type':'string','nullable':True}}),
+}
+
+
+def command_descriptors():
+    """Registry messages an ``external_commands`` scenario must declare.
+
+    The scenario builder (tools/make_run.py or the presentation snapshot) owns
+    the registry; this engine never mutates it. Import this helper there to add
+    the three command schemas and the receipt event.
+    """
+    return ([{'id':COMMANDS[kind],'kind':'command','schema':deepcopy(COMMAND_RECORDS[kind]),
+              'result_schema':deepcopy(_RECEIPT_RECORD),'feedback_schema':None,'cancel_support':False}
+             for kind in ('submit_action','propose_task','assign_task')]+
+            [{'id':RECEIPT,'kind':'event','schema':deepcopy(_RECEIPT_RECORD),
+              'result_schema':None,'feedback_schema':None,'cancel_support':False}])
+
+
 def encoded(value):
     return json.dumps(value,ensure_ascii=False,separators=(',',':'))
 
@@ -115,11 +167,73 @@ class RescueWorld(ContextEngine):
             raise ValueError('AAS run_directory is required for rescue artifacts')
         self.output=Path(context.run_directory)
         self.output.mkdir(parents=True,exist_ok=True)
+        if 'console_scene' in context.config:
+            (self.output/'console-scene.json').write_text(encoded(context.config['console_scene']))
+            (self.output/'scene-source.json').write_text(encoded({'kind':'fixed-glb','id':self.output.name}))
         camera=self.config['display'].get('camera_observation')
         self.camera=None
         if camera and camera.get('enabled'):
             from .camera import CameraObservations
             self.camera=CameraObservations(self,camera,context.config['camera_observation'])
+        # Opt-in external command bus and PX4 embodiment bridge. Both default off,
+        # so every existing scenario keeps byte-identical partitions and results.
+        self.external_commands=context.config.get('external_commands',False)
+        if type(self.external_commands) is not bool:
+            raise ValueError('external_commands must be an explicit boolean')
+        self.px4_vehicles=dict(context.config.get('px4_vehicles') or {})
+        if any(type(name) is not str or not name for name in self.px4_vehicles.values()):
+            raise ValueError('px4_vehicles maps entity ids to nonempty PX4 vehicle names')
+        for entity in self.px4_vehicles:
+            if entity not in self.sim.world.entities:
+                raise ValueError(f'px4_vehicles names an unknown entity: {entity}')
+        # Optional consumed-field map: {entity: {semantic: registered field id}}.
+        # The rescue engine never guesses AAS field IDs; the scenario supplies them.
+        self.px4_fields=dict(context.config.get('px4_fields') or {})
+        for entity,mapping in self.px4_fields.items():
+            if entity not in self.px4_vehicles:
+                raise ValueError(f'px4_fields names an unmapped entity: {entity}')
+            if not isinstance(mapping,dict) or not mapping or any(
+                    not isinstance(field,str) or not field for field in mapping.values()):
+                raise ValueError('px4_fields maps semantic names to nonempty field ids')
+        self.command_schemas=(); self.command_kinds={}; self.receipt_schema=None
+        if self.external_commands:
+            missing=[]
+            for kind,schema in COMMANDS.items():
+                try:
+                    descriptor=context.registry.message(schema)
+                except ValueError:
+                    missing.append(schema); continue
+                if descriptor.kind!='command':
+                    missing.append(schema); continue
+                self.command_kinds[schema]=kind
+                self.command_schemas+=(schema,)
+            try:
+                self.receipt_schema=RECEIPT if context.registry.message(RECEIPT).kind=='event' else None
+            except ValueError:
+                self.receipt_schema=None
+            if missing or self.receipt_schema is None:
+                raise ValueError('external_commands requires the registered command/receipt schemas; '
+                                 'declare rescue_scenes.engine:command_descriptors() in the scenario registry')
+        self.command_links={}; self.command_instances={}; self.command_receipts=[]
+        self.dispatched=set(); self.accepted_commands=set()
+        self.pending_assignments=defaultdict(list); self.injected=0
+        self.px4=None
+        if self.px4_vehicles:
+            from .px4_bridge import PX4EmbodimentBridge
+            self.px4=PX4EmbodimentBridge(self,self.px4_vehicles)
+            # PX4 is the single writer of a mapped UAV's motion. The runtime
+            # keeps running: received messages, the control queue and A041
+            # integration must stay live, only scripted pose interpolation and
+            # (with an external command bus) the internal action choice stop.
+            for entity in self.px4_vehicles:
+                agent=self.sim.agents.get(entity)
+                if agent is not None:
+                    agent.motion_backend='px4'
+                    if self.external_commands:
+                        agent.policy_mode='external_harness'
+        self.px4_consumes=tuple(Dependency(field,self.refs[entity].type_id,entity)
+                                for entity,mapping in sorted(self.px4_fields.items())
+                                for field in mapping.values())
         self.event_file=(self.output/'events.jsonl').open('w',encoding='utf-8')
         self.cursor=0; self.created=set(); self.labels={}; self.label_generation=defaultdict(int)
         self.previous={}; self.yaw={}; self.last_values={}; self.closed=False
@@ -135,8 +249,11 @@ class RescueWorld(ContextEngine):
         (self.output/'SOURCES.json').write_text(source.read_text())
         tick_ns=round(self.config['tick_s']*1e9)
         super().__init__(Partition(context.id,context.id,produces=FIELDS,
-            consumes=(Dependency(POSITION),Dependency(YAW)) if self.camera else (),
-            emits=(EVENT,KPI_EVENT,BUSINESS,*TASK_EVENTS,HANDOFF,*((self.camera.route['request_schema'],) if self.camera else ())),
+            consumes=((Dependency(POSITION),Dependency(YAW)) if self.camera else ())+self.px4_consumes,
+            emits=(EVENT,KPI_EVENT,BUSINESS,*TASK_EVENTS,HANDOFF,
+                   *((self.camera.route['request_schema'],) if self.camera else ()),
+                   *((RECEIPT,) if self.receipt_schema else ())),
+            commands=tuple(self.command_schemas),
             message_targets=('rescue.events',*((self.camera.route['capture_target'],) if self.camera else ())),lifecycle=True,lifecycle_reads=(BASE,AGENT,STATUS),
             timing=Timing('lockstep',step_ns=tick_ns,certified_hold=True)),policies=policies(FIELDS))
 
@@ -147,6 +264,9 @@ class RescueWorld(ContextEngine):
     def step(self,ctx):
         target=ctx.now.ns/1e9
         if target<self.sim.t: raise ValueError('AAS clock moved backwards')
+        # PX4 telemetry is consumed before the step so this tick publishes the
+        # committed native pose, never a scripted one.
+        self._sync_px4(ctx)
         # No independent timer and no stepping past the AAS frontier.
         if self.rules:
             self.rules.advance(target)
@@ -157,6 +277,8 @@ class RescueWorld(ContextEngine):
         self._publish(ctx); self._record(ctx)
 
     def on_inputs(self,ctx):
+        self._sync_px4(ctx)
+        self._commands(ctx)
         if self.camera:
             self.camera.receive(ctx)
             # Activation follows the pose publication's commit. The request's
@@ -165,6 +287,261 @@ class RescueWorld(ContextEngine):
             # Receipt/request processing changes local task/belief overviews,
             # not physical truth. Poses/state were published by step already.
             self._publish(ctx,agents_only=True); self._record(ctx)
+
+    def _sync_px4(self,ctx):
+        """Apply committed PX4 telemetry fields declared by ``px4_fields``.
+
+        After the pose is written, any running ``external_motion`` leg whose
+        goal is within the arrival tolerance is settled here, so a native
+        arrival advances the task cursor instead of waiting for a watchdog.
+        """
+        if self.px4 is None: return
+        from .px4_bridge import complete_reached_movements
+        if self.px4_fields:
+            from aerokernel.state import Absent
+            from aerokernel.values import thaw
+            for entity,mapping in sorted(self.px4_fields.items()):
+                ref=self.refs[entity]
+                sample={'vehicle':self.px4_vehicles.get(entity,entity)}
+                for semantic,field in mapping.items():
+                    value=ctx.get(ref,field)
+                    if not isinstance(value,Absent):
+                        sample[semantic]=thaw(value)
+                if len(sample)>1:
+                    self.px4.apply_telemetry(entity,sample)
+        complete_reached_movements(self.sim,self.px4_vehicles,positions_enu=self.px4.pose)
+
+    # ---- external command bus (opt-in): AAS commands -> native action instances ----
+    def _commands(self,ctx):
+        """Dispatch retained command deliveries, then every undispatched handle.
+
+        ``ctx.remember`` is the only authorized way to learn a command identity;
+        the retained mapping also survives across invocations so a later action
+        completion can issue its typed receipt.
+        """
+        if not self.command_schemas: return
+        for delivery in ctx.inbox:
+            message=delivery.message
+            if message.kind=='command' and message.schema_id in self.command_kinds:
+                ctx.remember(delivery,lambda value:value)
+        for command_id,command in list(ctx.commands.items()):
+            if command_id in self.dispatched: continue
+            kind=self.command_kinds.get(command.delivery.message.schema_id)
+            if kind is None: continue
+            self.dispatched.add(command_id)
+            result=self.handle_external_command(kind,command.payload,ctx=ctx,command=command)
+            if result.get('status')!='rejected':
+                ctx.accept(command); ctx.execute(command)
+                self.accepted_commands.add(command_id)
+
+    @staticmethod
+    def _payload_json(payload,key,default=None):
+        value=payload.get(key,default)
+        if value is None or not isinstance(value,str): return value
+        return json.loads(value) if value.strip() else default
+
+    def _payload_member(self,payload,name,default=None):
+        """Read a typed command member (``*_json``) with a plain-dict fallback.
+
+        The registered command schemas carry JSON strings; direct in-process
+        injection may pass the already-decoded value under the short name.
+        """
+        for key in (name+'_json',name):
+            if key in payload and payload[key] is not None:
+                return self._payload_json(payload,key,default)
+        return default
+
+    def handle_external_command(self,cmd_kind,payload,*,ctx=None,command=None,command_id=None):
+        """Submit one external command into the native action kernel.
+
+        The returned receipt row correlates the command (its AAS id, or a
+        synthesized id for direct in-process injection) with the action instance.
+        ``rescue.command.receipt`` is emitted when that instance is terminal.
+        """
+        if cmd_kind not in COMMANDS:
+            raise ValueError(f'unknown external command kind: {cmd_kind}')
+        payload=dict(payload or {})
+        if command is not None:
+            command_id=command.id
+        elif command_id is None:
+            command_id=f'injected-{self.injected:05d}'; self.injected+=1
+        try:
+            link=self._submit_external(cmd_kind,payload,command_id)
+        except (KeyError,TypeError,ValueError) as exc:
+            receipt={'command_id':command_id,'instance_id':'',
+                     'action_id':COMMANDS[cmd_kind].rsplit('.',1)[1],
+                     'actor':str(payload.get('actor','')),'status':'rejected',
+                     'result_json':encoded({'reason':str(exc)})}
+            self.command_receipts.append(receipt)
+            if ctx is not None and self.receipt_schema is not None:
+                ctx.emit(RECEIPT,receipt,topic=RECEIPT_TOPIC)
+            if command is not None and ctx is not None:
+                # A command already accepted in an earlier invocation can only
+                # terminate as failed; a fresh delivery is still rejectable.
+                (ctx.fail if command_id in self.accepted_commands else ctx.reject)(command,receipt)
+            return receipt
+        if link is None:
+            return {'command_id':command_id,'instance_id':'','action_id':'A052',
+                    'actor':str(payload.get('actor','')),'status':'deferred'}
+        self.command_links[link['instance_id']]=link
+        self.command_instances[command_id]=link['instance_id']
+        return {'command_id':command_id,'instance_id':link['instance_id'],
+                'action_id':link['action_id'],'actor':link['actor'],'status':'submitted'}
+
+    def _submit_external(self,cmd_kind,payload,command_id):
+        if cmd_kind=='submit_action':
+            from aerorescue.skills import VALID_ACTION_IDS, build_decision_candidates, execute_candidate
+            actor=str(payload['actor']); action_id=payload['action_id']
+            if not isinstance(action_id,str) or action_id not in VALID_ACTION_IDS:
+                raise ValueError('action must be a catalog id A001-A066')
+            if actor in self.px4_vehicles and action_id in ('A001','A021'):
+                raise ValueError('PX4-managed vehicle motion is owned by the PX4 adapter; '
+                                 'submit an adapters.<backend>.goto command instead')
+            params=self._payload_member(payload,'params',{})
+            if not isinstance(params,dict) or any(str(key).startswith('_') for key in params):
+                raise ValueError('params must be an object without kernel-internal members')
+            task_ref=self._payload_member(payload,'task_ref')
+            if task_ref is not None and (not isinstance(task_ref,(list,tuple)) or len(task_ref)!=2
+                    or not isinstance(task_ref[0],str) or not task_ref[0]
+                    or type(task_ref[1]) is not int):
+                raise ValueError('task_ref must contain a task id and integer revision')
+            runtime=self.sim.agents.get(actor)
+            if runtime is None:
+                raise ValueError('unknown actor')
+            purpose=payload.get('purpose')
+            if purpose not in (None,'approach','method'):
+                raise ValueError('purpose must be approach or method')
+            if task_ref is not None:
+                task=runtime.tasks.get(task_ref[0])
+                if task is None or task.get('rev')!=task_ref[1]:
+                    raise ValueError('task reference is not held or its revision is stale')
+                matches=[row for row in build_decision_candidates(runtime,self.sim.catalog,self.sim.t)
+                         if row.task_id==task_ref[0] and row.action_id==action_id
+                         and row.purpose==(purpose or 'method')]
+                if len(matches)!=1:
+                    raise ValueError('action does not match the current task candidate')
+                candidate=matches[0].to_dict()
+                for key in ('candidate_id','skill_name','method_seq','method_scope','step_index'):
+                    if payload.get(key) is not None and payload[key]!=candidate[key]:
+                        raise ValueError(f'{key} does not match the current task candidate')
+                for key in ('task_id','rev','task_ref','seq_id','step'):
+                    if key in params and key in candidate['params'] and params[key]!=candidate['params'][key]:
+                        raise ValueError(f'{key} may not override the current task binding')
+                candidate['params'].update(params)
+                iid=execute_candidate(self.sim,runtime,candidate)
+            else:
+                if any(payload.get(key) is not None for key in ('candidate_id','method_seq','method_scope','step_index')):
+                    raise ValueError('candidate binding requires a task reference')
+                iid=runtime._submit(self.sim,action_id,params,purpose='control')
+            return {'command_id':command_id,'instance_id':iid,'actor':actor,'action_id':action_id,
+                    'type':params.get('type'),'target':params.get('target'),
+                    'candidate_id':payload.get('candidate_id')}
+        if cmd_kind=='propose_task':
+            actor=str(payload['actor']); typ=str(payload['type']); target=str(payload['target'])
+            origin=self._payload_member(payload,'origin') or {
+                'rule_id':payload.get('rule_id','CENTER-SANDBOX'),
+                'why_zh':payload.get('why_zh') or f'{actor} 提议 {typ}@{target}',
+                'belief_refs':list(payload.get('belief_refs') or [])}
+            iid=self.sim.submit_action(actor,'A050',{'type':typ,'target':target,
+                'priority':float(payload.get('priority',50)),'origin':origin})
+            return {'command_id':command_id,'instance_id':iid,'actor':actor,'action_id':'A050',
+                    'type':typ,'target':target,'candidate_id':payload.get('candidate_id')}
+        actor=str(payload['actor']); agent_id=str(payload['agent_id'])
+        typ=str(payload['type']); target=str(payload['target'])
+        task_id=payload.get('task_id') or self._task_for(actor,typ,target)
+        if task_id is None:
+            # Only an actually in-flight A050 proposal may defer the assignment;
+            # otherwise the command terminates now instead of waiting forever.
+            if not self._proposal_in_flight(actor,typ,target):
+                raise ValueError(f'assign_task has no in-flight A050 proposal for {typ}@{target}')
+            self.pending_assignments[(actor,typ,target)].append(
+                {'payload':payload,'command_id':command_id})
+            return None
+        iid=self.sim.submit_action(actor,'A052',{'task_id':task_id,'agent_id':agent_id})
+        return {'command_id':command_id,'instance_id':iid,'actor':actor,'action_id':'A052',
+                'type':typ,'target':target,'candidate_id':payload.get('candidate_id')}
+
+    def _proposal_in_flight(self,actor,typ,target):
+        """Whether a non-terminal A050 for this (actor, type, target) exists."""
+        for link in self.command_links.values():
+            if (link['action_id']=='A050' and link['actor']==actor
+                    and link.get('type')==typ and str(link.get('target'))==target):
+                return True
+        for record in self.sim.instances.values():
+            if (record['action_id']!='A050' or record['agent_id']!=actor
+                    or record['status'] not in ('requested','accepted','running')):
+                continue
+            params=record['params']
+            if params.get('type')==typ and str(params.get('target'))==target:
+                return True
+        return False
+
+    def _task_for(self,actor,typ,target):
+        agent=self.sim.agents.get(actor)
+        if agent is None: return None
+        return next((tid for tid,task in agent.tasks.items()
+                     if task.get('type')==typ and str(task.get('target'))==target
+                     and task.get('status') in ('proposed','assigned','accepted','executing')),None)
+
+    def _instance_result(self,iid):
+        record=self.sim.instances.get(iid) or {}
+        result=record.get('result')
+        row={'status':record.get('status')}
+        for key in ('rejection_code','failure_code'):
+            if record.get(key) not in (None,'none'): row[key]=record[key]
+        if result is not None:
+            row['result']=result.to_dict() if hasattr(result,'to_dict') else result
+        return row
+
+    def _command_status(self,ctx,row):
+        """Close the command whose action instance just reached a terminal status."""
+        if not self.command_links or row.get('kind')!='action.status': return
+        if row.get('after') not in TERMINAL_ACTIONS: return
+        link=self.command_links.pop(row['subject'],None)
+        if link is None: return
+        receipt={'command_id':link['command_id'],'instance_id':row['subject'],
+                 'action_id':link['action_id'],'actor':link['actor'],
+                 'status':row['after'],'result_json':encoded(self._instance_result(row['subject']))}
+        self.command_receipts.append(receipt)
+        if self.receipt_schema is not None and ctx is not None:
+            ctx.emit(RECEIPT,receipt,topic=RECEIPT_TOPIC)
+            command=ctx.commands.get(link['command_id'])
+            if command is not None:
+                (ctx.succeed if row['after']=='succeeded' else ctx.fail)(command,receipt)
+        if link['action_id']=='A050':
+            self._deferred(link,ctx,row['after']=='succeeded')
+
+    def _deferred(self,link,ctx,ok):
+        key=(link['actor'],link.get('type'),link.get('target'))
+        pending=self.pending_assignments.pop(key,None)
+        for row in pending or ():
+            command=None if ctx is None else ctx.commands.get(row['command_id'])
+            reason=None
+            if not ok:
+                reason='task proposal did not complete'
+            elif self._task_for(*key) is None:
+                # Never re-queue: a completed proposal without a local task is a
+                # terminal failure for this assignment.
+                reason='task proposal completed without a matching local task'
+            if reason is not None:
+                self._fail_deferred(row['command_id'],link['actor'],reason,ctx,command)
+                continue
+            self.handle_external_command('assign_task',row['payload'],ctx=ctx,command=command,
+                                         command_id=row['command_id'])
+
+    def _fail_deferred(self,command_id,actor,reason,ctx,command):
+        receipt={'command_id':command_id,'instance_id':'','action_id':'A052','actor':actor,
+                 'status':'failed','result_json':encoded({'reason':reason})}
+        self.command_receipts.append(receipt)
+        if self.receipt_schema is not None and ctx is not None:
+            ctx.emit(RECEIPT,receipt,topic=RECEIPT_TOPIC)
+            if command is not None: ctx.fail(command,receipt)
+
+    def apply_px4_telemetry(self,samples):
+        """Sync native PX4 telemetry before the next truth publication."""
+        if self.px4 is None:
+            raise ValueError('px4_vehicles is not configured for this run')
+        return self.px4.sync(samples)
 
     def _set(self,ctx,ref,values):
         for key,value in values.items():
@@ -249,22 +626,30 @@ class RescueWorld(ContextEngine):
             # base transform per entity, never task/telemetry/carrier projection.
             # Exact numeric spelling keeps signed zero and int/float distinctions.
             terrain_key=tuple((type(v),v.hex() if isinstance(v,float) else v) for v in (*xy,agl))
-            terrain=self._terrain_positions.get(eid)
-            if terrain is None or terrain[0]!=terrain_key:
-                enu=self.grid.enu(xy,agl)
-                if self.snow_features is not None:
-                    enu[2]=snow_height(self.grid,self.snow_features,*enu[:2])+agl
-                terrain=(terrain_key,tuple(enu))
-                self._terrain_positions[eid]=terrain
-            enu=list(terrain[1])
+            # A PX4-managed UAV publishes the native 3D ENU position and heading;
+            # the fixed display AGL never overrides real flight altitude.
+            native=self.px4.pose.get(eid) if self.px4 is not None else None
+            if native is not None and native.get('position_enu') is not None:
+                enu=list(native['position_enu'])
+            else:
+                terrain=self._terrain_positions.get(eid)
+                if terrain is None or terrain[0]!=terrain_key:
+                    enu=self.grid.enu(xy,agl)
+                    if self.snow_features is not None:
+                        enu[2]=snow_height(self.grid,self.snow_features,*enu[:2])+agl
+                    terrain=(terrain_key,tuple(enu))
+                    self._terrain_positions[eid]=terrain
+                enu=list(terrain[1])
             afloat=(agent and agent.spec.get('mobility')=='water') or (entity['cls']=='human' and f.get('human.location_context')=='water' and not f.get('human.carrier_id'))
-            if afloat and self.water_u is not None:
+            if afloat and self.water_u is not None and native is None:
                 enu=[enu[0],enu[1],self.water_u]
             old=self.previous.get(eid)
             if old is not None and math.dist(old[:2],enu[:2])>1e-6:
                 self.yaw[eid]=math.atan2(enu[1]-old[1],enu[0]-old[0])
             self.previous[eid]=enu
             yaw=self.yaw.get(eid,self.initial_yaw.get(eid,0.0))
+            if native is not None and native.get('yaw_rad') is not None:
+                yaw=native['yaw_rad']
             # Y-up model (normalized to face east) -> ENU quaternion Rz(yaw)*Rx(90deg).
             half=yaw/2; root=math.sqrt(.5)
             quat=[root*math.cos(half),root*math.sin(half),root*math.sin(half),root*math.cos(half)]
@@ -339,7 +724,9 @@ class RescueWorld(ContextEngine):
                 self._published_static[eid]=display_revision
 
     def _record(self,ctx):
-        for event in self.sim.events[self.cursor:]:
+        while self.cursor<len(self.sim.events):
+            event=self.sim.events[self.cursor]
+            self.cursor+=1
             if self.camera:
                 self.camera.action(event)
             event_row=event.to_dict(); row=event_row; raw=encoded(row)
@@ -355,7 +742,9 @@ class RescueWorld(ContextEngine):
                 self._stage(ctx,stage)
             if event.family=='sm:task.status':
                 self._task(ctx,event_row)
-        self.cursor=len(self.sim.events); self.event_file.flush()
+            if self.command_links:
+                self._command_status(ctx,event_row)
+        self.event_file.flush()
         if self.camera and self.camera.pending:
             ctx.ops.append(Activate(self.partition.id))
 
@@ -481,6 +870,13 @@ class RescueWorld(ContextEngine):
                 (self.output/'forced-rules.json').write_text(encoded(report))
             if self.camera:
                 result['camera_observation']=self.camera.report()
+            if self.command_schemas:
+                result['external_commands']={'schemas':list(self.command_schemas),
+                    'receipt_schema':self.receipt_schema,'receipts':self.command_receipts,
+                    'command_instances':dict(self.command_instances),
+                    'undelivered':sorted(self.command_links)}
+            if self.px4_vehicles:
+                result['px4_vehicles']=dict(self.px4_vehicles)
             (self.output/'result.json').write_text(encoded(result))
             (self.output/'final_truth.json').write_text(encoded(self.sim.world.to_dict()))
             (self.output/'agent_beliefs.json').write_text(encoded({aid:a.belief.to_view() for aid,a in self.sim.agents.items()}))
@@ -494,4 +890,7 @@ def build(context):
     return RescueWorld(context)
 
 
-build.config_schema={'type':'object','properties':{'bundle_path':{'type':'string'},'camera_observation':{'type':'object'},'execution_mode':{'enum':['autonomous','forced_rules']}},'required':['bundle_path'],'additionalProperties':False}
+build.config_schema={'type':'object','properties':{'bundle_path':{'type':'string'},'camera_observation':{'type':'object'},
+    'execution_mode':{'enum':['autonomous','forced_rules']},'external_commands':{'type':'boolean'},
+    'console_scene':{'type':'object'},
+    'px4_vehicles':{'type':'object'},'px4_fields':{'type':'object'}},'required':['bundle_path'],'additionalProperties':False}

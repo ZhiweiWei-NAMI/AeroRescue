@@ -1,0 +1,1491 @@
+{
+  "bindings": {
+    "commands": [],
+    "lifecycle": [
+      {
+        "controller": "rescue",
+        "ids": "*",
+        "type": "rescue:Entity"
+      }
+    ],
+    "rules": [
+      {
+        "fields": [
+          "rescue.kind",
+          "rescue.position_enu_m",
+          "rescue.orientation_enu",
+          "rescue.yaw_deg",
+          "rescue.state_json",
+          "rescue.status",
+          "rescue.current_task",
+          "rescue.battery_wh"
+        ],
+        "ids": "*",
+        "type": "rescue:Entity",
+        "writer": "rescue"
+      },
+      {
+        "fields": [
+          "rescue.agent_json"
+        ],
+        "ids": "*",
+        "type": "rescue:Agent",
+        "writer": "rescue"
+      }
+    ]
+  },
+  "clock_mappings": [
+    {
+      "clock_id": "canonical",
+      "mapping_id": "canonical"
+    }
+  ],
+  "engines": {
+    "rescue": {
+      "config": {
+        "bundle_path": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/tools/generated/SC07-1-20261031T123114277412Z/bundle.json",
+        "execution_mode": "forced_rules",
+        "console_scene": {
+          "id": "SC07 野火/林地城市交界灾害 · generated layout · scripted sensing · seed 1",
+          "city": {
+            "kind": "glb",
+            "url": "/data/scenes/SC07_appearance_IMAGEGEN_C01only_yup.glb",
+            "offset": [
+              0,
+              0,
+              0
+            ]
+          },
+          "camera": {
+            "position": [
+              -276.06870250888926,
+              52.1353405390557,
+              -127.49264802449161
+            ],
+            "target": [
+              -221.06870250888926,
+              4.135340539055696,
+              -192.49264802449161
+            ],
+            "fixed": true
+          },
+          "groundY": 0.55,
+          "attribution": "SC07 EXTEND_TO_TEN geometry + ImageGen C01 projection; E[-130,165] N[60,240]: Marble world eba92078 splats (origin pano cam (20,150,34.49) shifted +2.5 m E, yaw 0, 51.42 m/unit, 0.55/0.12 deg tilt removed, ground ~+0.5 m). Plots W of E-130, woodland canopy: GLB.; disaster entities and v0.5 sensing/action/network models are authored simulation assumptions",
+          "splats": [
+            {
+              "url": "/data/splats/SC07v1_keyregion_full_crop.spz",
+              "position": [
+                22.5,
+                34.279,
+                -150.0
+              ],
+              "quaternion": [
+                0.999988,
+                -0.004833,
+                5e-06,
+                -0.001079
+              ],
+              "scale": 51.42
+            }
+          ]
+        }
+      },
+      "plugin": "rescue_scenes"
+    }
+  },
+  "entities": [
+    {
+      "facts": {},
+      "id": "A_N",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "A_S",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_E#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_E#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_E#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_NE#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_FILLET_SE#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_N#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOOP_S#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "P1_E",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "P1_W",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "P2_E",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "P2_W",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_ASSEMBLY",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "RESV_P1",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "RESV_P2",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0001-001",
+      "type": "rescue:Upstream_9b864a3ca1c1bc8f"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0001-001:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0002-001",
+      "type": "rescue:Upstream_bffb0953a5f0de3d"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0002-001:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0004-001",
+      "type": "rescue:Upstream_d872b630f4e2488e"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0004-001:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_SPINE#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_SPINE#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_SPINE#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_SPINE#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_SPINE#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_SPINE#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_SPINE#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "building-1",
+      "type": "rescue:BuildingD0"
+    },
+    {
+      "facts": {},
+      "id": "coordinator-1",
+      "type": "rescue:Coordinator"
+    },
+    {
+      "facts": {},
+      "id": "cue-1",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "cue-2",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "cue-3",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "fire-unit-1",
+      "type": "rescue:FireUnit"
+    },
+    {
+      "facts": {},
+      "id": "hazard-1",
+      "type": "rescue:Hazard"
+    },
+    {
+      "facts": {},
+      "id": "hazard-2",
+      "type": "rescue:Hazard"
+    },
+    {
+      "facts": {},
+      "id": "item-supply-1-water-1",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-supply-1-water-10",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-supply-1-water-11",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-supply-1-water-12",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-supply-1-water-2",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-supply-1-water-3",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-supply-1-water-4",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-supply-1-water-5",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-supply-1-water-6",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-supply-1-water-7",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-supply-1-water-8",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-supply-1-water-9",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "portable-pump-1",
+      "type": "rescue:FirePump"
+    },
+    {
+      "facts": {},
+      "id": "specialist-team-1",
+      "type": "rescue:Team"
+    },
+    {
+      "facts": {},
+      "id": "supply-1",
+      "type": "rescue:Station"
+    },
+    {
+      "facts": {},
+      "id": "uav-1",
+      "type": "rescue:UAV"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0001-001__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0001-001__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0001-001__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0001-001__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0002-001__D1_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0002-001__D1_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0002-001__D1_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0002-001__D1_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0004-001__D3_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0004-001__D3_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0004-001__D3_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "SC07-allocated-0004-001__D3_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "building-1__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "building-1__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "building-1__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "building-1__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "fire-unit-1__state_fire_unit_deployed",
+      "type": "rescue:FireUnitDeployed"
+    },
+    {
+      "facts": {},
+      "id": "supply-1__supply_open",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "supply-1__supply_restricted",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "supply-1__supply_closed",
+      "type": "rescue:Status"
+    }
+  ],
+  "event_narratives": {
+    "scene_rescue.business": {
+      "category": "emergency",
+      "entities": [
+        "subject",
+        "actor"
+      ],
+      "position": "position",
+      "severity": "info",
+      "template": "{text}",
+      "template_zh": "{text}"
+    }
+  },
+  "format": "aeroagentsim.scenario/v1",
+  "id": "SC07-rescue-20261031T123114277412Z",
+  "outputs": {
+    "durability": "flush"
+  },
+  "presentation": [
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Dog",
+      "visual": {
+        "asset": "/data/rescue_assets/robot_dog-AGT-003-C01-BASE-1e23344c.glb",
+        "color": "#ffb84d",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:UAV",
+      "visual": {
+        "asset": "/data/rescue_assets/uav-AGT-001-C01-BASE-904bebe4.glb",
+        "color": "#49c9ff",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Vehicle",
+      "visual": {
+        "asset": "/data/rescue_assets/ground_vehicle-OBS-012-C03-INTACT-4721d01e.glb",
+        "color": "#69c873",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Team",
+      "visual": {
+        "asset": "/data/rescue_assets/specialist_team-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#f2e74c",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Coordinator",
+      "visual": {
+        "asset": "/data/rescue_assets/coordinator-BLD-028-G02-D0-2068ada4.glb",
+        "color": "#e4aaff",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Compute",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Person",
+      "visual": {
+        "asset": "/data/rescue_assets/human-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#f06c72",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Debris",
+      "visual": {
+        "asset": "/data/rescue_assets/obstacle-OBS-003-C02-BLOCKING-ac69a982.glb",
+        "color": "#ad7654",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Building",
+      "visual": {
+        "color": "#93817c",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Station",
+      "visual": {
+        "asset": "/data/rescue_assets/station-BLD-028-G01-D0-bf936e67.glb",
+        "color": "#55e8bc",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD0",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D0-BLD-003-G02-D0-792d6872.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD1",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D1-BLD-003-G02-D1-9aa6fac0.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD2",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D2-BLD-003-G02-D2-275f6c97.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD3",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D3-BLD-003-G02-D3-690cd21c.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:DebrisOpening",
+      "visual": {
+        "asset": "/data/rescue_assets/obstacle_partly_cleared-OBS-003-C02-OPENING-a42db3c4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:DebrisCleared",
+      "visual": {
+        "color": "#999999",
+        "kind": "label",
+        "scale": 0.5
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Loader",
+      "visual": {
+        "color": "#f0c020",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonProne",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonSupine",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Ambulance",
+      "visual": {
+        "color": "#ffffff",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:AmbulanceLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Shelter",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Boat",
+      "visual": {
+        "color": "#ff7a3d",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BoatLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonInWater",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Facility",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FireUnit",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FireUnitDeployed",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FirePump",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:RopeRig",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:RopeRigRigged",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:SnowCasualty",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Sled",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:SledLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Tank",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:TankLeaking",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Bund",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BundLeaking",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Status",
+      "visual": {
+        "color": "#ffffff",
+        "kind": "label",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_9b864a3ca1c1bc8f",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-9b864a3ca1c1bc8f-dc1d5c2e.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_bffb0953a5f0de3d",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-bffb0953a5f0de3d-7d58af08.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_d872b630f4e2488e",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-d872b630f4e2488e-9fcc516b.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    }
+  ],
+  "provenance": "full",
+  "registry": {
+    "fields": [
+      {
+        "id": "rescue.kind",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.position_enu_m",
+        "metadata": {
+          "clock": "canonical",
+          "frame": "enu",
+          "role": "observation",
+          "unit": "m"
+        },
+        "schema": {
+          "items": {
+            "type": "number"
+          },
+          "length": 3,
+          "type": "vector"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.orientation_enu",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "items": {
+            "type": "number"
+          },
+          "length": 4,
+          "type": "vector"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.yaw_deg",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "number"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.state_json",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.status",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.current_task",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.battery_wh",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation",
+          "unit": "Wh"
+        },
+        "schema": {
+          "type": "number"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.agent_json",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Agent"
+      }
+    ],
+    "messages": [
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "rescue.run.event",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "data_json": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_json"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "rescue.event",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "data_json": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_json"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "scene_rescue.business",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "actor": {
+              "type": "string"
+            },
+            "position": {
+              "items": {
+                "type": "number"
+              },
+              "length": 3,
+              "type": "vector"
+            },
+            "stage": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "stage",
+            "subject",
+            "actor"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.created",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "kind": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "kind"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.assigned",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "algorithm": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "algorithm"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.completed",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "latency_s": {
+              "type": "number"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "latency_s"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.failed",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "reason": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "reason"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.handoff.transferred",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "handoff": {
+              "type": "string"
+            },
+            "person": {
+              "type": "string"
+            },
+            "receiver": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "handoff",
+            "person",
+            "receiver"
+          ],
+          "type": "record"
+        }
+      }
+    ],
+    "types": [
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_9b864a3ca1c1bc8f",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_bffb0953a5f0de3d",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_d872b630f4e2488e",
+        "parents": [
+          "rescue:Entity"
+        ]
+      }
+    ],
+    "snapshot": "registry.snapshot.json"
+  },
+  "run": {
+    "advance_ns": 500000000,
+    "pacing": "fast",
+    "seed": 1,
+    "until_ns": 3600000000000
+  }
+}

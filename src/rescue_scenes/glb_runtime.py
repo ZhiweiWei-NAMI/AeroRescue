@@ -245,13 +245,14 @@ def compact_textures(doc, binary, min_psnr=40.0):
         if 'bufferView' not in image or image.get('mimeType') != 'image/png':
             continue
         view = views[image['bufferView']]; data = binary[view['byteOffset']:view['byteOffset'] + view['byteLength']]
-        depth, ctype = data[24], data[25]; picture = Image.open(io.BytesIO(data)); new = None
+        picture = Image.open(io.BytesIO(data)); new = None; new_mime = None
+        depth, ctype = data[24], data[25]
         if i in base and i not in other and (ctype == 2 or (ctype == 6 and i in alpha_unused)):
             rgb = picture.convert('RGB'); out = io.BytesIO(); rgb.save(out, 'JPEG', quality=92)
             a = np.asarray(rgb, dtype='f8'); b = np.asarray(Image.open(io.BytesIO(out.getvalue())).convert('RGB'), dtype='f8')
             mse = float(((a - b) ** 2).mean()); psnr = 99.0 if mse == 0 else 10 * np.log10(255 ** 2 / mse)
             if psnr >= min_psnr:
-                new = out.getvalue(); image['mimeType'] = 'image/jpeg'; record['to_jpeg'] += 1
+                new = out.getvalue(); new_mime = 'image/jpeg'
                 record['min_psnr_db'] = round(float(psnr if record['min_psnr_db'] is None else min(record['min_psnr_db'], psnr)), 2)
             else:
                 record['kept_png_low_psnr'] += 1
@@ -259,6 +260,8 @@ def compact_textures(doc, binary, min_psnr=40.0):
             out = io.BytesIO(); picture.convert('RGBA' if ctype in (4, 6) else 'RGB').save(out, 'PNG', optimize=True)
             new = out.getvalue(); record['to_8bit'] += 1
         if new is not None and len(new) < len(data):
+            if new_mime:
+                image['mimeType'] = new_mime; record['to_jpeg'] += 1
             replaced[image['bufferView']] = new; record['bytes_before'] += len(data); record['bytes_after'] += len(new)
     blob = bytearray()
     for index, view in enumerate(views):
@@ -339,8 +342,8 @@ def quantize_geometry(doc, binary):
     record = {'quantized': False}
     reasons = [k for k in ('skins', 'animations') if doc.get(k)] + [e for e in doc.get('extensionsUsed', []) if e in ('KHR_draco_mesh_compression', 'EXT_meshopt_compression', 'KHR_mesh_quantization')]
     prims = [p for m in doc.get('meshes', []) for p in m['primitives']]
-    if any(p.get('targets') or p.get('mode', 4) != 4 or 'indices' not in p or {k for k in p['attributes'] if not k.startswith('TEXCOORD_')} - {'POSITION', 'NORMAL'} for p in prims):
-        reasons.append('morph/non-triangle/unindexed primitive or attributes beyond POSITION/NORMAL/TEXCOORD_n')
+    if any(p.get('targets') or p.get('mode', 4) != 4 or 'indices' not in p or {k for k in p['attributes'] if not k.startswith(('TEXCOORD_', 'COLOR_'))} - {'POSITION', 'NORMAL', 'TANGENT'} for p in prims):
+        reasons.append('morph/non-triangle/unindexed primitive or unsupported vertex attributes')
     if reasons:
         record['skipped'] = reasons; return doc, binary, record
     blob, views, accessors = bytearray(), [], []
@@ -363,6 +366,20 @@ def quantize_geometry(doc, binary):
                 n = _read_accessor(doc, binary, prim['attributes']['NORMAL']); n /= np.maximum(np.linalg.norm(n, axis=1, keepdims=True), 1e-12)
                 qn = np.zeros((len(n), 4), '<i1'); qn[:, :3] = np.clip(np.round(n * 127), -127, 127)
                 attributes['NORMAL'] = put(qn, 34962, 4, componentType=5120, normalized=True, count=len(qn), type='VEC3')
+            if 'TANGENT' in prim['attributes']:
+                tangent = _read_accessor(doc, binary, prim['attributes']['TANGENT'])
+                tangent[:, :3] /= np.maximum(np.linalg.norm(tangent[:, :3], axis=1, keepdims=True), 1e-12)
+                qt = np.clip(np.round(tangent * 127), -127, 127).astype('<i1')
+                attributes['TANGENT'] = put(qt, 34962, 4, componentType=5120, normalized=True, count=len(qt), type='VEC4')
+            for name in sorted(k for k in prim['attributes'] if k.startswith('COLOR_')):
+                color = _read_accessor(doc, binary, prim['attributes'][name])
+                width = color.shape[1]
+                if color.min() >= 0 and color.max() <= 1:
+                    qc = np.zeros((len(color), 4), '<u1')
+                    qc[:, :width] = np.round(color * 255)
+                    attributes[name] = put(qc, 34962, 4, componentType=5121, normalized=True, count=len(qc), type=f'VEC{width}')
+                else:
+                    attributes[name] = put(color.astype('<f4'), 34962, None, componentType=5126, count=len(color), type=f'VEC{width}')
             for name in sorted(k for k in prim['attributes'] if k.startswith('TEXCOORD_')):
                 uv = _read_accessor(doc, binary, prim['attributes'][name])
                 if uv.min() >= 0 and uv.max() <= 1:

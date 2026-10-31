@@ -1,0 +1,7449 @@
+{
+  "bindings": {
+    "commands": [],
+    "lifecycle": [
+      {
+        "controller": "rescue",
+        "ids": "*",
+        "type": "rescue:Entity"
+      }
+    ],
+    "rules": [
+      {
+        "fields": [
+          "rescue.kind",
+          "rescue.position_enu_m",
+          "rescue.orientation_enu",
+          "rescue.yaw_deg",
+          "rescue.state_json",
+          "rescue.status",
+          "rescue.current_task",
+          "rescue.battery_wh"
+        ],
+        "ids": "*",
+        "type": "rescue:Entity",
+        "writer": "rescue"
+      },
+      {
+        "fields": [
+          "rescue.agent_json"
+        ],
+        "ids": "*",
+        "type": "rescue:Agent",
+        "writer": "rescue"
+      }
+    ]
+  },
+  "clock_mappings": [
+    {
+      "clock_id": "canonical",
+      "mapping_id": "canonical"
+    }
+  ],
+  "engines": {
+    "rescue": {
+      "config": {
+        "bundle_path": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/tools/generated/SC08-1-20261031T115047560683Z/bundle.json",
+        "execution_mode": "forced_rules",
+        "console_scene": {
+          "id": "SC08 滑坡/泥石流/地面塌陷 · generated layout · scripted sensing · seed 1",
+          "city": {
+            "kind": "glb",
+            "url": "/data/scenes/GT02_HILLSIDE_light_display.glb",
+            "offset": [
+              0,
+              0,
+              0
+            ]
+          },
+          "camera": {
+            "position": [
+              -61.82031232908267,
+              75.1974788990658,
+              97.48008121091839
+            ],
+            "target": [
+              -1.8203123290826717,
+              5.197478899065795,
+              22.48008121091839
+            ],
+            "fixed": true
+          },
+          "groundY": -1.99,
+          "attribution": "SC08 hillside: GT02 accepted source (untouched); light AAS display copy keeps terrain/roads/terraces/gabion shells at source coordinates; drops gabion stone fill, wire, gravel chips, asphalt grains; no Marble; disaster entities and v0.5 sensing/action/network models are authored simulation assumptions"
+        }
+      },
+      "plugin": "rescue_scenes"
+    }
+  },
+  "entities": [
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#100",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#101",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#102",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#103",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#104",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#105",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#106",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#107",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#108",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#109",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#110",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#111",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#112",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#113",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#114",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#115",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#116",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#117",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#118",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#119",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#120",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#121",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#122",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#123",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#124",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#125",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#126",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#127",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#128",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#129",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#130",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#131",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#132",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#133",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#134",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#135",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#136",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#137",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#138",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#139",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#140",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#141",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#142",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#143",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#144",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#145",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#146",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#147",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#148",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#149",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#150",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#151",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#152",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#153",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#154",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#155",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#156",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#157",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#158",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#159",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#160",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#161",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#162",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#163",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#164",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#165",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#166",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#167",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#168",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#169",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#170",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#171",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#172",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#173",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#174",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#175",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#21",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#22",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#23",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#24",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#25",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#26",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#27",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#28",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#29",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#30",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#31",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#32",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#33",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#34",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#35",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#36",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#37",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#38",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#39",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#40",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#41",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#42",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#43",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#44",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#45",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#46",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#47",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#48",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#49",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#50",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#51",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#52",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#53",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#54",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#55",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#56",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#57",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#58",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#59",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#60",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#61",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#62",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#63",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#64",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#65",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#66",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#67",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#68",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#69",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#70",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#71",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#72",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#73",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#74",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#75",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#76",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#77",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#78",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#79",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#80",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#81",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#82",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#83",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#84",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#85",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#86",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#87",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#88",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#89",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#90",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#91",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#92",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#93",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#94",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#95",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#96",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#97",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#98",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CONCRETE_LOOP#99",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#100",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#101",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#102",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#103",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#104",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#105",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#106",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#107",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#108",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#109",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#110",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#111",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#112",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#113",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#114",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#115",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#116",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#117",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#118",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#119",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#120",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#121",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#122",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#123",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#124",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#125",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#126",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#127",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#128",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#129",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#130",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#131",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#132",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#133",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#134",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#135",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#136",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#137",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#138",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#139",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#140",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#141",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#142",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#143",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#144",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#145",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#146",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#147",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#148",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#149",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#150",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#151",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#152",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#153",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#154",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#155",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#156",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#157",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#158",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#159",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#160",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#161",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#162",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#163",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#164",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#165",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#166",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#167",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#168",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#169",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#170",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#171",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#172",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#173",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#174",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#175",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#176",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#177",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#178",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#179",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#180",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#181",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#182",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#183",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#184",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#185",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#186",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#187",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#188",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#189",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#190",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#191",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#192",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#193",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#194",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#195",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#196",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#197",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#198",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#199",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#200",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#201",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#202",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#203",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#204",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#205",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#206",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#207",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#208",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#209",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#21",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#210",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#211",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#212",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#213",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#214",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#215",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#216",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#217",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#218",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#219",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#22",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#220",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#221",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#222",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#223",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#224",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#225",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#226",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#227",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#228",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#229",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#23",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#230",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#231",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#232",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#233",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#234",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#235",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#236",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#237",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#238",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#239",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#24",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#240",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#241",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#242",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#243",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#244",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#245",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#246",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#247",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#248",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#249",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#25",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#250",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#251",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#252",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#253",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#254",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#255",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#256",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#257",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#258",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#259",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#26",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#260",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#261",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#262",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#263",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#264",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#265",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#266",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#267",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#268",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#269",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#27",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#270",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#271",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#272",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#273",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#274",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#275",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#276",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#277",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#278",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#279",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#28",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#280",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#281",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#282",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#283",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#284",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#285",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#286",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#287",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#288",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#289",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#29",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#290",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#291",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#292",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#293",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#294",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#295",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#296",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#297",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#298",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#299",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#30",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#300",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#301",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#302",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#303",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#304",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#305",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#306",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#307",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#308",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#309",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#31",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#310",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#311",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#312",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#313",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#314",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#315",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#316",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#317",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#318",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#319",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#32",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#320",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#321",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#322",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#323",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#324",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#325",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#326",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#327",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#328",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#329",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#33",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#330",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#331",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#332",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#333",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#334",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#335",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#336",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#337",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#338",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#339",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#34",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#340",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#341",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#342",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#343",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#344",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#345",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#346",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#347",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#348",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#349",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#35",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#350",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#351",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#352",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#353",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#354",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#355",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#356",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#357",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#358",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#359",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#36",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#360",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#361",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#362",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#363",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#364",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#365",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#366",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#367",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#368",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#369",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#37",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#370",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#371",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#372",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#373",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#374",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#375",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#376",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#377",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#378",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#379",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#38",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#380",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#381",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#382",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#383",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#384",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#385",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#386",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#387",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#388",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#389",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#39",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#390",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#391",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#392",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#393",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#394",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#395",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#396",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#397",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#398",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#399",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#40",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#400",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#401",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#402",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#403",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#404",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#405",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#406",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#407",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#408",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#409",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#41",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#410",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#411",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#412",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#413",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#414",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#415",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#416",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#417",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#418",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#419",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#42",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#420",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#421",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#43",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#44",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#45",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#46",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#47",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#48",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#49",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#50",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#51",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#52",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#53",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#54",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#55",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#56",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#57",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#58",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#59",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#60",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#61",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#62",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#63",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#64",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#65",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#66",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#67",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#68",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#69",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#70",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#71",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#72",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#73",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#74",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#75",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#76",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#77",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#78",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#79",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#80",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#81",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#82",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#83",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#84",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#85",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#86",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#87",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#88",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#89",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#90",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#91",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#92",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#93",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#94",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#95",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#96",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#97",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#98",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "LOWER_ROAD#99",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#100",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#101",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#102",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#103",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#104",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#105",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#106",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#107",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#108",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#109",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#110",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#111",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#112",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#113",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#114",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#115",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#116",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#117",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#118",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#119",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#120",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#121",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#122",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#123",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#124",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#125",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#126",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#127",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#128",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#129",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#130",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#131",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#132",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#133",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#134",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#135",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#136",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#137",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#138",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#139",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#140",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#141",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#142",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#143",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#144",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#145",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#146",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#147",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#148",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#149",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#150",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#151",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#152",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#153",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#154",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#155",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#156",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#157",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#158",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#159",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#160",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#161",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#162",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#163",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#164",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#165",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#166",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#167",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#168",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#169",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#170",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#171",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#172",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#173",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#174",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#175",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#176",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#177",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#178",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#179",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#180",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#181",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#182",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#183",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#184",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#185",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#186",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#187",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#188",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#189",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#190",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#191",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#192",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#193",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#194",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#195",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#196",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#197",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#198",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#199",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#200",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#201",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#202",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#203",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#204",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#205",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#206",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#207",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#208",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#209",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#21",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#210",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#211",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#212",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#213",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#214",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#215",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#216",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#217",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#218",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#219",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#22",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#220",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#221",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#222",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#223",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#224",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#225",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#226",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#227",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#228",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#229",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#23",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#230",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#231",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#232",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#233",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#234",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#235",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#236",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#237",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#238",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#239",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#24",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#240",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#241",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#242",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#243",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#244",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#245",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#246",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#247",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#248",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#249",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#25",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#250",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#251",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#252",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#253",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#254",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#255",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#256",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#257",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#258",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#259",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#26",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#260",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#261",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#262",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#263",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#264",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#265",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#266",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#267",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#268",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#269",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#27",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#270",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#271",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#272",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#273",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#274",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#275",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#276",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#277",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#278",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#279",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#28",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#280",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#281",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#282",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#283",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#284",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#285",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#286",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#287",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#288",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#289",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#29",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#290",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#291",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#292",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#293",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#294",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#295",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#296",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#297",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#298",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#299",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#30",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#300",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#301",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#302",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#303",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#304",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#305",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#306",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#307",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#308",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#309",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#31",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#310",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#311",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#312",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#313",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#314",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#315",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#316",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#317",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#318",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#319",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#32",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#320",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#321",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#322",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#323",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#324",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#325",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#326",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#327",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#328",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#329",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#33",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#330",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#331",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#332",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#333",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#334",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#335",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#336",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#337",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#34",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#35",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#36",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#37",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#38",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#39",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#40",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#41",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#42",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#43",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#44",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#45",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#46",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#47",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#48",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#49",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#50",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#51",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#52",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#53",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#54",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#55",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#56",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#57",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#58",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#59",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#60",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#61",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#62",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#63",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#64",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#65",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#66",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#67",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#68",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#69",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#70",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#71",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#72",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#73",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#74",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#75",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#76",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#77",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#78",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#79",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#80",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#81",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#82",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#83",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#84",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#85",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#86",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#87",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#88",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#89",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#90",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#91",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#92",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#93",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#94",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#95",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#96",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#97",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#98",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "MIDDLE_ROAD#99",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "P01_TOP_W",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "P07_LOW_C",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "P08_LOW_E",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#21",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#22",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#23",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_1#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#21",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#22",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#23",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#24",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#25",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#26",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#27",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#28",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#29",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#30",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#31",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#32",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#33",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#34",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#35",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#36",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#37",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#38",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#39",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#40",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_2#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#21",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#22",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#23",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#24",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#25",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "STAIR_3#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#100",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#101",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#102",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#103",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#104",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#105",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#106",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#107",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#108",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#109",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#110",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#111",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#112",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#113",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#114",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#115",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#116",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#117",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#118",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#119",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#120",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#121",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#122",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#123",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#124",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#125",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#126",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#127",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#128",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#129",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#130",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#131",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#132",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#133",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#134",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#135",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#136",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#137",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#138",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#139",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#140",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#141",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#142",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#143",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#144",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#145",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#146",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#147",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#148",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#149",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#150",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#151",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#152",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#153",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#154",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#155",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#156",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#157",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#158",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#159",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#160",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#161",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#162",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#163",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#164",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#165",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#166",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#167",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#168",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#169",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#170",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#171",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#172",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#173",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#174",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#175",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#176",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#177",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#178",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#179",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#180",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#181",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#182",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#183",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#184",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#185",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#186",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#187",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#188",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#189",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#190",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#191",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#192",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#193",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#194",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#195",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#196",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#197",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#198",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#199",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#200",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#201",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#202",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#203",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#204",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#205",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#206",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#207",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#208",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#209",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#21",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#210",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#211",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#212",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#213",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#214",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#215",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#216",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#22",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#23",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#24",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#25",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#26",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#27",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#28",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#29",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#30",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#31",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#32",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#33",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#34",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#35",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#36",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#37",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#38",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#39",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#40",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#41",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#42",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#43",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#44",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#45",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#46",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#47",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#48",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#49",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#50",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#51",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#52",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#53",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#54",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#55",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#56",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#57",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#58",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#59",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#60",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#61",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#62",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#63",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#64",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#65",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#66",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#67",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#68",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#69",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#70",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#71",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#72",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#73",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#74",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#75",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#76",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#77",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#78",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#79",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#80",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#81",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#82",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#83",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#84",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#85",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#86",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#87",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#88",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#89",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#90",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#91",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#92",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#93",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#94",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#95",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#96",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#97",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#98",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "TOP_LANE#99",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#21",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#22",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#23",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#24",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#25",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#26",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#27",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#28",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#29",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#30",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#31",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#32",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#33",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#34",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#35",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#36",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#37",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "T_LINK#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "coordinator-1",
+      "type": "rescue:Coordinator"
+    },
+    {
+      "facts": {},
+      "id": "cue-1",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "cue-2",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "cue-3",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "hazard-1",
+      "type": "rescue:Hazard"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-1",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-2",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1",
+      "type": "rescue:Person"
+    },
+    {
+      "facts": {},
+      "id": "medical-1",
+      "type": "rescue:Shelter"
+    },
+    {
+      "facts": {},
+      "id": "robot_dog-1",
+      "type": "rescue:Upstream_ffe0b95e0745d186"
+    },
+    {
+      "facts": {},
+      "id": "specialist_team-1",
+      "type": "rescue:Team"
+    },
+    {
+      "facts": {},
+      "id": "uav-1",
+      "type": "rescue:Upstream_bfad9ec7c84d8811"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__model_prone",
+      "type": "rescue:PersonProne"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__model_supine",
+      "type": "rescue:PersonSupine"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__mobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__limited",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__immobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__trapped",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__contacted_mobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__contacted_limited",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__contacted_immobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__contacted_trapped",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__extricated",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__loaded",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__transporting",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__transported_arrived",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "landslide-casualty-1__handover_ack",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "medical-1__medical_open",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "medical-1__medical_restricted",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "medical-1__medical_closed",
+      "type": "rescue:Status"
+    }
+  ],
+  "event_narratives": {
+    "scene_rescue.business": {
+      "category": "emergency",
+      "entities": [
+        "subject",
+        "actor"
+      ],
+      "position": "position",
+      "severity": "info",
+      "template": "{text}",
+      "template_zh": "{text}"
+    }
+  },
+  "format": "aeroagentsim.scenario/v1",
+  "id": "SC08-rescue-20261031T115047560683Z",
+  "outputs": {
+    "durability": "flush"
+  },
+  "presentation": [
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Dog",
+      "visual": {
+        "asset": "/data/rescue_assets/robot_dog-AGT-003-C01-BASE-1e23344c.glb",
+        "color": "#ffb84d",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:UAV",
+      "visual": {
+        "asset": "/data/rescue_assets/uav-AGT-001-C01-BASE-904bebe4.glb",
+        "color": "#49c9ff",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Vehicle",
+      "visual": {
+        "asset": "/data/rescue_assets/ground_vehicle-OBS-012-C03-INTACT-4721d01e.glb",
+        "color": "#69c873",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Team",
+      "visual": {
+        "asset": "/data/rescue_assets/specialist_team-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#f2e74c",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Coordinator",
+      "visual": {
+        "asset": "/data/rescue_assets/coordinator-BLD-028-G02-D0-2068ada4.glb",
+        "color": "#e4aaff",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Compute",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Person",
+      "visual": {
+        "asset": "/data/rescue_assets/human-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#f06c72",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Debris",
+      "visual": {
+        "asset": "/data/rescue_assets/obstacle-OBS-003-C02-BLOCKING-ac69a982.glb",
+        "color": "#ad7654",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Building",
+      "visual": {
+        "color": "#93817c",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Station",
+      "visual": {
+        "asset": "/data/rescue_assets/station-BLD-028-G01-D0-bf936e67.glb",
+        "color": "#55e8bc",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD0",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D0-BLD-003-G02-D0-792d6872.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD1",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D1-BLD-003-G02-D1-9aa6fac0.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD2",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D2-BLD-003-G02-D2-275f6c97.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD3",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D3-BLD-003-G02-D3-690cd21c.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:DebrisOpening",
+      "visual": {
+        "asset": "/data/rescue_assets/obstacle_partly_cleared-OBS-003-C02-OPENING-a42db3c4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:DebrisCleared",
+      "visual": {
+        "color": "#999999",
+        "kind": "label",
+        "scale": 0.5
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Loader",
+      "visual": {
+        "color": "#f0c020",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonProne",
+      "visual": {
+        "asset": "/data/rescue_assets/human-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonSupine",
+      "visual": {
+        "asset": "/data/rescue_assets/human-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Ambulance",
+      "visual": {
+        "color": "#ffffff",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:AmbulanceLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Shelter",
+      "visual": {
+        "asset": "/data/rescue_assets/shelter-BLD-028-G02-D0-2068ada4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Boat",
+      "visual": {
+        "color": "#ff7a3d",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BoatLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonInWater",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Facility",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FireUnit",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FireUnitDeployed",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FirePump",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:RopeRig",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:RopeRigRigged",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:SnowCasualty",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Sled",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:SledLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Tank",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:TankLeaking",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Bund",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BundLeaking",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Status",
+      "visual": {
+        "color": "#ffffff",
+        "kind": "label",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_bfad9ec7c84d8811",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-bfad9ec7c84d8811-4ebe5106.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_ffe0b95e0745d186",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-ffe0b95e0745d186-b1dc1196.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    }
+  ],
+  "provenance": "full",
+  "registry": {
+    "fields": [
+      {
+        "id": "rescue.kind",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.position_enu_m",
+        "metadata": {
+          "clock": "canonical",
+          "frame": "enu",
+          "role": "observation",
+          "unit": "m"
+        },
+        "schema": {
+          "items": {
+            "type": "number"
+          },
+          "length": 3,
+          "type": "vector"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.orientation_enu",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "items": {
+            "type": "number"
+          },
+          "length": 4,
+          "type": "vector"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.yaw_deg",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "number"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.state_json",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.status",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.current_task",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.battery_wh",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation",
+          "unit": "Wh"
+        },
+        "schema": {
+          "type": "number"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.agent_json",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Agent"
+      }
+    ],
+    "messages": [
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "rescue.run.event",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "data_json": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_json"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "rescue.event",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "data_json": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_json"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "scene_rescue.business",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "actor": {
+              "type": "string"
+            },
+            "position": {
+              "items": {
+                "type": "number"
+              },
+              "length": 3,
+              "type": "vector"
+            },
+            "stage": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "stage",
+            "subject",
+            "actor"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.created",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "kind": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "kind"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.assigned",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "algorithm": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "algorithm"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.completed",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "latency_s": {
+              "type": "number"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "latency_s"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.failed",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "reason": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "reason"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.handoff.transferred",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "handoff": {
+              "type": "string"
+            },
+            "person": {
+              "type": "string"
+            },
+            "receiver": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "handoff",
+            "person",
+            "receiver"
+          ],
+          "type": "record"
+        }
+      }
+    ],
+    "types": [
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_bfad9ec7c84d8811",
+        "parents": [
+          "rescue:Agent"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_ffe0b95e0745d186",
+        "parents": [
+          "rescue:Agent"
+        ]
+      }
+    ],
+    "snapshot": "registry.snapshot.json"
+  },
+  "run": {
+    "advance_ns": 500000000,
+    "pacing": "fast",
+    "seed": 1,
+    "until_ns": 3600000000000
+  }
+}

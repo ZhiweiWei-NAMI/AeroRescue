@@ -168,6 +168,14 @@ class AgentRuntime:
         self._report_evidence = set()
         self._last_report_signature = None
         self._meta_cursor = 0
+        # Opt-in decision/embodiment boundary. ``internal_rule`` keeps the
+        # catalog policy below; ``external_harness`` lets a local model pick the
+        # next action while received messages, the control queue and A041
+        # integration still flow through this same runtime.
+        self.policy_mode = "internal_rule"
+        self.motion_backend = "native"
+        # Optional CommChannelGate; None keeps the existing unbounded behaviour.
+        self.comm_budget_gate = None
 
     @property
     def is_coordinator(self):
@@ -406,6 +414,17 @@ class AgentRuntime:
         }
         return instance
 
+    def _admit_send(self, sim, receivers, payload, size_bytes=0):
+        if self.comm_budget_gate is None:
+            return True
+        size = max(size_bytes, len(json.dumps(payload, ensure_ascii=False, default=str).encode("utf-8")))
+        size *= len(set(receivers))
+        if self.comm_budget_gate.admit("up", size, sim.t):
+            return True
+        self.records.setdefault("comm_gate_denied", []).append(
+            {"op": payload.get("op"), "receivers": list(receivers), "bytes": size, "t": sim.t})
+        return False
+
     def _send(self, sim, receivers, op, payload=None, *, task=None, kind="task", correlation=None):
         receivers = [r for r in receivers if r]
         if not receivers:
@@ -414,6 +433,8 @@ class AgentRuntime:
         require_ack = op not in {"ack", "report", "brief"} or op == "report" and bool(payload.get("entries") or payload.get("evidence"))
         payload.setdefault("require_ack", require_ack)
         size = len(json.dumps(payload, ensure_ascii=False, default=str).encode("utf-8"))
+        if not self._admit_send(sim, receivers, payload, size):
+            return None
         mid = sim.send_message(self.id, receivers, kind, payload, size,
                                task_ref=(task["id"], task["rev"]) if task else None,
                                ttl_s=180, correlation_id=correlation)
@@ -472,10 +493,13 @@ class AgentRuntime:
         self._expire(sim)
         self._assignment_timeouts(sim)
         self._handoff_timeouts(sim)
-        if sim.t - self._last_generate >= 20:
+        # An external harness picks the next action; it never disables message
+        # intake, the control queue or A041 integration below.
+        internal_policy = self.policy_mode != "external_harness"
+        if internal_policy and sim.t - self._last_generate >= 20:
             self._last_generate = sim.t
             self._generate(sim)
-        if self.is_coordinator and sim.t - self._last_allocate >= 10:
+        if internal_policy and self.is_coordinator and sim.t - self._last_allocate >= 10:
             self._last_allocate = sim.t
             self._allocate(sim)
         # Management does not occupy the platform. Bound it independently of
@@ -528,14 +552,16 @@ class AgentRuntime:
         changing_commitment = any(c["action"] in {"A053", "A056", "A057", "A058"}
             and not is_meta_task(self.tasks.get((c.get("task") or [None])[0], {}))
             for c in self.pending_actions.values())
-        if not integrating and not self._work_pending() and not changing_commitment:
+        if not integrating and not self._work_pending() and not changing_commitment and internal_policy:
             if self._specialist_work:
                 self._execute_specialist(sim)
             elif self._remote_work:
                 self._execute_remote(sim)
             else:
                 self._execute(sim)
-        if not integrating:
+        elif not integrating and not self._work_pending() and not changing_commitment:
+            self._finalize_exhausted_methods(sim)
+        if not integrating and internal_policy:
             self._execute_meta(sim)
         if sim.t - self._last_report >= 60:
             self._report(sim)
@@ -780,7 +806,8 @@ class AgentRuntime:
             task = self._task_from_params(sim, params)
             if task is None:
                 return ActionOutcome(status="failed", failure_code="model", feedback_zh="候选缺少合法类型或本地来源")
-            self._route_proposal(sim, task)
+            if self.policy_mode != "external_harness":
+                self._route_proposal(sim, task)
         elif action_id == "A051":
             candidate = params.get("task") or task
             if not isinstance(candidate, dict):
@@ -1290,6 +1317,31 @@ class AgentRuntime:
                     continue
                 self._advance_task(sim, task)
                 break
+
+    def _finalize_exhausted_methods(self, sim):
+        """Close external-harness tasks/recoveries whose method steps have all settled."""
+        for task in list(self.tasks.values()):
+            if task.get("assigned_to") != self.id:
+                continue
+            status = task.get("status")
+            recovery = task.get("progress", {}).get("recovery")
+            if status not in {"accepted", "executing", "blocked"} and not (status == "suspended" and recovery):
+                continue
+            progress = task.get("progress") or {}
+            if progress.get("pending_camera_analysis") or progress.get("handoff_wait_release"):
+                continue
+            if any(c.get("task") and c["task"][0] == task["id"] for c in self.pending_actions.values()) or any(
+                    c[2] == task["id"] and c[3] == "complete" for c in self._controls):
+                continue
+            method = recovery if recovery else task.get("method")
+            if not method or not method.get("resolved_steps"):
+                continue
+            if method.get("step_index", 0) >= len(method["resolved_steps"]):
+                if recovery:
+                    self._finish_recovery(sim, task)
+                elif status in {"accepted", "executing"}:
+                    self._finish_task(sim, task)
+                continue
 
     def _advance_task(self, sim, task):
         if task['progress'].get('pending_camera_analysis'):
@@ -1878,7 +1930,7 @@ class AgentRuntime:
                         self._controls.append(("A037", {"message_id": waiting["mid"], "timeout_s": 30},
                                                task["id"], "assignment_ack", {}))
                 else:
-                    task.setdefault("assignment", {})["last_send_error"] = result.get("rejection_code", result.get("failure_code"))
+                    task.setdefault("assignment", {})["last_send_error"] = _result_cause(result)
             return
         if purpose == "remote_send":
             if task and result["status"] == "succeeded":
@@ -2163,6 +2215,13 @@ class AgentRuntime:
         message = msg.to_dict() if isinstance(msg, Message) else deepcopy(_dict(msg))
         mid = message["id"]
         if mid in self._received_ids:
+            return
+        if self.comm_budget_gate is not None and not self.comm_budget_gate.admit(
+                "down", int(message.get("size_bytes") or 0), sim.t):
+            # An unaffordable delivery is not read: it never enters the local
+            # readable context, and the sender's ACK stays pending.
+            self.records.setdefault("comm_gate_denied", []).append(
+                {"message": mid, "bytes": int(message.get("size_bytes") or 0), "t": sim.t})
             return
         self._received_ids.add(mid)
         self.received_messages.append(message)
@@ -2543,8 +2602,8 @@ class AgentRuntime:
                          tuple(e["id"] for e in payload["evidence"]))
             if signature == self._last_report_signature and not payload["entries"] and not payload["evidence"]:
                 return
-            self._last_report_signature = signature
-            self._send(sim, [self.coordinator_id], "report", payload, kind="report")
+            if self._send(sim, [self.coordinator_id], "report", payload, kind="report") is not None:
+                self._last_report_signature = signature
 
     def _send_task_update(self, sim, task):
         if not is_meta_task(task) and self.coordinator_id and self.coordinator_id != self.id:

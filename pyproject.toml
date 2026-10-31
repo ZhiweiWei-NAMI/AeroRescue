@@ -21,5 +21,11 @@ where = ["src"]
 [project.entry-points."aeroagentsim.engines"]
 rescue_scenes = "rescue_scenes.engine:build"
 
+[project.entry-points."aeroagentsim.scenarios"]
+rescue_scenes = "rescue_scenes.scenario_plugin:plugin"
+
 [tool.setuptools.package-data]
-rescue_scenes = ["catalog/*", "SOURCES.json"]
+rescue_scenes = ["catalog/*", "SOURCES.json", "templates/*/template.yaml", "templates/*/scenario.json", "templates/*/registry.snapshot.json", "templates/*/README.md", "templates/*/thumbnail.png"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

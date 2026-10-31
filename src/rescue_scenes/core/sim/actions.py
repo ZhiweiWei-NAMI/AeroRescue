@@ -24,6 +24,15 @@ from rescue_scenes.core.world.truth import (BUILDING_NAVIGATION_FIELDS, footprin
 from rescue_scenes.core.agents.allocation import belief_path, obstacle_approach_path, obstacle_work_roads, water_access_goal
 
 
+def _exogenous_rng(sim, agent, fallback, family, purpose, target, local_seq=0):
+    """Optional branch CRN, keyed by physical event context rather than action ids."""
+    source = getattr(sim, "exogenous_crn", None)
+    if source is None:
+        return fallback
+    return source.stream(actor_id=agent.id, event_family=family, purpose=purpose,
+                         target_anchor=str(target), quantized_t=sim.t, local_seq=local_seq)
+
+
 MOVEMENT = {"A001", "A002", "A003", "A021"}
 NETWORK = {"A032", "A033", "A034", "A035", "A036", "A037", "A065"}
 COMPUTE = {f"A{i:03d}" for i in range(42, 50)}
@@ -137,6 +146,14 @@ def _pose(sim, eid):
 
 def _own_pose(sim, agent):
     return _pose(sim, agent.platform_eid) or [0., 0.]
+
+
+def _carried_pose_writes(sim, agent, point):
+    writes = []
+    for eid in sorted(sim.world.entities):
+        if _cls(sim, eid) == "human" and sim.world.get(eid, "human.carrier_id") in (agent.id, agent.platform_eid):
+            writes += [(eid, "entity.pose", point), (eid, "human.pose", point)]
+    return writes
 
 
 def _dist(a, b):
@@ -1218,11 +1235,15 @@ class ActionModel:
             params["_work"] = {"elapsed": 0., "failure_code": "none", "feedback_zh": ""}
         if self.id in MOVEMENT:
             plan = params.get("_plan") or self.plan(sim, agent, params)
+            external = bool(params.get("_external_motion"))
             params["_motion"] = {"start": deepcopy(plan.get("_start", _own_pose(sim, agent))),
                                  "goal": deepcopy(plan.get("_goal", _goal(sim, agent, params))),
                                  "route": deepcopy(plan.get("_route", {})), "candidate": deepcopy(plan.get("_candidate", {})),
-                                 "elapsed": 0., "distance": 0.}
-            writes.append((agent.platform_eid, "platform.motion_state", "moving"))
+                                 "elapsed": 0., "distance": 0., "external": external}
+            # A PX4-managed vehicle is flown by its controller: the scripted
+            # interpolation below must not also move it.
+            if not external:
+                writes.append((agent.platform_eid, "platform.motion_state", "moving"))
             if self.id == "A021":
                 if sim.world.get(target, "human.handover_status", "not_started") == "not_started":
                     writes.append((target, "human.handover_status", "in_transit"))
@@ -1320,6 +1341,9 @@ class ActionModel:
         motion = params.get("_motion")
         if not motion:
             return _out()
+        if motion.get("external"):
+            # Follow the measured carrier position without writing PX4's pose.
+            return _out(writes=_carried_pose_writes(sim, agent, _own_pose(sim, agent)))
         motion["elapsed"] = max(motion["elapsed"], _num(elapsed_s))
         # Re-evaluate truth at execution time: an aftershock can invalidate a
         # previously passable route. Plans themselves never write knowledge.
@@ -1339,9 +1363,7 @@ class ActionModel:
         motion["route"] = deepcopy(route)
         motion["reached"] = point
         writes = [(agent.platform_eid, "entity.pose", point)]
-        for eid in sorted(sim.world.entities):
-            if _cls(sim, eid) == "human" and sim.world.get(eid, "human.carrier_id") in (agent.id, agent.platform_eid):
-                writes += [(eid, "entity.pose", point), (eid, "human.pose", point)]
+        writes += _carried_pose_writes(sim, agent, point)
         return _out(writes=writes)
 
     def cancel_delay(self, sim, agent, params):
@@ -1392,6 +1414,13 @@ class ActionModel:
         if self.id in TASKS:
             return agent.apply_task_action(sim, self.id, params)
         if self.id in NETWORK:
+            if self.id in {"A035", "A036"} and getattr(agent, "comm_budget_gate", None) is not None:
+                receivers = _list(params.get("receivers", params.get("receiver_ids", params.get("receiver", params.get("target")))))
+                original = sim.network.messages.get(params.get("message_id") if self.id == "A035" else params.get("retry_of"))
+                payload = original.payload if original else params.get("payload", {})
+                size = original.size_bytes if original else int(params.get("size_bytes", 0))
+                if not agent._admit_send(sim, receivers, payload, size):
+                    return _fail("model", "本地通信预算拒绝发送，消息未进入网络队列。")
             return sim.network.action_effect(agent, self.id, params, rng)
         if self.id in COMPUTE:
             return sim.compute.action_effect(agent, self.id, params, rng)
@@ -1416,6 +1445,17 @@ class ActionModel:
     def _effect_A001(self, sim, agent, params, rng):
         target = _target(params)
         motion = params.get("_motion")
+        if motion and motion.get("external"):
+            # PX4 flew this leg and the kernel was told it arrived. Never
+            # overwrite the native pose; still sync carried people and settle
+            # the task-visible status writes.
+            point = _own_pose(sim, agent)
+            writes = [(agent.platform_eid, "platform.motion_state", "idle")]
+            writes += _carried_pose_writes(sim, agent, point)
+            if self.id == "A021":
+                writes.append((target, "human.handover_status", "arrived"))
+            return _out(writes=writes, text="外部飞控已到达目标位置；到达不等于移交确认。" if self.id == "A021"
+                        else "已由外部飞控到达目标位置。")
         if not motion:
             # Compatibility for a kernel without lifecycle hooks: completion can
             # move, but gradual progress/cancellation requires the documented hook.
@@ -1486,6 +1526,9 @@ class ActionModel:
         for eid in sorted(sim.world.entities):
             if not _near(sim, agent, eid, radius):
                 continue
+            visibility = getattr(sim, "phase1_sensor_visibility", None)
+            if visibility is not None and not visibility(agent, eid):
+                continue
             cls = _cls(sim, eid)
             if camera_replace and cls in {'building', 'obstacle', 'human'}:
                 # These external RGB observations arrive separately from the
@@ -1497,11 +1540,11 @@ class ActionModel:
                 keys = ("obstacle.kind", "obstacle.state", "obstacle.volume_m3", "obstacle.height_m")
             elif cls == "human":
                 context = sim.world.get(eid, "human.location_context")
-                if context not in ("outside", "outdoors", "roof", "water", "safe_point") or rng.random() < miss:
+                if context not in ("outside", "outdoors", "roof", "water", "safe_point") or _exogenous_rng(sim, agent, rng, "sensing", "human_visibility", eid).random() < miss:
                     continue
                 keys = ("human.location_context", "human.distress_signal")
             elif cls == "cue":
-                if rng.random() > _clamp(sim.world.get(eid, "cue.detectability", .8)):
+                if _exogenous_rng(sim, agent, rng, "sensing", "cue_detection", eid).random() > _clamp(sim.world.get(eid, "cue.detectability", .8)):
                     continue
                 keys = ("cue.kind", "cue.location", "cue.signal_state")
             elif cls == 'hazard' and (params.get('_sensing_modality')=='gas' or agent.spec.get('sense_hazards')):
@@ -1513,7 +1556,7 @@ class ActionModel:
                 keys = tuple(key for key in _fields(sim, eid) if key.startswith('equipment.'))
             else:
                 continue
-            values = {key: ("unknown" if rng.random() < miss else deepcopy(sim.world.get(eid, key, "unknown"))) for key in keys}
+            values = {key: ("unknown" if _exogenous_rng(sim, agent, rng, "sensing", "field_dropout:" + key, eid).random() < miss else deepcopy(sim.world.get(eid, key, "unknown"))) for key in keys}
             values["entity.pose"] = _pose(sim, eid)
             observations.append(_observation(sim, agent, params, [eid], values, confidence=1. - miss, suffix=eid))
         return _out(obs=observations, text=("外部建筑、人员及障碍感知由相机图像提供；其余模态仍为脚本采集。"
@@ -1537,9 +1580,10 @@ class ActionModel:
                 continue
             values = deepcopy(source["values"])
             for key, value in list(values.items()):
-                if key == "building.visual_damage" and rng.random() < confusion:
-                    values[key] = rng.choice([v for v in ("none", "minor", "major", "destroyed", "unknown") if v != value])
-                elif key.startswith("human.") and rng.random() < confusion:
+                keyed_rng = _exogenous_rng(sim, agent, rng, "inference", "field_confusion:" + key, tuple(source.get("about", [])))
+                if key == "building.visual_damage" and keyed_rng.random() < confusion:
+                    values[key] = keyed_rng.choice([v for v in ("none", "minor", "major", "destroyed", "unknown") if v != value])
+                elif key.startswith("human.") and keyed_rng.random() < confusion:
                     values[key] = "unknown"
             values["observation.parent_evidence_ids"] = [source.get("id")]
             values["observation.detections"] = {k: v for k, v in values.items() if k.startswith(("building.", "human.", "obstacle.", "cue."))}
@@ -1568,7 +1612,7 @@ class ActionModel:
         error = .5 if params.get("ranging", False) else 3.
         if params.get("ranging") and "C09" not in agent.spec.get("capabilities", []):
             return _fail("sensor", "测距定位缺少实际测距能力。")
-        estimate = [v + rng.uniform(-error, error) for v in point]
+        estimate = [v + _exogenous_rng(sim, agent, rng, "localization", "position_error", target, axis).uniform(-error, error) for axis, v in enumerate(point)]
         agent.belief.put(sim, target, "belief.estimated_pose", estimate, .85 if error < 1 else .65, "inference", evidence_ids=evidence)
         obs = _observation(sim, agent, params, [target], {"belief.estimated_pose": estimate, "attr.position_error_m": error}, "localization", .65, "scripted_localization_v1")
         return _out(obs=[obs], text="由本地观测生成位置估计并保留方法误差。")
@@ -1596,7 +1640,7 @@ class ActionModel:
         for eid in occupants:
             if not _entity(sim, eid) or sim.world.get(eid, "human.location_context") not in ("interior", "rubble"):
                 continue
-            if rng.random() < detect_rate * coverage:
+            if _exogenous_rng(sim, agent, rng, "search", "occupant_detection", eid).random() < detect_rate * coverage:
                 detected.append(eid)
                 values = {"entity.pose": _pose(sim, eid), "human.mobility": sim.world.get(eid, "human.mobility", "unknown"),
                           "human.location_context": sim.world.get(eid, "human.location_context", "interior")}
@@ -1984,7 +2028,7 @@ class ActionModel:
         fault = fault or (sim.world.get(agent.platform_eid, "attr.fault_kind") == "release" and
                           sim.world.get(agent.platform_eid, "equipment.health") == "failed")
         jam_rate = _clamp(sim.world.get(target, "attr.release_jam_rate", agent.spec.get("release_jam_rate", .08)))
-        if fault or rng.random() < jam_rate:
+        if fault or _exogenous_rng(sim, agent, rng, "clearance", "equipment_jam", _target(params)).random() < jam_rate:
             writes.append((target, "item.release_state", "jammed"))
             return _fail("actuator", "释放机构卡滞，物资仍挂载；保留重试条件。", writes)
         point = _xy(params.get("drop_point", params.get("release_point"))) or _own_pose(sim, agent)
@@ -2202,6 +2246,8 @@ class ActionModel:
                        "target": _target(params), "required_capabilities": params.get("required_capabilities", []),
                        "task_ref": params.get("_task_ref", params.get("task_ref")), "constraints": deepcopy(params.get("constraints", {}))}
         payload.setdefault("op", "specialist_request")
+        if getattr(agent, "comm_budget_gate", None) is not None and not agent._admit_send(sim, [receiver], payload):
+            return _fail("model", "本地通信预算拒绝专业请求，消息未进入网络队列。")
         mid = sim.send_message(agent.id, [receiver], "task", payload, len(json.dumps(payload, ensure_ascii=False, default=str).encode("utf-8")), task_ref=params.get("_task_ref"))
         obs = _observation(sim, agent, params, [receiver], {"attr.request_message_id": mid, "attr.request_state": "queued"}, "specialist_request", 1., "abstract_message_v1")
         return _out(obs=[obs], text="专业请求已进入通信；对方须实际收到并自主接受或拒绝。")

@@ -1,5 +1,7 @@
 """Shared AAS registry and presentation, without importing the AAS runtime."""
+import json
 from copy import deepcopy
+from pathlib import Path
 
 BASE='rescue:Entity'
 AGENT='rescue:Agent'
@@ -148,6 +150,52 @@ def registry_snapshot():
             'details':{'effective_fields':effective,'relations':[],'normalizations':[],'exclusions':[],'producer_hints':{},
                        'statistics':{'types':len(types),'fields':len(fields),'messages':len(messages)},
                        'provenance':{'source':'v0.5 catalog fields projected through AAS plugin API'}}}
+
+
+def ontology_concepts(types):
+    """AeroGraph concept rows for the catalog projection (types only, no invented fields)."""
+    rows=[]
+    for row in types:
+        parents=list(row['parents'])
+        entry={'id':row['id'],'abstract':bool(row['abstract']),'ownFieldIds':[]}
+        if len(parents)==1: entry['parent']=parents[0]
+        elif parents: entry['parents']=parents
+        else: entry['parent']=None
+        rows.append(entry)
+    return rows
+
+
+def write_ontology(root, types):
+    """Persist the v0.5 catalog projection as an AeroGraph source directory.
+
+    The compiler records per-type file/pointer provenance, so the scenario can
+    reference a real compiled hierarchy instead of a hand-written stub.
+    """
+    root=Path(root); (root/'entity-directory/data').mkdir(parents=True,exist_ok=True)
+    (root/'semantic-directory/data').mkdir(parents=True,exist_ok=True)
+    (root/'entity-directory/data/concepts.json').write_text(json.dumps({
+        'schemaVersion':'aerorescue-catalog/1',
+        'generatedFrom':'src/rescue_scenes/presentation.py registry_snapshot() type hierarchy',
+        'concepts':ontology_concepts(types)},ensure_ascii=False,indent=2),encoding='utf-8')
+    (root/'semantic-directory/data/definitions.json').write_text('[]',encoding='utf-8')
+    (root/'semantic-directory/data/relations.json').write_text('[]',encoding='utf-8')
+    (root/'semantic-directory/data/schema-definitions.json').write_text('{"$defs":{}}',encoding='utf-8')
+    return root
+
+
+def scenario_registry(root, snapshot):
+    """Registry spec: AeroGraph-compiled types plus explicit field/message overlays."""
+    registry=snapshot['registry']
+    static=[row for row in registry['types'] if not row['id'].startswith('rescue:Upstream_')]
+    local=[{'id':row['id'],'parents':list(row['parents']),'abstract':bool(row['abstract'])}
+           for row in registry['types'] if row['id'].startswith('rescue:Upstream_')]
+    write_ontology(root,static)
+    spec={'compile':{'root':str(Path(root).resolve()),'types':[row['id'] for row in static]}}
+    if local: spec['types']=local
+    spec['fields']=[{'id':row['id'],'type':row['declaring_type'],'schema':deepcopy(row['schema']),
+                     'metadata':deepcopy(row['metadata'])} for row in registry['fields']]
+    spec['messages']=deepcopy(registry['messages'])
+    return spec
 
 
 def bindings(models):

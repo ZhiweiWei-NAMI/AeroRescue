@@ -42,7 +42,9 @@ class Ledger:
             for key in COST_KEYS:
                 bucket[key] += cost[key]
         runtime = self.sim.agents.get(agent)
-        if runtime and cost["energy_Wh"] and not runtime.spec.get("mains_power", runtime.spec.get("mobility") == "none"):
+        if (runtime and cost["energy_Wh"]
+                and getattr(runtime, "motion_backend", "native") != "px4"
+                and not runtime.spec.get("mains_power", runtime.spec.get("mobility") == "none")):
             eid = runtime.platform_eid
             battery = self.sim.world.get(eid, "platform.battery_remaining_Wh")
             if battery is not None and math.isfinite(float(battery)):

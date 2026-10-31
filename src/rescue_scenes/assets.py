@@ -18,6 +18,18 @@ FLOATING={'boat','boat_loaded','human_in_water'}  # waterline-origin production 
 ALIASES={'human':'person','specialist_team':'person','coordinator':'shelter','obstacle':'debris','station':'medical_point'}
 
 
+def normalization_parameters(row,reference=None,size=None,waterline=False):
+    """Shared AAS origin/heading transform, in its actual composition order."""
+    if row['up']!='+y':raise ValueError('A2 GLB display contract requires +Y up')
+    ref=reference or row
+    turn={'+x':0,'-x':math.pi,'+z':math.pi/2,'-z':-math.pi/2}[row['forward']]
+    lo,hi=ref['boundsM']['min'],ref['boundsM']['max']
+    translate=([-v for v in ref['origin_m']] if 'origin_m' in ref else
+               [-(lo[0]+hi[0])/2,0 if waterline else -lo[1],-(lo[2]+hi[2])/2])
+    scale=[1,1,1] if size is None else [size[0]/ref['sizeM'][0],1,size[1]/ref['sizeM'][1]]
+    return translate,turn,scale
+
+
 def normalize_glb(source, target, row, size=None, reference=None, max_px=1024, waterline=False):
     data=source.read_bytes()
     magic,version,length=struct.unpack_from('<4sII',data)
@@ -28,17 +40,9 @@ def normalize_glb(source, target, row, size=None, reference=None, max_px=1024, w
         count,kind=struct.unpack_from('<II',data,offset); offset+=8
         chunks.append((kind,data[offset:offset+count])); offset+=count
     doc=json.loads(chunks[0][1]); scene=doc['scenes'][doc.get('scene',0)]
-    if row['up']!='+y': raise ValueError('A2 GLB display contract requires +Y up')
-    turn={'+x':0,'-x':math.pi,'+z':math.pi/2,'-z':-math.pi/2}[row['forward']]
-    # Damage variants of one family share the D0 origin/footprint (A2: never centre each variant independently).
-    ref=reference or row
-    lo,hi=ref['boundsM']['min'],ref['boundsM']['max']
-    # Floating assets keep their authored waterline origin (Y=0) instead of resting their lowest point on the ground.
-    translate=([-v for v in ref['origin_m']] if 'origin_m' in ref else
-               [-(lo[0]+hi[0])/2,0 if waterline else -lo[1],-(lo[2]+hi[2])/2])
+    translate,turn,scale=normalization_parameters(row,reference,size,waterline)
     nodes=doc.setdefault('nodes',[]); index=len(nodes)
     nodes.append({'name':'rescue_center_ground','translation':translate,'children':list(scene['nodes'])})
-    scale=[1,1,1] if size is None else [size[0]/ref['sizeM'][0],1,size[1]/ref['sizeM'][1]]
     nodes.append({'name':'rescue_forward_east','rotation':[0,math.sin(turn/2),0,math.cos(turn/2)],'children':[index]})
     nodes.append({'name':'rescue_authored_footprint','scale':scale,'children':[index+1]})
     scene['nodes']=[index+2]

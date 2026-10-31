@@ -1,0 +1,40 @@
+{
+  "format": "aeroagentsim.template/v1",
+  "id": "rescue-sc10",
+  "title": "SC10 Rescue mission",
+  "title_zh": "SC10 山地林区失踪搜索",
+  "summary": "Native rescue actions with authored forced rules and scripted sensing. Uses retained local scene bundles and assets.",
+  "summary_zh": "山地林区失踪搜索（ESAR 阿泰情境），大范围网格搜索；显式规则驱动与脚本感知，使用本机保留的场景输入及三维资产。",
+  "category": "emergency",
+  "difficulty": "advanced",
+  "duration_s": 3600.0,
+  "scenario": "scenario.json",
+  "thumbnail": "thumbnail.png",
+  "observe": [
+    "Follow native action receipts and objective evidence.",
+    "Inspect finite resources, scheduled disruptions and rescue outcomes."
+  ],
+  "observe_zh": [
+    "查看原生动作回执及目标证据。",
+    "检查有限资源、定时扰动和救援结果。"
+  ],
+  "try": [
+    "Launch the retained forced-rule reference mission.",
+    "Compare agent state and objective evidence in the replay."
+  ],
+  "try_zh": [
+    "启动保留输入的规则验证任务。",
+    "在回放中对照智能体状态与目标证据。"
+  ],
+  "knobs": [],
+  "kpis": [
+    "tasks_created",
+    "tasks_completed",
+    "tasks_failed",
+    "completion_rate",
+    "mean_task_latency_s",
+    "handoffs_completed",
+    "rescue_time_to_confirmation_s",
+    "rescue_time_to_delivery_s"
+  ]
+}

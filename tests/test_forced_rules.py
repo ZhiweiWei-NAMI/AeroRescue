@@ -66,3 +66,15 @@ def test_existing_upstream_product_refuses_changed_generation_inputs(tmp_path, m
     with pytest.raises(ValueError,match='Existing upstream inputs differ'):
         upstream_scene.load_scene(cfg)
     assert (product/'scene.json').read_text()=='{}'
+
+
+def test_sc07_suppresses_scheduled_reignition_with_native_actions(tmp_path):
+    report=rules.verify(ROOT/'configs/SC07_upstream_allocated.json',tmp_path/'sc07.json')
+    assert report['all_objectives_satisfied'] is True
+    assert report['within_original_horizon'] is True
+    assert any(r.get('wait_for_fire_spread_s')==300 for r in report['rules'])
+    assert any(a['action']=='A028' and a['status']=='succeeded' for a in report['actions'])
+    suppression=[a for a in report['actions'] if a['action']=='A062']
+    assert any(a['t'] < 300 for a in suppression)
+    assert any(a['t'] > 300 and a['status']=='succeeded' for a in suppression)
+    assert report['rule_sequence_finished_s'] > 300

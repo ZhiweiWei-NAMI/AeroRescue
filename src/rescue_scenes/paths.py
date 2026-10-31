@@ -10,12 +10,14 @@ import re
 _PKG = Path(__file__).resolve()
 # Relocatable: installed package may sit in <dist>/src/rescue_scenes or beside tools/.
 _ROOT = _PKG.parents[2] if _PKG.parents[1].name == 'src' else _PKG.parents[1]
-SCENE_ROOT = Path(os.environ.get('RESCUE_SCENE_ROOT', str(_ROOT))).expanduser()
+_DEFAULT_DATA_ROOT = _ROOT / 'scene_data' if (_ROOT / 'scene_data').is_dir() else _ROOT.parent
+_DEFAULT_SCENE_ROOT = _DEFAULT_DATA_ROOT / 'rescue-data' if (_DEFAULT_DATA_ROOT / 'rescue-data').is_dir() else _ROOT
+SCENE_ROOT = Path(os.environ.get('RESCUE_SCENE_ROOT', str(_DEFAULT_SCENE_ROOT))).expanduser()
 AAS_ROOT = Path(os.environ.get('RESCUE_AAS_ROOT', '/mnt/data2/weizhiwei/aeroagentsim/AeroAgentSim')).expanduser()
 PRIVATE_ROOT = Path(os.environ.get('RESCUE_PRIVATE_ROOT', os.environ.get('RESCUE_ASSET_ROOT', str(SCENE_ROOT)))).expanduser()
-DATA_ROOT = Path(os.environ.get('RESCUE_DATA_ROOT', str(SCENE_ROOT.parent))).expanduser()
-GENERATOR_ROOT = Path(os.environ.get('RESCUE_GENERATOR_ROOT', str(SCENE_ROOT.parent / 'upstream/scene-v0.6'))).expanduser()
-PYTHON = os.environ.get('RESCUE_PYTHON', '/mnt/data2/weizhiwei/rescue-generator-stage1/envs/cut4/bin/python')
+DATA_ROOT = Path(os.environ.get('RESCUE_DATA_ROOT', str(_DEFAULT_DATA_ROOT))).expanduser()
+GENERATOR_ROOT = Path(os.environ.get('RESCUE_GENERATOR_ROOT', str(DATA_ROOT / 'upstream/scene-v0.6'))).expanduser()
+PYTHON = os.environ.get('RESCUE_PYTHON', str(AAS_ROOT / '.venv/bin/python'))
 
 ROOT = SCENE_ROOT
 

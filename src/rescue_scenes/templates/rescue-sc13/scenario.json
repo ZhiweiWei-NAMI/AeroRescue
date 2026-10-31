@@ -1,0 +1,1541 @@
+{
+  "bindings": {
+    "commands": [],
+    "lifecycle": [
+      {
+        "controller": "rescue",
+        "ids": "*",
+        "type": "rescue:Entity"
+      }
+    ],
+    "rules": [
+      {
+        "fields": [
+          "rescue.kind",
+          "rescue.position_enu_m",
+          "rescue.orientation_enu",
+          "rescue.yaw_deg",
+          "rescue.state_json",
+          "rescue.status",
+          "rescue.current_task",
+          "rescue.battery_wh"
+        ],
+        "ids": "*",
+        "type": "rescue:Entity",
+        "writer": "rescue"
+      },
+      {
+        "fields": [
+          "rescue.agent_json"
+        ],
+        "ids": "*",
+        "type": "rescue:Agent",
+        "writer": "rescue"
+      }
+    ]
+  },
+  "clock_mappings": [
+    {
+      "clock_id": "canonical",
+      "mapping_id": "canonical"
+    }
+  ],
+  "engines": {
+    "rescue": {
+      "config": {
+        "bundle_path": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/tools/generated/SC13-1-20261031T115846820345Z/bundle.json",
+        "execution_mode": "forced_rules",
+        "console_scene": {
+          "id": "SC13 海岸/崖壁失踪搜索 · generated layout · scripted sensing · seed 1",
+          "city": {
+            "kind": "glb",
+            "url": "/data/scenes/SC13_appearance_IMAGEGEN_C01only_yup.glb",
+            "offset": [
+              0,
+              0,
+              0
+            ]
+          },
+          "camera": {
+            "position": [
+              217.61570990127854,
+              38.0,
+              -3.3741725956097746
+            ],
+            "target": [
+              233.61570990127854,
+              25.0,
+              -27.374172595609775
+            ],
+            "fixed": true
+          },
+          "groundY": -15.15,
+          "attribution": "SC13 EXTEND_TO_TEN geometry + ImageGen C01 projection; key region: Marble world fad648cf splats (west low bay slope, zig-zag foot path, bay shingle beach, cliff corner); pose s=47.7453 m/unit yaw=0.0 dE=0.0 dN=0.0 from pano cam [-230, -60, 56.6], tilt [-1.394, -1.197] deg removed. Outside the box: GLB.; disaster entities and v0.5 sensing/action/network models are authored simulation assumptions",
+          "splats": [
+            {
+              "url": "/data/splats/SC13v1_keyregion_full_crop.spz",
+              "position": [
+                -230.0,
+                57.338,
+                60.0
+              ],
+              "quaternion": [
+                0.999871,
+                0.012161,
+                -0.000127,
+                -0.010448
+              ],
+              "scale": 47.7453
+            }
+          ]
+        }
+      },
+      "plugin": "rescue_scenes"
+    }
+  },
+  "entities": [
+    {
+      "facts": {},
+      "id": "BAY_FOOTPATH_ROAD_CONTACT#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CLIFFTOP_SERVICE_TRACK#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "CLIFFTOP_SERVICE_TRACK#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_R_BAY_HANDOFF",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "RESV_R_FACE_PRO_ONLY",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "RESV_R_TOP_DRY_SEARCH",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "SC13-allocated-0009-001",
+      "type": "rescue:Upstream_1076ad9323e7fe44"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#21",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#22",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#23",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#24",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#25",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#26",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#27",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#28",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#29",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#30",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#31",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#32",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#33",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#34",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#35",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#36",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#37",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#38",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#39",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#40",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#41",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#42",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#43",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#44",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#45",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#46",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#47",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#48",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#49",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#50",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#51",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#52",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#53",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#54",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#55",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#56",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#57",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#58",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#59",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#60",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#61",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#62",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#63",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#64",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#65",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#66",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#67",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#68",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#69",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#70",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#71",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#72",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#73",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#74",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#75",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#76",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#77",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#78",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#79",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#80",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#81",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#82",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#83",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#84",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#85",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#86",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#87",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "WEST_BAY_FOOTPATH#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1",
+      "type": "rescue:Person"
+    },
+    {
+      "facts": {},
+      "id": "coordinator-1",
+      "type": "rescue:Coordinator"
+    },
+    {
+      "facts": {},
+      "id": "cue-1",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "cue-2",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "cue-3",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "hazard-1",
+      "type": "rescue:Hazard"
+    },
+    {
+      "facts": {},
+      "id": "hazard-2",
+      "type": "rescue:Hazard"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-1",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-2",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "medical-1",
+      "type": "rescue:Shelter"
+    },
+    {
+      "facts": {},
+      "id": "rope-rig-1",
+      "type": "rescue:RopeRig"
+    },
+    {
+      "facts": {},
+      "id": "rope-team-1",
+      "type": "rescue:Team"
+    },
+    {
+      "facts": {},
+      "id": "uav-1",
+      "type": "rescue:UAV"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__model_prone",
+      "type": "rescue:PersonProne"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__model_supine",
+      "type": "rescue:PersonSupine"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__mobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__limited",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__immobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__trapped",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__contacted_mobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__contacted_limited",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__contacted_immobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__contacted_trapped",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__extricated",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__loaded",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__transporting",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__transported_arrived",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "cliff-casualty-1__handover_ack",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "medical-1__medical_open",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "medical-1__medical_restricted",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "medical-1__medical_closed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rope-rig-1__state_rope_rig_rigged",
+      "type": "rescue:RopeRigRigged"
+    }
+  ],
+  "event_narratives": {
+    "scene_rescue.business": {
+      "category": "emergency",
+      "entities": [
+        "subject",
+        "actor"
+      ],
+      "position": "position",
+      "severity": "info",
+      "template": "{text}",
+      "template_zh": "{text}"
+    }
+  },
+  "format": "aeroagentsim.scenario/v1",
+  "id": "SC13-rescue-20261031T115846820345Z",
+  "outputs": {
+    "durability": "flush"
+  },
+  "presentation": [
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Dog",
+      "visual": {
+        "asset": "/data/rescue_assets/robot_dog-AGT-003-C01-BASE-1e23344c.glb",
+        "color": "#ffb84d",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:UAV",
+      "visual": {
+        "asset": "/data/rescue_assets/uav-AGT-001-C01-BASE-904bebe4.glb",
+        "color": "#49c9ff",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Vehicle",
+      "visual": {
+        "asset": "/data/rescue_assets/ground_vehicle-OBS-012-C03-INTACT-4721d01e.glb",
+        "color": "#69c873",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Team",
+      "visual": {
+        "asset": "/data/rescue_assets/specialist_team-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#f2e74c",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Coordinator",
+      "visual": {
+        "asset": "/data/rescue_assets/coordinator-BLD-028-G02-D0-2068ada4.glb",
+        "color": "#e4aaff",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Compute",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Person",
+      "visual": {
+        "asset": "/data/rescue_assets/human-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#f06c72",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Debris",
+      "visual": {
+        "asset": "/data/rescue_assets/obstacle-OBS-003-C02-BLOCKING-ac69a982.glb",
+        "color": "#ad7654",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Building",
+      "visual": {
+        "color": "#93817c",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Station",
+      "visual": {
+        "asset": "/data/rescue_assets/station-BLD-028-G01-D0-bf936e67.glb",
+        "color": "#55e8bc",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD0",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D0-BLD-003-G02-D0-792d6872.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD1",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D1-BLD-003-G02-D1-9aa6fac0.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD2",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D2-BLD-003-G02-D2-275f6c97.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD3",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D3-BLD-003-G02-D3-690cd21c.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:DebrisOpening",
+      "visual": {
+        "asset": "/data/rescue_assets/obstacle_partly_cleared-OBS-003-C02-OPENING-a42db3c4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:DebrisCleared",
+      "visual": {
+        "color": "#999999",
+        "kind": "label",
+        "scale": 0.5
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Loader",
+      "visual": {
+        "color": "#f0c020",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonProne",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonSupine",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Ambulance",
+      "visual": {
+        "color": "#ffffff",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:AmbulanceLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Shelter",
+      "visual": {
+        "asset": "/data/rescue_assets/shelter-BLD-028-G02-D0-2068ada4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Boat",
+      "visual": {
+        "color": "#ff7a3d",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BoatLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonInWater",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Facility",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FireUnit",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FireUnitDeployed",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FirePump",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:RopeRig",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:RopeRigRigged",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:SnowCasualty",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Sled",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:SledLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Tank",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:TankLeaking",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Bund",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BundLeaking",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Status",
+      "visual": {
+        "color": "#ffffff",
+        "kind": "label",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_1076ad9323e7fe44",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-1076ad9323e7fe44-1e8775a0.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    }
+  ],
+  "provenance": "full",
+  "registry": {
+    "fields": [
+      {
+        "id": "rescue.kind",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.position_enu_m",
+        "metadata": {
+          "clock": "canonical",
+          "frame": "enu",
+          "role": "observation",
+          "unit": "m"
+        },
+        "schema": {
+          "items": {
+            "type": "number"
+          },
+          "length": 3,
+          "type": "vector"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.orientation_enu",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "items": {
+            "type": "number"
+          },
+          "length": 4,
+          "type": "vector"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.yaw_deg",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "number"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.state_json",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.status",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.current_task",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.battery_wh",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation",
+          "unit": "Wh"
+        },
+        "schema": {
+          "type": "number"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.agent_json",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Agent"
+      }
+    ],
+    "messages": [
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "rescue.run.event",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "data_json": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_json"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "rescue.event",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "data_json": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_json"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "scene_rescue.business",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "actor": {
+              "type": "string"
+            },
+            "position": {
+              "items": {
+                "type": "number"
+              },
+              "length": 3,
+              "type": "vector"
+            },
+            "stage": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "stage",
+            "subject",
+            "actor"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.created",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "kind": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "kind"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.assigned",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "algorithm": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "algorithm"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.completed",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "latency_s": {
+              "type": "number"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "latency_s"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.failed",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "reason": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "reason"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.handoff.transferred",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "handoff": {
+              "type": "string"
+            },
+            "person": {
+              "type": "string"
+            },
+            "receiver": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "handoff",
+            "person",
+            "receiver"
+          ],
+          "type": "record"
+        }
+      }
+    ],
+    "types": [
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_1076ad9323e7fe44",
+        "parents": [
+          "rescue:Entity"
+        ]
+      }
+    ],
+    "snapshot": "registry.snapshot.json"
+  },
+  "run": {
+    "advance_ns": 500000000,
+    "pacing": "fast",
+    "seed": 1,
+    "until_ns": 3600000000000
+  }
+}

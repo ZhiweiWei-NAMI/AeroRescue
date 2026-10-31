@@ -1,0 +1,7419 @@
+{
+  "bindings": {
+    "commands": [],
+    "lifecycle": [
+      {
+        "controller": "rescue",
+        "ids": "*",
+        "type": "rescue:Entity"
+      }
+    ],
+    "rules": [
+      {
+        "fields": [
+          "rescue.kind",
+          "rescue.position_enu_m",
+          "rescue.orientation_enu",
+          "rescue.yaw_deg",
+          "rescue.state_json",
+          "rescue.status",
+          "rescue.current_task",
+          "rescue.battery_wh"
+        ],
+        "ids": "*",
+        "type": "rescue:Entity",
+        "writer": "rescue"
+      },
+      {
+        "fields": [
+          "rescue.agent_json"
+        ],
+        "ids": "*",
+        "type": "rescue:Agent",
+        "writer": "rescue"
+      }
+    ]
+  },
+  "clock_mappings": [
+    {
+      "clock_id": "canonical",
+      "mapping_id": "canonical"
+    }
+  ],
+  "engines": {
+    "rescue": {
+      "config": {
+        "bundle_path": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/tools/generated/GT04-1-20261031T115846824668Z/bundle.json",
+        "execution_mode": "forced_rules",
+        "console_scene": {
+          "id": "GT04 乡村灾后搜救；住宅损毁与道路受阻 · generated layout · scripted sensing · seed 1",
+          "city": {
+            "kind": "glb",
+            "url": "/data/gt04/GT04_appearance_IMAGEGEN_C01_yup.glb",
+            "offset": [
+              0,
+              0,
+              0
+            ]
+          },
+          "camera": {
+            "position": [
+              228.45796366834992,
+              71.1165442380923,
+              91.10691085564324
+            ],
+            "target": [
+              288.4579636683499,
+              1.1165442380923007,
+              16.106910855643232
+            ],
+            "fixed": true
+          },
+          "groundY": -1.62,
+          "attribution": "GT04 Route A geometry; appearance: ImageGen edit of Route A C01 ortho, projected with C01 camera.json (approximate); disaster entities and v0.5 sensing/action/network models are authored simulation assumptions"
+        }
+      },
+      "plugin": "rescue_scenes"
+    }
+  },
+  "entities": [
+    {
+      "facts": {},
+      "id": "ACCESS_plot_01",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_01#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_01#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_01#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_01#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_01#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_01#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_01#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_01#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_01#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_02",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_02#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_02#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_02#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_02#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_02#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_02#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_02#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_02#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_02#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_03",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_03#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_03#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_03#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_03#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_03#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_03#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_03#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_03#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#21",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#22",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#23",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#24",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#25",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#26",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#27",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#28",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#29",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#30",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#31",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_04#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_05#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "ACCESS_plot_06#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0062",
+      "type": "rescue:Upstream_0798ce2509fb8918"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0063",
+      "type": "rescue:Upstream_eaa1ad5e6b5bd84d"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0064",
+      "type": "rescue:Upstream_093cc55b5a4e91b1"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0065",
+      "type": "rescue:Upstream_8ae679803cba1cc2"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0066",
+      "type": "rescue:Upstream_5c53b097f4177299"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0067",
+      "type": "rescue:Upstream_6e40625e98a8b4cb"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0068",
+      "type": "rescue:Upstream_7f29ef3ca4496d33"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0069",
+      "type": "rescue:Upstream_4200c3d7e4fb261d"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0070",
+      "type": "rescue:Upstream_ebbfed8d779bcf3b"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0071",
+      "type": "rescue:Upstream_df048d3da3f17149"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0072",
+      "type": "rescue:Upstream_ed1deb191f237c31"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0073",
+      "type": "rescue:Upstream_57a7ba8265942c50"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0074",
+      "type": "rescue:Upstream_6fa24bafc29df86c"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0075",
+      "type": "rescue:Upstream_c24451f0e1dd58c5"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0076",
+      "type": "rescue:Upstream_c078e6535b7581a7"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0077",
+      "type": "rescue:Upstream_beb1d720151bf316"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0078",
+      "type": "rescue:Upstream_02d3fe0933fe8652"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0079",
+      "type": "rescue:Upstream_4838221671deb530"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0080",
+      "type": "rescue:Upstream_91af4a39525c6baa"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0081",
+      "type": "rescue:Upstream_1f7e8990ec93244d"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-boundary_fence-0082",
+      "type": "rescue:Upstream_6077d1dce48f6677"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0001",
+      "type": "rescue:Upstream_f0b053335620d80f"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0001:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0002",
+      "type": "rescue:Upstream_5d8fcb34d83c7b69"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0002:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0003",
+      "type": "rescue:Upstream_12a8ffd82c876587"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0003:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0004",
+      "type": "rescue:Upstream_c442d7918772a768"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0004:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0005",
+      "type": "rescue:Upstream_dd353c4662b24491"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0005:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0006",
+      "type": "rescue:Upstream_64adb0f3cdecff8c"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0006:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0007",
+      "type": "rescue:Upstream_45ca7523a9e1ffa3"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0007:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0008",
+      "type": "rescue:Upstream_ce6c3eb273c3ab51"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0008:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0009",
+      "type": "rescue:Upstream_ede70de23156c147"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0009:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0010",
+      "type": "rescue:Upstream_dfe9830b1bac3fb1"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0010:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0011",
+      "type": "rescue:Upstream_7bee056b4dba1051"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0011:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0012",
+      "type": "rescue:Upstream_0c87b31ab5b50792"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0012:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0013",
+      "type": "rescue:Upstream_83baa850672d7510"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0013:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0014",
+      "type": "rescue:Upstream_3192309dade87547"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0014:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0015",
+      "type": "rescue:Upstream_67e86f36e60415c3"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0015:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0016",
+      "type": "rescue:Upstream_9f38c60df38ce033"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0016:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0017",
+      "type": "rescue:Upstream_24f483068848dd3f"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0017:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0018",
+      "type": "rescue:Upstream_20272ed2094328c6"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0018:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0019",
+      "type": "rescue:Upstream_76ee27cda3db2487"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0019:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0020",
+      "type": "rescue:Upstream_7b1e0cbdf33de78c"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0020:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0021",
+      "type": "rescue:Upstream_b1e884443dc061ff"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0021:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0022",
+      "type": "rescue:Upstream_3554068ebbd5fffd"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0022:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0023",
+      "type": "rescue:Upstream_aa69fc5622449513"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0023:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0024",
+      "type": "rescue:Upstream_331765dde1ff290c"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0024:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0025",
+      "type": "rescue:Upstream_144be15e0b93b10a"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0025:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0026",
+      "type": "rescue:Upstream_d4224169e76228c0"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0026:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0027",
+      "type": "rescue:Upstream_710a5375c4e84745"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0027:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0028",
+      "type": "rescue:Upstream_2d45cec5d0f1c3c8"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0028:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0029",
+      "type": "rescue:Upstream_ab9742fcc921e48d"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0029:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0030",
+      "type": "rescue:Upstream_ae534976f8b2dc56"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0030:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0031",
+      "type": "rescue:Upstream_39b5b3a18d8eaf91"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0031:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0032",
+      "type": "rescue:Upstream_5f06d77bb247ea45"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0032:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0033",
+      "type": "rescue:Upstream_db7bdf550f760154"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0033:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0034",
+      "type": "rescue:Upstream_a3f2397d0ce2170e"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0034:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0035",
+      "type": "rescue:Upstream_d52e93c2325c7364"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0035:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0036",
+      "type": "rescue:Upstream_669ae7b8fd49e53d"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0036:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0037",
+      "type": "rescue:Upstream_77495e37aa0219e9"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0037:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0038",
+      "type": "rescue:Upstream_5b6c2c72773b2a9a"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0038:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0039",
+      "type": "rescue:Upstream_f16e1638c1593bb1"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0039:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0040",
+      "type": "rescue:Upstream_819e0bdfd791500f"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0040:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0041",
+      "type": "rescue:Upstream_399f2f885c1d0048"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0041:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0042",
+      "type": "rescue:Upstream_513a8a26aeb822d4"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0042:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0043",
+      "type": "rescue:Upstream_721b8468bc7ac520"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0043:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0044",
+      "type": "rescue:Upstream_81371ab5653ac5f6"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0044:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0045",
+      "type": "rescue:Upstream_c2e6102cd697f9d7"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0045:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0046",
+      "type": "rescue:Upstream_443e6c1ea5b67678"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0046:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0047",
+      "type": "rescue:Upstream_eb207f84034ffd46"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0047:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0048",
+      "type": "rescue:Upstream_ec039ef3ba558368"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0048:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0049",
+      "type": "rescue:Upstream_6c7f93350424a8f0"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0049:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0050",
+      "type": "rescue:Upstream_e81d5c41cce82c71"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0050:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0051",
+      "type": "rescue:Upstream_9b8818f2e0e89c16"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0051:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0052",
+      "type": "rescue:Upstream_b1c7d3e1688eb499"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0052:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0053",
+      "type": "rescue:Upstream_e6f2bc6d9a498205"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0053:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0054",
+      "type": "rescue:Upstream_0129d552c57d726f"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0054:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0055",
+      "type": "rescue:Upstream_ca1a803f12a61c33"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0055:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0056",
+      "type": "rescue:Upstream_2be774a73f9d8431"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0056:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0057",
+      "type": "rescue:Upstream_211236ff4ccac511"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0057:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0058",
+      "type": "rescue:Upstream_f12ecfc4087f4010"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0058:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0059",
+      "type": "rescue:Upstream_a18c80a1238f2cb0"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0059:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0060",
+      "type": "rescue:Upstream_8bb947dfb514d9d0"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0060:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0061",
+      "type": "rescue:Upstream_aed853bbdddf26c1"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0061:approach#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_01",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_01:shared-walk-0:0000#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_01:shared-walk-0:0000#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_01:shared-walk-0:0000#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_01:shared-walk-0:0000#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_01:shared-walk-1:0000#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_01:shared-walk-1:0000#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_01:shared-walk-1:0000#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_01:shared-walk-1:0000#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_01:shared-walk-1:0000#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_01:shared-walk-1:0000#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_01:shared-walk-1:0000#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_01:shared-walk-1:0000#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02:shared-walk-0:0000#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02:shared-walk-0:0000#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02:shared-walk-0:0000#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02:shared-walk-1:0000#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02:shared-walk-1:0000#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02:shared-walk-1:0000#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02:shared-walk-1:0000#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02:shared-walk-1:0000#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02:shared-walk-1:0000#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02:shared-walk-1:0000#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02:shared-walk-1:0000#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02:shared-walk-1:0000#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_02:shared-walk-1:0000#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_03",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_03:shared-walk-0:0000#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_03:shared-walk-0:0000#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_03:shared-walk-0:0000#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_03:shared-walk-0:0000#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_03:shared-walk-1:0000#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_03:shared-walk-1:0000#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_03:shared-walk-1:0000#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_03:shared-walk-1:0000#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_03:shared-walk-1:0000#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-0:0000#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-0:0000#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-0:0000#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-0:0000#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-1:0000#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-1:0000#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-1:0000#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-1:0000#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-1:0000#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-1:0000#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-1:0000#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-1:0000#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-1:0000#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_04:shared-walk-1:0000#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_05",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_05:shared-walk-0:0000#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_05:shared-walk-0:0000#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_05:shared-walk-0:0000#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_05:shared-walk-0:0000#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_05:shared-walk-1:0000#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_05:shared-walk-1:0000#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_05:shared-walk-1:0000#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_05:shared-walk-1:0000#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_05:shared-walk-1:0000#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_05:shared-walk-1:0000#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_05:shared-walk-1:0000#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_05:shared-walk-1:0000#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_06",
+      "type": "rescue:Region"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_06:shared-walk-0:0000#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_06:shared-walk-0:0000#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_06:shared-walk-0:0000#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_06:shared-walk-0:0000#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_06:shared-walk-1:0000#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_06:shared-walk-1:0000#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_06:shared-walk-1:0000#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_06:shared-walk-1:0000#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_06:shared-walk-1:0000#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "RESV_PLOT_06:shared-walk-1:0000#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "coordinator-1",
+      "type": "rescue:Coordinator"
+    },
+    {
+      "facts": {},
+      "id": "cue-1",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "cue-2",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "cue-3",
+      "type": "rescue:Cue"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#21",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#22",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#23",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#24",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#25",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#26",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#27",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#28",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#29",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#30",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#31",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#32",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#33",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#34",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#35",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#36",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#37",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#38",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#39",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#40",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#41",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#42",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#43",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#44",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#45",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#46",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#47",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#48",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#49",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#50",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#51",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#52",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#53",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#54",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#55",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#56",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#57",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#58",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#59",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#60",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#61",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#62",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#63",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#64",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#65",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#66",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#67",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#68",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#69",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#70",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#71",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#72",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "east_access_loop#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "hazard-1",
+      "type": "rescue:Hazard"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-1",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-2",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-3",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-4",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-5",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-6",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-7",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "item-medical-1-medical_pack-8",
+      "type": "rescue:Item"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_connector#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "local_middle#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#100",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#101",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#102",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#103",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#104",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#105",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#106",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#107",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#108",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#109",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#110",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#111",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#112",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#113",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#114",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#115",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#116",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#117",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#118",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#119",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#120",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#121",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#122",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#123",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#124",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#125",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#126",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#127",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#128",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#129",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#130",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#131",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#132",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#133",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#134",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#135",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#136",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#137",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#138",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#139",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#140",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#141",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#142",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#143",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#144",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#145",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#146",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#147",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#148",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#149",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#150",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#151",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#152",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#153",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#154",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#155",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#156",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#157",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#158",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#159",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#160",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#21",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#22",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#23",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#24",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#25",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#26",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#27",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#28",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#29",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#30",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#31",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#32",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#33",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#34",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#35",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#36",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#37",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#38",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#39",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#40",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#41",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#42",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#43",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#44",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#45",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#46",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#47",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#48",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#49",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#50",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#51",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#52",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#53",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#54",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#55",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#56",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#57",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#58",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#59",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#60",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#61",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#62",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#63",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#64",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#65",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#66",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#67",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#68",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#69",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#70",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#71",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#72",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#73",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#74",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#75",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#76",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#77",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#78",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#79",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#80",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#81",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#82",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#83",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#84",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#85",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#86",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#87",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#88",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#89",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#90",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#91",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#92",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#93",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#94",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#95",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#96",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#97",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#98",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "main_EW#99",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "medical-1",
+      "type": "rescue:Shelter"
+    },
+    {
+      "facts": {},
+      "id": "robot_dog-1",
+      "type": "rescue:Dog"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1",
+      "type": "rescue:Person"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2",
+      "type": "rescue:Person"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#1",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#10",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#100",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#101",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#102",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#103",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#104",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#105",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#106",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#107",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#108",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#109",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#11",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#110",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#111",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#112",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#113",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#114",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#115",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#116",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#117",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#118",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#119",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#12",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#120",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#121",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#122",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#123",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#124",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#125",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#126",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#127",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#128",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#129",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#13",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#14",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#15",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#16",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#17",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#18",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#19",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#2",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#20",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#21",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#22",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#23",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#24",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#25",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#26",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#27",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#28",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#29",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#3",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#30",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#31",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#32",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#33",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#34",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#35",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#36",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#37",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#38",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#39",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#4",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#40",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#41",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#42",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#43",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#44",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#45",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#46",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#47",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#48",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#49",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#5",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#50",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#51",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#52",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#53",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#54",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#55",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#56",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#57",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#58",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#59",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#6",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#60",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#61",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#62",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#63",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#64",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#65",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#66",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#67",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#68",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#69",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#7",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#70",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#71",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#72",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#73",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#74",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#75",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#76",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#77",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#78",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#79",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#8",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#80",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#81",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#82",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#83",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#84",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#85",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#86",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#87",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#88",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#89",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#9",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#90",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#91",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#92",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#93",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#94",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#95",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#96",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#97",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#98",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "secondary_NS#99",
+      "type": "rescue:Road"
+    },
+    {
+      "facts": {},
+      "id": "specialist_team-1",
+      "type": "rescue:Team"
+    },
+    {
+      "facts": {},
+      "id": "uav-1",
+      "type": "rescue:UAV"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0001__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0001__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0001__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0001__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0002__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0002__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0002__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0002__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0003__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0003__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0003__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0003__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0004__D3_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0004__D3_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0004__D3_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0004__D3_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0005__D1_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0005__D1_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0005__D1_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0005__D1_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0006__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0006__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0006__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0006__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0007__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0007__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0007__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0007__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0008__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0008__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0008__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0008__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0009__D2_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0009__D2_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0009__D2_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0009__D2_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0010__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0010__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0010__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0010__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0011__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0011__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0011__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0011__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0012__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0012__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0012__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0012__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0013__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0013__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0013__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0013__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0014__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0014__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0014__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0014__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0015__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0015__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0015__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0015__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0016__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0016__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0016__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0016__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0017__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0017__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0017__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0017__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0018__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0018__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0018__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0018__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0019__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0019__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0019__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0019__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0020__D1_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0020__D1_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0020__D1_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0020__D1_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0021__D2_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0021__D2_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0021__D2_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0021__D2_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0022__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0022__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0022__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0022__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0023__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0023__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0023__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0023__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0024__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0024__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0024__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0024__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0025__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0025__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0025__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0025__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0026__D1_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0026__D1_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0026__D1_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0026__D1_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0027__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0027__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0027__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0027__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0028__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0028__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0028__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0028__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0029__D2_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0029__D2_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0029__D2_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0029__D2_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0030__D1_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0030__D1_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0030__D1_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0030__D1_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0031__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0031__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0031__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0031__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0032__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0032__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0032__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0032__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0033__D1_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0033__D1_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0033__D1_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0033__D1_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0034__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0034__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0034__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0034__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0035__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0035__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0035__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0035__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0036__D1_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0036__D1_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0036__D1_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0036__D1_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0037__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0037__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0037__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0037__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0038__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0038__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0038__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0038__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0039__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0039__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0039__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0039__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0040__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0040__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0040__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0040__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0041__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0041__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0041__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0041__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0042__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0042__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0042__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0042__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0043__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0043__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0043__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0043__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0044__D1_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0044__D1_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0044__D1_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0044__D1_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0045__D2_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0045__D2_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0045__D2_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0045__D2_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0046__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0046__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0046__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0046__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0047__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0047__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0047__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0047__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0048__D1_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0048__D1_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0048__D1_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0048__D1_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0049__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0049__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0049__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0049__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0050__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0050__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0050__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0050__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0051__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0051__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0051__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0051__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0052__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0052__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0052__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0052__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0053__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0053__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0053__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0053__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0054__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0054__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0054__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0054__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0055__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0055__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0055__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0055__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0056__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0056__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0056__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0056__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0057__D1_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0057__D1_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0057__D1_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0057__D1_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0058__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0058__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0058__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0058__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0059__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0059__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0059__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0059__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0060__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0060__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0060__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0060__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0061__D0_none",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0061__D0_minor",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0061__D0_major",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "GT04_RURAL_CONTINUATION-building-0061__D0_destroyed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "medical-1__medical_open",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "medical-1__medical_restricted",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "medical-1__medical_closed",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__model_prone",
+      "type": "rescue:PersonProne"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__model_supine",
+      "type": "rescue:PersonSupine"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__mobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__limited",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__immobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__trapped",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__contacted_mobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__contacted_limited",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__contacted_immobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__contacted_trapped",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__extricated",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__loaded",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__transporting",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__transported_arrived",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-1__handover_ack",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__model_prone",
+      "type": "rescue:PersonProne"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__model_supine",
+      "type": "rescue:PersonSupine"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__mobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__limited",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__immobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__trapped",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__contacted_mobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__contacted_limited",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__contacted_immobile",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__contacted_trapped",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__extricated",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__loaded",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__transporting",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__transported_arrived",
+      "type": "rescue:Status"
+    },
+    {
+      "facts": {},
+      "id": "rural-casualty-2__handover_ack",
+      "type": "rescue:Status"
+    }
+  ],
+  "event_narratives": {
+    "scene_rescue.business": {
+      "category": "emergency",
+      "entities": [
+        "subject",
+        "actor"
+      ],
+      "position": "position",
+      "severity": "info",
+      "template": "{text}",
+      "template_zh": "{text}"
+    }
+  },
+  "format": "aeroagentsim.scenario/v1",
+  "id": "GT04-rescue-20261031T115846824668Z",
+  "outputs": {
+    "durability": "flush"
+  },
+  "presentation": [
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Dog",
+      "visual": {
+        "asset": "/data/rescue_assets/robot_dog-AGT-003-C01-BASE-1e23344c.glb",
+        "color": "#ffb84d",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:UAV",
+      "visual": {
+        "asset": "/data/rescue_assets/uav-AGT-001-C01-BASE-904bebe4.glb",
+        "color": "#49c9ff",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Vehicle",
+      "visual": {
+        "asset": "/data/rescue_assets/ground_vehicle-OBS-012-C03-INTACT-4721d01e.glb",
+        "color": "#69c873",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Team",
+      "visual": {
+        "asset": "/data/rescue_assets/specialist_team-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#f2e74c",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Coordinator",
+      "visual": {
+        "asset": "/data/rescue_assets/coordinator-BLD-028-G02-D0-2068ada4.glb",
+        "color": "#e4aaff",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Compute",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Person",
+      "visual": {
+        "asset": "/data/rescue_assets/human-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#f06c72",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Debris",
+      "visual": {
+        "asset": "/data/rescue_assets/obstacle-OBS-003-C02-BLOCKING-ac69a982.glb",
+        "color": "#ad7654",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Building",
+      "visual": {
+        "color": "#93817c",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Station",
+      "visual": {
+        "asset": "/data/rescue_assets/station-BLD-028-G01-D0-bf936e67.glb",
+        "color": "#55e8bc",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD0",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D0-BLD-003-G02-D0-792d6872.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD1",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D1-BLD-003-G02-D1-9aa6fac0.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD2",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D2-BLD-003-G02-D2-275f6c97.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BuildingD3",
+      "visual": {
+        "asset": "/data/rescue_assets/building_D3-BLD-003-G02-D3-690cd21c.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:DebrisOpening",
+      "visual": {
+        "asset": "/data/rescue_assets/obstacle_partly_cleared-OBS-003-C02-OPENING-a42db3c4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:DebrisCleared",
+      "visual": {
+        "color": "#999999",
+        "kind": "label",
+        "scale": 0.5
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Loader",
+      "visual": {
+        "color": "#f0c020",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonProne",
+      "visual": {
+        "asset": "/data/rescue_assets/human-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonSupine",
+      "visual": {
+        "asset": "/data/rescue_assets/human-HUM-001-C01-BASE-04237ce4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Ambulance",
+      "visual": {
+        "color": "#ffffff",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:AmbulanceLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Shelter",
+      "visual": {
+        "asset": "/data/rescue_assets/shelter-BLD-028-G02-D0-2068ada4.glb",
+        "color": "#999999",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Boat",
+      "visual": {
+        "color": "#ff7a3d",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BoatLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:PersonInWater",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Facility",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FireUnit",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FireUnitDeployed",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:FirePump",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:RopeRig",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:RopeRigRigged",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:SnowCasualty",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Sled",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:SledLoaded",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Tank",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:TankLeaking",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Bund",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:BundLeaking",
+      "visual": {
+        "color": "#999999",
+        "kind": "marker",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Status",
+      "visual": {
+        "color": "#ffffff",
+        "kind": "label",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_f0b053335620d80f",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-f0b053335620d80f-b11ed24c.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_5d8fcb34d83c7b69",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-5d8fcb34d83c7b69-6f85c94b.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_12a8ffd82c876587",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-12a8ffd82c876587-2a1a9e73.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_c442d7918772a768",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-c442d7918772a768-8d22af35.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_dd353c4662b24491",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-dd353c4662b24491-e9eeeaf1.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_64adb0f3cdecff8c",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-64adb0f3cdecff8c-20b86c1e.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_45ca7523a9e1ffa3",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-45ca7523a9e1ffa3-72bc52e1.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_ce6c3eb273c3ab51",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-ce6c3eb273c3ab51-d9e61bf6.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_ede70de23156c147",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-ede70de23156c147-199c52a3.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_dfe9830b1bac3fb1",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-dfe9830b1bac3fb1-ce966960.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_7bee056b4dba1051",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-7bee056b4dba1051-ab32be97.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_0c87b31ab5b50792",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-0c87b31ab5b50792-41cc7e14.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_83baa850672d7510",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-83baa850672d7510-fce1c3e6.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_3192309dade87547",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-3192309dade87547-6c5aef47.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_67e86f36e60415c3",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-67e86f36e60415c3-4f42bf48.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_9f38c60df38ce033",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-9f38c60df38ce033-90975405.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_24f483068848dd3f",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-24f483068848dd3f-98df4d3b.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_20272ed2094328c6",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-20272ed2094328c6-a497740f.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_76ee27cda3db2487",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-76ee27cda3db2487-d6809b96.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_7b1e0cbdf33de78c",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-7b1e0cbdf33de78c-b67c18fa.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_b1e884443dc061ff",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-b1e884443dc061ff-803534df.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_3554068ebbd5fffd",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-3554068ebbd5fffd-7678aa43.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_aa69fc5622449513",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-aa69fc5622449513-eaadf270.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_331765dde1ff290c",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-331765dde1ff290c-e7b08924.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_144be15e0b93b10a",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-144be15e0b93b10a-18d809c7.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_d4224169e76228c0",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-d4224169e76228c0-87c044f9.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_710a5375c4e84745",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-710a5375c4e84745-4bf84fd5.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_2d45cec5d0f1c3c8",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-2d45cec5d0f1c3c8-4f96c95c.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_ab9742fcc921e48d",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-ab9742fcc921e48d-9f1d755b.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_ae534976f8b2dc56",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-ae534976f8b2dc56-289c813b.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_39b5b3a18d8eaf91",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-39b5b3a18d8eaf91-f8a3a351.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_5f06d77bb247ea45",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-5f06d77bb247ea45-c9a148e6.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_db7bdf550f760154",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-db7bdf550f760154-7f29c239.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_a3f2397d0ce2170e",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-a3f2397d0ce2170e-e39e2166.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_d52e93c2325c7364",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-d52e93c2325c7364-9423639b.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_669ae7b8fd49e53d",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-669ae7b8fd49e53d-22a638bf.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_77495e37aa0219e9",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-77495e37aa0219e9-d077a782.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_5b6c2c72773b2a9a",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-5b6c2c72773b2a9a-bc722095.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_f16e1638c1593bb1",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-f16e1638c1593bb1-f4e6ce45.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_819e0bdfd791500f",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-819e0bdfd791500f-4785dc8f.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_399f2f885c1d0048",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-399f2f885c1d0048-d1bd54ed.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_513a8a26aeb822d4",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-513a8a26aeb822d4-751cf16f.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_721b8468bc7ac520",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-721b8468bc7ac520-192792e5.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_81371ab5653ac5f6",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-81371ab5653ac5f6-3916fc10.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_c2e6102cd697f9d7",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-c2e6102cd697f9d7-ff937b0e.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_443e6c1ea5b67678",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-443e6c1ea5b67678-667d11a3.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_eb207f84034ffd46",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-eb207f84034ffd46-b9cb2980.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_ec039ef3ba558368",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-ec039ef3ba558368-49409f5b.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_6c7f93350424a8f0",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-6c7f93350424a8f0-1425f29e.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_e81d5c41cce82c71",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-e81d5c41cce82c71-e5cd0681.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_9b8818f2e0e89c16",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-9b8818f2e0e89c16-8cce258e.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_b1c7d3e1688eb499",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-b1c7d3e1688eb499-cc950881.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_e6f2bc6d9a498205",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-e6f2bc6d9a498205-20110293.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_0129d552c57d726f",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-0129d552c57d726f-31df8880.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_ca1a803f12a61c33",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-ca1a803f12a61c33-d5d08cac.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_2be774a73f9d8431",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-2be774a73f9d8431-958122c1.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_211236ff4ccac511",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-211236ff4ccac511-59041931.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_f12ecfc4087f4010",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-f12ecfc4087f4010-feaf1da0.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_a18c80a1238f2cb0",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-a18c80a1238f2cb0-096d7c58.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_8bb947dfb514d9d0",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-8bb947dfb514d9d0-8272b080.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_aed853bbdddf26c1",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-aed853bbdddf26c1-a0331970.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_0798ce2509fb8918",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-0798ce2509fb8918-423ee294.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_eaa1ad5e6b5bd84d",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-eaa1ad5e6b5bd84d-7baddafa.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_093cc55b5a4e91b1",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-093cc55b5a4e91b1-95493b5d.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_8ae679803cba1cc2",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-8ae679803cba1cc2-67bbd4b3.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_5c53b097f4177299",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-5c53b097f4177299-e97f8b3a.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_6e40625e98a8b4cb",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-6e40625e98a8b4cb-696784ce.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_7f29ef3ca4496d33",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-7f29ef3ca4496d33-e1352dee.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_4200c3d7e4fb261d",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-4200c3d7e4fb261d-f39c8fce.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_ebbfed8d779bcf3b",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-ebbfed8d779bcf3b-92671da7.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_df048d3da3f17149",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-df048d3da3f17149-3ec2e990.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_ed1deb191f237c31",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-ed1deb191f237c31-56e4b87e.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_57a7ba8265942c50",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-57a7ba8265942c50-21f61d19.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_6fa24bafc29df86c",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-6fa24bafc29df86c-7f3ee3bf.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_c24451f0e1dd58c5",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-c24451f0e1dd58c5-5692adaa.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_c078e6535b7581a7",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-c078e6535b7581a7-5c5ca4f3.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_beb1d720151bf316",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-beb1d720151bf316-5abd4f34.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_02d3fe0933fe8652",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-02d3fe0933fe8652-ecdd511d.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_4838221671deb530",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-4838221671deb530-b77de477.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_91af4a39525c6baa",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-91af4a39525c6baa-6fb6af97.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_1f7e8990ec93244d",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-1f7e8990ec93244d-a822841b.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    },
+    {
+      "frame": "enu",
+      "orientationField": "rescue.orientation_enu",
+      "positionField": "rescue.position_enu_m",
+      "typeId": "rescue:Upstream_6077d1dce48f6677",
+      "visual": {
+        "asset": "/data/rescue_assets/upstream-6077d1dce48f6677-a6f05bfb.glb",
+        "kind": "model",
+        "scale": 1
+      }
+    }
+  ],
+  "provenance": "full",
+  "registry": {
+    "fields": [
+      {
+        "id": "rescue.kind",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.position_enu_m",
+        "metadata": {
+          "clock": "canonical",
+          "frame": "enu",
+          "role": "observation",
+          "unit": "m"
+        },
+        "schema": {
+          "items": {
+            "type": "number"
+          },
+          "length": 3,
+          "type": "vector"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.orientation_enu",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "items": {
+            "type": "number"
+          },
+          "length": 4,
+          "type": "vector"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.yaw_deg",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "number"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.state_json",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.status",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.current_task",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.battery_wh",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation",
+          "unit": "Wh"
+        },
+        "schema": {
+          "type": "number"
+        },
+        "type": "rescue:Entity"
+      },
+      {
+        "id": "rescue.agent_json",
+        "metadata": {
+          "clock": "canonical",
+          "role": "observation"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "type": "rescue:Agent"
+      }
+    ],
+    "messages": [
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "rescue.run.event",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "data_json": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_json"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "rescue.event",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "data_json": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "data_json"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "scene_rescue.business",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "actor": {
+              "type": "string"
+            },
+            "position": {
+              "items": {
+                "type": "number"
+              },
+              "length": 3,
+              "type": "vector"
+            },
+            "stage": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "stage",
+            "subject",
+            "actor"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.created",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "kind": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "kind"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.assigned",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "algorithm": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "algorithm"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.completed",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "latency_s": {
+              "type": "number"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "latency_s"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.task.failed",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "reason": {
+              "type": "string"
+            },
+            "task": {
+              "type": "string"
+            },
+            "vehicle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "task",
+            "vehicle",
+            "reason"
+          ],
+          "type": "record"
+        }
+      },
+      {
+        "cancel_support": false,
+        "feedback_schema": null,
+        "id": "lowalt.handoff.transferred",
+        "kind": "event",
+        "result_schema": null,
+        "schema": {
+          "extra": false,
+          "members": {
+            "handoff": {
+              "type": "string"
+            },
+            "person": {
+              "type": "string"
+            },
+            "receiver": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "handoff",
+            "person",
+            "receiver"
+          ],
+          "type": "record"
+        }
+      }
+    ],
+    "types": [
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_f0b053335620d80f",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_5d8fcb34d83c7b69",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_12a8ffd82c876587",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_c442d7918772a768",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_dd353c4662b24491",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_64adb0f3cdecff8c",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_45ca7523a9e1ffa3",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_ce6c3eb273c3ab51",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_ede70de23156c147",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_dfe9830b1bac3fb1",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_7bee056b4dba1051",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_0c87b31ab5b50792",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_83baa850672d7510",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_3192309dade87547",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_67e86f36e60415c3",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_9f38c60df38ce033",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_24f483068848dd3f",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_20272ed2094328c6",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_76ee27cda3db2487",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_7b1e0cbdf33de78c",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_b1e884443dc061ff",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_3554068ebbd5fffd",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_aa69fc5622449513",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_331765dde1ff290c",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_144be15e0b93b10a",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_d4224169e76228c0",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_710a5375c4e84745",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_2d45cec5d0f1c3c8",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_ab9742fcc921e48d",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_ae534976f8b2dc56",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_39b5b3a18d8eaf91",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_5f06d77bb247ea45",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_db7bdf550f760154",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_a3f2397d0ce2170e",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_d52e93c2325c7364",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_669ae7b8fd49e53d",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_77495e37aa0219e9",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_5b6c2c72773b2a9a",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_f16e1638c1593bb1",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_819e0bdfd791500f",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_399f2f885c1d0048",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_513a8a26aeb822d4",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_721b8468bc7ac520",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_81371ab5653ac5f6",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_c2e6102cd697f9d7",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_443e6c1ea5b67678",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_eb207f84034ffd46",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_ec039ef3ba558368",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_6c7f93350424a8f0",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_e81d5c41cce82c71",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_9b8818f2e0e89c16",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_b1c7d3e1688eb499",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_e6f2bc6d9a498205",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_0129d552c57d726f",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_ca1a803f12a61c33",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_2be774a73f9d8431",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_211236ff4ccac511",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_f12ecfc4087f4010",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_a18c80a1238f2cb0",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_8bb947dfb514d9d0",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_aed853bbdddf26c1",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_0798ce2509fb8918",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_eaa1ad5e6b5bd84d",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_093cc55b5a4e91b1",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_8ae679803cba1cc2",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_5c53b097f4177299",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_6e40625e98a8b4cb",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_7f29ef3ca4496d33",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_4200c3d7e4fb261d",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_ebbfed8d779bcf3b",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_df048d3da3f17149",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_ed1deb191f237c31",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_57a7ba8265942c50",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_6fa24bafc29df86c",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_c24451f0e1dd58c5",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_c078e6535b7581a7",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_beb1d720151bf316",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_02d3fe0933fe8652",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_4838221671deb530",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_91af4a39525c6baa",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_1f7e8990ec93244d",
+        "parents": [
+          "rescue:Entity"
+        ]
+      },
+      {
+        "abstract": false,
+        "id": "rescue:Upstream_6077d1dce48f6677",
+        "parents": [
+          "rescue:Entity"
+        ]
+      }
+    ],
+    "snapshot": "registry.snapshot.json"
+  },
+  "run": {
+    "advance_ns": 500000000,
+    "pacing": "fast",
+    "seed": 1,
+    "until_ns": 3600000000000
+  }
+}
