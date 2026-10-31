@@ -2,14 +2,14 @@
   "schema": "rescue.scene-config/v1",
   "background": {
     "id": "SC17",
-    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/out/SC17/exports/SC17_canonical_grid.npz",
-    "build_report": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/out/SC17/SC17_build_report.json",
-    "scene_list": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
+    "grid": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/out/SC17/exports/SC17_canonical_grid.npz",
+    "build_report": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/out/SC17/SC17_build_report.json",
+    "scene_list": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
     "geometry_source": "Tagged GLB METADATA_RESERVATION polygons; exported same-source road/track/access layout and source features (sources.sha256)",
-    "console_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/SC17/aas/console-scene.json",
-    "delivery_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment",
-    "aas_full_glb": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/out/SC17/exports/SC17_aas_full_yup.glb",
-    "layout_json": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/sources/SC17/SC17_layout.json",
+    "console_source": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/SC17/aas/console-scene.json",
+    "delivery_root": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment",
+    "aas_full_glb": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/out/SC17/exports/SC17_aas_full_yup.glb",
+    "layout_json": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/sources/SC17/SC17_layout.json",
     "plot_region_kinds": [
       "metadata_only_external_asset_reservation"
     ],
@@ -437,7 +437,7 @@
       }
     ],
     "station_stock": {
-      "water": 0,
+      "water": 12,
       "medical_pack": 2,
       "relay": 0,
       "battery": 0

@@ -2,14 +2,14 @@
   "schema": "rescue.scene-config/v1",
   "background": {
     "id": "SC10",
-    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC10/01_structure/geometry/SC10_canonical_grid.npz",
-    "build_report": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/out/SC10/SC10_build_report.json",
-    "scene_list": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
+    "grid": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots/SC10/01_structure/geometry/SC10_canonical_grid.npz",
+    "build_report": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/out/SC10/SC10_build_report.json",
+    "scene_list": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
     "geometry_source": "Allocation source geometry and source-faithful Route-A sidecar; dev/step4/stage_background.py",
-    "console_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/SC10/aas/console-scene.json",
-    "delivery_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment",
-    "aas_full_glb": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC10/01_structure/geometry/SC10_aas_full_yup.glb",
-    "layout_json": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC10/01_structure/layout/SC10_route_A_layout.json",
+    "console_source": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/SC10/aas/console-scene.json",
+    "delivery_root": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment",
+    "aas_full_glb": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots/SC10/01_structure/geometry/SC10_aas_full_yup.glb",
+    "layout_json": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots/SC10/01_structure/layout/SC10_route_A_layout.json",
     "plot_region_kinds": [
       "metadata_only_assembly_reservation",
       "metadata_only_camp_reservation",
@@ -321,17 +321,18 @@
       }
     ],
     "upstream_generated_scene": {
-      "python": "/mnt/data2/weizhiwei/rescue-generator-stage1/envs/cut4/bin/python",
-      "background_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots",
-      "catalog": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4/catalog_allocated.json",
-      "config": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot/generation-input-rules.json",
+      "python": "/mnt/data2/weizhiwei/aeroagentsim/AeroAgentSim/.venv/bin/python",
+      "timeout_s": 900,
+      "background_root": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots",
+      "catalog": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/dev/step4/catalog_allocated.json",
+      "config": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/dev/step3/upstream_expanded_snapshot/generation-input-rules.json",
       "input_roots": [
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/configs"
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/dev/step3/upstream_expanded_snapshot",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/dev/step4",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/assets",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/assets",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/configs"
       ],
       "walkable_ground_surface": null,
       "building_metadata": {
@@ -386,7 +387,7 @@
         "catalog": "dev/step3/upstream_expanded_snapshot: rescue_scene snapshot over configs/upstream_selection_expanded.json (59 entries), formal Excel + 03_批量资产 copied read-only from gdrive: to _inputs_cache/drive_20261021; 19 base GLB sha256 identical to the base snapshot"
       },
       "upstream_scene_id": "SC10",
-      "generation_config": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/generation-input-rules.json",
+      "generation_config": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots/generation-input-rules.json",
       "walkable_ground_surfaces": [
         null
       ]

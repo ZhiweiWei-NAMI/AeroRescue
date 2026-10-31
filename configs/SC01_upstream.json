@@ -2,14 +2,14 @@
   "schema": "rescue.scene-config/v1",
   "background": {
     "id": "SC01",
-    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC01/exports/SC01_canonical_grid.npz",
-    "build_report": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC01/SC01_build_report.json",
-    "scene_list": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
+    "grid": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/out/SC01/exports/SC01_canonical_grid.npz",
+    "build_report": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/out/SC01/SC01_build_report.json",
+    "scene_list": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
     "geometry_source": "Tagged METADATA_RESERVATION polygons in aas_full_glb; roads and accesses in same-source layout_json",
-    "console_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/marble_sc01_v2_8d28a383/console-scene.SC01v2_splat_full.json",
-    "delivery_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
-    "aas_full_glb": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC01/exports/SC01_aas_full_yup.glb",
-    "layout_json": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/route_A_first4/SC01/layout/SC01_route_A_layout.json",
+    "console_source": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/marble_sc01_v2_8d28a383/console-scene.SC01v2_splat_full.json",
+    "delivery_root": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
+    "aas_full_glb": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/out/SC01/exports/SC01_aas_full_yup.glb",
+    "layout_json": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/route_A_first4/SC01/layout/SC01_route_A_layout.json",
     "plot_region_kinds": [
       "dry_placement"
     ],
@@ -412,8 +412,9 @@
       }
     ],
     "upstream_generated_scene": {
-      "python": "/mnt/data2/weizhiwei/rescue-generator-stage1/envs/cut4/bin/python",
-      "background_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/delivery_route_A_first4_20261024/route_A_first4_20261024",
+      "python": "/mnt/data2/weizhiwei/aeroagentsim/AeroAgentSim/.venv/bin/python",
+      "timeout_s": 900,
+      "background_root": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/delivery_route_A_first4_20261024/route_A_first4_20261024",
       "catalog": "/home/weizhiwei/.local/share/aero-world-gpt-codex/state/outputs/task_82a12e016a83462294fe45a6b64-a428653da3e417ac/snapshot/catalog.json",
       "config": "/home/weizhiwei/.local/share/aero-world-gpt-codex/state/outputs/task_38a83a410c744ba59f22ea23868-b7fde105f68f2560/generation-input-rules.json",
       "input_roots": [

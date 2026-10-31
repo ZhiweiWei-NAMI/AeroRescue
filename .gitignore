@@ -1,4 +1,6 @@
 # Data & run artifacts (reproduce with aerorescue acquire/prepare/run)
+scene_data/
+tools/generated/
 data/raw/
 data/processed/
 data/platform/

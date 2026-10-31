@@ -2,15 +2,15 @@
   "schema": "rescue.scene-config/v1",
   "background": {
     "id": "GT04",
-    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/GT04_RURAL_CONTINUATION/01_structure/geometry/GT04_RURAL_CONTINUATION_canonical_grid.npz",
-    "build_report": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/GT04_RURAL_CONTINUATION/GT04_RURAL_CONTINUATION_build_report.json",
-    "scene_list": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
+    "grid": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots/GT04_RURAL_CONTINUATION/01_structure/geometry/GT04_RURAL_CONTINUATION_canonical_grid.npz",
+    "build_report": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/out/GT04_RURAL_CONTINUATION/GT04_RURAL_CONTINUATION_build_report.json",
+    "scene_list": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
     "geometry_source": "Allocation source geometry and source-faithful Route-A sidecar; dev/step4/stage_background.py",
-    "console_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery/GT04/aas/console-scene.json",
-    "delivery_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
-    "aas_full_glb": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/GT04_RURAL_CONTINUATION/01_structure/geometry/GT04_RURAL_CONTINUATION_aas_full_yup.glb",
-    "layout_json": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/GT04_RURAL_CONTINUATION/01_structure/layout/GT04_RURAL_CONTINUATION_route_A_layout.json",
-    "plot_reservation_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/inputs/GT04_RURAL_CONTINUATION/GT04_LAYOUT_LOCKED.json",
+    "console_source": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery/GT04/aas/console-scene.json",
+    "delivery_root": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
+    "aas_full_glb": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots/GT04_RURAL_CONTINUATION/01_structure/geometry/GT04_RURAL_CONTINUATION_aas_full_yup.glb",
+    "layout_json": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots/GT04_RURAL_CONTINUATION/01_structure/layout/GT04_RURAL_CONTINUATION_route_A_layout.json",
+    "plot_reservation_source": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/inputs/GT04_RURAL_CONTINUATION/GT04_LAYOUT_LOCKED.json",
     "plot_region_kinds": [
       "dry_placement"
     ],
@@ -27,8 +27,17 @@
       "id": "coordinator-1",
       "kind": "coordinator",
       "overrides": {
-        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
-        "camera_search_policy": {"repeat_budget_s": 3600, "repeat_cooldown_s": 60, "contact_cooldown_s": 120, "contact_radius_m": 3},
+        "casualty_work_policy": {
+          "damaged_search_priority": 82,
+          "loading_priority": 89,
+          "transport_priority": 90
+        },
+        "camera_search_policy": {
+          "repeat_budget_s": 3600,
+          "repeat_cooldown_s": 60,
+          "contact_cooldown_s": 120,
+          "contact_radius_m": 3
+        },
         "task_allowlist": [
           "T001",
           "T002",
@@ -84,8 +93,17 @@
       "kind": "uav",
       "overrides": {
         "search_lane_spacing_m": 18,
-        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
-        "camera_search_policy": {"repeat_budget_s": 3600, "repeat_cooldown_s": 60, "contact_cooldown_s": 120, "contact_radius_m": 3},
+        "casualty_work_policy": {
+          "damaged_search_priority": 82,
+          "loading_priority": 89,
+          "transport_priority": 90
+        },
+        "camera_search_policy": {
+          "repeat_budget_s": 3600,
+          "repeat_cooldown_s": 60,
+          "contact_cooldown_s": 120,
+          "contact_radius_m": 3
+        },
         "task_allowlist": [
           "T001",
           "T002",
@@ -131,8 +149,17 @@
       "id": "robot_dog-1",
       "kind": "robot_dog",
       "overrides": {
-        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
-        "camera_search_policy": {"repeat_budget_s": 3600, "repeat_cooldown_s": 60, "contact_cooldown_s": 120, "contact_radius_m": 3},
+        "casualty_work_policy": {
+          "damaged_search_priority": 82,
+          "loading_priority": 89,
+          "transport_priority": 90
+        },
+        "camera_search_policy": {
+          "repeat_budget_s": 3600,
+          "repeat_cooldown_s": 60,
+          "contact_cooldown_s": 120,
+          "contact_radius_m": 3
+        },
         "task_allowlist": [
           "T011",
           "T013",
@@ -179,8 +206,17 @@
       "id": "specialist_team-1",
       "kind": "specialist_team",
       "overrides": {
-        "casualty_work_policy": {"damaged_search_priority": 82, "loading_priority": 89, "transport_priority": 90},
-        "camera_search_policy": {"repeat_budget_s": 3600, "repeat_cooldown_s": 60, "contact_cooldown_s": 120, "contact_radius_m": 3},
+        "casualty_work_policy": {
+          "damaged_search_priority": 82,
+          "loading_priority": 89,
+          "transport_priority": 90
+        },
+        "camera_search_policy": {
+          "repeat_budget_s": 3600,
+          "repeat_cooldown_s": 60,
+          "contact_cooldown_s": 120,
+          "contact_radius_m": 3
+        },
         "task_allowlist": [
           "T020",
           "T027",
@@ -296,7 +332,7 @@
             270
           ]
         },
-        "capacity": 2,
+        "capacity": 6,
         "power_W": 500,
         "receiver_confirmation": true
       }
@@ -387,22 +423,23 @@
     ],
     "station_stock": {
       "water": 0,
-      "medical_pack": 2,
+      "medical_pack": 8,
       "relay": 0,
       "battery": 0
     },
     "upstream_generated_scene": {
-      "python": "/mnt/data2/weizhiwei/rescue-generator-stage1/envs/cut4/bin/python",
-      "background_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots",
-      "catalog": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4/catalog_allocated.json",
-      "config": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot/generation-input-rules.json",
+      "python": "/mnt/data2/weizhiwei/aeroagentsim/AeroAgentSim/.venv/bin/python",
+      "timeout_s": 900,
+      "background_root": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots",
+      "catalog": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/dev/step4/catalog_allocated.json",
+      "config": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/dev/step3/upstream_expanded_snapshot/generation-input-rules.json",
       "input_roots": [
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/configs"
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/dev/step3/upstream_expanded_snapshot",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/dev/step4",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/assets",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/assets",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/configs"
       ],
       "walkable_ground_surface": "grass",
       "building_metadata": {
@@ -457,7 +494,7 @@
         "catalog": "dev/step3/upstream_expanded_snapshot: rescue_scene snapshot over configs/upstream_selection_expanded.json (59 entries), formal Excel + 03_批量资产 copied read-only from gdrive: to _inputs_cache/drive_20261021; 19 base GLB sha256 identical to the base snapshot"
       },
       "upstream_scene_id": "GT04_RURAL_CONTINUATION",
-      "generation_config": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/generation-input-rules.json",
+      "generation_config": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots/generation-input-rules.json",
       "walkable_ground_surfaces": [
         "grass",
         "soil"

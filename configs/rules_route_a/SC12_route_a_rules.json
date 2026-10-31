@@ -121,7 +121,7 @@
     ]
   },
   "asset_allocation": {
-    "file": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/configs/asset_allocation.json",
+    "file": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/configs/asset_allocation.json",
     "scene_id": "SC12"
   },
   "buildable_reservation_ids": [],

@@ -1,0 +1,401 @@
+{
+  "schema": "rescue.drive-primary-selection/v1",
+  "entries": {
+    "AGT-009-C01-BASE": {
+      "directory": "AGT009C01_696_697_FIXED_SEARCHLIGHT_G06",
+      "archive": "AGT009C01_696_697_G06_FINAL.zip",
+      "member": "formats/FIXED_NEUTRAL.glb",
+      "bytes": 1378472,
+      "crc32": 2390033352,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/855fc44740cd.md",
+        "claim": "README explicitly states BASE and NEUTRAL share the same fixed searchlight geometry and axis."
+      }
+    },
+    "AGT-009-C02-BASE": {
+      "directory": "AGT009C02_698_701_GIMBAL_SEARCHLIGHT_R08",
+      "archive": "AGT009C02_698701_R08_COMMON_AND_STATES.zip",
+      "member": "AGT009C02_698701_R08/formats/NEUTRAL.glb",
+      "bytes": 2155924,
+      "crc32": 2056661661,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/bec96d876a8c.md",
+        "claim": "README explicitly states BASE aliases NEUTRAL and uses the NEUTRAL files, excluding MIN/MAX_LIMIT poses."
+      }
+    },
+    "BLD-001-G03-D1": {
+      "directory": "BLD-001-G03-D1_r09_E03_E04_住宅轻损_室外交付",
+      "archive": "BLD-001-G03-D1_r09_E03_E04_PART03_OF_09.zip",
+      "member": "BLD-001-G03-D1_r09_E03_E04/production/BLD-001-G03/D1_r09/BLD-001-G03-D1_r09.glb",
+      "bytes": 19344320,
+      "crc32": 423008619,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/6cc65038ea68.md",
+        "claim": "Frozen r09/E03/E04 package selection and CURRENT_COMPLETE_D1_SUBMISSION_INDEX identify the current primary GLB; use the CRC-identified ZIP member rather than the redundant loose copy."
+      }
+    },
+    "BLD-005-C01-INTACT": {
+      "directory": "原132_BLD005C01_INTACT_G02U1_木框胶合板实墙",
+      "archive": "BLD005C01_INTACT_G02U1_P03.zip",
+      "member": "rebuild132/formats_G02U1/WALL132_G02.glb",
+      "bytes": 1893648,
+      "crc32": 3213722736,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/de3eb5255869.md",
+        "claim": "Formal original132 receipt and workbook require corrected formatsG02U1; old G02 UV failure is retained as provenance."
+      }
+    },
+    "BLD-007-C03-INTACT": {
+      "directory": "BLD007_C03_INTACT_钢柱_204_G03",
+      "archive": "BLD007C03_G03_PART01.zip",
+      "member": "BLD007C03_G03/formats/BLD007C03_G02.glb",
+      "bytes": 3401416,
+      "crc32": 2958750808,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/26168586a4e9.md",
+        "claim": "Formal original204 G03 receipt retains compatible G02 GLB bytes; P_LEAN is a separate finite pose, not this intact geometry."
+      }
+    },
+    "BLD-009-C01-INTACT": {
+      "directory": "BLD009C01_INTACT_G04_原220",
+      "archive": "BLD009C01_220_G04_PART01.zip",
+      "member": "rebuild220/formats/SLAB220_G04.glb",
+      "bytes": 2297928,
+      "crc32": 1380705495,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/c4ac02eb6061.md",
+        "claim": "Original220 intact slab is the geometry delivery; original224 POSE file is a separate tilted pose."
+      }
+    },
+    "BLD-009-C02-INTACT": {
+      "directory": "BLD-009-C02-INTACT_G01_原225",
+      "archive": "BLD009C02_INTACT_G01_PART01.zip",
+      "member": "rebuild225/formats/SLAB225_G01.glb",
+      "bytes": 2302820,
+      "crc32": 883560765,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/42da459f27fb.md",
+        "claim": "Original225 intact slab is the geometry delivery; original229 POSE file is a separate tilted pose."
+      }
+    },
+    "BLD-011-C01-DAMAGE": {
+      "directory": "ORIGINAL237_BLD011C01_DAMAGE_G03",
+      "archive": "BLD011C01_DAMAGE_G03_P02_OF_07.zip",
+      "member": "BLD011C01_DAMAGE_G03/formats/ROOF237_G03M1.glb",
+      "bytes": 807852,
+      "crc32": 2611925847,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/2da849a3eedb.md",
+        "claim": "README_SCOPE explicitly names G03M1 as the current GLB with repaired exposed-surface baseColorFactor."
+      }
+    },
+    "BLD-011-C01-HOLE": {
+      "directory": "ORIGINAL238_BLD011C01_HOLE_G02",
+      "archive": "BLD011C01_HOLE_G02_P02_OF_07.zip",
+      "member": "BLD011C01_HOLE_G02/formats/ROOF238_G02M1.glb",
+      "bytes": 765596,
+      "crc32": 1075801525,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/d0ca2191971d.md",
+        "claim": "README_SCOPE explicitly names G02M1 as the current GLB with repaired exposed-surface baseColorFactor."
+      }
+    },
+    "BLD-027-C03-BASE": {
+      "directory": "BLD027C03_车库卷帘门_BASE_原377_R2",
+      "archive": "BLD027C03_BASE_G05_P01_NATIVE_GLB.zip",
+      "member": "BLD027C03/repair_formats_G05/BLD027C03_BASE_G05.glb",
+      "bytes": 11448368,
+      "crc32": 2133778924,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/45c93fbdd092.md",
+        "claim": "Authoritative workbook and current G05 receipt restore original377 as G05; old R2 files and failed history are not the current delivery."
+      }
+    },
+    "BLD-028-G02-D1": {
+      "directory": "2026-10-22_BLD-028-G02-D1_r10_E02_当前室外",
+      "archive": "BLD-028-G02-D1_r10_E02_PART01_OF_03.zip",
+      "member": "BLD-028-G02-D1_r10/exterior_package_r01/BLD-028-G02-D1_r10.glb",
+      "bytes": 4822324,
+      "crc32": 3121436403,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/3611a2d472ef.md",
+        "claim": "Current r10/E02 frozen selection identifies the exterior primary GLB; choose the CRC-identified ZIP member over the redundant loose copy."
+      }
+    },
+    "BLD-029-G02-D0": {
+      "directory": "2026-10-22_BLD-029-G02-D0_r07_室外更正包",
+      "archive": "BLD-029-G02-D0_r07_PART01_OF_03.zip",
+      "member": "BLD-029-G02-D0_r07/assets/BLD-029-G02-D0_r07.glb",
+      "bytes": 4521772,
+      "crc32": 958762653,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/ada56ca686c8.md",
+        "claim": "Current r07 correction README and package selection identify this primary GLB; choose the CRC-identified ZIP member over the redundant loose copy."
+      }
+    },
+    "BLD-029-G02-D3": {
+      "directory": "BLD-029-G02-D3_r05_20261022_室外严重损毁",
+      "archive": "BLD029G02D3_r06_A01_part01.zip",
+      "member": "formats/BLD029G02D3_r06.glb",
+      "bytes": 9425728,
+      "crc32": 2490533962,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/9f5e0a43adf6.md",
+        "claim": "Workbook revision r06_A01 and R06_README_CURRENT supersede retained r05 exterior bytes and restore source furniture/stays."
+      }
+    },
+    "ENV-001-C01-BASE": {
+      "directory": "ENV001C01_original702704_R98_BROADLEAF",
+      "archive": "ENV001C01_ORIGINAL702704_FULL_FAMILY_20261028.zip",
+      "member": "ENV001C01_G01/formats/ENV001C01_AUTHORED_WIND_R104.glb",
+      "bytes": 25997608,
+      "crc32": 3726296673,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/af2bd89761ee.md",
+        "claim": "The sole shared-family GLB contains BASE/STATIC rest geometry plus two morph targets and a wind clip; preserve its source morph/animation data and count one geometry."
+      }
+    },
+    "ENV-001-C02-BASE": {
+      "directory": "ENV001C02_705_707_PALM_UV02",
+      "archive": "ENV001C02_705707_CORE.zip",
+      "member": "formats/STATIC.glb",
+      "bytes": 12436880,
+      "crc32": 2051106014,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/58ff5a62600d.md",
+        "claim": "README explicitly defines BASE=STATIC and shares the rest-state static exports; WIND is a different prescribed affine snapshot."
+      }
+    },
+    "ENV-003-C02-BASE": {
+      "directory": "ENV003C02_729731_DRY_SHRUB_G07_FAMILY",
+      "archive": "ENV003C02_729731_CORE.zip",
+      "member": "formats/STATIC.glb",
+      "bytes": 4357840,
+      "crc32": 504137764,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/dd4a03be9dd6.md",
+        "claim": "README explicitly states BASE aliases STATIC at q=0, excluding the WIND snapshot."
+      }
+    },
+    "ENV-014-C01-BASE": {
+      "directory": "ENV014-C01 单臂路灯 BASE-UPRIGHT-FALLEN G04-G05 原776-778",
+      "archive": "ENV014C01_G05_PART02_of07.zip",
+      "member": "ENV014C01_G05/formats/ENV014_C01_UPRIGHT_G04.glb",
+      "bytes": 4084624,
+      "crc32": 3441325230,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/0decfcbfe92f.md",
+        "claim": "Workbook BASE is the upright lamp assembly; the fallen state is a separate pose. Current package retains the established upright GLB filename."
+      }
+    },
+    "ENV-014-C02-BASE": {
+      "directory": "ENV014-C02 直杆路灯 BASE-UPRIGHT-FALLEN G02 原779-781",
+      "archive": "ENV014C02_G02_PART04_of09.zip",
+      "member": "ENV014C02_G02/formats/ENV014_C02_UPRIGHT_G02.glb",
+      "bytes": 4043904,
+      "crc32": 1775389294,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/133e63d86b59.md",
+        "claim": "Workbook BASE is the upright lamp assembly; the fallen state is a separate pose. Current package retains the established upright GLB filename."
+      }
+    },
+    "OBS-006-C01-BASE": {
+      "directory": "OBS-006-C01_BASE_CLAY_TILE_r05",
+      "archive": "OBS-006-C01_r05_CURRENT.zip",
+      "member": "formats/OBS-006-C01_FLAT.glb",
+      "bytes": 3470104,
+      "crc32": 2963853492,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/93c4fa1f30e3.md",
+        "claim": "One delivered component has FLAT and OVERLAP finite poses; use its first documented FLAT reference as the library default. This does not count an extra geometry or certify pose/runtime behavior."
+      }
+    },
+    "OBS-006-C03-BASE": {
+      "directory": "OBS-006-C03-BASE_r03_TIMBER_COVERING",
+      "archive": "OBS-006-C03_r03_CURRENT_02_of_02.zip",
+      "member": "formats/OBS-006-C03_FLAT.glb",
+      "bytes": 15526176,
+      "crc32": 446257139,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/eca9e629c0d2.md",
+        "claim": "One delivered component has FLAT and OVERLAP finite poses; use its first documented FLAT reference as the library default, preserving component identity and explicit pose provenance."
+      }
+    },
+    "OBS-010-C02-BASE": {
+      "directory": "OBS-010-C02-BASE_r02",
+      "archive": "OBS-010-C02_r02_CURRENT_01_of_02.zip",
+      "member": "formats/OBS-010-C02_SCATTERED.glb",
+      "bytes": 13796676,
+      "crc32": 1523056851,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/9964113a203a.md",
+        "claim": "One delivered component has SCATTERED and STACKED finite poses; use its first documented SCATTERED reference as the library default, with no additional geometry or runtime acceptance claim."
+      }
+    },
+    "RSC-011-C01-BASE": {
+      "directory": "RSC011C01_BASE_PACKED_DEPLOYED_G05",
+      "archive": "RSC011C01_BASE_PACKED_DEPLOYED_G05_Part01.zip",
+      "member": "RSC011C01_DEPLOYED.glb",
+      "bytes": 5330240,
+      "crc32": 1525611235,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/7c16f4921a7c.md",
+        "claim": "README explicitly defines BASE as deployed frame1; choose the evaluated static DEPLOYED export, preserving the master animation separately upstream."
+      }
+    },
+    "RSC-011-C03-BASE": {
+      "directory": "RSC011C03_BASE_PACKED_DEPLOYED_G01",
+      "archive": "RSC011C03_G01_PART02.zip",
+      "member": "RSC011C03_DEPLOYED.glb",
+      "bytes": 5326420,
+      "crc32": 2657904602,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/3da49032b0f4.md",
+        "claim": "Workbook explicitly defines BASE=DEPLOYED and gives0.350x0.350x1.500m matching the README deployed envelope."
+      }
+    },
+    "TER-008-C01-EDGE_BREAK": {
+      "directory": "TER008C01_Original34_36_G04",
+      "archive": "TER008_C01_34_36_G04_PACKAGE_02.zip",
+      "member": "formats/35.glb",
+      "bytes": 3386048,
+      "crc32": 971093398,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/0f6fc3c1bf27.md",
+        "claim": "Package README explicitly maps original35 to C01 EDGE_BREAK."
+      }
+    },
+    "TER-008-C01-INTACT": {
+      "directory": "TER008C01_Original34_36_G04",
+      "archive": "TER008_C01_34_36_G04_PACKAGE_01.zip",
+      "member": "formats/34.glb",
+      "bytes": 1688956,
+      "crc32": 1377073456,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/0f6fc3c1bf27.md",
+        "claim": "Package README explicitly maps original34 to C01 INTACT."
+      }
+    },
+    "TER-008-C01-STEP_MISSING": {
+      "directory": "TER008C01_Original34_36_G04",
+      "archive": "TER008_C01_34_36_G04_PACKAGE_02.zip",
+      "member": "formats/36.glb",
+      "bytes": 3385584,
+      "crc32": 389111382,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/0f6fc3c1bf27.md",
+        "claim": "Package README explicitly maps original36 to C01 STEP_MISSING."
+      }
+    },
+    "TER-008-C02-EDGE_BREAK": {
+      "directory": "TER008C02_Original37_39_G01",
+      "archive": "TER008_C02_37_39_G01.zip",
+      "member": "formats/38.glb",
+      "bytes": 3384572,
+      "crc32": 60592187,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/4647adf668d5.md",
+        "claim": "Package README explicitly maps original38 to C02 EDGE_BREAK."
+      }
+    },
+    "TER-008-C02-INTACT": {
+      "directory": "TER008C02_Original37_39_G01",
+      "archive": "TER008_C02_37_39_G01.zip",
+      "member": "formats/37.glb",
+      "bytes": 1690244,
+      "crc32": 81762224,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/4647adf668d5.md",
+        "claim": "Package README explicitly maps original37 to C02 INTACT."
+      }
+    },
+    "TER-008-C02-STEP_MISSING": {
+      "directory": "TER008C02_Original37_39_G01",
+      "archive": "TER008_C02_37_39_G01.zip",
+      "member": "formats/39.glb",
+      "bytes": 3386104,
+      "crc32": 296886708,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/4647adf668d5.md",
+        "claim": "Package README explicitly maps original39 to C02 STEP_MISSING."
+      }
+    },
+    "TER-009-C01-BASE": {
+      "directory": "TER009_40-42_COURTYARD_BASE_G02",
+      "archive": "TER009_40_42_G02_PART03.zip",
+      "member": "TER009_40_42_G02/formats/40.glb",
+      "bytes": 2178396,
+      "crc32": 2723805409,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/78998540eb15.md",
+        "claim": "CURRENT.json and README map originals40/41/42 to C01/C02/C03 BASE, respectively."
+      }
+    },
+    "TER-009-C02-BASE": {
+      "directory": "TER009_40-42_COURTYARD_BASE_G02",
+      "archive": "TER009_40_42_G02_PART01.zip",
+      "member": "TER009_40_42_G02/formats/41.glb",
+      "bytes": 17528476,
+      "crc32": 1373271984,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/78998540eb15.md",
+        "claim": "CURRENT.json and README map originals40/41/42 to C01/C02/C03 BASE, respectively."
+      }
+    },
+    "TER-009-C03-BASE": {
+      "directory": "TER009_40-42_COURTYARD_BASE_G02",
+      "archive": "TER009_40_42_G02_PART03.zip",
+      "member": "TER009_40_42_G02/formats/42.glb",
+      "bytes": 5206200,
+      "crc32": 2616139227,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/78998540eb15.md",
+        "claim": "CURRENT.json and README map originals40/41/42 to C01/C02/C03 BASE, respectively."
+      }
+    },
+    "TER-010-C01-BASE": {
+      "directory": "TER010_43-45_TURF_SOIL_BASE_G04",
+      "archive": "TER010_43-45_BASE_G04_part02_of06.zip",
+      "member": "formats/43.glb",
+      "bytes": 49809404,
+      "crc32": 1882019246,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/c78fcb238c99.md",
+        "claim": "Formal4345 receipt and README_CURRENT map originals43/44/45 to C01 green turf/C02 dry turf/C03 soil; workbook triangle counts cross-check identity."
+      }
+    },
+    "TER-010-C02-BASE": {
+      "directory": "TER010_43-45_TURF_SOIL_BASE_G04",
+      "archive": "TER010_43-45_BASE_G04_part03_of06.zip",
+      "member": "formats/44.glb",
+      "bytes": 46965796,
+      "crc32": 1788642992,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/c78fcb238c99.md",
+        "claim": "Formal4345 receipt and README_CURRENT map originals43/44/45 to C01 green turf/C02 dry turf/C03 soil; workbook triangle counts cross-check identity."
+      }
+    },
+    "TER-010-C03-BASE": {
+      "directory": "TER010_43-45_TURF_SOIL_BASE_G04",
+      "archive": "TER010_43-45_BASE_G04_part03_of06.zip",
+      "member": "formats/45.glb",
+      "bytes": 5952736,
+      "crc32": 2133867712,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/c78fcb238c99.md",
+        "claim": "Formal4345 receipt and README_CURRENT map originals43/44/45 to C01 green turf/C02 dry turf/C03 soil; workbook triangle counts cross-check identity."
+      }
+    },
+    "TER-018-C01-INTACT": {
+      "directory": "TER018_C01_矩形完整空池_73_G02",
+      "archive": "TER018C01_G02_part01_of04.zip",
+      "member": "formats/TER018C01_G02.glb",
+      "bytes": 3705780,
+      "crc32": 1628413549,
+      "selection_evidence": {
+        "file": "scene_data/assets_library/source_review/a52a05fb12b6.md",
+        "claim": "Current original73 rectangular INTACT pool; original74 BREAK remains a distinct folder and geometry."
+      }
+    }
+  }
+}

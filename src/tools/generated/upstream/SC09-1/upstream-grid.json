@@ -1,6 +1,0 @@
-{
-  "schema": "rescue.upstream-grid/v1",
-  "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC09/01_structure/geometry/SC09_canonical_grid.npz",
-  "physical": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC09/01_structure/geometry/SC09_physical_for_chisel_yup.glb",
-  "upstream_commit": "4a9dccbc1c5377cefabdc3279255c267bb24bf53"
-}

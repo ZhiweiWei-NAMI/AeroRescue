@@ -2,14 +2,14 @@
   "schema": "rescue.scene-config/v1",
   "background": {
     "id": "SC05",
-    "grid": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC05/01_structure/geometry/SC05_canonical_grid.npz",
-    "build_report": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/out/SC05/SC05_build_report.json",
-    "scene_list": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
+    "grid": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots/SC05/01_structure/geometry/SC05_canonical_grid.npz",
+    "build_report": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/out/SC05/SC05_build_report.json",
+    "scene_list": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_THIRTEEN/delivery_increment/scenes_13.json",
     "geometry_source": "Allocation source geometry and source-faithful Route-A sidecar; dev/step4/stage_background.py",
-    "console_source": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery/SC05/aas/console-scene.json",
-    "delivery_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
-    "aas_full_glb": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC05/01_structure/geometry/SC05_aas_full_yup.glb",
-    "layout_json": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/SC05/01_structure/layout/SC05_route_A_layout.json",
+    "console_source": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery/SC05/aas/console-scene.json",
+    "delivery_root": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/blockout_geometry_20261023/marble_aas_visual_20261024/EXTEND_TO_TEN/delivery",
+    "aas_full_glb": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots/SC05/01_structure/geometry/SC05_aas_full_yup.glb",
+    "layout_json": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots/SC05/01_structure/layout/SC05_route_A_layout.json",
     "plot_region_kinds": [
       "metadata_only_connector",
       "metadata_only_metadata_only_open_water_search",
@@ -132,7 +132,39 @@
     "approach_depth_m": 14.0,
     "buildings": [],
     "debris": [],
-    "stations": [],
+    "stations": [
+      {
+        "id": "shore-receiving-1",
+        "kind": "medical",
+        "asset_kind": "medical_point",
+        "count": 1,
+        "allowed_region_kinds": [
+          "metadata_only_metadata_only_waterborne_boundary_handoff"
+        ],
+        "allowed_region_ids": [
+          "RESV_SC05_WEST_HANDOFF"
+        ],
+        "allowed_classes": [
+          "SEABED_SHELF"
+        ],
+        "clearance_m": 1.0,
+        "road_clearance_m": 0.5,
+        "exclude_sidewalk": false,
+        "keep_access_clear": true,
+        "rotation": {
+          "policy": "seeded_choice",
+          "choices_deg": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "capacity": 2,
+        "power_W": 0,
+        "receiver_confirmation": true
+      }
+    ],
     "humans": [
       {
         "id": "water-casualty-1",
@@ -183,17 +215,18 @@
       }
     ],
     "upstream_generated_scene": {
-      "python": "/mnt/data2/weizhiwei/rescue-generator-stage1/envs/cut4/bin/python",
-      "background_root": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots",
-      "catalog": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4/catalog_allocated.json",
-      "config": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot/generation-input-rules.json",
+      "python": "/mnt/data2/weizhiwei/aeroagentsim/AeroAgentSim/.venv/bin/python",
+      "timeout_s": 900,
+      "background_root": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots",
+      "catalog": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/dev/step4/catalog_allocated.json",
+      "config": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/dev/step3/upstream_expanded_snapshot/generation-input-rules.json",
       "input_roots": [
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step3/upstream_expanded_snapshot",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/dev/step4",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/assets",
-        "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/configs"
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/dev/step3/upstream_expanded_snapshot",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/dev/step4",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/assets",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/assets",
+        "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/configs"
       ],
       "walkable_ground_surface": null,
       "building_metadata": {
@@ -248,7 +281,7 @@
         "catalog": "dev/step3/upstream_expanded_snapshot: rescue_scene snapshot over configs/upstream_selection_expanded.json (59 entries), formal Excel + 03_批量资产 copied read-only from gdrive: to _inputs_cache/drive_20261021; 19 base GLB sha256 identical to the base snapshot"
       },
       "upstream_scene_id": "SC05",
-      "generation_config": "/mnt/data2/weizhiwei/blender-data/projects/rescue-backgrounds-18-20261023/scene_sim/tools/generated/background_roots/generation-input-rules.json",
+      "generation_config": "/mnt/data2/weizhiwei/aeroagentsim/AeroRescue/scene_data/scene_sim/tools/generated/background_roots/generation-input-rules.json",
       "walkable_ground_surfaces": [
         null
       ]
@@ -322,7 +355,7 @@
     "This is the source shore-free open-water SC05, independent of coastal inundation SC04. The entire source footprint, submerged shelf, U0 water datum, vessel assembly, search reservation, connectors and west portal remain unchanged. No road, dock, launch ramp, floating hospital or dry receiver is invented.",
     "boat-1 is the existing SC03 boat embodiment using existing production_map boat NEW-BOAT-001-C01-BASE (approximately 4.95 x 2.034 m), C03 water motion, C23 recovery and C22 transport, unchanged 500 kg payload, and existing water tolerance 10 m. Published source bed depths are 12-20 m; placement depth records bathymetry, not a wading threshold, draught certification or sea-state safety claim. Existing water-mobility navigation uses water membership, not a ground wading limit.",
     "The boat starts afloat in real RESV_SC05_VESSEL_ASSEMBLY; the 75 kg limited-mobility casualty starts in real RESV_SC05_SEARCH. Both are bound to source U0, not the seabed. The source-bound UAV uav-1 is pre-airborne over source water; uav_agl_m12 is measured above U0, never used to create a seabed launch pad.",
-    "No ground vehicle or dog is configured; neither can perform open-water recovery. Q036 permits A003/A023 recovery by the real boat, but its A021/A022 continuation remains blocked without an actual staffed compatible receiver. Authored T034/T035 allowlists expose this unmet chain, never fabricate its completion.",
+    "No ground vehicle or dog is configured; neither can perform open-water recovery. Q036 uses the real boat for A003/A023 recovery, followed by A021/A022 at the authored medical receiver shore-receiving-1 in RESV_SC05_WEST_HANDOFF. Its capacity 2 and receiver_confirmation=true are explicit mission resources; only actual native action effects establish handover.",
     "No human pose or fitted flotation gear is claimed from the delivered BASE mesh. The same boat geometry remains displayed while loaded under human_asset_policy delivered_base_only; no production loaded-boat embedded person is authorized. Semantic human.carrier_id and mass accounting, not an alternate posed body, record real recovery.",
     "The inherited 240 s target_moves offset is an abstract secondary drift event, not current/wave simulation or a rescue outcome. Source wave height, period, wind/current and density remain unspecified; no calm-water or vessel suitability certification follows from the static surface."
   ],
@@ -379,15 +412,15 @@
     "receiver_chain": {
       "target_region_id": "RESV_SC05_SEARCH",
       "carrier": "boat-1",
-      "receiver": null,
-      "receiver_region_id": null,
+      "receiver": "shore-receiving-1",
+      "receiver_region_id": "RESV_SC05_WEST_HANDOFF",
       "sequence": [
         "T009/A005-A006-A007",
         "T036/A003-A023",
-        "T034/A021 blocked without real compatible receiver",
-        "T035/A022 blocked without confirmed receiver"
+        "T034/A021 to shore-receiving-1",
+        "T035/A022 subject to capacity and receiver confirmation"
       ],
-      "gap": "RESV_SC05_WEST_HANDOFF and PORTAL_WEST are only external waterborne staging/transition metadata, not receiving entities. No supported staffed waterborne receiver is delivered; no full recovery-and-handover completion may be claimed."
+      "gap": "The source supplies a waterborne boundary-handoff reservation, not a delivered staffed facility. This mission explicitly authors shore-receiving-1 there with capacity 2 and receiver_confirmation=true; it adds no shoreline or dry receiver. Completion still requires native A021 arrival and confirmed A022 custody transfer."
     },
     "display_gaps": [
       {

@@ -1,7 +1,0 @@
-{
-  "agent_requests": [],
-  "knowledge_policy": "requirements are evaluator-only; no truth target IDs/coordinates/dependencies exported to strategy",
-  "requirements": [],
-  "solvability": "unknown",
-  "tasks": []
-}
